@@ -199,4 +199,13 @@
                     rel="alternate"
                     hreflang="en"
                     href="http://hq0709.github.io/en/tags/emoji/"
+                    /></url><url>
+            <loc>http://hq0709.github.io/en/about/</loc><priority>0</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="http://hq0709.github.io/about/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="http://hq0709.github.io/en/about/"
                     /></url></urlset>
