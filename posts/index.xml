@@ -21,6 +21,14 @@
     <description><![CDATA[<p><strong>Hugo</strong> 提供了多个内置的 Shortcodes, 以方便作者保持 Markdown 内容的整洁.</p>]]></description>
 </item>
 <item>
+    <title>Geo-Neus: Geometry-Consistent Neural Implicit Surfaces Learning for Multi-view Reconstruction</title>
+    <link>http://hq0709.github.io/geo-neus/</link>
+    <pubDate>Sun, 05 Jan 2020 16:45:40 &#43;0800</pubDate>
+    <author>Hanqi Jiang</author>
+    <guid>http://hq0709.github.io/geo-neus/</guid>
+    <description><![CDATA[代码复现 conda activate报错 1 CommandNotFoundError: Your shell has not been properly configured to use &#39;conda activate&#39;.]]></description>
+</item>
+<item>
     <title>Markdown 基本语法</title>
     <link>http://hq0709.github.io/basic-markdown-syntax/</link>
     <pubDate>Sun, 01 Dec 2019 21:57:40 &#43;0800</pubDate>
@@ -78,14 +86,6 @@
     <guid>http://hq0709.github.io/theme-documentation-bilibili-shortcode/</guid>
     <description><![CDATA[<a href="https://github.com/dillonzq/LoveIt/releases/tag/v0.2.0" rel="noopener noreffer" target="_blank"></a>
 <p><code>bilibili</code> shortcode 提供了一个内嵌的用来播放 bilibili 视频的响应式播放器.</p>]]></description>
-</item>
-<item>
-    <title>主题文档 - typeit Shortcode</title>
-    <link>http://hq0709.github.io/theme-documentation-typeit-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 10:29:59 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://hq0709.github.io/theme-documentation-typeit-shortcode/</guid>
-    <description><![CDATA[<p><code>typeit</code> shortcode 基于 <a href="https://typeitjs.com/" target="_blank" rel="noopener noreffer ">TypeIt</a> 库提供了打字动画.</p>]]></description>
 </item>
 </channel>
 </rss>
