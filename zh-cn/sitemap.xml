@@ -20,7 +20,7 @@
                     hreflang="zh-cn"
                     href="http://hq0709.github.io/theme-documentation-built-in-shortcodes/"
                     /></url><url>
-            <loc>http://hq0709.github.io/geo-neus/</loc><lastmod>2020-01-05T16:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://hq0709.github.io/geo-neus/</loc><lastmod>2023-01-05T16:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://hq0709.github.io/basic-markdown-syntax/</loc><lastmod>2020-01-01T16:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
@@ -93,7 +93,8 @@
                     hreflang="zh-cn"
                     href="http://hq0709.github.io/theme-documentation-typeit-shortcode/"
                     /></url><url>
-            <loc>http://hq0709.github.io/categories/</loc><lastmod>2020-03-06T21:40:32&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>http://hq0709.github.io/tags/3d-reconstruction/</loc><lastmod>2023-01-05T16:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://hq0709.github.io/categories/</loc><lastmod>2023-01-05T16:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="http://hq0709.github.io/en/categories/"
@@ -102,7 +103,8 @@
                     hreflang="zh-cn"
                     href="http://hq0709.github.io/categories/"
                     /></url><url>
-            <loc>http://hq0709.github.io/</loc><lastmod>2020-03-06T21:40:32&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>http://hq0709.github.io/tags/deep-learning/</loc><lastmod>2023-01-05T16:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://hq0709.github.io/</loc><lastmod>2023-01-05T16:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="http://hq0709.github.io/en/"
@@ -111,7 +113,8 @@
                     hreflang="zh-cn"
                     href="http://hq0709.github.io/"
                     /></url><url>
-            <loc>http://hq0709.github.io/posts/</loc><lastmod>2020-03-06T21:40:32&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>http://hq0709.github.io/categories/papers/</loc><lastmod>2023-01-05T16:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://hq0709.github.io/posts/</loc><lastmod>2023-01-05T16:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="http://hq0709.github.io/en/posts/"
@@ -120,7 +123,7 @@
                     hreflang="zh-cn"
                     href="http://hq0709.github.io/posts/"
                     /></url><url>
-            <loc>http://hq0709.github.io/tags/</loc><lastmod>2020-03-06T21:40:32&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>http://hq0709.github.io/tags/</loc><lastmod>2023-01-05T16:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="http://hq0709.github.io/en/tags/"
@@ -165,9 +168,6 @@
                     hreflang="zh-cn"
                     href="http://hq0709.github.io/tags/shortcodes/"
                     /></url><url>
-            <loc>http://hq0709.github.io/tags/3d-reconstruction/</loc><lastmod>2020-01-05T16:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://hq0709.github.io/tags/deep-learning/</loc><lastmod>2020-01-05T16:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://hq0709.github.io/categories/papers/</loc><lastmod>2020-01-05T16:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://hq0709.github.io/tags/html/</loc><lastmod>2020-01-01T16:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
