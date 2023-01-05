@@ -199,4 +199,5 @@
                     rel="alternate"
                     hreflang="en"
                     href="http://hq0603.github.io/tags/emoji/"
-                    /></url></urlset>
+                    /></url><url>
+            <loc>http://hq0603.github.io/about/</loc><priority>0</priority></url></urlset>
