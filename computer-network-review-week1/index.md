@@ -1,8 +1,7 @@
-# 计网知识点总结（按章节）
+# 计网知识点总结 Week 1
 
 
-# Week 1
-> updated in 2023/1/27
+
 
 ## 1. What is a network
   - Any set of interconnected nodes through horizontal and or vertical lines.

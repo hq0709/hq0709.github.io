@@ -5,20 +5,20 @@
         <description>所有文章 | jhqyyds</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>jhqyyds@gmail.com (Hanqi Jiang)</managingEditor>
             <webMaster>jhqyyds@gmail.com (Hanqi Jiang)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 26 Jan 2023 13:51:40 &#43;0800</lastBuildDate><atom:link href="http://hq0709.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>计网知识点总结 Week 1</title>
+    <link>http://hq0709.github.io/computer-network-review-week1/</link>
+    <pubDate>Thu, 26 Jan 2023 13:51:40 &#43;0800</pubDate>
+    <author>Hanqi Jiang</author>
+    <guid>http://hq0709.github.io/computer-network-review-week1/</guid>
+    <description><![CDATA[1. What is a network Any set of interconnected nodes through horizontal and or vertical lines. 通过平行或者垂直的线，连接起来的节点的集合 有什么样的网络，（除了计网之外的例子）: Telephone network carrying voice traffic, Cable network to disseminate video signals 2. 什]]></description>
+</item>
+<item>
     <title>计网知识点总结 Week 9</title>
     <link>http://hq0709.github.io/computer-network-review-week9/</link>
     <pubDate>Thu, 26 Jan 2023 13:51:40 &#43;0800</pubDate>
     <author>Hanqi Jiang</author>
     <guid>http://hq0709.github.io/computer-network-review-week9/</guid>
-    <description><![CDATA[Week 9 1. 网络层功能 1.1 转发（数据平面的功能） 将数据包从路由器的输入移动到适当的路由器输出：move packets from router’s input to appropriate router output 1.2 路由（控制平面]]></description>
-</item>
-<item>
-    <title>计网知识点总结（按章节）</title>
-    <link>http://hq0709.github.io/computer-network-review-week1/</link>
-    <pubDate>Thu, 26 Jan 2023 13:51:40 &#43;0800</pubDate>
-    <author>Hanqi Jiang</author>
-    <guid>http://hq0709.github.io/computer-network-review-week1/</guid>
-    <description><![CDATA[Week 1 updated in 2023/1/27 1. What is a network Any set of interconnected nodes through horizontal and or vertical lines. 通过平行或者垂直的线，连接起来的节点的集合 有什么样的网络，（除了计网之外的例子）: Telephone network carrying voice traffic, Cable network to]]></description>
+    <description><![CDATA[1. 网络层功能 1.1 转发（数据平面的功能） 将数据包从路由器的输入移动到适当的路由器输出：move packets from router’s input to appropriate router output 1.2 路由（控制平面的功]]></description>
 </item>
 <item>
     <title>Geo-Neus中renderer代码的具体解读</title>

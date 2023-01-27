@@ -1,6 +1,6 @@
 # 计网知识点总结 Week 9
 
-# Week 9
+
 ## 1. 网络层功能
 ### 1.1 转发（数据平面的功能）
 - 将数据包从路由器的输入移动到适当的路由器输出：move packets from router’s input to appropriate router output
