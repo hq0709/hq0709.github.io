@@ -7,11 +7,19 @@
             <webMaster>jhqyyds@gmail.com (Hanqi Jiang)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 26 Jan 2023 13:51:40 &#43;0800</lastBuildDate>
             <atom:link href="http://hq0709.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>计网知识点总结（按章节）</title>
+    <title>计网知识点总结 Week 1</title>
     <link>http://hq0709.github.io/computer-network-review/</link>
     <pubDate>Thu, 26 Jan 2023 13:51:40 &#43;0800</pubDate>
     <author>Hanqi Jiang</author>
     <guid>http://hq0709.github.io/computer-network-review/</guid>
+    <description><![CDATA[1. What is a network Any set of interconnected nodes through horizontal and or vertical lines. 通过平行或者垂直的线，连接起来的节点的集合 有什么样的网络，（除了计网之外的例子）: Telephone network carrying voice traffic, Cable network to disseminate video signals 2. 什]]></description>
+</item>
+<item>
+    <title>计网知识点总结（按章节）</title>
+    <link>http://hq0709.github.io/computer-network-review-week1/</link>
+    <pubDate>Thu, 26 Jan 2023 13:51:40 &#43;0800</pubDate>
+    <author>Hanqi Jiang</author>
+    <guid>http://hq0709.github.io/computer-network-review-week1/</guid>
     <description><![CDATA[Week 1 updated in 2023/1/27 1. What is a network Any set of interconnected nodes through horizontal and or vertical lines. 通过平行或者垂直的线，连接起来的节点的集合 有什么样的网络，（除了计网之外的例子）: Telephone network carrying voice traffic, Cable network to]]></description>
 </item>
 <item>
@@ -61,6 +69,14 @@
     <author>Hanqi Jiang</author>
     <guid>http://hq0709.github.io/geo-neus/</guid>
     <description><![CDATA[公式推导 用有符号距离函数表示空间点p到物体表面的距离，sdf(p)等于0 使用两个神经网络估计SDF和颜色场 表示颜色场： 由于需要专注于表面的重]]></description>
+</item>
+<item>
+    <title></title>
+    <link>http://hq0709.github.io/computer-network-review-week9/</link>
+    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
+    <author>Hanqi Jiang</author>
+    <guid>http://hq0709.github.io/computer-network-review-week9/</guid>
+    <description><![CDATA[]]></description>
 </item>
 </channel>
 </rss>
