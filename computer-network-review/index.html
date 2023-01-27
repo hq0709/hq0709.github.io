@@ -34,7 +34,7 @@
                             "url": "http:\/\/hq0709.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Computer network","wordcount":  670 ,
+                        }],"genre": "posts","keywords": "Computer network","wordcount":  1078 ,
         "url": "http:\/\/hq0709.github.io\/computer-network-review\/","datePublished": "2023-01-26T13:51:40+08:00","dateModified": "2023-01-27T16:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -119,8 +119,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">计网复习</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="hq0709.github.io" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Hanqi Jiang</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/course-notes/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Course notes</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-26">2023-01-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 670 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/computer-network-review/" class="leancloud_visitors" data-flag-title="计网复习">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-26">2023-01-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1078 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/computer-network-review/" class="leancloud_visitors" data-flag-title="计网复习">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -130,65 +130,69 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#week-1">Week 1</a>
+    <li><a href="#1-what-is-a-network">1. What is a network</a></li>
+    <li><a href="#2-什么是计算机网络computer-network">2. 什么是计算机网络？computer network</a>
       <ul>
-        <li><a href="#1-what-is-a-network">1. What is a network</a></li>
-        <li><a href="#2-什么是计算机网络computer-network">2. 什么是计算机网络？computer network</a>
+        <li><a href="#21-计网的功能为什么需要计网">2.1 计网的功能，为什么需要计网</a></li>
+        <li><a href="#22-计网的类型">2.2 计网的类型</a>
           <ul>
-            <li><a href="#21-计网的功能为什么需要计网">2.1 计网的功能，为什么需要计网</a></li>
-            <li><a href="#22-计网的类型">2.2 计网的类型</a>
-              <ul>
-                <li><a href="#221-直接连接">2.2.1 直接连接</a></li>
-                <li><a href="#222-非直接连接">2.2.2 非直接连接</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li><a href="#3-什么是互联网internet">3. 什么是互联网？internet</a>
-          <ul>
-            <li><a href="#31-a-nuts-and-bolts-view具体来看什么是internet">3.1 a “nuts and bolts” view，具体来看什么是internet</a>
-              <ul>
-                <li><a href="#311-devices">3.1.1 Devices</a></li>
-                <li><a href="#312-packet-switches">3.1.2 Packet switches</a></li>
-                <li><a href="#313-communication-links">3.1.3 Communication links</a></li>
-                <li><a href="#314-networks">3.1.4 Networks</a></li>
-              </ul>
-            </li>
+            <li><a href="#221-直接连接">2.2.1 直接连接</a></li>
+            <li><a href="#222-非直接连接">2.2.2 非直接连接</a></li>
           </ul>
         </li>
       </ul>
     </li>
+    <li><a href="#3-什么是互联网internet">3. 什么是互联网？internet</a>
+      <ul>
+        <li><a href="#31-a-nuts-and-bolts-view具体来看什么是internet">3.1 a “nuts and bolts” view，具体来看什么是internet</a>
+          <ul>
+            <li><a href="#311-devices">3.1.1 Devices</a></li>
+            <li><a href="#312-packet-switches">3.1.2 Packet switches</a></li>
+            <li><a href="#313-communication-links">3.1.3 Communication links</a></li>
+            <li><a href="#314-networks">3.1.4 Networks</a></li>
+          </ul>
+        </li>
+        <li><a href="#32-a-service-view">3.2 a “service” view</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-什么是协议">4. 什么是协议？</a></li>
+    <li><a href="#5-网络边界">5. 网络边界</a>
+      <ul>
+        <li><a href="#51-网络边缘">5.1 网络边缘</a></li>
+        <li><a href="#52-网络核心">5.2 网络核心</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="week-1">Week 1</h2>
+            </div><div class="content" id="content"><h1 id="week-1">Week 1</h1>
 <blockquote>
 <p>updated in 2023/1/27</p>
 </blockquote>
-<h3 id="1-what-is-a-network">1. What is a network</h3>
+<h2 id="1-what-is-a-network">1. What is a network</h2>
 <ul>
 <li>Any set of interconnected nodes through horizontal and or vertical lines.</li>
 <li>通过平行或者垂直的线，连接起来的节点的集合</li>
 <li>有什么样的网络，（除了计网之外的例子）: Telephone network carrying voice traffic, Cable network to disseminate video signals</li>
 </ul>
-<h3 id="2-什么是计算机网络computer-network">2. 什么是计算机网络？computer network</h3>
+<h2 id="2-什么是计算机网络computer-network">2. 什么是计算机网络？computer network</h2>
 <ul>
 <li>A computer network is a group of computers that use a set of common communication protocols over digital interconnections for the purpose of sharing resources.</li>
 <li>计算机网络是一组计算机，它们通过数字互连使用一套共同的通信协议，以达到共享资源的目的。</li>
 <li>Set of connected autonomous computers (having programmable hardware) 是一系列自治的，互联的，有可编程硬件的计算机的集合</li>
 </ul>
-<h4 id="21-计网的功能为什么需要计网">2.1 计网的功能，为什么需要计网</h4>
+<h3 id="21-计网的功能为什么需要计网">2.1 计网的功能，为什么需要计网</h3>
 <p>Resource Sharing, Information Sharing, Ease in Communication 资源共享，信息共享，方便沟通</p>
-<h4 id="22-计网的类型">2.2 计网的类型</h4>
-<h5 id="221-直接连接">2.2.1 直接连接</h5>
+<h3 id="22-计网的类型">2.2 计网的类型</h3>
+<h4 id="221-直接连接">2.2.1 直接连接</h4>
 <ul>
 <li>点对点point to point 就是两台计算机一条线连起来，常用于远程的广域网链接</li>
 <li>多重连接multiple access 就是多台计算机连接一条总线,通常用于局域网链接</li>
 </ul>
-<h5 id="222-非直接连接">2.2.2 非直接连接</h5>
+<h4 id="222-非直接连接">2.2.2 非直接连接</h4>
 <ul>
 <li>（用交换机）电路交换，包交换</li>
 </ul>
-<h3 id="3-什么是互联网internet">3. 什么是互联网？internet</h3>
+<h2 id="3-什么是互联网internet">3. 什么是互联网？internet</h2>
 <ul>
 <li>The internet is a computer network that interconnects billions of computing devices using communication links and packet switches.
 <ul>
@@ -198,7 +202,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="31-a-nuts-and-bolts-view具体来看什么是internet">3.1 a “nuts and bolts” view，具体来看什么是internet</h4>
+<h3 id="31-a-nuts-and-bolts-view具体来看什么是internet">3.1 a “nuts and bolts” view，具体来看什么是internet</h3>
 <ul>
 <li>The basic hardware and software components that make up the Internet.
 <figure><a class="lightgallery" href="/computer-network-review/1.png" title="what is internet" data-thumbnail="/computer-network-review/1.png" data-sub-html="<h2>nuts and bolts view</h2><p>what is internet</p>">
@@ -212,23 +216,58 @@
     </a><figcaption class="image-caption">nuts and bolts view</figcaption>
     </figure></li>
 </ul>
-<h5 id="311-devices">3.1.1 Devices</h5>
+<h4 id="311-devices">3.1.1 Devices</h4>
 <ul>
 <li>主机（hosts） = 终端（end systems）</li>
 <li>running network apps at internet&rsquo;s eges</li>
 </ul>
-<h5 id="312-packet-switches">3.1.2 Packet switches</h5>
+<h4 id="312-packet-switches">3.1.2 Packet switches</h4>
 <ul>
 <li>路由器（routers）</li>
 <li>交换机（switches）</li>
 </ul>
-<h5 id="313-communication-links">3.1.3 Communication links</h5>
+<h4 id="313-communication-links">3.1.3 Communication links</h4>
 <ul>
 <li>光纤、铜线、无线电、卫星fiber copper radio satellite</li>
 <li>传输速率：带宽</li>
 </ul>
-<h5 id="314-networks">3.1.4 Networks</h5>
-<pre><code>1. 设备、路由器、链接的集合：由一个组织管理collection of devices, routers, links: managed by an organization</code></pre>
+<h4 id="314-networks">3.1.4 Networks</h4>
+<ul>
+<li>设备、路由器、链接的集合：由一个组织管理collection of devices, routers, links: managed by an organization</li>
+</ul>
+<h3 id="32-a-service-view">3.2 a “service” view</h3>
+<ul>
+<li><strong>因特网是一种基础设施</strong>：为应用程序提供服务的基础设施 Infrastructure that provides services to applications。网络、流媒体视频、多媒体电话会议、电子邮件、游戏、电子商务、社交媒体、相互连接的设备等。</li>
+<li><strong>因特网提供编程接口</strong>：为分布式应用提供编程接口 provides programming interface to distributed applications:。&ldquo;钩子 &ldquo;允许发送/接收应用程序 &ldquo;连接 &ldquo;到，使用互联网传输服务。提供服务选项，类似于邮政服务</li>
+</ul>
+<h2 id="4-什么是协议">4. 什么是协议？</h2>
+<ul>
+<li>Protocols define the format, order of messages sent and received among network entities, and actions taken on msg transmission, receipt</li>
+<li>协议定义了网络实体之间发送和接收消息的格式、顺序，以及在消息传输和接收时所采取的动作。</li>
+<li>All activity on the Internet that involves two or more communicating remote entities is governed by a protocol.</li>
+<li>凡是涉及两个或者多个通信实体的所有活动都要受到通信协议的制约。</li>
+</ul>
+<h2 id="5-网络边界">5. 网络边界</h2>
+<h3 id="51-网络边缘">5.1 网络边缘</h3>
+<ul>
+<li>主机分成客户端和服务端（client and server）</li>
+<li>服务器（server）通常在数据中心（data center）
+<figure><a class="lightgallery" href="/computer-network-review/2.png" title="网络边界" data-thumbnail="/computer-network-review/2.png" data-sub-html="<h2>网络边界</h2><p>网络边界</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review/2.png"
+            data-srcset="/computer-network-review/2.png, /computer-network-review/2.png 1.5x, /computer-network-review/2.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review/2.png" width="916" height="910" />
+    </a><figcaption class="image-caption">网络边界</figcaption>
+    </figure></li>
+</ul>
+<h3 id="52-网络核心">5.2 网络核心</h3>
+<ul>
+<li>routers and switches</li>
+<li>network of networks</li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
