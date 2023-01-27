@@ -4,9 +4,17 @@
         <link>http://hq0709.github.io/</link>
         <description>Hugo theme - LoveIt</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>jhqyyds@gmail.com (Hanqi Jiang)</managingEditor>
-            <webMaster>jhqyyds@gmail.com (Hanqi Jiang)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 26 Jan 2023 13:51:40 &#43;0800</lastBuildDate>
+            <webMaster>jhqyyds@gmail.com (Hanqi Jiang)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 27 Jan 2023 19:51:40 &#43;0800</lastBuildDate>
             <atom:link href="http://hq0709.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>计网知识点总结 Week 10</title>
+    <link>http://hq0709.github.io/computer-network-review-week10/</link>
+    <pubDate>Fri, 27 Jan 2023 19:51:40 &#43;0800</pubDate>
+    <author>Hanqi Jiang</author>
+    <guid>http://hq0709.github.io/computer-network-review-week10/</guid>
+    <description><![CDATA[1. 概述 1.1 概念和术语 nodes 节点：any device that runs a link-layer protocol 包括但不限于：主机，路由器，交换机，wifi接入点 links 链路：communication channels that connect adjacent nodes along]]></description>
+</item>
+<item>
     <title>计网知识点总结 Week 1</title>
     <link>http://hq0709.github.io/computer-network-review-week1/</link>
     <pubDate>Thu, 26 Jan 2023 13:51:40 &#43;0800</pubDate>
