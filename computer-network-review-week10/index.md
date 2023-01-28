@@ -119,3 +119,14 @@
 #### 3.3.6 CSMA/CD和CSMA/CA的区别
 ![CAMA/CD and CSMA/CA](5.png "CAMA/CD and CSMA/CA")
 
+## 4. MAC地址
+> MAC地址是48位，burn 在NIC ROM中
+> 功能：用于将帧从一个接口获取到另一个物理连接的接口（在一个子网下）
+
+### 4.1 ARP: address resolution protocol 地址解析协议
+![ARP](6.png "ARP")
+- 所有IP节点（hosts and routers）都有ARP表
+- ARP表中存储MAC地址、IP地址和TTL（一般是20min），如 < IP address; MAC address; TTL>
+- 比如A想要给B发送数据报，但是B的信息没有在A的ARP表中，A广播（B的IP地址）寻找B的MAC地址，找到后将信息存储到A的ARP表中
+- 子网之间帧的传输看[这个例子](https://jjlde7r0bk.feishu.cn/wiki/wikcnKDePQMJyB87JypBOcVbvhe)
+
