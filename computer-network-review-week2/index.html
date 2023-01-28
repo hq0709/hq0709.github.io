@@ -34,7 +34,7 @@
                             "url": "http:\/\/hq0709.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Computer network","wordcount":  554 ,
+                        }],"genre": "posts","keywords": "Computer network","wordcount":  1155 ,
         "url": "http:\/\/hq0709.github.io\/computer-network-review-week2\/","datePublished": "2023-01-28T21:49:40+08:00","dateModified": "2023-01-28T23:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -119,8 +119,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">计网知识点总结 Week 2</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="hq0709.github.io" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Hanqi Jiang</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/course-notes/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Course notes</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-28">2023-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 554 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/computer-network-review-week2/" class="leancloud_visitors" data-flag-title="计网知识点总结 Week 2">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-28">2023-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1155 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/computer-network-review-week2/" class="leancloud_visitors" data-flag-title="计网知识点总结 Week 2">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -143,6 +143,36 @@
             <li><a href="#113-传输延迟-transmission-delay-lr">1.1.3 传输延迟 transmission delay L/R</a></li>
             <li><a href="#114-传播延迟-propogation-delay">1.1.4 传播延迟 propogation delay</a></li>
             <li><a href="#115-节点延迟">1.1.5 节点延迟</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#2-关于延迟的题目">2. 关于延迟的题目</a>
+      <ul>
+        <li><a href="#21-how-long-does-it-take-a-packet-of-length-1000-bytes-to-propagate-over-a-link-of-distance-2500-km-propagation-speed-25108-ms-and-transmission-rate-2-mbps">2.1 How long does it take a packet of length 1,000 bytes to propagate over a link of distance 2,500 km, propagation speed 2.5*10^8 m/s, and transmission rate 2 Mbps?</a></li>
+        <li><a href="#22-what-is-end-to-end-delay">2.2 What is end-to-end delay?</a></li>
+        <li><a href="#23-what-is-round-trip-time-rtt">2.3 What is Round-trip time (RTT)?</a></li>
+        <li><a href="#24-can-you-compute-the-end-to-end-delay-from-source-to-destination-taking-into-account-transmission-delay-and-propagation-delay">2.4 Can you compute the end-to-end delay from source to destination taking into account transmission delay and propagation delay?</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-throughput-吞吐量">3. throughput 吞吐量</a>
+      <ul>
+        <li><a href="#31-定义">3.1 定义</a></li>
+        <li><a href="#32-average-throughput">3.2 average throughput</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-分层-layering">4. 分层 layering</a>
+      <ul>
+        <li><a href="#41-为什么要分层">4.1 为什么要分层</a></li>
+        <li><a href="#42-internet-protocol-stack-互联网协议栈">4.2 Internet protocol stack 互联网协议栈</a>
+          <ul>
+            <li><a href="#421-application-layer">4.2.1 Application layer</a></li>
+            <li><a href="#422-transport-layer">4.2.2 Transport layer</a></li>
+            <li><a href="#423-network-layer">4.2.3 Network layer</a></li>
+            <li><a href="#424-link-layer">4.2.4 Link layer</a></li>
+            <li><a href="#425-physical-layer">4.2.5 Physical layer</a></li>
+            <li><a href="#426-iso七层模型">4.2.6 ISO七层模型</a></li>
+            <li><a href="#427-封装和传输的过程">4.2.7 封装和传输的过程</a></li>
           </ul>
         </li>
       </ul>
@@ -221,6 +251,157 @@
             alt="/computer-network-review-week2/2.png" width="1280" height="477" />
     </a><figcaption class="image-caption">nodal delay</figcaption>
     </figure></li>
+</ul>
+<h2 id="2-关于延迟的题目">2. 关于延迟的题目</h2>
+<h3 id="21-how-long-does-it-take-a-packet-of-length-1000-bytes-to-propagate-over-a-link-of-distance-2500-km-propagation-speed-25108-ms-and-transmission-rate-2-mbps">2.1 How long does it take a packet of length 1,000 bytes to propagate over a link of distance 2,500 km, propagation speed 2.5*10^8 m/s, and transmission rate 2 Mbps?</h3>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Answer<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Propagation delay: 2500 * 10^3 / (2.5 * 10^8) = 0.01 seconds = 10 ms</div>
+        </div>
+    </div>
+<h3 id="22-what-is-end-to-end-delay">2.2 What is end-to-end delay?</h3>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Answer<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">end-to-end delay is the total of all nodal delay from source to destination</div>
+        </div>
+    </div>
+<h3 id="23-what-is-round-trip-time-rtt">2.3 What is Round-trip time (RTT)?</h3>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Answer<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">end-to-end delay measured in both directions 来回的路径不一定一样</div>
+        </div>
+    </div>
+<h3 id="24-can-you-compute-the-end-to-end-delay-from-source-to-destination-taking-into-account-transmission-delay-and-propagation-delay">2.4 Can you compute the end-to-end delay from source to destination taking into account transmission delay and propagation delay?</h3>
+<p><figure><a class="lightgallery" href="/computer-network-review-week2/3.png" title="question" data-thumbnail="/computer-network-review-week2/3.png" data-sub-html="<h2>question</h2><p>question</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week2/3.png"
+            data-srcset="/computer-network-review-week2/3.png, /computer-network-review-week2/3.png 1.5x, /computer-network-review-week2/3.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week2/3.png" width="1063" height="559" />
+    </a><figcaption class="image-caption">question</figcaption>
+    </figure>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Answer<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Link 1 total delay = dtrans + dprop = 16000 bits / 10 Mbps + 1000 m / (3<em>10^8 m/s) = 1.6 ms
+Link 2 total delay = dtrans + dprop = 16000 bits / 10 Mbps + 1000 * 10^3 m / (3</em>10^8 m/s) = 4.9 ms
+Link 3 total delay = dtrans + dprop = 16000 bits / 1000 Mbps + 1000 m / (3*10^8 m/s) = 0.0193 ms
+The total delay = Link 1 total delay + Link 2 total delay + Link 3 total delay = 1.6 ms + 4.9 ms + 0.0193 ms = 6.5 ms</div>
+        </div>
+    </div></p>
+<h2 id="3-throughput-吞吐量">3. throughput 吞吐量</h2>
+<h3 id="31-定义">3.1 定义</h3>
+<ul>
+<li>transmission rate (bits/sec) at which bits are being sent from sender to receiver</li>
+</ul>
+<h3 id="32-average-throughput">3.2 average throughput</h3>
+<p><figure><a class="lightgallery" href="/computer-network-review-week2/4.png" title="average throughput" data-thumbnail="/computer-network-review-week2/4.png" data-sub-html="<h2>average throughput</h2><p>average throughput</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week2/4.png"
+            data-srcset="/computer-network-review-week2/4.png, /computer-network-review-week2/4.png 1.5x, /computer-network-review-week2/4.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week2/4.png" width="2267" height="1083" />
+    </a><figcaption class="image-caption">average throughput</figcaption>
+    </figure></p>
+<ul>
+<li>平均吞吐量取决于传输速率低的那一个</li>
+<li>记住在算传输延迟的时候要把数据包长度换成bits
+<figure><a class="lightgallery" href="/computer-network-review-week2/5.png" title="average throughput in network" data-thumbnail="/computer-network-review-week2/5.png" data-sub-html="<h2>average throughput in network</h2><p>average throughput in network</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week2/5.png"
+            data-srcset="/computer-network-review-week2/5.png, /computer-network-review-week2/5.png 1.5x, /computer-network-review-week2/5.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week2/5.png" width="2059" height="1111" />
+    </a><figcaption class="image-caption">average throughput in network</figcaption>
+    </figure></li>
+</ul>
+<h2 id="4-分层-layering">4. 分层 layering</h2>
+<h3 id="41-为什么要分层">4.1 为什么要分层</h3>
+<ul>
+<li>dealing with complex systems
+<ul>
+<li>explicit structure allows identification, relationship of complex system’s pieces 显式结构允许识别复杂系统的碎片</li>
+<li>modularization eases maintenance, updating of system 模块化简化系统的维护</li>
+</ul>
+</li>
+<li>layering的好处概括为三点：Manage complexity, Modularity, Extensibility</li>
+</ul>
+<h3 id="42-internet-protocol-stack-互联网协议栈">4.2 Internet protocol stack 互联网协议栈</h3>
+<p><figure><a class="lightgallery" href="/computer-network-review-week2/6.png" title="Internet protocol stack" data-thumbnail="/computer-network-review-week2/6.png" data-sub-html="<h2>Internet protocol stack</h2><p>Internet protocol stack</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week2/6.png"
+            data-srcset="/computer-network-review-week2/6.png, /computer-network-review-week2/6.png 1.5x, /computer-network-review-week2/6.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week2/6.png" width="2165" height="1215" />
+    </a><figcaption class="image-caption">Internet protocol stack</figcaption>
+    </figure></p>
+<h4 id="421-application-layer">4.2.1 Application layer</h4>
+<ul>
+<li>包含协议如 IMAP, SMTP, HTTP etc.（后续继续补充）</li>
+<li>packet的形式是message</li>
+</ul>
+<h4 id="422-transport-layer">4.2.2 Transport layer</h4>
+<ul>
+<li>包含两个传输协议：TCP和UDP</li>
+<li>packet的形式是segment</li>
+</ul>
+<h4 id="423-network-layer">4.2.3 Network layer</h4>
+<ul>
+<li>包含IPprotocol和routing protocols</li>
+<li>packet的形式是datagram</li>
+</ul>
+<h4 id="424-link-layer">4.2.4 Link layer</h4>
+<ul>
+<li>包含Ethernet, WiFi等</li>
+<li>packet的形式是frame</li>
+</ul>
+<h4 id="425-physical-layer">4.2.5 Physical layer</h4>
+<ul>
+<li>packet的形式是bits</li>
+</ul>
+<h4 id="426-iso七层模型">4.2.6 ISO七层模型</h4>
+<p><figure><a class="lightgallery" href="/computer-network-review-week2/7.png" title="ISO/OSI reference model" data-thumbnail="/computer-network-review-week2/7.png" data-sub-html="<h2>ISO/OSI reference model</h2><p>ISO/OSI reference model</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week2/7.png"
+            data-srcset="/computer-network-review-week2/7.png, /computer-network-review-week2/7.png 1.5x, /computer-network-review-week2/7.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week2/7.png" width="1869" height="1002" />
+    </a><figcaption class="image-caption">ISO/OSI reference model</figcaption>
+    </figure></p>
+<h4 id="427-封装和传输的过程">4.2.7 封装和传输的过程</h4>
+<p><figure><a class="lightgallery" href="/computer-network-review-week2/8.png" title="封装和传输的过程" data-thumbnail="/computer-network-review-week2/8.png" data-sub-html="<h2>封装和传输的过程</h2><p>封装和传输的过程</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week2/8.png"
+            data-srcset="/computer-network-review-week2/8.png, /computer-network-review-week2/8.png 1.5x, /computer-network-review-week2/8.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week2/8.png" width="1659" height="999" />
+    </a><figcaption class="image-caption">封装和传输的过程</figcaption>
+    </figure></p>
+<ul>
+<li>packet是从上到下封装的</li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
