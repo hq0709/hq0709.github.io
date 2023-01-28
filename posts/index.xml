@@ -4,7 +4,23 @@
         <link>http://hq0709.github.io/posts/</link>
         <description>所有文章 | jhqyyds</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>jhqyyds@gmail.com (Hanqi Jiang)</managingEditor>
-            <webMaster>jhqyyds@gmail.com (Hanqi Jiang)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 28 Jan 2023 21:49:40 &#43;0800</lastBuildDate><atom:link href="http://hq0709.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>jhqyyds@gmail.com (Hanqi Jiang)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 28 Jan 2023 23:52:40 &#43;0800</lastBuildDate><atom:link href="http://hq0709.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>计网知识点总结 Week 10</title>
+    <link>http://hq0709.github.io/computer-network-review-week10/</link>
+    <pubDate>Sat, 28 Jan 2023 23:52:40 &#43;0800</pubDate>
+    <author>Hanqi Jiang</author>
+    <guid>http://hq0709.github.io/computer-network-review-week10/</guid>
+    <description><![CDATA[1. 概述 1.1 概念和术语 nodes 节点：any device that runs a link-layer protocol 包括但不限于：主机，路由器，交换机，wifi接入点 links 链路：communication channels that connect adjacent nodes along]]></description>
+</item>
+<item>
+    <title>计网知识点总结 Week 9</title>
+    <link>http://hq0709.github.io/computer-network-review-week9/</link>
+    <pubDate>Sat, 28 Jan 2023 23:51:40 &#43;0800</pubDate>
+    <author>Hanqi Jiang</author>
+    <guid>http://hq0709.github.io/computer-network-review-week9/</guid>
+    <description><![CDATA[1. 网络层功能 1.1 转发（数据平面的功能） 将数据包从路由器的输入移动到适当的路由器输出：move packets from router’s input to appropriate router output 1.2 路由（控制平面的功]]></description>
+</item>
+<item>
     <title>计网知识点总结 Week 2</title>
     <link>http://hq0709.github.io/computer-network-review-week2/</link>
     <pubDate>Sat, 28 Jan 2023 21:49:40 &#43;0800</pubDate>
@@ -13,28 +29,12 @@
     <description><![CDATA[1. Network performance 延迟：延迟是一种时间的度量。描述的是包在网络中传输的时间。单位为秒 1.1 延迟的种类 1.1.1 处理延迟 processing delay 设备检查包头并决定将此包定向到何处所花费的]]></description>
 </item>
 <item>
-    <title>计网知识点总结 Week 10</title>
-    <link>http://hq0709.github.io/computer-network-review-week10/</link>
-    <pubDate>Fri, 27 Jan 2023 19:51:40 &#43;0800</pubDate>
-    <author>Hanqi Jiang</author>
-    <guid>http://hq0709.github.io/computer-network-review-week10/</guid>
-    <description><![CDATA[1. 概述 1.1 概念和术语 nodes 节点：any device that runs a link-layer protocol 包括但不限于：主机，路由器，交换机，wifi接入点 links 链路：communication channels that connect adjacent nodes along]]></description>
-</item>
-<item>
     <title>计网知识点总结 Week 1</title>
     <link>http://hq0709.github.io/computer-network-review-week1/</link>
     <pubDate>Thu, 26 Jan 2023 13:51:40 &#43;0800</pubDate>
     <author>Hanqi Jiang</author>
     <guid>http://hq0709.github.io/computer-network-review-week1/</guid>
     <description><![CDATA[1. What is a network Any set of interconnected nodes through horizontal and or vertical lines. 通过平行或者垂直的线，连接起来的节点的集合 有什么样的网络，（除了计网之外的例子）: Telephone network carrying voice traffic, Cable network to disseminate video signals 2. 什]]></description>
-</item>
-<item>
-    <title>计网知识点总结 Week 9</title>
-    <link>http://hq0709.github.io/computer-network-review-week9/</link>
-    <pubDate>Thu, 26 Jan 2023 13:51:40 &#43;0800</pubDate>
-    <author>Hanqi Jiang</author>
-    <guid>http://hq0709.github.io/computer-network-review-week9/</guid>
-    <description><![CDATA[1. 网络层功能 1.1 转发（数据平面的功能） 将数据包从路由器的输入移动到适当的路由器输出：move packets from router’s input to appropriate router output 1.2 路由（控制平面的功]]></description>
 </item>
 <item>
     <title>Geo-Neus中renderer代码的具体解读</title>
