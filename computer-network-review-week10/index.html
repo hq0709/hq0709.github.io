@@ -34,7 +34,7 @@
                             "url": "http:\/\/hq0709.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Computer network","wordcount":  829 ,
+                        }],"genre": "posts","keywords": "Computer network","wordcount":  1596 ,
         "url": "http:\/\/hq0709.github.io\/computer-network-review-week10\/","datePublished": "2023-01-27T19:51:40+08:00","dateModified": "2023-01-27T20:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -119,8 +119,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">计网知识点总结 Week 10</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="hq0709.github.io" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Hanqi Jiang</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/course-notes/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Course notes</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-27">2023-01-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 829 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/computer-network-review-week10/" class="leancloud_visitors" data-flag-title="计网知识点总结 Week 10">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-27">2023-01-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1596 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/computer-network-review-week10/" class="leancloud_visitors" data-flag-title="计网知识点总结 Week 10">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -143,6 +143,22 @@
         <li><a href="#21-概述">2.1 概述</a></li>
         <li><a href="#22-奇偶校验">2.2 奇偶校验</a></li>
         <li><a href="#23-cyclic-redundancy-check-crc">2.3 Cyclic Redundancy Check (CRC)</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-多路访问协议">3. 多路访问协议</a>
+      <ul>
+        <li><a href="#31-两种链路">3.1 两种链路</a></li>
+        <li><a href="#32-mac协议-media-access-control-protocol">3.2 MAC协议 (media access control protocol)</a></li>
+        <li><a href="#33-random-access-protocol-随机接入协议">3.3 random access protocol 随机接入协议</a>
+          <ul>
+            <li><a href="#331-pure-aloha">3.3.1 Pure ALOHA</a></li>
+            <li><a href="#332-slotted-aloha">3.3.2 Slotted ALOHA</a></li>
+            <li><a href="#333-csma-carrier-sense-multiple-access">3.3.3 CSMA (carrier sense multiple access)</a></li>
+            <li><a href="#334-csmacd-csma-with-collision-detection">3.3.4 CSMA/CD CSMA with collision detection</a></li>
+            <li><a href="#335-csmaca-csma-with-collision-avoidance">3.3.5 CSMA/CA CSMA with collision avoidance</a></li>
+            <li><a href="#336-csmacd和csmaca的区别">3.3.6 CSMA/CD和CSMA/CA的区别</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -261,6 +277,109 @@
     </figure></li>
 <li>CRC是相对可靠的</li>
 </ul>
+<h2 id="3-多路访问协议">3. 多路访问协议</h2>
+<h3 id="31-两种链路">3.1 两种链路</h3>
+<ul>
+<li><strong>point-to-point</strong>
+<ul>
+<li>point-to-point link between Ethernet switch, host PPP for dial-up access</li>
+</ul>
+</li>
+<li><strong>broadcast</strong> (shared wire or medium)
+<ul>
+<li>old-fashioned Ethernet</li>
+<li>upstream HFC in cable-based access network</li>
+<li>802.11 wireless LAN, 4G/4G. satellite</li>
+</ul>
+</li>
+</ul>
+<h3 id="32-mac协议-media-access-control-protocol">3.2 MAC协议 (media access control protocol)</h3>
+<ul>
+<li>determines <strong>how nodes share channel</strong>, i.e., determine when node can transmit</li>
+<li>Strategies for detecting, avoiding, and recovering from collisions</li>
+<li>分类
+<ul>
+<li>channel partitioning 信道划分协议：将channel分为更小的部分（时间段、频率、代码），例如TDMA (time division multiple-accesas) 和 FDMA (frecuency division multiple-access)</li>
+<li>take turns 轮流协议：节点轮流发送，例如token ring networks</li>
+<li>random access 随即访问协议：不分割信道，也允许冲突存在，会采用方法去恢复，例如以太网和WiFi</li>
+</ul>
+</li>
+</ul>
+<h3 id="33-random-access-protocol-随机接入协议">3.3 random access protocol 随机接入协议</h3>
+<h4 id="331-pure-aloha">3.3.1 Pure ALOHA</h4>
+<ul>
+<li>unslotted Aloha: simple, no synchronization: 当一个帧到达时马上传送，如果没有ACK说明发生冲突，发生冲突随机等待一段时间后重传</li>
+<li>max efficiency = 1/2e = 0.18</li>
+</ul>
+<h4 id="332-slotted-aloha">3.3.2 Slotted ALOHA</h4>
+<p><figure><a class="lightgallery" href="/computer-network-review-week10/4.png" title="slotted aloha" data-thumbnail="/computer-network-review-week10/4.png" data-sub-html="<h2>Slotted ALOHA</h2><p>slotted aloha</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week10/4.png"
+            data-srcset="/computer-network-review-week10/4.png, /computer-network-review-week10/4.png 1.5x, /computer-network-review-week10/4.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week10/4.png" width="1027" height="276" />
+    </a><figcaption class="image-caption">Slotted ALOHA</figcaption>
+    </figure></p>
+<ul>
+<li>节点只在slot开始的时候传输，节点之间是同步的</li>
+<li>如果发生冲突：节点在每个后续插槽中以概率 p 重新传输帧，直到成功</li>
+<li>优点
+<ul>
+<li>single active node can continuously transmit at full rate of channel</li>
+<li>highly decentralized（高度去中心化）: each node detects collisions and independently decides when to retransmit</li>
+<li>simple</li>
+</ul>
+</li>
+<li>缺点
+<ul>
+<li>冲突浪费slot</li>
+<li>有闲置的slot</li>
+<li>时间同步</li>
+</ul>
+</li>
+<li>max efficiency = 1/e = 0.37</li>
+</ul>
+<h4 id="333-csma-carrier-sense-multiple-access">3.3.3 CSMA (carrier sense multiple access)</h4>
+<ul>
+<li>传输之前先listen，如果有人占用就延迟，如果空闲则传输整个帧</li>
+<li>仍然有可能发生碰撞：propagation delay causes that two nodes may not hear each other’s just-started transmission （刚刚开始，听不到彼此）</li>
+<li>如果发生碰撞，那么浪费整个帧传输的时间，帧的propagation delay越长就越容易监听不到彼此</li>
+<li>”不打扰其他人“</li>
+</ul>
+<h4 id="334-csmacd-csma-with-collision-detection">3.3.4 CSMA/CD CSMA with collision detection</h4>
+<ul>
+<li>检测到碰撞的话立即中止</li>
+<li>有线容易检测，无线不容易</li>
+<li>exponential backoff 指数回退
+<ul>
+<li>随机选择k ∈ [0, 2n – 1], where n = number of collisions</li>
+<li>等待时间k*传输512 bits所用的时间</li>
+<li>n的上限为10，16 次碰撞后帧掉落</li>
+</ul>
+</li>
+<li>”边说边听“</li>
+<li>以太网使用CSMA/CD</li>
+</ul>
+<h4 id="335-csmaca-csma-with-collision-avoidance">3.3.5 CSMA/CA CSMA with collision avoidance</h4>
+<ul>
+<li>碰撞前有效</li>
+<li>如果信道忙碌，随机生成一个回退值，当信道空闲的时候-1.  当这个值减为0之后，就轮到这个发送节点发送</li>
+<li>如果没有收到接收端的ACK，增大这个回退值，重复刚才的-1操作。</li>
+<li>WLAN使用CSMA/CA</li>
+</ul>
+<h4 id="336-csmacd和csmaca的区别">3.3.6 CSMA/CD和CSMA/CA的区别</h4>
+<p><figure><a class="lightgallery" href="/computer-network-review-week10/5.png" title="CAMA/CD and CSMA/CA" data-thumbnail="/computer-network-review-week10/5.png" data-sub-html="<h2>CAMA/CD and CSMA/CA</h2><p>CAMA/CD and CSMA/CA</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week10/5.png"
+            data-srcset="/computer-network-review-week10/5.png, /computer-network-review-week10/5.png 1.5x, /computer-network-review-week10/5.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week10/5.png" width="1357" height="395" />
+    </a><figcaption class="image-caption">CAMA/CD and CSMA/CA</figcaption>
+    </figure></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
