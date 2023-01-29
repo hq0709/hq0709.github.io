@@ -21,12 +21,12 @@
     <description><![CDATA[1. 网络层功能 1.1 转发（数据平面的功能） 将数据包从路由器的输入移动到适当的路由器输出：move packets from router’s input to appropriate router output 1.2 路由（控制平面的功]]></description>
 </item>
 <item>
-    <title>计网知识点总结 Week 3</title>
+    <title>计网知识点总结 Week 3 (应用层概述)</title>
     <link>http://hq0709.github.io/computer-network-review-week3/</link>
     <pubDate>Sat, 28 Jan 2023 21:50:40 &#43;0800</pubDate>
     <author>Hanqi Jiang</author>
     <guid>http://hq0709.github.io/computer-network-review-week3/</guid>
-    <description><![CDATA[111]]></description>
+    <description><![CDATA[1. 网络应用原理 1.1 进程 定义：在主机中运行的程序 program running within a host 在同一个主机中，两个进程之间的通信采用inter-process communication 在不同主机中，进程之]]></description>
 </item>
 <item>
     <title>计网知识点总结 Week 2</title>

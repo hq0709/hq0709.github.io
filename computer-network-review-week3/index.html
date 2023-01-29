@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>计网知识点总结 Week 3 - jhqyyds</title><meta name="Description" content="111"><meta property="og:title" content="计网知识点总结 Week 3" />
+        <title>计网知识点总结 Week 3 (应用层概述) - jhqyyds</title><meta name="Description" content="111"><meta property="og:title" content="计网知识点总结 Week 3 (应用层概述)" />
 <meta property="og:description" content="111" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://hq0709.github.io/computer-network-review-week3/" /><meta property="og:image" content="http://hq0709.github.io/logo.png"/><meta property="article:section" content="posts" />
@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://hq0709.github.io/logo.png"/>
 
-<meta name="twitter:title" content="计网知识点总结 Week 3"/>
+<meta name="twitter:title" content="计网知识点总结 Week 3 (应用层概述)"/>
 <meta name="twitter:description" content="111"/>
 <meta name="application-name" content="Hanqi">
 <meta name="apple-mobile-web-app-title" content="Hanqi"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -24,7 +24,7 @@
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "计网知识点总结 Week 3",
+        "headline": "计网知识点总结 Week 3 (应用层概述)",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
@@ -34,7 +34,7 @@
                             "url": "http:\/\/hq0709.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Computer network","wordcount":  0 ,
+                        }],"genre": "posts","keywords": "Computer network","wordcount":  2519 ,
         "url": "http:\/\/hq0709.github.io\/computer-network-review-week3\/","datePublished": "2023-01-28T21:50:40+08:00","dateModified": "2023-01-29T23:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -117,10 +117,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">计网知识点总结 Week 3</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">计网知识点总结 Week 3 (应用层概述)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="hq0709.github.io" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Hanqi Jiang</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/course-notes/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Course notes</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-28">2023-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 0 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 0 分钟&nbsp;<span id="/computer-network-review-week3/" class="leancloud_visitors" data-flag-title="计网知识点总结 Week 3">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-28">2023-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2519 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 6 分钟&nbsp;<span id="/computer-network-review-week3/" class="leancloud_visitors" data-flag-title="计网知识点总结 Week 3 (应用层概述)">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -128,8 +128,427 @@
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"></div><div class="post-footer" id="post-footer">
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-网络应用原理">1. 网络应用原理</a>
+      <ul>
+        <li><a href="#11-进程">1.1 进程</a></li>
+        <li><a href="#12-socket-套接字">1.2 socket 套接字</a></li>
+        <li><a href="#13-如何识别网络进程">1.3 如何识别网络进程</a></li>
+        <li><a href="#14-应用层定义了什么">1.4 应用层定义了什么</a></li>
+        <li><a href="#15-应用需要什么样的传输服务">1.5 应用需要什么样的传输服务</a></li>
+        <li><a href="#16-tcp和udp">1.6 TCP和UDP</a></li>
+        <li><a href="#2-使用tcp和udp进行套接字编程">2. 使用TCP和UDP进行套接字编程</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-应用体系结构">3. 应用体系结构</a>
+      <ul>
+        <li><a href="#31-client-server-paradigm">3.1 client-server paradigm</a></li>
+        <li><a href="#32-p2p-paradigm-对等体结构">3.2 P2P paradigm (对等体结构)</a>
+          <ul>
+            <li><a href="#321-p2p文件分发-bittorrent">3.2.1 P2P文件分发: BitTorrent</a></li>
+            <li><a href="#322-bittorrent-的优点和缺点">3.2.2 BitTorrent 的优点和缺点</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#4-web和http">4. Web和HTTP</a>
+      <ul>
+        <li><a href="#41-一些术语">4.1 一些术语</a></li>
+        <li><a href="#42-http概况">4.2 HTTP概况</a></li>
+        <li><a href="#43-http连接">4.3 HTTP连接</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="1-网络应用原理">1. 网络应用原理</h2>
+<h3 id="11-进程">1.1 进程</h3>
+<ul>
+<li>定义：在主机中运行的程序 program running within a host</li>
+<li>在同一个主机中，两个进程之间的通信采用inter-process communication</li>
+<li>在不同主机中，进程之间通信依靠exchange messages</li>
+<li>客户端和服务端进程：
+<ul>
+<li>client process: process that initiates communication</li>
+<li>server process: process that waits to be contacted</li>
+</ul>
+</li>
+</ul>
+<h3 id="12-socket-套接字">1.2 socket 套接字</h3>
+<blockquote>
+<p>套接字是主机内应用层和传输层之间的接口，也称为应用程序编程接口(API Application Programming Interface)。</p>
+</blockquote>
+<ul>
+<li>socket类似于门
+<ul>
+<li>发送过程将消息推到室外</li>
+<li>发送过程依靠门另一侧的传输基础设施在接收过程中将消息传递到套接字</li>
+<li>有两个socket:两边各一个
+<figure><a class="lightgallery" href="/computer-network-review-week3/1.PNG" title="socket" data-thumbnail="/computer-network-review-week3/1.PNG" data-sub-html="<h2>socket</h2><p>socket</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week3/1.PNG"
+            data-srcset="/computer-network-review-week3/1.PNG, /computer-network-review-week3/1.PNG 1.5x, /computer-network-review-week3/1.PNG 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week3/1.PNG" width="1280" height="423" />
+    </a><figcaption class="image-caption">socket</figcaption>
+    </figure></li>
+</ul>
+</li>
+</ul>
+<h3 id="13-如何识别网络进程">1.3 如何识别网络进程</h3>
+<ul>
+<li>使用IP地址和端口号</li>
+<li>”五元组“：发送者、接收者的IP address和port number以及underlying transport protocol</li>
+<li>不一样的进程使用不一样的端口，例如:HTTP服务器:80，邮件服务器:25</li>
+<li>知名端口Well-known vs.临时ephemeral 端口
+<ul>
+<li>服务器有一个众所周知的端口(例如，端口80)
+<ul>
+<li>0到1023之间(需要root用户使用)</li>
+</ul>
+</li>
+<li>客户端选择一个未使用的临时(即临时)端口
+<ul>
+<li>1024到65535之间</li>
+<li>Registered ports: Range from 1,024–49,151</li>
+<li>Dynamic/Private ports: Range from 49,152–65,535</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="14-应用层定义了什么">1.4 应用层定义了什么</h3>
+<ul>
+<li>交换信息的类型 <strong>types of messages exchanged</strong>
+<ul>
+<li>request/response</li>
+</ul>
+</li>
+<li>信息的语法 <strong>message syntax</strong>
+<ul>
+<li>消息中有哪些字段、如何描述字段</li>
+</ul>
+</li>
+<li>消息语义 <strong>message semantics</strong>
+<ul>
+<li>字段中信息的含义</li>
+</ul>
+</li>
+<li>进程发送和响应消息的时间和方式的规则rules</li>
+<li>开放协议 <strong>open protocols</strong>
+<ul>
+<li>在RFC中定义了，每个人都可以访问协议</li>
+<li>允许互操作性</li>
+<li>e.g. HTTP，SMTP</li>
+</ul>
+</li>
+<li>专有协议 <strong>proprietary protocols</strong>
+<ul>
+<li>与特定的产品相关联</li>
+<li>e.g. 无线通信</li>
+</ul>
+</li>
+</ul>
+<h3 id="15-应用需要什么样的传输服务">1.5 应用需要什么样的传输服务</h3>
+<ul>
+<li>数据完整性 <strong>data integrity</strong>
+<ul>
+<li>某些应用程序（例如，文件传输，网络交易）需要100%可靠的数据传输</li>
+<li>其他应用程序（例如音频）可以容忍一些损失</li>
+</ul>
+</li>
+<li>即时性 <strong>timing</strong>
+<ul>
+<li>某些应用（例如，互联网电话、互动游戏）需要低延迟才能“有效”</li>
+</ul>
+</li>
+<li>吞吐量 <strong>throughput</strong>
+<ul>
+<li>某些应用（例如多媒体）具有吞吐量要求，例如，要“有效”的最小吞吐量</li>
+<li>其他应用（“弹性应用”）利用它们获得的任何吞吐量</li>
+</ul>
+</li>
+<li>安全 <strong>security</strong>
+<ul>
+<li>加密， 数据完整性</li>
+</ul>
+</li>
+</ul>
+<h3 id="16-tcp和udp">1.6 TCP和UDP</h3>
+<ul>
+<li>TCP服务
+<ul>
+<li>发送和接收过程之间的可靠传输</li>
+<li>流量控制flow control：发送方不会压倒接收方sender won’t overwhelm receiver</li>
+<li>拥塞控制congestion control：网络过载时限制发送方throttle sender when network overloaded</li>
+<li>面向连接connection-oriented：需要通过握手过程在客户端和服务器进程之间进行设置setup required between client and server processes through handshaking procedure</li>
+<li>不提供：计时、最小吞吐量保证、安全性 does not provide timing, minimum throughput guarantee, security</li>
+</ul>
+</li>
+<li>UDP服务
+<ul>
+<li>发送和接收过程之间的数据传输不可靠unreliable data transfer</li>
+<li>不提供does not provide：可靠性、流量控制、拥塞控制、timing、吞吐量保证、安全性或连接设置。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-使用tcp和udp进行套接字编程">2. 使用TCP和UDP进行套接字编程</h3>
+<ul>
+<li>UDP编程实例
+<ul>
+<li>client
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">socket</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="n">serverName</span> <span class="o">=</span> <span class="err">‘</span><span class="n">hostname</span><span class="err">’</span>
+</span></span><span class="line"><span class="cl"><span class="n">serverPort</span> <span class="o">=</span> <span class="mi">12000</span>
+</span></span><span class="line"><span class="cl"><span class="n">clientSocket</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">SOCK_DGRAM</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">message</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">(</span><span class="err">’</span><span class="n">Input</span> <span class="n">lowercase</span> <span class="n">sentence</span><span class="p">:</span><span class="err">’</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">clientSocket</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span> <span class="p">(</span><span class="n">serverName</span><span class="p">,</span> <span class="n">serverPort</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">modifiedMessage</span><span class="p">,</span> <span class="n">serverAddress</span> <span class="o">=</span> <span class="n">clientSocket</span><span class="o">.</span><span class="n">recvfrom</span><span class="p">(</span><span class="mi">2048</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span> <span class="n">modifiedMessage</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">clientSocket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>server
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">socket</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="n">serverPort</span> <span class="o">=</span> <span class="mi">12000</span>
+</span></span><span class="line"><span class="cl"><span class="n">serverSocket</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">SOCK_DGRAM</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">serverSocket</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">serverPort</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span> <span class="p">(</span><span class="err">“</span><span class="n">The</span> <span class="n">server</span> <span class="ow">is</span> <span class="n">ready</span> <span class="n">to</span> <span class="n">receive</span><span class="err">”</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">message</span><span class="p">,</span> <span class="n">clientAddress</span> <span class="o">=</span> <span class="n">serverSocket</span><span class="o">.</span><span class="n">recvfrom</span><span class="p">(</span><span class="mi">2048</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">modifiedMessage</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">serverSocket</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">modifiedMessage</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span> <span class="n">clientAddress</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+<li>TCP编程实例
+<ul>
+<li>client
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">socket</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="n">serverName</span> <span class="o">=</span> <span class="err">’</span><span class="n">servername</span><span class="err">’</span>
+</span></span><span class="line"><span class="cl"><span class="n">serverPort</span> <span class="o">=</span> <span class="mi">12000</span>
+</span></span><span class="line"><span class="cl"><span class="n">clientSocket</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">SOCK_STREAM</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">clientSocket</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">serverName</span><span class="p">,</span><span class="n">serverPort</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">sentence</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">(</span><span class="err">‘</span><span class="n">Input</span> <span class="n">lowercase</span> <span class="n">sentence</span><span class="p">:</span><span class="err">’</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">clientSocket</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">sentence</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="n">modifiedSentence</span> <span class="o">=</span> <span class="n">clientSocket</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span> <span class="p">(</span><span class="err">‘</span><span class="n">From</span> <span class="n">Server</span><span class="p">:</span><span class="err">’</span><span class="p">,</span> <span class="n">modifiedSentence</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="n">clientSocket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>server
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">socket</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="n">serverPort</span> <span class="o">=</span> <span class="mi">12000</span>
+</span></span><span class="line"><span class="cl"><span class="n">serverSocket</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">serverSocket</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="err">‘’</span><span class="p">,</span><span class="n">serverPort</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">serverSocket</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span> <span class="err">‘</span><span class="n">The</span> <span class="n">server</span> <span class="ow">is</span> <span class="n">ready</span> <span class="n">to</span> <span class="n">receive</span><span class="err">’</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">connectionSocket</span><span class="p">,</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">serverSocket</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">sentence</span> <span class="o">=</span> <span class="n">connectionSocket</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">capitalizedSentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">connectionSocket</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">capitalizedSentence</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="n">connectionSocket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+</ul>
+<h2 id="3-应用体系结构">3. 应用体系结构</h2>
+<h3 id="31-client-server-paradigm">3.1 client-server paradigm</h3>
+<ul>
+<li>server:
+<ul>
+<li>always-on host 始终在线</li>
+<li>permanent IP address 永久的IP地址</li>
+<li>often in data centers, for scaling 在数据中心</li>
+</ul>
+</li>
+<li>clients:
+<ul>
+<li>contact, communicate with server 与服务器通信</li>
+<li>may be intermittently connected 不一定是持久连接</li>
+<li>may have dynamic IP addresses 可能有动态IP地址</li>
+<li>do not communicate directly with each other 客户端互相之间不直接通信</li>
+</ul>
+</li>
+<li>e.g. Web、email、FTP</li>
+</ul>
+<h3 id="32-p2p-paradigm-对等体结构">3.2 P2P paradigm (对等体结构)</h3>
+<ul>
+<li>没有始终在线的服务器 no always-on server</li>
+<li>任意终端系统直接通信</li>
+<li>对等节点向其他对等方请求服务，提供服务以换取其他对等方</li>
+<li>对等体间歇性连接并更改 IP 地址</li>
+<li>示例：P2P 文件共享（比特流）、网络语音（Skype）</li>
+</ul>
+<h4 id="321-p2p文件分发-bittorrent">3.2.1 P2P文件分发: BitTorrent</h4>
+<ul>
+<li>文件被分成256kb的数据块</li>
+<li>peer在比特流中发送和接受文件块</li>
+<li>Peer加入torrent:
+<ul>
+<li>一开始没有块，但是将会通过其他节点处累积文件块</li>
+<li>向跟踪服务器注册，获得peer节点列表，和部分peer节点构成邻居关系 (“连接”)</li>
+</ul>
+</li>
+<li>当peer下载时，该peer可以同时向其他节点提供上载服务</li>
+<li>Peer可能会变换用于交换块的peer节点</li>
+<li>扰动churn: peer节点可能会上线或者下线</li>
+<li>一旦一个peer拥有整个文件，它会（自私的）离开或者保留（利他主义）在torrent中</li>
+</ul>
+<h4 id="322-bittorrent-的优点和缺点">3.2.2 BitTorrent 的优点和缺点</h4>
+<ul>
+<li>优点：
+<ul>
+<li>开始时下载速度有点慢，但随着对等方获得越来越多的块，下载速度会大大加快</li>
+<li>那些想要文件的人，必须做出贡献</li>
+<li>将大文件分发到大量客户端的有效机制</li>
+</ul>
+</li>
+<li>缺点：
+<ul>
+<li>低带宽客户端有缺点吗？</li>
+<li>最稀有的第一个策略可能会导致系统不稳定</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-web和http">4. Web和HTTP</h2>
+<h3 id="41-一些术语">4.1 一些术语</h3>
+<ul>
+<li>Web页：由一些对象组成</li>
+<li>对象可以是HTML文件、JPEG图像、Java小程序、声音剪辑文件等</li>
+<li>Web页含有一个基本的HTML文件，该基本HTML文件又包含若干对象的引用（链接）
+<ul>
+<li>通过URL对每个对象进行引用 访问协议，用户名，口令字，端口等；</li>
+<li>计算文件数量，一个html文件引用了5张图片，那么文件的数量是？ 6=5+1（html也算）</li>
+</ul>
+</li>
+<li>URL格式：Prot://user:psw@www.someSchool.edu/someDept/pic.gif:port
+<ul>
+<li>协议名 + 用户：口令 + 主机名 + 路径名 + 端口</li>
+</ul>
+</li>
+</ul>
+<h3 id="42-http概况">4.2 HTTP概况</h3>
+<p><figure><a class="lightgallery" href="/computer-network-review-week3/2.png" title="HTTP" data-thumbnail="/computer-network-review-week3/2.png" data-sub-html="<h2>HTTP</h2><p>HTTP</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week3/2.png"
+            data-srcset="/computer-network-review-week3/2.png, /computer-network-review-week3/2.png 1.5x, /computer-network-review-week3/2.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week3/2.png" width="474" height="480" />
+    </a><figcaption class="image-caption">HTTP</figcaption>
+    </figure></p>
+<ul>
+<li>HTTP：超文本传输协议 Hypertext transfer protocol</li>
+<li>Web的应用层协议
+<ul>
+<li>客户/服务器模式
+<ul>
+<li>客户: 请求、接收和显示Web对象的浏览器</li>
+<li>服务器: 对请求进行响应，发送对象的Web服务器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用TCP:
+<ul>
+<li>客户发起一个与服务器的TCP连接 (建立套接字) ，端口号为 80</li>
+<li>服务器接受客户的TCP连接</li>
+<li>在浏览器(HTTP客户端) 与 Web服务器(HTTP服务器 server)交换HTTP报文 (应用层协议报文)</li>
+<li>TCP连接关闭</li>
+</ul>
+</li>
+<li>HTTP是无状态的stateless：服务器并不维护关于用户的任何信息。</li>
+</ul>
+<h3 id="43-http连接">4.3 HTTP连接</h3>
+<ul>
+<li>非持久HTTP
+<ul>
+<li>最多只有一个对象在TCP连接上发送</li>
+<li>下载多个对象需要多个TCP连接</li>
+<li>HTTP/1.0使用非持久连接
+<figure><a class="lightgallery" href="/computer-network-review-week3/3.png" title="非持久HTTP" data-thumbnail="/computer-network-review-week3/3.png" data-sub-html="<h2>非持久HTTP</h2><p>非持久HTTP</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week3/3.png"
+            data-srcset="/computer-network-review-week3/3.png, /computer-network-review-week3/3.png 1.5x, /computer-network-review-week3/3.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week3/3.png" width="500" height="564" />
+    </a><figcaption class="image-caption">非持久HTTP</figcaption>
+    </figure></li>
+</ul>
+</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -140,7 +559,7 @@
                             <a class="link-to-markdown" href="/computer-network-review-week3/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://hq0709.github.io/computer-network-review-week3/" data-title="计网知识点总结 Week 3" data-hashtags="Computer network"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://hq0709.github.io/computer-network-review-week3/" data-hashtag="Computer network"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://hq0709.github.io/computer-network-review-week3/" data-title="计网知识点总结 Week 3"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://hq0709.github.io/computer-network-review-week3/" data-title="计网知识点总结 Week 3"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://hq0709.github.io/computer-network-review-week3/" data-title="计网知识点总结 Week 3" data-ralateuid="jhqyyds"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://hq0709.github.io/computer-network-review-week3/" data-title="计网知识点总结 Week 3 (应用层概述)" data-hashtags="Computer network"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://hq0709.github.io/computer-network-review-week3/" data-hashtag="Computer network"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://hq0709.github.io/computer-network-review-week3/" data-title="计网知识点总结 Week 3 (应用层概述)"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://hq0709.github.io/computer-network-review-week3/" data-title="计网知识点总结 Week 3 (应用层概述)"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://hq0709.github.io/computer-network-review-week3/" data-title="计网知识点总结 Week 3 (应用层概述)" data-ralateuid="jhqyyds"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>

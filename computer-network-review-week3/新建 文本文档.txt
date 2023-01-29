@@ -1,5 +1,20 @@
-# 计网知识点总结 Week 3 (应用层概述)
+---
+weight: 4
+title: "计网知识点总结 Week 3 (应用层概述)"
+date: 2023-01-28T21:50:40+08:00
+lastmod: 2023-01-29T23:45:40+08:00
+draft: false
+author: "Hanqi Jiang"
+authorLink: "hq0709.github.io"
+description: "111"
+images: []
 
+
+tags: ["Computer network"]
+categories: ["Course notes"]
+
+lightgallery: true
+---
 
 ## 1. 网络应用原理
 ### 1.1 进程
@@ -146,7 +161,7 @@
 - 对等体间歇性连接并更改 IP 地址
 - 示例：P2P 文件共享（比特流）、网络语音（Skype）
 
-#### 3.2.1 P2P文件分发: BitTorrent
+#### 3.2.1 P2P文件分发
 - 文件被分成256kb的数据块
 - peer在比特流中发送和接受文件块
 - Peer加入torrent:
@@ -157,42 +172,3 @@
 - 扰动churn: peer节点可能会上线或者下线
 - 一旦一个peer拥有整个文件，它会（自私的）离开或者保留（利他主义）在torrent中
 
-#### 3.2.2 BitTorrent 的优点和缺点
-- 优点：
-  - 开始时下载速度有点慢，但随着对等方获得越来越多的块，下载速度会大大加快
-  - 那些想要文件的人，必须做出贡献
-  - 将大文件分发到大量客户端的有效机制
-- 缺点：
-  - 低带宽客户端有缺点吗？
-  - 最稀有的第一个策略可能会导致系统不稳定
-
-## 4. Web和HTTP
-### 4.1 一些术语
-- Web页：由一些对象组成
-- 对象可以是HTML文件、JPEG图像、Java小程序、声音剪辑文件等
-- Web页含有一个基本的HTML文件，该基本HTML文件又包含若干对象的引用（链接）
-  - 通过URL对每个对象进行引用 访问协议，用户名，口令字，端口等；
-  - 计算文件数量，一个html文件引用了5张图片，那么文件的数量是？ 6=5+1（html也算）
-- URL格式：Prot://user:psw@www.someSchool.edu/someDept/pic.gif:port
-  - 协议名 + 用户：口令 + 主机名 + 路径名 + 端口
-
-### 4.2 HTTP概况
-![HTTP](2.png "HTTP")
-- HTTP：超文本传输协议 Hypertext transfer protocol
-- Web的应用层协议
-  - 客户/服务器模式 
-    - 客户: 请求、接收和显示Web对象的浏览器 
-    - 服务器: 对请求进行响应，发送对象的Web服务器
-- 使用TCP:
-  - 客户发起一个与服务器的TCP连接 (建立套接字) ，端口号为 80
-  - 服务器接受客户的TCP连接
-  - 在浏览器(HTTP客户端) 与 Web服务器(HTTP服务器 server)交换HTTP报文 (应用层协议报文) 
-  - TCP连接关闭
-- HTTP是无状态的stateless：服务器并不维护关于用户的任何信息。
-
-### 4.3 HTTP连接
-- 非持久HTTP
-  - 最多只有一个对象在TCP连接上发送
-  - 下载多个对象需要多个TCP连接
-  - HTTP/1.0使用非持久连接
-![非持久HTTP](3.png "非持久HTTP")
