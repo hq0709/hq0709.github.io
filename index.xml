@@ -23,6 +23,14 @@
     <description><![CDATA[1. 网络层功能 1.1 转发（数据平面的功能） 将数据包从路由器的输入移动到适当的路由器输出：move packets from router’s input to appropriate router output 1.2 路由（控制平面的功]]></description>
 </item>
 <item>
+    <title>计网知识点总结 Week 3</title>
+    <link>http://hq0709.github.io/computer-network-review-week3/</link>
+    <pubDate>Sat, 28 Jan 2023 21:50:40 &#43;0800</pubDate>
+    <author>Hanqi Jiang</author>
+    <guid>http://hq0709.github.io/computer-network-review-week3/</guid>
+    <description><![CDATA[111]]></description>
+</item>
+<item>
     <title>计网知识点总结 Week 2</title>
     <link>http://hq0709.github.io/computer-network-review-week2/</link>
     <pubDate>Sat, 28 Jan 2023 21:49:40 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>Hanqi Jiang</author>
     <guid>http://hq0709.github.io/basic-markdown-syntax/</guid>
     <description><![CDATA[<p>这篇文章提供了可以在 Hugo 的文章中使用的基本 Markdown 语法示例.</p>]]></description>
-</item>
-<item>
-    <title>Geo-Neus: Geometry-Consistent Neural Implicit Surfaces Learning for Multi-view Reconstruction</title>
-    <link>http://hq0709.github.io/geo-neus/</link>
-    <pubDate>Wed, 04 Jan 2023 21:57:40 &#43;0800</pubDate>
-    <author>Hanqi Jiang</author>
-    <guid>http://hq0709.github.io/geo-neus/</guid>
-    <description><![CDATA[公式推导 用有符号距离函数表示空间点p到物体表面的距离，sdf(p)等于0 使用两个神经网络估计SDF和颜色场 表示颜色场： 由于需要专注于表面的重]]></description>
 </item>
 </channel>
 </rss>
