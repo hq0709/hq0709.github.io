@@ -283,7 +283,7 @@ True. The client has a cached copy of the file that was updated on: Mon, 10 Aug 
 {{< /admonition >}}
      
 
-#### 4.3.2.2 HTTP响应报文
+##### 4.3.2.2 HTTP响应报文
 ```shell
 HTTP/1.1 200 OK\r\n
 Date: Sun, 26 Sep 2010 20:09:20 GMT\r\n
@@ -302,7 +302,7 @@ data data data data data ...
 - 首部行
 - 数据部分：请求的文件
 
-#### 4.3.2.3 HTTP响应状态码
+##### 4.3.2.3 HTTP响应状态码
 - **200 OK**: request succeeded, requested object later in this message
 - **301 Moved Permanently**: requested object moved, new location specified later in this message (in Location: field). The client software will automatically retrieve the new URL.
 - **400 Bad Request**: request msg not understood by server
@@ -335,8 +335,36 @@ There are 401 bytes in the document being returned by the server
 The server used is Apache/2.2.3
 {{< /admonition >}}
 
+##### 4.3.2.4 Cookies
+> Web sites and client browser use cookies to maintain some state between transactions
 
+- 4个组成部分：
+  - 在HTTP响应报文中有一个cookie的首部行
+  - 在后续HTTP请求报文含有一个cookie的首部行
+  - 在用户端系统中保留有一个cookie文件，由用户的浏览器管理
+  - 在Web站点有一个后端数据库
 
+- cookies可以用来
+  - authorization
+  - shopping carts
+  - recommendations
+  - user session state (Web e-mail)
 
+### 4.4 Web caches缓存
+> 目标：不访问原始服务器，就满足客户的请求satisfy client request without involving origin server
 
+#### 4.4.1 用户设置浏览器： 通过缓存访问Web 
+- user configures browser to point to a Web cache
+![web proxy](6.png "web proxy")
+  - 浏览器将所有的HTTP请求发给缓存 
+  - 在缓存中的对象：缓存直接返回对象 
+  - 如对象不在缓存，缓存请求原始服务器，然后再将对象返回给客户端
+- proxy既是server也是client
+- 通常缓存是由ISP（Internet Service Provider）安装
+- 为什么要使用web缓存？
+  - 降低客户端的请求响应时间
+  - 可以大大减少一个机构内 部网络与Internent接入 链路上的流量 
+  - 互联网大量采用了缓存： 可以使较弱的ICP也能够 有效提供内容
 
+#### 4.4.2 条件GET方法
+![条件GET](7.png "条件GET")

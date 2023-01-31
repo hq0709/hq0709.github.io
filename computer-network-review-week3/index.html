@@ -34,7 +34,7 @@
                             "url": "http:\/\/hq0709.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Computer network","wordcount":  3300 ,
+                        }],"genre": "posts","keywords": "Computer network","wordcount":  3718 ,
         "url": "http:\/\/hq0709.github.io\/computer-network-review-week3\/","datePublished": "2023-01-28T21:50:40+08:00","dateModified": "2023-01-31T23:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -119,8 +119,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">计网知识点总结 Week 3 (应用层概述)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="hq0709.github.io" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Hanqi Jiang</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/course-notes/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Course notes</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-28">2023-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3300 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 7 分钟&nbsp;<span id="/computer-network-review-week3/" class="leancloud_visitors" data-flag-title="计网知识点总结 Week 3 (应用层概述)">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-28">2023-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3718 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 8 分钟&nbsp;<span id="/computer-network-review-week3/" class="leancloud_visitors" data-flag-title="计网知识点总结 Week 3 (应用层概述)">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -162,10 +162,17 @@
             <li><a href="#432-http报文">4.3.2 HTTP报文</a>
               <ul>
                 <li><a href="#4321-http请求报文">4.3.2.1 HTTP请求报文</a></li>
+                <li><a href="#4322-http响应报文">4.3.2.2 HTTP响应报文</a></li>
+                <li><a href="#4323-http响应状态码">4.3.2.3 HTTP响应状态码</a></li>
+                <li><a href="#4324-cookies">4.3.2.4 Cookies</a></li>
               </ul>
             </li>
-            <li><a href="#4322-http响应报文">4.3.2.2 HTTP响应报文</a></li>
-            <li><a href="#4323-http响应状态码">4.3.2.3 HTTP响应状态码</a></li>
+          </ul>
+        </li>
+        <li><a href="#44-web-caches缓存">4.4 Web caches缓存</a>
+          <ul>
+            <li><a href="#441-用户设置浏览器-通过缓存访问web">4.4.1 用户设置浏览器： 通过缓存访问Web</a></li>
+            <li><a href="#442-条件get方法">4.4.2 条件GET方法</a></li>
           </ul>
         </li>
       </ul>
@@ -745,7 +752,7 @@
     </div></p>
 </li>
 </ul>
-<h4 id="4322-http响应报文">4.3.2.2 HTTP响应报文</h4>
+<h5 id="4322-http响应报文">4.3.2.2 HTTP响应报文</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -781,7 +788,7 @@
 <li>首部行</li>
 <li>数据部分：请求的文件</li>
 </ul>
-<h4 id="4323-http响应状态码">4.3.2.3 HTTP响应状态码</h4>
+<h5 id="4323-http响应状态码">4.3.2.3 HTTP响应状态码</h5>
 <ul>
 <li><strong>200 OK</strong>: request succeeded, requested object later in this message</li>
 <li><strong>301 Moved Permanently</strong>: requested object moved, new location specified later in this message (in Location: field). The client software will automatically retrieve the new URL.</li>
@@ -847,6 +854,74 @@
     </div></p>
 </li>
 </ul>
+<h5 id="4324-cookies">4.3.2.4 Cookies</h5>
+<blockquote>
+<p>Web sites and client browser use cookies to maintain some state between transactions</p>
+</blockquote>
+<ul>
+<li>
+<p>4个组成部分：</p>
+<ul>
+<li>在HTTP响应报文中有一个cookie的首部行</li>
+<li>在后续HTTP请求报文含有一个cookie的首部行</li>
+<li>在用户端系统中保留有一个cookie文件，由用户的浏览器管理</li>
+<li>在Web站点有一个后端数据库</li>
+</ul>
+</li>
+<li>
+<p>cookies可以用来</p>
+<ul>
+<li>authorization</li>
+<li>shopping carts</li>
+<li>recommendations</li>
+<li>user session state (Web e-mail)</li>
+</ul>
+</li>
+</ul>
+<h3 id="44-web-caches缓存">4.4 Web caches缓存</h3>
+<blockquote>
+<p>目标：不访问原始服务器，就满足客户的请求satisfy client request without involving origin server</p>
+</blockquote>
+<h4 id="441-用户设置浏览器-通过缓存访问web">4.4.1 用户设置浏览器： 通过缓存访问Web</h4>
+<ul>
+<li>user configures browser to point to a Web cache
+<figure><a class="lightgallery" href="/computer-network-review-week3/6.png" title="web proxy" data-thumbnail="/computer-network-review-week3/6.png" data-sub-html="<h2>web proxy</h2><p>web proxy</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week3/6.png"
+            data-srcset="/computer-network-review-week3/6.png, /computer-network-review-week3/6.png 1.5x, /computer-network-review-week3/6.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week3/6.png" width="348" height="255" />
+    </a><figcaption class="image-caption">web proxy</figcaption>
+    </figure>
+<ul>
+<li>浏览器将所有的HTTP请求发给缓存</li>
+<li>在缓存中的对象：缓存直接返回对象</li>
+<li>如对象不在缓存，缓存请求原始服务器，然后再将对象返回给客户端</li>
+</ul>
+</li>
+<li>proxy既是server也是client</li>
+<li>通常缓存是由ISP（Internet Service Provider）安装</li>
+<li>为什么要使用web缓存？
+<ul>
+<li>降低客户端的请求响应时间</li>
+<li>可以大大减少一个机构内 部网络与Internent接入 链路上的流量</li>
+<li>互联网大量采用了缓存： 可以使较弱的ICP也能够 有效提供内容</li>
+</ul>
+</li>
+</ul>
+<h4 id="442-条件get方法">4.4.2 条件GET方法</h4>
+<p><figure><a class="lightgallery" href="/computer-network-review-week3/7.png" title="条件GET" data-thumbnail="/computer-network-review-week3/7.png" data-sub-html="<h2>条件GET</h2><p>条件GET</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week3/7.png"
+            data-srcset="/computer-network-review-week3/7.png, /computer-network-review-week3/7.png 1.5x, /computer-network-review-week3/7.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week3/7.png" width="605" height="440" />
+    </a><figcaption class="image-caption">条件GET</figcaption>
+    </figure></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
