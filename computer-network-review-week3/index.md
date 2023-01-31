@@ -191,8 +191,46 @@
 - HTTP是无状态的stateless：服务器并不维护关于用户的任何信息。
 
 ### 4.3 HTTP连接
+#### 4.3.1 非持久HTTP和持久HTTP
 - 非持久HTTP
   - 最多只有一个对象在TCP连接上发送
   - 下载多个对象需要多个TCP连接
   - HTTP/1.0使用非持久连接
 ![非持久HTTP](3.png "非持久HTTP")
+
+- 持久HTTP “pipeline流水线”
+  - 多个对象可以在一个（在客户端和服务器之间的）TCP连接上传输
+  - HTTP/1.1默认使用持久连接
+![持久HTTP](4.png "持久HTTP")
+
+#### 4.3.2 HTTP报文
+- HTTP请求报文
+```shell
+GET /index.html HTTP/1.1\r\n
+Host: www-net.cs.umass.edu\r\n
+User-Agent: Firefox/3.6.10\r\n
+Accept: text/html,application/xhtml+xml\r\n
+Accept-Language: en-us,en;q=0.5\r\n
+Accept-Encoding: gzip,deflate\r\n
+Accept-Charset: ISO-8859-1,utf-8;q=0.7\r\n
+Keep-Alive: 115\r\n
+Connection: keep-alive\r\n
+\r\n
+```
+![请求报文格式](5.png "请求报文格式")
+
+  - 请求行：
+    - GET(从服务器获取)
+    - POST(发送到服务器)
+    - HEAD(debug)
+    - PUT(将文件上载到指定路径)
+  - 请求头：：
+    - User-Agent 浏览器版本
+    - Accept：浏览器能够接收的资源类型  
+    - Accept-Encoding：浏览器支持的压缩类型，
+    - Accept-Language 浏览器偏好的语言
+    - Host：请求主机名称
+  - message内容使用ASCII
+
+- HTTP响应报文
+

@@ -66,7 +66,6 @@ Link 2 total delay = dtrans + dprop = 16000 bits / 10 Mbps + 1000 * 10^3 m / (3*
 Link 3 total delay = dtrans + dprop = 16000 bits / 1000 Mbps + 1000 m / (3*10^8 m/s) = 0.0193 ms
 
 The total delay = Link 1 total delay + Link 2 total delay + Link 3
-
 total delay = 1.6 ms + 4.9 ms + 0.0193 ms = 6.5 ms
 {{< /admonition >}}
 
