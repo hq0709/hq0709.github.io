@@ -34,7 +34,7 @@
                             "url": "http:\/\/hq0709.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Computer network","wordcount":  2800 ,
+                        }],"genre": "posts","keywords": "Computer network","wordcount":  3300 ,
         "url": "http:\/\/hq0709.github.io\/computer-network-review-week3\/","datePublished": "2023-01-28T21:50:40+08:00","dateModified": "2023-01-31T23:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -119,8 +119,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">计网知识点总结 Week 3 (应用层概述)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="hq0709.github.io" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Hanqi Jiang</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/course-notes/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Course notes</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-28">2023-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2800 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 6 分钟&nbsp;<span id="/computer-network-review-week3/" class="leancloud_visitors" data-flag-title="计网知识点总结 Week 3 (应用层概述)">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-28">2023-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3300 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 7 分钟&nbsp;<span id="/computer-network-review-week3/" class="leancloud_visitors" data-flag-title="计网知识点总结 Week 3 (应用层概述)">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -159,7 +159,13 @@
         <li><a href="#43-http连接">4.3 HTTP连接</a>
           <ul>
             <li><a href="#431-非持久http和持久http">4.3.1 非持久HTTP和持久HTTP</a></li>
-            <li><a href="#432-http报文">4.3.2 HTTP报文</a></li>
+            <li><a href="#432-http报文">4.3.2 HTTP报文</a>
+              <ul>
+                <li><a href="#4321-http请求报文">4.3.2.1 HTTP请求报文</a></li>
+              </ul>
+            </li>
+            <li><a href="#4322-http响应报文">4.3.2.2 HTTP响应报文</a></li>
+            <li><a href="#4323-http响应状态码">4.3.2.3 HTTP响应状态码</a></li>
           </ul>
         </li>
       </ul>
@@ -573,9 +579,7 @@
 </li>
 </ul>
 <h4 id="432-http报文">4.3.2 HTTP报文</h4>
-<ul>
-<li>HTTP请求报文</li>
-</ul>
+<h5 id="4321-http请求报文">4.3.2.1 HTTP请求报文</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -613,8 +617,7 @@
     </a><figcaption class="image-caption">请求报文格式</figcaption>
     </figure></p>
 <ul>
-<li>
-<p>请求行：</p>
+<li>请求行：
 <ul>
 <li>GET(从服务器获取)</li>
 <li>POST(发送到服务器)</li>
@@ -622,8 +625,7 @@
 <li>PUT(将文件上载到指定路径)</li>
 </ul>
 </li>
-<li>
-<p>请求头：：</p>
+<li>请求头：：
 <ul>
 <li>User-Agent 浏览器版本</li>
 <li>Accept：浏览器能够接收的资源类型</li>
@@ -632,11 +634,217 @@
 <li>Host：请求主机名称</li>
 </ul>
 </li>
+<li>message内容使用ASCII</li>
+</ul>
+<p><strong>Question:</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">GET /kurose_ross_sandbox/interactive/quotation8.htm HTTP/1.1
+</span></span><span class="line"><span class="cl">Host: gaia.cs.umass.edu
+</span></span><span class="line"><span class="cl">Accept: text/plain, text/html, image/jpeg, image/gif, audio/basic, audio/vnf.wave, video/mpeg, video/wmv,
+</span></span><span class="line"><span class="cl">Accept-Language: en-us, en-gb<span class="p">;</span><span class="nv">q</span><span class="o">=</span>0.1, en<span class="p">;</span><span class="nv">q</span><span class="o">=</span>0.3, fr, fr-ch, zh, da, <span class="k">fi</span>, ar, cs
+</span></span><span class="line"><span class="cl">If-Modified-Since: Mon, <span class="m">10</span> Aug <span class="m">2020</span> 14:02:13 -0700
+</span></span><span class="line"><span class="cl">User Agent: Mozilla/5.0 <span class="o">(</span>Windows NT 6.1<span class="p">;</span> WOW64<span class="o">)</span> AppleWebKit/535.19 <span class="o">(</span>KHTML, like Gecko<span class="o">)</span> Chrome/18.0.1025.168 Safari/535.19
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>
-<p>message内容使用ASCII</p>
+<p>What is the name of the file that is being retrieved in this GET message?
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Answer<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">The name of the file is quotation8.htm</div>
+        </div>
+    </div></p>
 </li>
 <li>
-<p>HTTP响应报文</p>
+<p>What version of HTTP is the client running?
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Answer<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">The client is running on HTTP/1.1</div>
+        </div>
+    </div></p>
+</li>
+<li>
+<p>True or False: The client will accept html files
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Answer<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">True. In the &lsquo;Accept&rsquo; field the client includes &rsquo;text/html&rsquo; files.</div>
+        </div>
+    </div></p>
+</li>
+<li>
+<p>True or False: The client will accept jpeg images
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Answer<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">True. The client does include &lsquo;image/jpeg&rsquo; in its &lsquo;Accept&rsquo; field.</div>
+        </div>
+    </div></p>
+</li>
+<li>
+<p>What is the client&rsquo;s preferred version of English?
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Answer<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">The client&rsquo;s preferred version of English is American English. Any language without a defined q value has a default value of 1.</div>
+        </div>
+    </div></p>
+</li>
+<li>
+<p>What is the client&rsquo;s least preferred version of English?
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Answer<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">The client&rsquo;s least preferred version of English is British English because it has the lowest q value.</div>
+        </div>
+    </div></p>
+</li>
+<li>
+<p>True or False: The client will accept the German language
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Answer<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">False. The client does NOT include German in its &lsquo;Accepted-Language&rsquo; field.</div>
+        </div>
+    </div></p>
+</li>
+<li>
+<p>True or False: The client already has a cached copy of the file
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Answer<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">True. The client has a cached copy of the file that was updated on: Mon, 10 Aug 2020 14:02:13 -0700</div>
+        </div>
+    </div></p>
+</li>
+</ul>
+<h4 id="4322-http响应报文">4.3.2.2 HTTP响应报文</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">HTTP/1.1 <span class="m">200</span> OK<span class="se">\r\n</span>
+</span></span><span class="line"><span class="cl">Date: Sun, <span class="m">26</span> Sep <span class="m">2010</span> 20:09:20 GMT<span class="se">\r\n</span>
+</span></span><span class="line"><span class="cl">Server: Apache/2.0.52 <span class="o">(</span>CentOS<span class="o">)</span><span class="se">\r\n</span>
+</span></span><span class="line"><span class="cl">Last-Modified: Tue, <span class="m">30</span> Oct <span class="m">2007</span> 17:00:02 GMT<span class="se">\r\n</span>
+</span></span><span class="line"><span class="cl">ETag: <span class="s2">&#34;17dc6-a5c-bf716880&#34;</span><span class="se">\r\n</span>
+</span></span><span class="line"><span class="cl">Accept-Ranges: bytes<span class="se">\r\n</span>
+</span></span><span class="line"><span class="cl">Content-Length: 2652<span class="se">\r\n</span>
+</span></span><span class="line"><span class="cl">Keep-Alive: <span class="nv">timeout</span><span class="o">=</span>10, <span class="nv">max</span><span class="o">=</span>100<span class="se">\r\n</span>
+</span></span><span class="line"><span class="cl">Connection: Keep-Alive<span class="se">\r\n</span>
+</span></span><span class="line"><span class="cl">Content-Type: text/html<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>ISO-8859-1<span class="se">\r\n</span>
+</span></span><span class="line"><span class="cl"><span class="se">\r\n</span>
+</span></span><span class="line"><span class="cl">data data data data data ... 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>状态行：协议版本/响应状态</li>
+<li>首部行</li>
+<li>数据部分：请求的文件</li>
+</ul>
+<h4 id="4323-http响应状态码">4.3.2.3 HTTP响应状态码</h4>
+<ul>
+<li><strong>200 OK</strong>: request succeeded, requested object later in this message</li>
+<li><strong>301 Moved Permanently</strong>: requested object moved, new location specified later in this message (in Location: field). The client software will automatically retrieve the new URL.</li>
+<li><strong>400 Bad Request</strong>: request msg not understood by server</li>
+<li><strong>404 Not Found</strong>: requested document not found on this server</li>
+<li><strong>505 HTTP Version Not Supported</strong></li>
+</ul>
+<p><strong>Question</strong></p>
+<ul>
+<li>
+<p>Is the response message using HTTP 1.0 or HTTP 1.1? Explain.
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Answer<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">The server is running HTTP version 1.0</div>
+        </div>
+    </div></p>
+</li>
+<li>
+<p>Was the server able to send the document successfully? Explain
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Answer<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Yes, the server was able to send the document successfully since the response code is 200 OK</div>
+        </div>
+    </div></p>
+</li>
+<li>
+<p>At what date and time was this response sent?
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Answer<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Sun, 28 Oct 2018 13:43:45 +0000</div>
+        </div>
+    </div></p>
+</li>
+<li>
+<p>How many bytes are there in the document being returned by the server?
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Answer<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">There are 401 bytes in the document being returned by the server</div>
+        </div>
+    </div></p>
+</li>
+<li>
+<p>What is the name of the server and its version?
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Answer<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">The server used is Apache/2.2.3</div>
+        </div>
+    </div></p>
 </li>
 </ul>
 </div><div class="post-footer" id="post-footer">

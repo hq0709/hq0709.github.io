@@ -204,7 +204,7 @@
 ![持久HTTP](4.png "持久HTTP")
 
 #### 4.3.2 HTTP报文
-- HTTP请求报文
+##### 4.3.2.1 HTTP请求报文
 ```shell
 GET /index.html HTTP/1.1\r\n
 Host: www-net.cs.umass.edu\r\n
@@ -232,5 +232,111 @@ Connection: keep-alive\r\n
     - Host：请求主机名称
   - message内容使用ASCII
 
-- HTTP响应报文
+
+**Question:**
+```shell
+GET /kurose_ross_sandbox/interactive/quotation8.htm HTTP/1.1
+Host: gaia.cs.umass.edu
+Accept: text/plain, text/html, image/jpeg, image/gif, audio/basic, audio/vnf.wave, video/mpeg, video/wmv,
+Accept-Language: en-us, en-gb;q=0.1, en;q=0.3, fr, fr-ch, zh, da, fi, ar, cs
+If-Modified-Since: Mon, 10 Aug 2020 14:02:13 -0700
+User Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.168 Safari/535.19
+```
+- What is the name of the file that is being retrieved in this GET message?
+{{< admonition type=tip title="Answer" open=false >}}
+The name of the file is quotation8.htm 
+{{< /admonition >}}
+
+- What version of HTTP is the client running?
+{{< admonition type=tip title="Answer" open=false >}}
+The client is running on HTTP/1.1
+{{< /admonition >}}
+
+- True or False: The client will accept html files
+{{< admonition type=tip title="Answer" open=false >}}
+True. In the 'Accept' field the client includes 'text/html' files.
+{{< /admonition >}}
+
+- True or False: The client will accept jpeg images
+{{< admonition type=tip title="Answer" open=false >}}
+True. The client does include 'image/jpeg' in its 'Accept' field.
+{{< /admonition >}}
+
+- What is the client's preferred version of English?
+{{< admonition type=tip title="Answer" open=false >}}
+The client's preferred version of English is American English. Any language without a defined q value has a default value of 1. 
+{{< /admonition >}}
+     
+- What is the client's least preferred version of English?
+{{< admonition type=tip title="Answer" open=false >}}
+The client's least preferred version of English is British English because it has the lowest q value.
+{{< /admonition >}}
+     
+- True or False: The client will accept the German language
+{{< admonition type=tip title="Answer" open=false >}}
+False. The client does NOT include German in its 'Accepted-Language' field.
+{{< /admonition >}}
+     
+- True or False: The client already has a cached copy of the file
+{{< admonition type=tip title="Answer" open=false >}}
+True. The client has a cached copy of the file that was updated on: Mon, 10 Aug 2020 14:02:13 -0700
+{{< /admonition >}}
+     
+
+#### 4.3.2.2 HTTP响应报文
+```shell
+HTTP/1.1 200 OK\r\n
+Date: Sun, 26 Sep 2010 20:09:20 GMT\r\n
+Server: Apache/2.0.52 (CentOS)\r\n
+Last-Modified: Tue, 30 Oct 2007 17:00:02 GMT\r\n
+ETag: "17dc6-a5c-bf716880"\r\n
+Accept-Ranges: bytes\r\n
+Content-Length: 2652\r\n
+Keep-Alive: timeout=10, max=100\r\n
+Connection: Keep-Alive\r\n
+Content-Type: text/html; charset=ISO-8859-1\r\n
+\r\n
+data data data data data ... 
+```
+- 状态行：协议版本/响应状态
+- 首部行
+- 数据部分：请求的文件
+
+#### 4.3.2.3 HTTP响应状态码
+- **200 OK**: request succeeded, requested object later in this message
+- **301 Moved Permanently**: requested object moved, new location specified later in this message (in Location: field). The client software will automatically retrieve the new URL.
+- **400 Bad Request**: request msg not understood by server
+- **404 Not Found**: requested document not found on this server
+- **505 HTTP Version Not Supported**
+
+**Question**
+- Is the response message using HTTP 1.0 or HTTP 1.1? Explain.
+{{< admonition type=tip title="Answer" open=false >}}
+The server is running HTTP version 1.0
+{{< /admonition >}}
+
+- Was the server able to send the document successfully? Explain
+{{< admonition type=tip title="Answer" open=false >}}
+Yes, the server was able to send the document successfully since the response code is 200 OK
+{{< /admonition >}}
+
+- At what date and time was this response sent?
+{{< admonition type=tip title="Answer" open=false >}}
+Sun, 28 Oct 2018 13:43:45 +0000
+{{< /admonition >}}
+
+- How many bytes are there in the document being returned by the server?
+{{< admonition type=tip title="Answer" open=false >}}
+There are 401 bytes in the document being returned by the server
+{{< /admonition >}}
+
+- What is the name of the server and its version?
+{{< admonition type=tip title="Answer" open=false >}}
+The server used is Apache/2.2.3
+{{< /admonition >}}
+
+
+
+
+
 
