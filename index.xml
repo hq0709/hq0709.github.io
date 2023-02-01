@@ -23,6 +23,14 @@
     <description><![CDATA[1. 网络层功能 1.1 转发（数据平面的功能） 将数据包从路由器的输入移动到适当的路由器输出：move packets from router’s input to appropriate router output 1.2 路由（控制平面的功]]></description>
 </item>
 <item>
+    <title>计网知识点总结 Week 3 (应用层：DNS和Email)</title>
+    <link>http://hq0709.github.io/computer-network-review-week4/</link>
+    <pubDate>Sat, 28 Jan 2023 21:51:40 &#43;0800</pubDate>
+    <author>Hanqi Jiang</author>
+    <guid>http://hq0709.github.io/computer-network-review-week4/</guid>
+    <description><![CDATA[1. 命名和地址 一个网络的命名和地址有IP(IPv4, 4 bits)和Host name(e.g. lancaster.ac.uk)，DNS用来映射主机名和IP。 2. DNS:]]></description>
+</item>
+<item>
     <title>计网知识点总结 Week 3 (应用层概述)</title>
     <link>http://hq0709.github.io/computer-network-review-week3/</link>
     <pubDate>Sat, 28 Jan 2023 21:50:40 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>Hanqi Jiang</author>
     <guid>http://hq0709.github.io/convert/</guid>
     <description><![CDATA[使用python将视频转换为照片 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54]]></description>
-</item>
-<item>
-    <title>Markdown 基本语法</title>
-    <link>http://hq0709.github.io/basic-markdown-syntax/</link>
-    <pubDate>Sun, 08 Jan 2023 21:57:40 &#43;0800</pubDate>
-    <author>Hanqi Jiang</author>
-    <guid>http://hq0709.github.io/basic-markdown-syntax/</guid>
-    <description><![CDATA[<p>这篇文章提供了可以在 Hugo 的文章中使用的基本 Markdown 语法示例.</p>]]></description>
 </item>
 </channel>
 </rss>
