@@ -34,7 +34,7 @@
                             "url": "http:\/\/hq0709.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Computer network","wordcount":  726 ,
+                        }],"genre": "posts","keywords": "Computer network","wordcount":  1094 ,
         "url": "http:\/\/hq0709.github.io\/computer-network-review-week4\/","datePublished": "2023-01-28T21:51:40+08:00","dateModified": "2023-02-01T23:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -119,8 +119,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">计网知识点总结 Week 4 (应用层：DNS和Email)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="hq0709.github.io" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Hanqi Jiang</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/course-notes/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Course notes</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-28">2023-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 726 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/computer-network-review-week4/" class="leancloud_visitors" data-flag-title="计网知识点总结 Week 4 (应用层：DNS和Email)">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-28">2023-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1094 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/computer-network-review-week4/" class="leancloud_visitors" data-flag-title="计网知识点总结 Week 4 (应用层：DNS和Email)">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -145,6 +145,11 @@
     <li><a href="#3-email">3. Email</a>
       <ul>
         <li><a href="#31-三个主要组成部分">3.1 三个主要组成部分</a></li>
+        <li><a href="#32-smtp">3.2 SMTP</a></li>
+        <li><a href="#33-mail-message-format">3.3 Mail Message Format</a></li>
+        <li><a href="#34-pop3">3.4 POP3</a></li>
+        <li><a href="#35-imap">3.5 IMAP</a></li>
+        <li><a href="#基于web的email">基于web的email</a></li>
       </ul>
     </li>
   </ul>
@@ -290,6 +295,79 @@
 <li>Internet mail access protocol (IMAP)</li>
 </ul>
 </li>
+</ul>
+<h3 id="32-smtp">3.2 SMTP</h3>
+<ul>
+<li>port 25</li>
+<li>从sending server到receiving server的直接传输</li>
+<li>传输的三个步骤
+<ul>
+<li>建立TCP连接（握手）</li>
+<li>传输文件</li>
+<li>关闭连接
+<figure><a class="lightgallery" href="/computer-network-review-week4/5.png" title="邮件发送文件的过程" data-thumbnail="/computer-network-review-week4/5.png" data-sub-html="<h2>邮件发送文件的过程</h2><p>邮件发送文件的过程</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week4/5.png"
+            data-srcset="/computer-network-review-week4/5.png, /computer-network-review-week4/5.png 1.5x, /computer-network-review-week4/5.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week4/5.png" width="1138" height="302" />
+    </a><figcaption class="image-caption">邮件发送文件的过程</figcaption>
+    </figure></li>
+<li>邮件的发送不会经过其他的server，都是直接发送的</li>
+</ul>
+</li>
+<li>SMTP采用持久连接</li>
+<li>SMTP要求邮件的标题和正文采用7位ASCII</li>
+<li>SMTP和HTTP对比
+<figure><a class="lightgallery" href="/computer-network-review-week4/6.png" title="对比" data-thumbnail="/computer-network-review-week4/6.png" data-sub-html="<h2>SMTP和HTTP对比</h2><p>对比</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week4/6.png"
+            data-srcset="/computer-network-review-week4/6.png, /computer-network-review-week4/6.png 1.5x, /computer-network-review-week4/6.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week4/6.png" width="1502" height="754" />
+    </a><figcaption class="image-caption">SMTP和HTTP对比</figcaption>
+    </figure></li>
+</ul>
+<h3 id="33-mail-message-format">3.3 Mail Message Format</h3>
+<p><figure><a class="lightgallery" href="/computer-network-review-week4/7.png" title="邮件信息格式" data-thumbnail="/computer-network-review-week4/7.png" data-sub-html="<h2>邮件信息格式</h2><p>邮件信息格式</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week4/7.png"
+            data-srcset="/computer-network-review-week4/7.png, /computer-network-review-week4/7.png 1.5x, /computer-network-review-week4/7.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week4/7.png" width="1620" height="640" />
+    </a><figcaption class="image-caption">邮件信息格式</figcaption>
+    </figure></p>
+<h3 id="34-pop3">3.4 POP3</h3>
+<ul>
+<li>POP3在会话之间是无状态的</li>
+<li>在交易阶段（transaction phase），可以被设置成两种模式
+<ul>
+<li>“download and delete” mode: 邮件在下载之后从服务器中删除</li>
+<li>“download and keep” mode: 保留</li>
+</ul>
+</li>
+</ul>
+<h3 id="35-imap">3.5 IMAP</h3>
+<ul>
+<li>比POP3有更多功能
+<ul>
+<li>organize emails in folders</li>
+<li>所有更改，服务器与邮箱客户端同步</li>
+<li>Keeps user state across sessions 跨会话保持用户状态</li>
+<li>allows parts of a message to be retrieved 允许检索消息的部分内容</li>
+</ul>
+</li>
+</ul>
+<h3 id="基于web的email">基于web的email</h3>
+<ul>
+<li>使用HTTP协议传输</li>
+<li>但是在邮件服务器之间仍使用SMTP</li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
