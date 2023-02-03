@@ -110,6 +110,9 @@
   - Keeps user state across sessions 跨会话保持用户状态
   - allows parts of a message to be retrieved 允许检索消息的部分内容
 
+### 几个协议的关系总结
+![协议之间关系](8.png "协议之间关系")
+
 ### 基于web的email
 - 使用HTTP协议传输
 - 但是在邮件服务器之间仍使用SMTP

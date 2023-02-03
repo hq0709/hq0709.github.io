@@ -23,6 +23,14 @@
     <description><![CDATA[1. 网络层功能 1.1 转发（数据平面的功能） 将数据包从路由器的输入移动到适当的路由器输出：move packets from router’s input to appropriate router output 1.2 路由（控制平面的功]]></description>
 </item>
 <item>
+    <title>计网知识点总结 Week 5 (传输层概述)</title>
+    <link>http://hq0709.github.io/computer-network-review-week5/</link>
+    <pubDate>Sat, 28 Jan 2023 21:52:40 &#43;0800</pubDate>
+    <author>Hanqi Jiang</author>
+    <guid>http://hq0709.github.io/computer-network-review-week5/</guid>
+    <description><![CDATA[1. 传输层综述 1.1 功能 provide logical communication between application processes running on different hosts 注意是在不同主机上运行的应用进程 transport protocols implemented in end systems not in routers 在终端系统中实现，不是路由器 （路由器只有Networ]]></description>
+</item>
+<item>
     <title>计网知识点总结 Week 4 (应用层：DNS和Email)</title>
     <link>http://hq0709.github.io/computer-network-review-week4/</link>
     <pubDate>Sat, 28 Jan 2023 21:51:40 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>Hanqi Jiang</author>
     <guid>http://hq0709.github.io/paper-depth-learning/</guid>
     <description><![CDATA[Unsupervised Scale-consistent Depth and Ego-motion Learning from Monocular Video 根据摘要来看，文章主要提出了一种深度网络能够得出深度图 所以文章中的loss很有可能是主要对深度网络的表现做优化 code：点]]></description>
-</item>
-<item>
-    <title>Python实现将视频转换为照片</title>
-    <link>http://hq0709.github.io/convert/</link>
-    <pubDate>Mon, 09 Jan 2023 21:57:40 &#43;0800</pubDate>
-    <author>Hanqi Jiang</author>
-    <guid>http://hq0709.github.io/convert/</guid>
-    <description><![CDATA[使用python将视频转换为照片 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54]]></description>
 </item>
 </channel>
 </rss>

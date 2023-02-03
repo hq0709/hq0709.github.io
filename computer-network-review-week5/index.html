@@ -4,38 +4,38 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>计网知识点总结 Week 4 (应用层：DNS和Email) - jhqyyds</title><meta name="Description" content="111"><meta property="og:title" content="计网知识点总结 Week 4 (应用层：DNS和Email)" />
+        <title>计网知识点总结 Week 5 (传输层概述) - jhqyyds</title><meta name="Description" content="111"><meta property="og:title" content="计网知识点总结 Week 5 (传输层概述)" />
 <meta property="og:description" content="111" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://hq0709.github.io/computer-network-review-week4/" /><meta property="og:image" content="http://hq0709.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-01-28T21:51:40+08:00" />
-<meta property="article:modified_time" content="2023-02-01T23:45:40+08:00" /><meta property="og:site_name" content="Hanqi Jiang" />
+<meta property="og:url" content="http://hq0709.github.io/computer-network-review-week5/" /><meta property="og:image" content="http://hq0709.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-01-28T21:52:40+08:00" />
+<meta property="article:modified_time" content="2023-02-03T23:45:40+08:00" /><meta property="og:site_name" content="Hanqi Jiang" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://hq0709.github.io/logo.png"/>
 
-<meta name="twitter:title" content="计网知识点总结 Week 4 (应用层：DNS和Email)"/>
+<meta name="twitter:title" content="计网知识点总结 Week 5 (传输层概述)"/>
 <meta name="twitter:description" content="111"/>
 <meta name="application-name" content="Hanqi">
 <meta name="apple-mobile-web-app-title" content="Hanqi"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://hq0709.github.io/computer-network-review-week4/" /><link rel="prev" href="http://hq0709.github.io/computer-network-review-week3/" /><link rel="next" href="http://hq0709.github.io/computer-network-review-week5/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://hq0709.github.io/computer-network-review-week5/" /><link rel="prev" href="http://hq0709.github.io/computer-network-review-week4/" /><link rel="next" href="http://hq0709.github.io/computer-network-review-week9/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "计网知识点总结 Week 4 (应用层：DNS和Email)",
+        "headline": "计网知识点总结 Week 5 (传输层概述)",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "http:\/\/hq0709.github.io\/computer-network-review-week4\/"
+            "@id": "http:\/\/hq0709.github.io\/computer-network-review-week5\/"
         },"image": [{
                             "@type": "ImageObject",
                             "url": "http:\/\/hq0709.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Computer network","wordcount":  1109 ,
-        "url": "http:\/\/hq0709.github.io\/computer-network-review-week4\/","datePublished": "2023-01-28T21:51:40+08:00","dateModified": "2023-02-01T23:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "Computer network","wordcount":  341 ,
+        "url": "http:\/\/hq0709.github.io\/computer-network-review-week5\/","datePublished": "2023-01-28T21:52:40+08:00","dateModified": "2023-02-03T23:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
                     "@type": "ImageObject",
@@ -71,7 +71,7 @@
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
                 </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
                     <i class="fa fa-globe" aria-hidden="true"></i>                      
-                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/computer-network-review-week4/" selected>简体中文</option></select>
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/computer-network-review-week5/" selected>简体中文</option></select>
                 </a></div>
         </div>
     </div>
@@ -105,7 +105,7 @@
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
                     <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/computer-network-review-week4/" selected>简体中文</option></select>
+                    <select class="language-select" onchange="location = this.value;"><option value="/computer-network-review-week5/" selected>简体中文</option></select>
                 </a></div>
     </div>
 </header><div class="search-dropdown desktop">
@@ -117,10 +117,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">计网知识点总结 Week 4 (应用层：DNS和Email)</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">计网知识点总结 Week 5 (传输层概述)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="hq0709.github.io" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Hanqi Jiang</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/course-notes/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Course notes</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-28">2023-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1109 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/computer-network-review-week4/" class="leancloud_visitors" data-flag-title="计网知识点总结 Week 4 (应用层：DNS和Email)">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-28">2023-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 341 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/computer-network-review-week5/" class="leancloud_visitors" data-flag-title="计网知识点总结 Week 5 (传输层概述)">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -130,269 +130,86 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#1-命名和地址">1. 命名和地址</a></li>
-    <li><a href="#2-dns-domain-name-system-域名系统">2. DNS: Domain Name System 域名系统</a>
+    <li><a href="#1-传输层综述">1. 传输层综述</a>
       <ul>
-        <li><a href="#21-dns的用处">2.1 DNS的用处</a></li>
-        <li><a href="#22-dns的结构">2.2 DNS的结构</a></li>
-        <li><a href="#23-fully-qualified-domain-names-fqdn">2.3 Fully Qualified Domain Names (FQDN)</a></li>
-        <li><a href="#24-root-name-server">2.4 Root name server</a></li>
-        <li><a href="#25-dns名称解析迭代查询">2.5 DNS名称解析：迭代查询</a></li>
-        <li><a href="#26-dns-records">2.6 DNS records</a></li>
-        <li><a href="#27-dns-protocol-messages-dns协议报文">2.7 DNS protocol messages DNS协议报文</a></li>
+        <li><a href="#11-功能">1.1 功能</a></li>
+        <li><a href="#12-传输层服务">1.2 传输层服务</a></li>
+        <li><a href="#13-传输层的任务">1.3 传输层的任务</a></li>
+        <li><a href="#14-传输层的目的">1.4 传输层的目的</a></li>
       </ul>
     </li>
-    <li><a href="#3-email">3. Email</a>
+    <li><a href="#15-一些传输层功能细化">1.5 一些传输层功能（细化）</a></li>
+    <li><a href="#2-multiplexingdemultiplexing-多路复用多路分解">2. Multiplexing/demultiplexing 多路复用/多路分解</a>
       <ul>
-        <li><a href="#31-三个主要组成部分">3.1 三个主要组成部分</a></li>
-        <li><a href="#32-smtp">3.2 SMTP</a></li>
-        <li><a href="#33-mail-message-format">3.3 Mail Message Format</a></li>
-        <li><a href="#34-pop3">3.4 POP3</a></li>
-        <li><a href="#35-imap">3.5 IMAP</a></li>
-        <li><a href="#几个协议的关系总结">几个协议的关系总结</a></li>
-        <li><a href="#基于web的email">基于web的email</a></li>
+        <li><a href="#21">2.1</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="1-命名和地址">1. 命名和地址</h2>
+            </div><div class="content" id="content"><h2 id="1-传输层综述">1. 传输层综述</h2>
+<h3 id="11-功能">1.1 功能</h3>
 <ul>
-<li>一个网络的命名和地址有IP(IPv4, 4 bits)和Host name(e.g. lancaster.ac.uk)，DNS用来映射主机名和IP。</li>
+<li>provide <strong>logical communication</strong> between application processes running on different hosts 注意是在不同主机上运行的应用进程</li>
+<li>transport protocols implemented in end systems not in routers 在终端系统中实现，不是路由器 （路由器只有Network，Datalink，Physical）</li>
+<li>TCP和UDP是两种传输层协议
+<ul>
+<li>TCP提供的服务：
+<ul>
+<li>reliable, in-order delivery</li>
+<li>congestion control</li>
+<li>flow control</li>
+<li>connection setup</li>
 </ul>
-<h2 id="2-dns-domain-name-system-域名系统">2. DNS: Domain Name System 域名系统</h2>
-<blockquote>
-<p>分布式分层数据库distributed database 层次化的数据库</p>
-<p>使用UDP 53号端口</p>
-<p>体现了网络边缘的复杂性 complexity at network’s “edge”</p>
-</blockquote>
-<h3 id="21-dns的用处">2.1 DNS的用处</h3>
-<ul>
-<li>被<strong>其他应用层协议</strong>（例如HTTP和SMTP）用于将主机名转换成IP地址</li>
-<li>为<strong>互联网中的用户应用程序和其他软件</strong>将主机名转换成底层IP</li>
-</ul>
-<h3 id="22-dns的结构">2.2 DNS的结构</h3>
-<p><figure><a class="lightgallery" href="/computer-network-review-week4/1.png" title="DNS结构" data-thumbnail="/computer-network-review-week4/1.png" data-sub-html="<h2>DNS结构</h2><p>DNS结构</p>">
-        <img
-            class="lazyload"
-            src="/svg/loading.min.svg"
-            data-src="/computer-network-review-week4/1.png"
-            data-srcset="/computer-network-review-week4/1.png, /computer-network-review-week4/1.png 1.5x, /computer-network-review-week4/1.png 2x"
-            data-sizes="auto"
-            alt="/computer-network-review-week4/1.png" width="1280" height="392" />
-    </a><figcaption class="image-caption">DNS结构</figcaption>
-    </figure></p>
-<ul>
-<li>从上到下依次去找，比如先定位到.com服务器，然后在下面找host name</li>
-<li>TLD顶级域名</li>
-<li>为什么不采用集中式(centralize)的结构?
-<ul>
-<li>single point of failure 单点崩溃，全都崩溃</li>
-<li>traffic volume 流量大</li>
-<li>distant centralized database ？？</li>
-<li>maintenance 难以维护</li>
-<li>doesn&rsquo;t scale 无法扩展</li>
+</li>
+<li>UDP是不可靠的传输</li>
 </ul>
 </li>
 </ul>
-<p><figure><a class="lightgallery" href="/computer-network-review-week4/2.png" title="域名" data-thumbnail="/computer-network-review-week4/2.png" data-sub-html="<h2>域名</h2><p>域名</p>">
-        <img
-            class="lazyload"
-            src="/svg/loading.min.svg"
-            data-src="/computer-network-review-week4/2.png"
-            data-srcset="/computer-network-review-week4/2.png, /computer-network-review-week4/2.png 1.5x, /computer-network-review-week4/2.png 2x"
-            data-sizes="auto"
-            alt="/computer-network-review-week4/2.png" width="696" height="375" />
-    </a><figcaption class="image-caption">域名</figcaption>
-    </figure></p>
+<h3 id="12-传输层服务">1.2 传输层服务</h3>
 <ul>
-<li>从上到下依次是高级到低级的域名</li>
-</ul>
-<h3 id="23-fully-qualified-domain-names-fqdn">2.3 Fully Qualified Domain Names (FQDN)</h3>
+<li>Connection oriented service 面向连接的服务
 <ul>
-<li>绝对域名，例如 mail.google.com.</li>
-<li>FDQN通常以一个点作为结尾</li>
-</ul>
-<h3 id="24-root-name-server">2.4 Root name server</h3>
-<ul>
-<li>ICANN (Internet Corporation for Assigned Names and Numbers) manages root DNS domain</li>
-<li>有13个logic root name servers，但是实习上远不止这些服务器（physical）</li>
-</ul>
-<h3 id="25-dns名称解析迭代查询">2.5 DNS名称解析：迭代查询</h3>
-<p><figure><a class="lightgallery" href="/computer-network-review-week4/3.png" title="迭代查询" data-thumbnail="/computer-network-review-week4/3.png" data-sub-html="<h2>迭代查询</h2><p>迭代查询</p>">
-        <img
-            class="lazyload"
-            src="/svg/loading.min.svg"
-            data-src="/computer-network-review-week4/3.png"
-            data-srcset="/computer-network-review-week4/3.png, /computer-network-review-week4/3.png 1.5x, /computer-network-review-week4/3.png 2x"
-            data-sizes="auto"
-            alt="/computer-network-review-week4/3.png" width="705" height="332" />
-    </a><figcaption class="image-caption">迭代查询</figcaption>
-    </figure></p>
-<ul>
-<li>被联系的服务器回复目的服务器名称，</li>
-<li>&ldquo;我不知道这个名字，可以问问这个server&rdquo;</li>
-<li>依次访问local DNS, root DNS, TLD DNS, authoritative DNS</li>
-</ul>
-<h3 id="26-dns-records">2.6 DNS records</h3>
-<blockquote>
-<p>DNS: distributed database storing resource records (RR)</p>
-<p>RR format: (name, value, type, ttl)</p>
-</blockquote>
-<ul>
-<li>type=A
-<ul>
-<li>(hostname, IP address, A, ttl)</li>
-<li>(relay1.bar.foo.com, 145.37.93.126, A)</li>
-<li>这种类型，将真实名称和ip对应起来</li>
+<li>connection set-up, data transfer, disconnect</li>
 </ul>
 </li>
-<li>type=NS
+<li>Connectionless service
 <ul>
-<li>(domain, hostname of authoritative name server, NS, ttl)</li>
-<li>(foo.com, dns.foo.com, NS)</li>
-<li>这种类型将dns和顶级域名对应起来</li>
-</ul>
-</li>
-<li>type=CNAME
-<ul>
-<li>值是别名主机名的“规范化”(真实)名称</li>
-<li>(foo.com, relay1.bar.foo.com, CNAME)</li>
-</ul>
-</li>
-<li>type=MX
-<ul>
-<li>值是具有别名主机名的邮件服务器的规范名称</li>
-<li>(foo.com, mail.bar.foo.com, MX)</li>
+<li>isolated unit 独立单元的传输</li>
 </ul>
 </li>
 </ul>
-<h3 id="27-dns-protocol-messages-dns协议报文">2.7 DNS protocol messages DNS协议报文</h3>
-<p><figure><a class="lightgallery" href="/computer-network-review-week4/4.png" title="DNS协议报文" data-thumbnail="/computer-network-review-week4/4.png" data-sub-html="<h2>DNS协议报文</h2><p>DNS协议报文</p>">
-        <img
-            class="lazyload"
-            src="/svg/loading.min.svg"
-            data-src="/computer-network-review-week4/4.png"
-            data-srcset="/computer-network-review-week4/4.png, /computer-network-review-week4/4.png 1.5x, /computer-network-review-week4/4.png 2x"
-            data-sizes="auto"
-            alt="/computer-network-review-week4/4.png" width="589" height="279" />
-    </a><figcaption class="image-caption">DNS协议报文</figcaption>
-    </figure></p>
+<h3 id="13-传输层的任务">1.3 传输层的任务</h3>
 <ul>
-<li>请求和响应报文都是如上格式</li>
+<li>将上层与子网的技术、设计和缺陷（imperfections）隔离开来</li>
+<li>在（可靠）数据传输服务的提供者和用户之间建立主要界限（major boundary）</li>
 </ul>
-<h2 id="3-email">3. Email</h2>
-<blockquote>
-<p>另一个application</p>
-<p>通常是Asynchronous（异步的）</p>
-</blockquote>
-<h3 id="31-三个主要组成部分">3.1 三个主要组成部分</h3>
+<h3 id="14-传输层的目的">1.4 传输层的目的</h3>
 <ul>
-<li>user agents</li>
-<li>mail servers</li>
-<li>communication protocols:
+<li>To <strong>Improve the Network Service quality</strong> that users and layers want to get from the network layer</li>
+<li>通过传输实体（transport entity）实现</li>
+</ul>
+<h2 id="15-一些传输层功能细化">1.5 一些传输层功能（细化）</h2>
 <ul>
-<li>simple mail transfer protocol: SMTP</li>
-<li>post office protocol 3 (POP3)</li>
-<li>Internet mail access protocol (IMAP)</li>
+<li>Multiplexing/de-multiplexing data for multiple applications</li>
+<li>Uses “port’’ abstraction</li>
+<li>Error control</li>
+<li>End-to-end flow control</li>
+<li>Congestion control</li>
 </ul>
-</li>
-</ul>
-<h3 id="32-smtp">3.2 SMTP</h3>
-<ul>
-<li>port 25</li>
-<li>从sending server到receiving server的直接传输</li>
-<li>传输的三个步骤
-<ul>
-<li>建立TCP连接（握手）</li>
-<li>传输文件</li>
-<li>关闭连接
-<figure><a class="lightgallery" href="/computer-network-review-week4/5.png" title="邮件发送文件的过程" data-thumbnail="/computer-network-review-week4/5.png" data-sub-html="<h2>邮件发送文件的过程</h2><p>邮件发送文件的过程</p>">
-        <img
-            class="lazyload"
-            src="/svg/loading.min.svg"
-            data-src="/computer-network-review-week4/5.png"
-            data-srcset="/computer-network-review-week4/5.png, /computer-network-review-week4/5.png 1.5x, /computer-network-review-week4/5.png 2x"
-            data-sizes="auto"
-            alt="/computer-network-review-week4/5.png" width="1138" height="302" />
-    </a><figcaption class="image-caption">邮件发送文件的过程</figcaption>
-    </figure></li>
-<li>邮件的发送不会经过其他的server，都是直接发送的</li>
-</ul>
-</li>
-<li>SMTP采用持久连接</li>
-<li>SMTP要求邮件的标题和正文采用7位ASCII</li>
-<li>SMTP和HTTP对比
-<figure><a class="lightgallery" href="/computer-network-review-week4/6.png" title="对比" data-thumbnail="/computer-network-review-week4/6.png" data-sub-html="<h2>SMTP和HTTP对比</h2><p>对比</p>">
-        <img
-            class="lazyload"
-            src="/svg/loading.min.svg"
-            data-src="/computer-network-review-week4/6.png"
-            data-srcset="/computer-network-review-week4/6.png, /computer-network-review-week4/6.png 1.5x, /computer-network-review-week4/6.png 2x"
-            data-sizes="auto"
-            alt="/computer-network-review-week4/6.png" width="1502" height="754" />
-    </a><figcaption class="image-caption">SMTP和HTTP对比</figcaption>
-    </figure></li>
-</ul>
-<h3 id="33-mail-message-format">3.3 Mail Message Format</h3>
-<p><figure><a class="lightgallery" href="/computer-network-review-week4/7.png" title="邮件信息格式" data-thumbnail="/computer-network-review-week4/7.png" data-sub-html="<h2>邮件信息格式</h2><p>邮件信息格式</p>">
-        <img
-            class="lazyload"
-            src="/svg/loading.min.svg"
-            data-src="/computer-network-review-week4/7.png"
-            data-srcset="/computer-network-review-week4/7.png, /computer-network-review-week4/7.png 1.5x, /computer-network-review-week4/7.png 2x"
-            data-sizes="auto"
-            alt="/computer-network-review-week4/7.png" width="1620" height="640" />
-    </a><figcaption class="image-caption">邮件信息格式</figcaption>
-    </figure></p>
-<h3 id="34-pop3">3.4 POP3</h3>
-<ul>
-<li>POP3在会话之间是无状态的</li>
-<li>在交易阶段（transaction phase），可以被设置成两种模式
-<ul>
-<li>“download and delete” mode: 邮件在下载之后从服务器中删除</li>
-<li>“download and keep” mode: 保留</li>
-</ul>
-</li>
-</ul>
-<h3 id="35-imap">3.5 IMAP</h3>
-<ul>
-<li>比POP3有更多功能
-<ul>
-<li>organize emails in folders</li>
-<li>所有更改，服务器与邮箱客户端同步</li>
-<li>Keeps user state across sessions 跨会话保持用户状态</li>
-<li>allows parts of a message to be retrieved 允许检索消息的部分内容</li>
-</ul>
-</li>
-</ul>
-<h3 id="几个协议的关系总结">几个协议的关系总结</h3>
-<p><figure><a class="lightgallery" href="/computer-network-review-week4/8.png" title="协议之间关系" data-thumbnail="/computer-network-review-week4/8.png" data-sub-html="<h2>协议之间关系</h2><p>协议之间关系</p>">
-        <img
-            class="lazyload"
-            src="/svg/loading.min.svg"
-            data-src="/computer-network-review-week4/8.png"
-            data-srcset="/computer-network-review-week4/8.png, /computer-network-review-week4/8.png 1.5x, /computer-network-review-week4/8.png 2x"
-            data-sizes="auto"
-            alt="/computer-network-review-week4/8.png" width="567" height="130" />
-    </a><figcaption class="image-caption">协议之间关系</figcaption>
-    </figure></p>
-<h3 id="基于web的email">基于web的email</h3>
-<ul>
-<li>使用HTTP协议传输</li>
-<li>但是在邮件服务器之间仍使用SMTP</li>
-</ul>
+<h2 id="2-multiplexingdemultiplexing-多路复用多路分解">2. Multiplexing/demultiplexing 多路复用/多路分解</h2>
+<h3 id="21">2.1</h3>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2023-02-01</span>
+                <span>更新于 2023-02-03</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/computer-network-review-week4/index.md" target="_blank">阅读原始文档</a>
+                            <a class="link-to-markdown" href="/computer-network-review-week5/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://hq0709.github.io/computer-network-review-week4/" data-title="计网知识点总结 Week 4 (应用层：DNS和Email)" data-hashtags="Computer network"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://hq0709.github.io/computer-network-review-week4/" data-hashtag="Computer network"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://hq0709.github.io/computer-network-review-week4/" data-title="计网知识点总结 Week 4 (应用层：DNS和Email)"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://hq0709.github.io/computer-network-review-week4/" data-title="计网知识点总结 Week 4 (应用层：DNS和Email)"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://hq0709.github.io/computer-network-review-week4/" data-title="计网知识点总结 Week 4 (应用层：DNS和Email)" data-ralateuid="jhqyyds"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://hq0709.github.io/computer-network-review-week5/" data-title="计网知识点总结 Week 5 (传输层概述)" data-hashtags="Computer network"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://hq0709.github.io/computer-network-review-week5/" data-hashtag="Computer network"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://hq0709.github.io/computer-network-review-week5/" data-title="计网知识点总结 Week 5 (传输层概述)"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://hq0709.github.io/computer-network-review-week5/" data-title="计网知识点总结 Week 5 (传输层概述)"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://hq0709.github.io/computer-network-review-week5/" data-title="计网知识点总结 Week 5 (传输层概述)" data-ralateuid="jhqyyds"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -404,8 +221,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/computer-network-review-week3/" class="prev" rel="prev" title="计网知识点总结 Week 3 (应用层概述)"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>计网知识点总结 Week 3 (应用层概述)</a>
-            <a href="/computer-network-review-week5/" class="next" rel="next" title="计网知识点总结 Week 5 (传输层概述)">计网知识点总结 Week 5 (传输层概述)<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/computer-network-review-week4/" class="prev" rel="prev" title="计网知识点总结 Week 4 (应用层：DNS和Email)"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>计网知识点总结 Week 4 (应用层：DNS和Email)</a>
+            <a href="/computer-network-review-week9/" class="next" rel="next" title="计网知识点总结 Week 9">计网知识点总结 Week 9<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
