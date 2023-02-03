@@ -34,7 +34,7 @@
                             "url": "http:\/\/hq0709.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Computer network","wordcount":  341 ,
+                        }],"genre": "posts","keywords": "Computer network","wordcount":  793 ,
         "url": "http:\/\/hq0709.github.io\/computer-network-review-week5\/","datePublished": "2023-01-28T21:52:40+08:00","dateModified": "2023-02-03T23:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -119,8 +119,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">计网知识点总结 Week 5 (传输层概述)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="hq0709.github.io" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Hanqi Jiang</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/course-notes/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Course notes</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-28">2023-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 341 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/computer-network-review-week5/" class="leancloud_visitors" data-flag-title="计网知识点总结 Week 5 (传输层概述)">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-28">2023-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 793 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/computer-network-review-week5/" class="leancloud_visitors" data-flag-title="计网知识点总结 Week 5 (传输层概述)">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -141,7 +141,11 @@
     <li><a href="#15-一些传输层功能细化">1.5 一些传输层功能（细化）</a></li>
     <li><a href="#2-multiplexingdemultiplexing-多路复用多路分解">2. Multiplexing/demultiplexing 多路复用/多路分解</a>
       <ul>
-        <li><a href="#21">2.1</a></li>
+        <li><a href="#21-demultiplexing-如何工作">2.1 demultiplexing 如何工作</a></li>
+        <li><a href="#22-udp-user-datagram-protocol">2.2 UDP: User Datagram Protocol</a></li>
+        <li><a href="#23-udp-segment-header">2.3 UDP segment header</a></li>
+        <li><a href="#24-udp-checksum">2.4 UDP checksum</a></li>
+        <li><a href="#25-udp的优点">2.5 UDP的优点</a></li>
       </ul>
     </li>
   </ul>
@@ -197,7 +201,52 @@
 <li>Congestion control</li>
 </ul>
 <h2 id="2-multiplexingdemultiplexing-多路复用多路分解">2. Multiplexing/demultiplexing 多路复用/多路分解</h2>
-<h3 id="21">2.1</h3>
+<blockquote>
+<p>mutiplexing(sender): handle data from multiple
+sockets, add transport header (later used for demultiplexing) and pass segments to network layer 将来自多个socket的数据集合，加传输头，把segments给网络层
+demultiplexing(receiver): use header info to deliver received segments to correct socket 利用头部信息把segments传输到正确的socket</p>
+</blockquote>
+<h3 id="21-demultiplexing-如何工作">2.1 demultiplexing 如何工作</h3>
+<ul>
+<li>每一个datagram中都有源IP和目标IP</li>
+<li>每一个datagram都携带一个transport segement，segment中有源端口和目标端口的信息</li>
+<li>通过IP和端口定位到对应的host，传输segment</li>
+</ul>
+<h3 id="22-udp-user-datagram-protocol">2.2 UDP: User Datagram Protocol</h3>
+<ul>
+<li>没有握手，传输的数据可能会丢失/无序（out-of-order）交付到application</li>
+<li>为什么用UDP？
+<ul>
+<li>no connection establishment</li>
+<li>simple(在sender和receiver处没有连接状态)</li>
+<li>smaller header size</li>
+<li>no congestion control</li>
+</ul>
+</li>
+<li>如果可靠传输需要使用UDP，在应用层加上所需的可靠性和拥塞控制</li>
+</ul>
+<h3 id="23-udp-segment-header">2.3 UDP segment header</h3>
+<p><figure><a class="lightgallery" href="/computer-network-review-week5/1.png" title="UDP segment header" data-thumbnail="/computer-network-review-week5/1.png" data-sub-html="<h2>UDP segment header</h2><p>UDP segment header</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week5/1.png"
+            data-srcset="/computer-network-review-week5/1.png, /computer-network-review-week5/1.png 1.5x, /computer-network-review-week5/1.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week5/1.png" width="1130" height="678" />
+    </a><figcaption class="image-caption">UDP segment header</figcaption>
+    </figure></p>
+<h3 id="24-udp-checksum">2.4 UDP checksum</h3>
+<ul>
+<li>16bits直接做加法，如果有进位加到最后面</li>
+<li>checksum是对sum的取反</li>
+</ul>
+<h3 id="25-udp的优点">2.5 UDP的优点</h3>
+<ul>
+<li>no setup/handshake needed（不会产生RTT）</li>
+<li>can function when network service is compromised 网络服务不可用的时候UDP仍是有效的</li>
+<li>有checksum（一部分reliability）</li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
