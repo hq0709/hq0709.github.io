@@ -80,3 +80,39 @@
   - post office protocol 3 (POP3)
   - Internet mail access protocol (IMAP)
 
+### 3.2 SMTP
+- port 25
+- 从sending server到receiving server的直接传输
+- 传输的三个步骤
+  - 建立TCP连接（握手）
+  - 传输文件
+  - 关闭连接
+![邮件发送文件的过程](5.png "邮件发送文件的过程")
+  - 邮件的发送不会经过其他的server，都是直接发送的
+- SMTP采用持久连接
+- SMTP要求邮件的标题和正文采用7位ASCII
+- SMTP和HTTP对比
+![对比](6.png "SMTP和HTTP对比")
+
+### 3.3 Mail Message Format 
+![邮件信息格式](7.png "邮件信息格式")
+
+### 3.4 POP3
+- POP3在会话之间是无状态的
+- 在交易阶段（transaction phase），可以被设置成两种模式
+  - “download and delete” mode: 邮件在下载之后从服务器中删除
+  - “download and keep” mode: 保留
+
+### 3.5 IMAP
+- 比POP3有更多功能
+  - organize emails in folders
+  - 所有更改，服务器与邮箱客户端同步
+  - Keeps user state across sessions 跨会话保持用户状态
+  - allows parts of a message to be retrieved 允许检索消息的部分内容
+
+### 几个协议的关系总结
+![协议之间关系](8.png "协议之间关系")
+
+### 基于web的email
+- 使用HTTP协议传输
+- 但是在邮件服务器之间仍使用SMTP
