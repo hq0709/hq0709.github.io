@@ -23,6 +23,14 @@
     <description><![CDATA[1. 网络层功能 1.1 转发（数据平面的功能） 将数据包从路由器的输入移动到适当的路由器输出：move packets from router’s input to appropriate router output 1.2 路由（控制平面的功]]></description>
 </item>
 <item>
+    <title>计网知识点总结 Week 6 (TCP拥塞控制)</title>
+    <link>http://hq0709.github.io/computer-network-review-week6/</link>
+    <pubDate>Sat, 28 Jan 2023 21:53:40 &#43;0800</pubDate>
+    <author>Hanqi Jiang</author>
+    <guid>http://hq0709.github.io/computer-network-review-week6/</guid>
+    <description><![CDATA[1.]]></description>
+</item>
+<item>
     <title>计网知识点总结 Week 5 (传输层概述)</title>
     <link>http://hq0709.github.io/computer-network-review-week5/</link>
     <pubDate>Sat, 28 Jan 2023 21:52:40 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>Hanqi Jiang</author>
     <guid>http://hq0709.github.io/operating-system-review/</guid>
     <description><![CDATA[tip 这是我总结的操作系统的考点，但内容并不完善，可以参考这篇笔记，里面有更详细的我关于知识点的记录 Chapter 1 updated in 2023.1.13 1. Monolithic OS（单一型）的优缺点？（单一]]></description>
-</item>
-<item>
-    <title>Unsupervised Scale-consistent Depth and Ego-motion Learning from Monocular Video</title>
-    <link>http://hq0709.github.io/paper-depth-learning/</link>
-    <pubDate>Thu, 12 Jan 2023 13:51:40 &#43;0800</pubDate>
-    <author>Hanqi Jiang</author>
-    <guid>http://hq0709.github.io/paper-depth-learning/</guid>
-    <description><![CDATA[Unsupervised Scale-consistent Depth and Ego-motion Learning from Monocular Video 根据摘要来看，文章主要提出了一种深度网络能够得出深度图 所以文章中的loss很有可能是主要对深度网络的表现做优化 code：点]]></description>
 </item>
 </channel>
 </rss>
