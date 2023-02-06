@@ -65,6 +65,46 @@ sockets, add transport header (later used for demultiplexing) and pass segments 
 - can function when network service is compromised 网络服务不可用的时候UDP仍是有效的
 - 有checksum（一部分reliability）
 
+## 3. TCP: transmission control protocol
+### 3.1 Overview
+- point-to-point
+- reliable, in-order byte steam
+- full duplex data
+- cumulative ACKs 累计确认
+- pipelining 拥塞和流量控制
+- connection-oriented
+- flow control
+
+### 3.2 TCP 报文
+![TCP报文](2.png "TCP报文")
+
+![ack](3.png "ack")
+
+### 3.3 TCP Reliable Data Transfer (RDT)
+- TCP在不可靠的IP传输上建立可靠的数据传输
+  - Pipelined segments 流水线
+  - Cumulative acks 累计ack确认
+  - Single retransmission timer 超时重传
+- 超时和重复ack会触发重传，[参考网址](https://jjlde7r0bk.feishu.cn/wiki/wikcnKsHF0wgyLqyviZ1HMurYyd)
+
+### 3.4 TCP sender and receiver 
+![TCP sender](4.png "TCP sender")
+![TCP receiver](5.png "TCP receiver")
+
+### 3.5 TCP flow control
+看下一章吧
+
+### 3.6 TCP connection management
+#### 3.6.1 三次握手
+![TCP三次握手](6.png "TCP三次握手")
+
+#### 3.6.2 关闭TCP连接 （四次挥手）
+![关闭TCP连接](7.png "TCP关闭连接（四次挥手）")
+- client, server each close their side of connection 客户端和服务器各自关闭（通过发送fin）
+  - send TCP segment with FIN bit = 1
+- respond to received FIN with ACK 回答接收到了fin
+  - on receiving FIN, ACK can be combined with own FIN
+- simultaneous FIN exchanges can be handled 可以同时处理fin交换
 
 
 

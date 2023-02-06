@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Geo-Neus: Geometry-Consistent Neural Implicit Surfaces Learning for Multi-view Reconstruction - jhqyyds</title><meta name="Description" content="2022年最新发表的NeuS变种：Geo-NeuS"><meta property="og:title" content="Geo-Neus: Geometry-Consistent Neural Implicit Surfaces Learning for Multi-view Reconstruction" />
+<meta property="og:description" content="2022年最新发表的NeuS变种：Geo-NeuS" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://hq0709.github.io/paper-geo-neus/" /><meta property="og:image" content="http://hq0709.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-01-04T21:57:40+08:00" />
+<meta property="article:modified_time" content="2023-01-09T17:11:40+08:00" /><meta property="og:site_name" content="Hanqi Jiang" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://hq0709.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Geo-Neus: Geometry-Consistent Neural Implicit Surfaces Learning for Multi-view Reconstruction"/>
+<meta name="twitter:description" content="2022年最新发表的NeuS变种：Geo-NeuS"/>
+<meta name="application-name" content="Hanqi">
+<meta name="apple-mobile-web-app-title" content="Hanqi"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://hq0709.github.io/paper-geo-neus/" /><link rel="next" href="http://hq0709.github.io/basic-markdown-syntax/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Geo-Neus: Geometry-Consistent Neural Implicit Surfaces Learning for Multi-view Reconstruction",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/hq0709.github.io\/paper-geo-neus\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "http:\/\/hq0709.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "3D reconstruction, Deep learning","wordcount":  1923 ,
+        "url": "http:\/\/hq0709.github.io\/paper-geo-neus\/","datePublished": "2023-01-04T21:57:40+08:00","dateModified": "2023-01-09T17:11:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/hq0709.github.io\/images\/avatar.png",
+                    "width":  828 ,
+                    "height":  828 
+                }},"author": {
+                "@type": "Person",
+                "name": "Hanqi Jiang"
+            },"description": "2022年最新发表的NeuS变种：Geo-NeuS"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="jhqyyds"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>Hanqi</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/hq0709" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/paper-geo-neus/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="jhqyyds"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>Hanqi</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/hq0709" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/paper-geo-neus/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Geo-Neus: Geometry-Consistent Neural Implicit Surfaces Learning for Multi-view Reconstruction</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hq0709" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Hanqi Jiang</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/papers/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>papers</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-04">2023-01-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1923 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/paper-geo-neus/" class="leancloud_visitors" data-flag-title="Geo-Neus: Geometry-Consistent Neural Implicit Surfaces Learning for Multi-view Reconstruction">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#公式推导">公式推导</a></li>
+    <li><a href="#代码复现">代码复现</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="公式推导">公式推导</h2>
+<p>用有符号距离函数表示空间点p到物体表面的距离，sdf(p)等于0
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/paper-geo-neus/1.PNG"
+        data-srcset="/paper-geo-neus/1.PNG, /paper-geo-neus/1.PNG 1.5x, /paper-geo-neus/1.PNG 2x"
+        data-sizes="auto"
+        alt="/paper-geo-neus/1.PNG"
+        title="1" width="1280" height="118" /></p>
+<p>使用两个神经网络估计SDF和颜色场
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/paper-geo-neus/2.PNG"
+        data-srcset="/paper-geo-neus/2.PNG, /paper-geo-neus/2.PNG 1.5x, /paper-geo-neus/2.PNG 2x"
+        data-sizes="auto"
+        alt="/paper-geo-neus/2.PNG"
+        title="2" width="1280" height="211" /></p>
+<p>表示颜色场：
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/paper-geo-neus/3.PNG"
+        data-srcset="/paper-geo-neus/3.PNG, /paper-geo-neus/3.PNG 1.5x, /paper-geo-neus/3.PNG 2x"
+        data-sizes="auto"
+        alt="/paper-geo-neus/3.PNG"
+        title="3" width="1280" height="552" /></p>
+<p>由于需要专注于表面的重建，所以将公式改写为
+<figure><a class="lightgallery" href="/paper-geo-neus/tuidao.JPEG" title="公式推导" data-thumbnail="/paper-geo-neus/tuidao.JPEG" data-sub-html="<h2>公式推导</h2><p>公式推导</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/paper-geo-neus/tuidao.JPEG"
+            data-srcset="/paper-geo-neus/tuidao.JPEG, /paper-geo-neus/tuidao.JPEG 1.5x, /paper-geo-neus/tuidao.JPEG 2x"
+            data-sizes="auto"
+            alt="/paper-geo-neus/tuidao.JPEG" width="959" height="1280" />
+    </a><figcaption class="image-caption">公式推导</figcaption>
+    </figure></p>
+<p>最后得到偏差的表达式：
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/paper-geo-neus/4.png"
+        data-srcset="/paper-geo-neus/4.png, /paper-geo-neus/4.png 1.5x, /paper-geo-neus/4.png 2x"
+        data-sizes="auto"
+        alt="/paper-geo-neus/4.png"
+        title="4" width="1280" height="240" /></p>
+<p>网络的架构图，结合了三种loss，五个通道
+<figure><a class="lightgallery" href="/paper-geo-neus/structure.png" title="架构图" data-thumbnail="/paper-geo-neus/structure.png" data-sub-html="<h2>架构图</h2><p>架构图</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/paper-geo-neus/structure.png"
+            data-srcset="/paper-geo-neus/structure.png, /paper-geo-neus/structure.png 1.5x, /paper-geo-neus/structure.png 2x"
+            data-sizes="auto"
+            alt="/paper-geo-neus/structure.png" width="1280" height="442" />
+    </a><figcaption class="image-caption">架构图</figcaption>
+    </figure></p>
+<p>闭塞处理，这里没有看懂在干什么
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/paper-geo-neus/5.png"
+        data-srcset="/paper-geo-neus/5.png, /paper-geo-neus/5.png 1.5x, /paper-geo-neus/5.png 2x"
+        data-sizes="auto"
+        alt="/paper-geo-neus/5.png"
+        title="5" width="1280" height="359" /></p>
+<p>SDF loss
+View-aware SDF loss. While rendering image $I_i$ from view $V_i$, we use the SDF network to estimate SDF values for the visible points $\boldsymbol{P}_i$ of $V_i$. Based on the approximation that the SDF values of sparse points are zeroes, we propose the view-aware SDF loss:
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/paper-geo-neus/6.png"
+        data-srcset="/paper-geo-neus/6.png, /paper-geo-neus/6.png 1.5x, /paper-geo-neus/6.png 2x"
+        data-sizes="auto"
+        alt="/paper-geo-neus/6.png"
+        title="6" width="1280" height="377" />
+值得注意的是，我们用来监督SDF网络的损失根据所呈现的视图而有所不同。这样，引入的SDF损失与显色渲染的过程是一致的。
+这个loss应该向0收敛吗？是的
+这里提到了他的模型使用了几何先验，是使用了什么作为先验？</p>
+<p>表达隐式平面，通过正负距离确定表面点。使用线性插值的方法求交点集。
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/paper-geo-neus/7.png"
+        data-srcset="/paper-geo-neus/7.png, /paper-geo-neus/7.png 1.5x, /paper-geo-neus/7.png 2x"
+        data-sizes="auto"
+        alt="/paper-geo-neus/7.png"
+        title="7" width="1280" height="195" />
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/paper-geo-neus/8.png"
+        data-srcset="/paper-geo-neus/8.png, /paper-geo-neus/8.png 1.5x, /paper-geo-neus/8.png 2x"
+        data-sizes="auto"
+        alt="/paper-geo-neus/8.png"
+        title="8" width="1280" height="234" />
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/paper-geo-neus/9.png"
+        data-srcset="/paper-geo-neus/9.png, /paper-geo-neus/9.png 1.5x, /paper-geo-neus/9.png 2x"
+        data-sizes="auto"
+        alt="/paper-geo-neus/9.png"
+        title="9" width="1280" height="156" />
+多视角的几何约束：</p>
+<p>使用MVS中的光学一致性来监督隐式表面的生成
+MVS：MVS（Multi-View Stereo）的目的是在已知相机位姿的前提下估计稠密的三维结构，如果相机位姿未知则会先使用SfM得到相机的位姿。评估的稠密结构真值一般是基于Lidar（ETH3D[4]、Tanks and Temples[5]）或者深度相机（DTU[6]）获得整个场景的点云，而对应的相机位姿有的在采集的时候就通过机械臂直接获取[6]，有的则基于采集的深度进行估计[4][5]。
+有了场景点云之后，一般评估指标为精度和完整度，同时还有二者的平衡指标F1分数。</p>
+<ol>
+<li>精度（Accuracy）：对于每个估计出来的3D点寻找在一定阈值内的真值3D点，最终可以匹配上的比例即为精度。需要注意的是，由于点云真值本身不完整，需要先估计出真值空间中不可观测的部分，估计精度时忽略掉。</li>
+<li>完整度（Completeness）：将每个真值的3D点寻找在一定阈值内最近的估计出来的3D点，最终可以匹配上的比例即为完整度。</li>
+<li>F1分数（F1 Score）：精度和完整度是一对trade-off的指标，因为可以让点布满整个空间来让完整度达到100%，也可以只保留非常少的绝对精确的点来得到很高的精度指标。因此最终评估的指标需要对二者进行融合。假设精度为p，完整度为r，则F1分数为它们的调和平均数，即2pr / (p + r)。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/paper-geo-neus/10.png"
+        data-srcset="/paper-geo-neus/10.png, /paper-geo-neus/10.png 1.5x, /paper-geo-neus/10.png 2x"
+        data-sizes="auto"
+        alt="/paper-geo-neus/10.png"
+        title="10" width="1280" height="754" />
+然后得出几何一致损失</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/paper-geo-neus/11.png"
+        data-srcset="/paper-geo-neus/11.png, /paper-geo-neus/11.png 1.5x, /paper-geo-neus/11.png 2x"
+        data-sizes="auto"
+        alt="/paper-geo-neus/11.png"
+        title="11" width="1280" height="538" /></p>
+<p>总体的损失函数：
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/paper-geo-neus/12.png"
+        data-srcset="/paper-geo-neus/12.png, /paper-geo-neus/12.png 1.5x, /paper-geo-neus/12.png 2x"
+        data-sizes="auto"
+        alt="/paper-geo-neus/12.png"
+        title="12" width="1280" height="517" /></p>
+<h2 id="代码复现">代码复现</h2>
+<blockquote>
+<p>GitHub网址：<a href="https://github.com/GhiXu/Geo-Neus" target="_blank" rel="noopener noreffer ">点击跳转</a></p>
+</blockquote>
+<ol>
+<li>
+<p>conda activate报错</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">CommandNotFoundError: Your shell has not been properly configured to use <span class="s1">&#39;conda activate&#39;</span>.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>解决方案：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">source</span> activate <span class="c1"># 执行后命令行出现base标识</span>
+</span></span><span class="line"><span class="cl">conda activate ...
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>conda activate pytorch 报错</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Could not find conda environment: pytorch
+</span></span><span class="line"><span class="cl">You can list all discoverable environments with <span class="sb">`</span>conda info --envs<span class="sb">`</span>.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">conda install pytorch
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Executing transaction: failed
+</span></span><span class="line"><span class="cl">ERROR conda.core.link:_execute<span class="o">(</span>502<span class="o">)</span>: An error occurred <span class="k">while</span> installing package <span class="s1">&#39;conda-forge::certifi-2022.9.24-pyhd8ed1ab_0&#39;</span>.
+</span></span><span class="line"><span class="cl">FileNotFoundError<span class="o">(</span>2, <span class="s2">&#34;No such file or directory: &#39;/home/hanqi/.conda/envs/geoneus/bin/python3.7&#39;&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Attempting to roll back.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Rolling back transaction: <span class="k">done</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">FileNotFoundError<span class="o">(</span>2, <span class="s2">&#34;No such file or directory: &#39;/home/hanqi/.conda/envs/geoneus/bin/python3.7&#39;&#34;</span><span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>默认的安装路径是错的，我把forge卸载了，之后可以正常安装</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">anaconda search -t conda fvcore
+</span></span><span class="line"><span class="cl">anaconda show ...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>不知道为什么，anaconda3文件夹设置的是read only，如果要进行更新操作必须切换root用户</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo s <span class="c1"># 切换root用户</span>
+</span></span><span class="line"><span class="cl"><span class="nb">exit</span> <span class="c1"># 退出回到原来的用户</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>程序运行一段时间被kill了，定位发现是在这句话的时候</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="bp">self</span><span class="o">.</span><span class="n">images_gray</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">images_gray_np</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>.cuda()是把数据储存到显卡里，可能是数据量太大了，我删除了一些照片，还剩十几张</p>
+</li>
+<li>
+<p>训练过程中报错缺失npy文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">FileNotFoundError: <span class="o">[</span>Errno 2<span class="o">]</span> No such file or directory: <span class="s1">&#39;pikachu_aruco/sfm_pts/points.npy&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>查找后发现是作者没有给出这个文件的计算方法，只是说要modify <a href="https://github.com/GhiXu/ACMP/blob/master/colmap2mvsnet_acm.py" target="_blank" rel="noopener noreffer ">这个文件</a>
+运行指令需要两个，一个是数据文件夹，一个是保存的路径，直接运行报下面的错误</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">FileNotFoundError: <span class="o">[</span>Errno 2<span class="o">]</span> No such file or directory: <span class="s1">&#39;pikachu_aruco/sparse/cameras.txt&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个文件作者没有提供，也没有解释文件的内容是什么</p>
+</li>
+<li>
+<p>对loss function具体内容的再阐述<br>
+整个网络的输入是稀疏点和多视角照片（可以参考网络架构图）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    :type input_rgb: object
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inputs</span> <span class="o">=</span> <span class="n">inputs</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_fn_fine</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">inputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_fn_fine</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">=</span> <span class="n">inputs</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_layers</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">lin</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&#34;lin&#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">l</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip_in</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">inputs</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="n">lin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_layers</span> <span class="o">-</span> <span class="mi">2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<ul>
+<li>sdf网络中的forward函数其实返回的就是点的sdf值，对应文章中所说的MLP</li>
+<li>监督过程发生在渲染的同时，渲染的同时我们会返回一个点的sdf值，那么我们已有的三维稀疏点也可以进行渲染，利用sdf网络来返回sdf值，因为我们假设三维稀疏点在表面，因此我们试着用网络来返回，如果网络准确，它应该返回一个接近于0的值，同时为了弥补三维稀疏点的缺陷，也进行一个视角射线的抽样，利用多视角的照片，进行操作抽取点，这些是中间的过程，就是所谓的隐式曲面的抽取。同样为了监督隐式曲面的抽取，光度一致性损失被提出，这些都是中途的过程。综合来说，输入只有三位稀疏点和各个角度的照片。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">   <span class="c1"># Loss</span>
+</span></span><span class="line"><span class="cl">   <span class="n">color_error</span> <span class="o">=</span> <span class="p">(</span><span class="n">color_fine</span> <span class="o">-</span> <span class="n">true_rgb</span><span class="p">)</span> <span class="o">*</span> <span class="n">mask</span>
+</span></span><span class="line"><span class="cl">   <span class="n">color_fine_loss</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">l1_loss</span><span class="p">(</span><span class="n">color_error</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">color_error</span><span class="p">),</span> <span class="n">reduction</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">mask_sum</span>
+</span></span><span class="line"><span class="cl">   <span class="n">psnr</span> <span class="o">=</span> <span class="mf">20.0</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="p">(((</span><span class="n">color_fine</span> <span class="o">-</span> <span class="n">true_rgb</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">mask</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="n">mask_sum</span> <span class="o">*</span> <span class="mf">3.0</span><span class="p">))</span><span class="o">.</span><span class="n">sqrt</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="n">eikonal_loss</span> <span class="o">=</span> <span class="n">gradient_error</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="n">mask_loss</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">binary_cross_entropy</span><span class="p">(</span><span class="n">weight_sum</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mf">1e-3</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="mf">1e-3</span><span class="p">),</span> <span class="n">mask</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="n">sdf_loss</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">l1_loss</span><span class="p">(</span><span class="n">pts2sdf</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">pts2sdf</span><span class="p">),</span> <span class="n">reduction</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">pts2sdf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="n">ncc_loss</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">ncc_cost</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">inside_sphere</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e-8</span><span class="p">))</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="n">loss</span> <span class="o">=</span> <span class="n">color_fine_loss</span> <span class="o">+</span> <span class="n">eikonal_loss</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">igr_weight</span> <span class="o">+</span> <span class="n">mask_loss</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask_weight</span> <span class="o">+</span> <span class="n">sdf_loss</span> <span class="o">+</span> <span class="n">ncc_loss</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>以上是loss的具体计算过程</li>
+</ul>
+<ol start="6">
+<li>renderer.py 代码解读
+由于render内容很多，我会在另一篇文章中单独介绍这个文件的内容，<a href="https://hq0709.github.io/geo-neus-renderer/" target="_blank" rel="noopener noreffer ">点击此处跳转</a></li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-01-09</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/paper-geo-neus/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://hq0709.github.io/paper-geo-neus/" data-title="Geo-Neus: Geometry-Consistent Neural Implicit Surfaces Learning for Multi-view Reconstruction" data-hashtags="3D reconstruction,Deep learning"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://hq0709.github.io/paper-geo-neus/" data-hashtag="3D reconstruction"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://hq0709.github.io/paper-geo-neus/" data-title="Geo-Neus: Geometry-Consistent Neural Implicit Surfaces Learning for Multi-view Reconstruction"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://hq0709.github.io/paper-geo-neus/" data-title="Geo-Neus: Geometry-Consistent Neural Implicit Surfaces Learning for Multi-view Reconstruction"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://hq0709.github.io/paper-geo-neus/" data-title="Geo-Neus: Geometry-Consistent Neural Implicit Surfaces Learning for Multi-view Reconstruction" data-ralateuid="jhqyyds"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/3d-reconstruction/">3D reconstruction</a>,&nbsp;<a href="/tags/deep-learning/">Deep learning</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+            <a href="/basic-markdown-syntax/" class="next" rel="next" title="Markdown 基本语法">Markdown 基本语法<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.109.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Hanqi Jiang</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"valine":{"appId":"QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI","appKey":"WBmoGyJtbqUswvfLh6L8iEBr","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-CN","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightgallery":true,"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

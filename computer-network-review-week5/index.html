@@ -18,7 +18,7 @@
 <meta name="application-name" content="Hanqi">
 <meta name="apple-mobile-web-app-title" content="Hanqi"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://hq0709.github.io/computer-network-review-week5/" /><link rel="prev" href="http://hq0709.github.io/computer-network-review-week4/" /><link rel="next" href="http://hq0709.github.io/computer-network-review-week9/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://hq0709.github.io/computer-network-review-week5/" /><link rel="prev" href="http://hq0709.github.io/computer-network-review-week4/" /><link rel="next" href="http://hq0709.github.io/computer-network-review-week6/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -34,7 +34,7 @@
                             "url": "http:\/\/hq0709.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Computer network","wordcount":  793 ,
+                        }],"genre": "posts","keywords": "Computer network","wordcount":  1041 ,
         "url": "http:\/\/hq0709.github.io\/computer-network-review-week5\/","datePublished": "2023-01-28T21:52:40+08:00","dateModified": "2023-02-03T23:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -119,8 +119,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">计网知识点总结 Week 5 (传输层概述)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="hq0709.github.io" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Hanqi Jiang</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/course-notes/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Course notes</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-28">2023-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 793 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/computer-network-review-week5/" class="leancloud_visitors" data-flag-title="计网知识点总结 Week 5 (传输层概述)">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-28">2023-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1041 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/computer-network-review-week5/" class="leancloud_visitors" data-flag-title="计网知识点总结 Week 5 (传输层概述)">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -146,6 +146,21 @@
         <li><a href="#23-udp-segment-header">2.3 UDP segment header</a></li>
         <li><a href="#24-udp-checksum">2.4 UDP checksum</a></li>
         <li><a href="#25-udp的优点">2.5 UDP的优点</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-tcp-transmission-control-protocol">3. TCP: transmission control protocol</a>
+      <ul>
+        <li><a href="#31-overview">3.1 Overview</a></li>
+        <li><a href="#32-tcp-报文">3.2 TCP 报文</a></li>
+        <li><a href="#33-tcp-reliable-data-transfer-rdt">3.3 TCP Reliable Data Transfer (RDT)</a></li>
+        <li><a href="#34-tcp-sender-and-receiver">3.4 TCP sender and receiver</a></li>
+        <li><a href="#35-tcp-flow-control">3.5 TCP flow control</a></li>
+        <li><a href="#36-tcp-connection-management">3.6 TCP connection management</a>
+          <ul>
+            <li><a href="#361-三次握手">3.6.1 三次握手</a></li>
+            <li><a href="#362-关闭tcp连接-四次挥手">3.6.2 关闭TCP连接 （四次挥手）</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -247,6 +262,108 @@ demultiplexing(receiver): use header info to deliver received segments to correc
 <li>can function when network service is compromised 网络服务不可用的时候UDP仍是有效的</li>
 <li>有checksum（一部分reliability）</li>
 </ul>
+<h2 id="3-tcp-transmission-control-protocol">3. TCP: transmission control protocol</h2>
+<h3 id="31-overview">3.1 Overview</h3>
+<ul>
+<li>point-to-point</li>
+<li>reliable, in-order byte steam</li>
+<li>full duplex data</li>
+<li>cumulative ACKs 累计确认</li>
+<li>pipelining 拥塞和流量控制</li>
+<li>connection-oriented</li>
+<li>flow control</li>
+</ul>
+<h3 id="32-tcp-报文">3.2 TCP 报文</h3>
+<p><figure><a class="lightgallery" href="/computer-network-review-week5/2.png" title="TCP报文" data-thumbnail="/computer-network-review-week5/2.png" data-sub-html="<h2>TCP报文</h2><p>TCP报文</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week5/2.png"
+            data-srcset="/computer-network-review-week5/2.png, /computer-network-review-week5/2.png 1.5x, /computer-network-review-week5/2.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week5/2.png" width="2508" height="1147" />
+    </a><figcaption class="image-caption">TCP报文</figcaption>
+    </figure></p>
+<p><figure><a class="lightgallery" href="/computer-network-review-week5/3.png" title="ack" data-thumbnail="/computer-network-review-week5/3.png" data-sub-html="<h2>ack</h2><p>ack</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week5/3.png"
+            data-srcset="/computer-network-review-week5/3.png, /computer-network-review-week5/3.png 1.5x, /computer-network-review-week5/3.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week5/3.png" width="1243" height="688" />
+    </a><figcaption class="image-caption">ack</figcaption>
+    </figure></p>
+<h3 id="33-tcp-reliable-data-transfer-rdt">3.3 TCP Reliable Data Transfer (RDT)</h3>
+<ul>
+<li>TCP在不可靠的IP传输上建立可靠的数据传输
+<ul>
+<li>Pipelined segments 流水线</li>
+<li>Cumulative acks 累计ack确认</li>
+<li>Single retransmission timer 超时重传</li>
+</ul>
+</li>
+<li>超时和重复ack会触发重传，<a href="https://jjlde7r0bk.feishu.cn/wiki/wikcnKsHF0wgyLqyviZ1HMurYyd" target="_blank" rel="noopener noreffer ">参考网址</a></li>
+</ul>
+<h3 id="34-tcp-sender-and-receiver">3.4 TCP sender and receiver</h3>
+<p><figure><a class="lightgallery" href="/computer-network-review-week5/4.png" title="TCP sender" data-thumbnail="/computer-network-review-week5/4.png" data-sub-html="<h2>TCP sender</h2><p>TCP sender</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week5/4.png"
+            data-srcset="/computer-network-review-week5/4.png, /computer-network-review-week5/4.png 1.5x, /computer-network-review-week5/4.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week5/4.png" width="1280" height="673" />
+    </a><figcaption class="image-caption">TCP sender</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/computer-network-review-week5/5.png" title="TCP receiver" data-thumbnail="/computer-network-review-week5/5.png" data-sub-html="<h2>TCP receiver</h2><p>TCP receiver</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week5/5.png"
+            data-srcset="/computer-network-review-week5/5.png, /computer-network-review-week5/5.png 1.5x, /computer-network-review-week5/5.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week5/5.png" width="1280" height="867" />
+    </a><figcaption class="image-caption">TCP receiver</figcaption>
+    </figure></p>
+<h3 id="35-tcp-flow-control">3.5 TCP flow control</h3>
+<p>看下一章吧</p>
+<h3 id="36-tcp-connection-management">3.6 TCP connection management</h3>
+<h4 id="361-三次握手">3.6.1 三次握手</h4>
+<p><figure><a class="lightgallery" href="/computer-network-review-week5/6.png" title="TCP三次握手" data-thumbnail="/computer-network-review-week5/6.png" data-sub-html="<h2>TCP三次握手</h2><p>TCP三次握手</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week5/6.png"
+            data-srcset="/computer-network-review-week5/6.png, /computer-network-review-week5/6.png 1.5x, /computer-network-review-week5/6.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week5/6.png" width="2531" height="1326" />
+    </a><figcaption class="image-caption">TCP三次握手</figcaption>
+    </figure></p>
+<h4 id="362-关闭tcp连接-四次挥手">3.6.2 关闭TCP连接 （四次挥手）</h4>
+<p><figure><a class="lightgallery" href="/computer-network-review-week5/7.png" title="关闭TCP连接" data-thumbnail="/computer-network-review-week5/7.png" data-sub-html="<h2>TCP关闭连接（四次挥手）</h2><p>关闭TCP连接</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week5/7.png"
+            data-srcset="/computer-network-review-week5/7.png, /computer-network-review-week5/7.png 1.5x, /computer-network-review-week5/7.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week5/7.png" width="1229" height="890" />
+    </a><figcaption class="image-caption">TCP关闭连接（四次挥手）</figcaption>
+    </figure></p>
+<ul>
+<li>client, server each close their side of connection 客户端和服务器各自关闭（通过发送fin）
+<ul>
+<li>send TCP segment with FIN bit = 1</li>
+</ul>
+</li>
+<li>respond to received FIN with ACK 回答接收到了fin
+<ul>
+<li>on receiving FIN, ACK can be combined with own FIN</li>
+</ul>
+</li>
+<li>simultaneous FIN exchanges can be handled 可以同时处理fin交换</li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -271,7 +388,7 @@ demultiplexing(receiver): use header info to deliver received segments to correc
     </div>
 
     <div class="post-nav"><a href="/computer-network-review-week4/" class="prev" rel="prev" title="计网知识点总结 Week 4 (应用层：DNS和Email)"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>计网知识点总结 Week 4 (应用层：DNS和Email)</a>
-            <a href="/computer-network-review-week9/" class="next" rel="next" title="计网知识点总结 Week 9">计网知识点总结 Week 9<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+            <a href="/computer-network-review-week6/" class="next" rel="next" title="计网知识点总结 Week 6 (TCP拥塞控制)">计网知识点总结 Week 6 (TCP拥塞控制)<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
