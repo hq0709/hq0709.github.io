@@ -72,6 +72,29 @@ IPv6有128位IP地址
   - name and IP address of local DNS sever 本地DNS服务器的名称和IP
   - network mask (indicating network versus host portion of address) 这个是什么，子网掩码吗
 
+### 3.1 DHCP连接过程描述
+![DHCP连接过程描述](10.png "DHCP连接过程描述")
+- 连接的笔记本电脑将通过DHCP获取IP地址，first-hop路由器地址，DNS服务器地址、
+- UDP封装DHCP REQUEST报文，IP封装DHCP REQUEST报文，以太网封装DHCP REQUEST报文
+- 以太网帧广播(dest: ffffffffff)在局域网上，由运行DHCP服务器的路由器接收
+- 从以太网提取IP数据报，从IP数据报提取UDP，从UDP提取DHCP REQUEST消息
+- DHCP服务器制定DHCP ACK，包含客户端的IP地址、客户端的first-hop路由器IP地址、DNS服务器的名称和IP地址
+- 封装的DHCP服务器回复转发给客户端，demuxing到客户端DHCP
+- 客户端现在知道它的IP地址，DNS服务器的名称和IP地址，它的first-hop路由器的IP地址
+
+### 3.2 DHCP报文
+![DHCP message](11.png "DHCP message")
+
+### 3.3 DHCP的优点
+- Relieves the network administrator of manual configuration 无需手动配置
+- Devices can be moved from network to network and automatically obtain valid configuration parameters for the current network 设备可以在网络之间移动，自动获取当前网络的有效配置参数
+- IP addresses are only allocated when needed 只在需要的时候分配IP地址
+
+### 3.4 DHCP的局限性
+- 需要DHCP server
+- 安全问题
+  - Uses UDP, an unreliable and insecure protocol
+  - DHCP is an unauthenticated(未经身份验证的) protocol
 
 
 
