@@ -23,12 +23,20 @@
     <description><![CDATA[1. 网络层功能 1.1 转发（数据平面的功能） 将数据包从路由器的输入移动到适当的路由器输出：move packets from router’s input to appropriate router output 1.2 路由（控制平面的功]]></description>
 </item>
 <item>
+    <title>计网知识点总结 Week 7 (网络层)</title>
+    <link>http://hq0709.github.io/computer-network-review-week7/</link>
+    <pubDate>Sat, 28 Jan 2023 21:54:40 &#43;0800</pubDate>
+    <author>Hanqi Jiang</author>
+    <guid>http://hq0709.github.io/computer-network-review-week7/</guid>
+    <description><![CDATA[1. 网络层服务和协议 communication service sender: encapsulates segments into datagrams, passes to link layer receiver: delivers segments to transport layer protocol 每个设备的网络层协议在host和routers中 路由器检查每一个通过的IP数据报的he]]></description>
+</item>
+<item>
     <title>计网知识点总结 Week 6 (TCP拥塞控制)</title>
     <link>http://hq0709.github.io/computer-network-review-week6/</link>
     <pubDate>Sat, 28 Jan 2023 21:53:40 &#43;0800</pubDate>
     <author>Hanqi Jiang</author>
     <guid>http://hq0709.github.io/computer-network-review-week6/</guid>
-    <description><![CDATA[看懂这张图就可以了 牛逼的图]]></description>
+    <description><![CDATA[看懂这张图就可以了 牛逼的图 TCP拥塞控制的版本 TCP Tahoe This is the original version of TCP congestion control Slow Start Fast Retransmit TCP Reno Same as Tahoe, but with Fast Recovery 有快速恢复 TCP Vegas This is a completely new implementation based on delay variation (instead of packet loss) 基于]]></description>
 </item>
 <item>
     <title>计网知识点总结 Week 5 (传输层概述)</title>
@@ -77,14 +85,6 @@
     <author>Hanqi Jiang</author>
     <guid>http://hq0709.github.io/geo-neus-renderer/</guid>
     <description><![CDATA[get_psnr 1 2 3 4 5 6 7 8 9 def get_psnr(img1, img2, normalize_rgb=False): if normalize_rgb: # [-1,1] --&gt; [0,1] img1 = (img1 + 1.) / 2. img2 = (img2 + 1. ) / 2. mse = torch.mean((img1 - img2) ** 2) psnr = -10. * torch.log(mse) / torch.log(torch.Tensor([10.]).cuda()) return psnr 这个函数计算两张图像img1和img2]]></description>
-</item>
-<item>
-    <title>操作系统考点总结（按章节）</title>
-    <link>http://hq0709.github.io/operating-system-review/</link>
-    <pubDate>Sat, 14 Jan 2023 21:57:40 &#43;0800</pubDate>
-    <author>Hanqi Jiang</author>
-    <guid>http://hq0709.github.io/operating-system-review/</guid>
-    <description><![CDATA[tip 这是我总结的操作系统的考点，但内容并不完善，可以参考这篇笔记，里面有更详细的我关于知识点的记录 Chapter 1 updated in 2023.1.13 1. Monolithic OS（单一型）的优缺点？（单一]]></description>
 </item>
 </channel>
 </rss>

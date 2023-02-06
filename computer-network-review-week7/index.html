@@ -4,38 +4,38 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>计网知识点总结 Week 6 (TCP拥塞控制) - jhqyyds</title><meta name="Description" content="111"><meta property="og:title" content="计网知识点总结 Week 6 (TCP拥塞控制)" />
+        <title>计网知识点总结 Week 7 (网络层) - jhqyyds</title><meta name="Description" content="111"><meta property="og:title" content="计网知识点总结 Week 7 (网络层)" />
 <meta property="og:description" content="111" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://hq0709.github.io/computer-network-review-week6/" /><meta property="og:image" content="http://hq0709.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-01-28T21:53:40+08:00" />
+<meta property="og:url" content="http://hq0709.github.io/computer-network-review-week7/" /><meta property="og:image" content="http://hq0709.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-01-28T21:54:40+08:00" />
 <meta property="article:modified_time" content="2023-02-05T23:45:40+08:00" /><meta property="og:site_name" content="Hanqi Jiang" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://hq0709.github.io/logo.png"/>
 
-<meta name="twitter:title" content="计网知识点总结 Week 6 (TCP拥塞控制)"/>
+<meta name="twitter:title" content="计网知识点总结 Week 7 (网络层)"/>
 <meta name="twitter:description" content="111"/>
 <meta name="application-name" content="Hanqi">
 <meta name="apple-mobile-web-app-title" content="Hanqi"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://hq0709.github.io/computer-network-review-week6/" /><link rel="prev" href="http://hq0709.github.io/computer-network-review-week5/" /><link rel="next" href="http://hq0709.github.io/computer-network-review-week7/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://hq0709.github.io/computer-network-review-week7/" /><link rel="prev" href="http://hq0709.github.io/computer-network-review-week6/" /><link rel="next" href="http://hq0709.github.io/computer-network-review-week9/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "计网知识点总结 Week 6 (TCP拥塞控制)",
+        "headline": "计网知识点总结 Week 7 (网络层)",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "http:\/\/hq0709.github.io\/computer-network-review-week6\/"
+            "@id": "http:\/\/hq0709.github.io\/computer-network-review-week7\/"
         },"image": [{
                             "@type": "ImageObject",
                             "url": "http:\/\/hq0709.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Computer network","wordcount":  74 ,
-        "url": "http:\/\/hq0709.github.io\/computer-network-review-week6\/","datePublished": "2023-01-28T21:53:40+08:00","dateModified": "2023-02-05T23:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "Computer network","wordcount":  790 ,
+        "url": "http:\/\/hq0709.github.io\/computer-network-review-week7\/","datePublished": "2023-01-28T21:54:40+08:00","dateModified": "2023-02-05T23:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
                     "@type": "ImageObject",
@@ -71,7 +71,7 @@
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
                 </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
                     <i class="fa fa-globe" aria-hidden="true"></i>                      
-                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/computer-network-review-week6/" selected>简体中文</option></select>
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/computer-network-review-week7/" selected>简体中文</option></select>
                 </a></div>
         </div>
     </div>
@@ -105,7 +105,7 @@
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
                     <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/computer-network-review-week6/" selected>简体中文</option></select>
+                    <select class="language-select" onchange="location = this.value;"><option value="/computer-network-review-week7/" selected>简体中文</option></select>
                 </a></div>
     </div>
 </header><div class="search-dropdown desktop">
@@ -117,10 +117,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">计网知识点总结 Week 6 (TCP拥塞控制)</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">计网知识点总结 Week 7 (网络层)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="hq0709.github.io" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Hanqi Jiang</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/course-notes/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Course notes</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-28">2023-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 74 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/computer-network-review-week6/" class="leancloud_visitors" data-flag-title="计网知识点总结 Week 6 (TCP拥塞控制)">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-28">2023-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 790 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/computer-network-review-week7/" class="leancloud_visitors" data-flag-title="计网知识点总结 Week 7 (网络层)">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -130,38 +130,207 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#看懂这张图就可以了">看懂这张图就可以了</a></li>
-    <li><a href="#tcp拥塞控制的版本">TCP拥塞控制的版本</a></li>
+    <li><a href="#1-网络层服务和协议">1. 网络层服务和协议</a></li>
+    <li><a href="#2-ipv4--addressing">2. IPv4 &amp; addressing</a>
+      <ul>
+        <li><a href="#21-ip数据报">2.1 IP数据报</a></li>
+        <li><a href="#22-ip-datagram的分段和重组">2.2 IP datagram的分段和重组</a></li>
+        <li><a href="#23-ip-addressing">2.3 IP addressing</a></li>
+        <li><a href="#24-subnet">2.4 subnet</a>
+          <ul>
+            <li><a href="#241-subnet-mask-子网掩码">2.4.1 subnet mask 子网掩码</a></li>
+            <li><a href="#242-有多少子网">2.4.2 有多少子网？</a></li>
+            <li><a href="#243-cidr-classless-interdomain-routing">2.4.3 CIDR: Classless InterDomain Routing</a></li>
+          </ul>
+        </li>
+        <li><a href="#25-关于ip的补充">2.5 关于IP的补充</a></li>
+        <li><a href="#26-ipv6">2.6 IPv6</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-dhcp-dynamic-host-configuration-protocol">3. DHCP: Dynamic Host Configuration Protocol</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="看懂这张图就可以了">看懂这张图就可以了</h2>
-<p><figure><a class="lightgallery" href="/computer-network-review-week6/2.png" title="牛逼的图" data-thumbnail="/computer-network-review-week6/2.png" data-sub-html="<h2>牛逼的图</h2><p>牛逼的图</p>">
+            </div><div class="content" id="content"><h2 id="1-网络层服务和协议">1. 网络层服务和协议</h2>
+<ul>
+<li>communication service
+<ul>
+<li>sender: encapsulates segments into datagrams, passes to link layer</li>
+<li>receiver: delivers segments to transport layer protocol</li>
+</ul>
+</li>
+<li>每个设备的网络层协议在host和routers中</li>
+<li>路由器检查每一个通过的IP数据报的header fields，把数据报从输入端口发送到输出端口</li>
+</ul>
+<h2 id="2-ipv4--addressing">2. IPv4 &amp; addressing</h2>
+<h3 id="21-ip数据报">2.1 IP数据报</h3>
+<p><figure><a class="lightgallery" href="/computer-network-review-week7/1.png" title="IP datagram" data-thumbnail="/computer-network-review-week7/1.png" data-sub-html="<h2>IP datagram</h2><p>IP datagram</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/computer-network-review-week6/2.png"
-            data-srcset="/computer-network-review-week6/2.png, /computer-network-review-week6/2.png 1.5x, /computer-network-review-week6/2.png 2x"
+            data-src="/computer-network-review-week7/1.png"
+            data-srcset="/computer-network-review-week7/1.png, /computer-network-review-week7/1.png 1.5x, /computer-network-review-week7/1.png 2x"
             data-sizes="auto"
-            alt="/computer-network-review-week6/2.png" width="1718" height="1162" />
-    </a><figcaption class="image-caption">牛逼的图</figcaption>
+            alt="/computer-network-review-week7/1.png" width="1804" height="834" />
+    </a><figcaption class="image-caption">IP datagram</figcaption>
     </figure></p>
-<h2 id="tcp拥塞控制的版本">TCP拥塞控制的版本</h2>
+<h3 id="22-ip-datagram的分段和重组">2.2 IP datagram的分段和重组</h3>
+<p><figure><a class="lightgallery" href="/computer-network-review-week7/2.png" title="IP datagram的分段和重组" data-thumbnail="/computer-network-review-week7/2.png" data-sub-html="<h2>IP datagram的分段和重组</h2><p>IP datagram的分段和重组</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week7/2.png"
+            data-srcset="/computer-network-review-week7/2.png, /computer-network-review-week7/2.png 1.5x, /computer-network-review-week7/2.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week7/2.png" width="874" height="714" />
+    </a><figcaption class="image-caption">IP datagram的分段和重组</figcaption>
+    </figure></p>
 <ul>
-<li>TCP Tahoe
+<li>不同的链路有不同的MTU(max transmission unit)，所以IP datagram有时会进行分段，IP header bits用来识别和定位，分段后的碎片在目的地进行重组
+<figure><a class="lightgallery" href="/computer-network-review-week7/3.png" title="IP datagram重组的例子" data-thumbnail="/computer-network-review-week7/3.png" data-sub-html="<h2>IP datagram重组的例子</h2><p>IP datagram重组的例子</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week7/3.png"
+            data-srcset="/computer-network-review-week7/3.png, /computer-network-review-week7/3.png 1.5x, /computer-network-review-week7/3.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week7/3.png" width="2360" height="1154" />
+    </a><figcaption class="image-caption">IP datagram重组的例子</figcaption>
+    </figure></li>
+</ul>
+<h3 id="23-ip-addressing">2.3 IP addressing</h3>
+<p><figure><a class="lightgallery" href="/computer-network-review-week7/4.png" title="IP aadressing" data-thumbnail="/computer-network-review-week7/4.png" data-sub-html="<h2>IP addressing</h2><p>IP aadressing</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week7/4.png"
+            data-srcset="/computer-network-review-week7/4.png, /computer-network-review-week7/4.png 1.5x, /computer-network-review-week7/4.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week7/4.png" width="834" height="632" />
+    </a><figcaption class="image-caption">IP addressing</figcaption>
+    </figure></p>
 <ul>
-<li>This is the original version of TCP congestion control</li>
-<li>Slow Start</li>
-<li>Fast Retransmit</li>
+<li>interface: connection between host/router and physical link 接口的定义
+<ul>
+<li>路由器有多个接口，主机有1-2个接口</li>
 </ul>
 </li>
-<li>TCP Reno
+<li>IP address与每个接口对应，32位（每个数字是八位二进制数）</li>
+</ul>
+<h3 id="24-subnet">2.4 subnet</h3>
 <ul>
-<li>Same as Tahoe, but with Fast Recovery 有快速恢复</li>
+<li>definition: device interfaces that can physically reach each other without passing through an intervening router 无需经过路由器就能到达彼此</li>
+<li>子网有相同的高阶位（common high order bits），不同的低阶位（主机号），注意主机号不能全为0或者全为1</li>
+</ul>
+<h4 id="241-subnet-mask-子网掩码">2.4.1 subnet mask 子网掩码</h4>
+<ul>
+<li>比如/24 就代表32位中的前24位代表子网地址，后面代表主机号</li>
+</ul>
+<h4 id="242-有多少子网">2.4.2 有多少子网？</h4>
+<p><figure><a class="lightgallery" href="/computer-network-review-week7/5.png" title="11" data-thumbnail="/computer-network-review-week7/5.png" data-sub-html="<h2>有多少子网（/24）</h2><p>11</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week7/5.png"
+            data-srcset="/computer-network-review-week7/5.png, /computer-network-review-week7/5.png 1.5x, /computer-network-review-week7/5.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week7/5.png" width="2586" height="1628" />
+    </a><figcaption class="image-caption">有多少子网（/24）</figcaption>
+    </figure></p>
+<ul>
+<li>6个</li>
+</ul>
+<h4 id="243-cidr-classless-interdomain-routing">2.4.3 CIDR: Classless InterDomain Routing</h4>
+<p><figure><a class="lightgallery" href="/computer-network-review-week7/6.png" title="CIDR example" data-thumbnail="/computer-network-review-week7/6.png" data-sub-html="<h2>CIDR example</h2><p>CIDR example</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week7/6.png"
+            data-srcset="/computer-network-review-week7/6.png, /computer-network-review-week7/6.png 1.5x, /computer-network-review-week7/6.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week7/6.png" width="2252" height="1146" />
+    </a><figcaption class="image-caption">CIDR example</figcaption>
+    </figure></p>
+<h3 id="25-关于ip的补充">2.5 关于IP的补充</h3>
+<ul>
+<li>ISP怎样得到地址块？
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Answer<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">ICANN: Internet Corporation for Assigned  Names and Numbers <a href="http://www.icann.org/" target="_blank" rel="noopener noreffer ">http://www.icann.org/</a></div>
+        </div>
+    </div></li>
+<li>有足够的32位IP地址吗
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Answer<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>2011年已经分配完了最后一个32位IP地址</p>
+<p>IPv6有128位IP地址</p>
+</div>
+        </div>
+    </div></li>
+<li>路由聚合：增多子网掩码的位数</li>
+</ul>
+<h3 id="26-ipv6">2.6 IPv6</h3>
+<ul>
+<li>八组四个16进制数字
+<figure><a class="lightgallery" href="/computer-network-review-week7/7.png" title="IPv6数据报" data-thumbnail="/computer-network-review-week7/7.png" data-sub-html="<h2>IPv6数据报</h2><p>IPv6数据报</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week7/7.png"
+            data-srcset="/computer-network-review-week7/7.png, /computer-network-review-week7/7.png 1.5x, /computer-network-review-week7/7.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week7/7.png" width="1616" height="770" />
+    </a><figcaption class="image-caption">IPv6数据报</figcaption>
+    </figure></li>
+<li>IPv4和IPv6之间的网络如何建立？
+<ul>
+<li>tunneling: IPv6 datagram carried as payload in IPv4 datagram among IPv4 routers (“packet within a packet”) IPv4里面包一个IPv6
+<figure><a class="lightgallery" href="/computer-network-review-week7/8.png" title="tunneling" data-thumbnail="/computer-network-review-week7/8.png" data-sub-html="<h2>tunneling</h2><p>tunneling</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week7/8.png"
+            data-srcset="/computer-network-review-week7/8.png, /computer-network-review-week7/8.png 1.5x, /computer-network-review-week7/8.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week7/8.png" width="958" height="350" />
+    </a><figcaption class="image-caption">tunneling</figcaption>
+    </figure></li>
 </ul>
 </li>
-<li>TCP Vegas
+</ul>
+<h2 id="3-dhcp-dynamic-host-configuration-protocol">3. DHCP: Dynamic Host Configuration Protocol</h2>
 <ul>
-<li>This is a completely new implementation based on delay variation (instead of packet loss) 基于延迟变化</li>
+<li>分配子网的主机号，动态的向服务器请求一个IP</li>
+<li>运行在UDP/IP上</li>
+<li>一般由ISP/LANs/organizational networks使用
+<figure><a class="lightgallery" href="/computer-network-review-week7/9.png" title="DHCP server" data-thumbnail="/computer-network-review-week7/9.png" data-sub-html="<h2>DHCP server and client</h2><p>DHCP server</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week7/9.png"
+            data-srcset="/computer-network-review-week7/9.png, /computer-network-review-week7/9.png 1.5x, /computer-network-review-week7/9.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week7/9.png" width="2450" height="1338" />
+    </a><figcaption class="image-caption">DHCP server and client</figcaption>
+    </figure></li>
+<li>server 和 client之间的连接一般由四个步骤
+<ul>
+<li>client: DHCP discover</li>
+<li>server: DHCP offer</li>
+<li>client: DHCP request</li>
+<li>server: DHCP ACK</li>
+</ul>
+</li>
+<li>DHCP can return more than just allocated IP address on subnet:
+<ul>
+<li>address of first-hop router for client 客户端第一跳的路由器</li>
+<li>name and IP address of local DNS sever 本地DNS服务器的名称和IP</li>
+<li>network mask (indicating network versus host portion of address) 这个是什么，子网掩码吗</li>
 </ul>
 </li>
 </ul>
@@ -173,10 +342,10 @@
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/computer-network-review-week6/index.md" target="_blank">阅读原始文档</a>
+                            <a class="link-to-markdown" href="/computer-network-review-week7/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://hq0709.github.io/computer-network-review-week6/" data-title="计网知识点总结 Week 6 (TCP拥塞控制)" data-hashtags="Computer network"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://hq0709.github.io/computer-network-review-week6/" data-hashtag="Computer network"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://hq0709.github.io/computer-network-review-week6/" data-title="计网知识点总结 Week 6 (TCP拥塞控制)"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://hq0709.github.io/computer-network-review-week6/" data-title="计网知识点总结 Week 6 (TCP拥塞控制)"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://hq0709.github.io/computer-network-review-week6/" data-title="计网知识点总结 Week 6 (TCP拥塞控制)" data-ralateuid="jhqyyds"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://hq0709.github.io/computer-network-review-week7/" data-title="计网知识点总结 Week 7 (网络层)" data-hashtags="Computer network"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://hq0709.github.io/computer-network-review-week7/" data-hashtag="Computer network"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://hq0709.github.io/computer-network-review-week7/" data-title="计网知识点总结 Week 7 (网络层)"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://hq0709.github.io/computer-network-review-week7/" data-title="计网知识点总结 Week 7 (网络层)"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://hq0709.github.io/computer-network-review-week7/" data-title="计网知识点总结 Week 7 (网络层)" data-ralateuid="jhqyyds"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -188,8 +357,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/computer-network-review-week5/" class="prev" rel="prev" title="计网知识点总结 Week 5 (传输层概述)"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>计网知识点总结 Week 5 (传输层概述)</a>
-            <a href="/computer-network-review-week7/" class="next" rel="next" title="计网知识点总结 Week 7 (网络层)">计网知识点总结 Week 7 (网络层)<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/computer-network-review-week6/" class="prev" rel="prev" title="计网知识点总结 Week 6 (TCP拥塞控制)"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>计网知识点总结 Week 6 (TCP拥塞控制)</a>
+            <a href="/computer-network-review-week9/" class="next" rel="next" title="计网知识点总结 Week 9">计网知识点总结 Week 9<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
