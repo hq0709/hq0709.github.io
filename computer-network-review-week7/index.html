@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>计网知识点总结 Week 7 (网络层) - jhqyyds</title><meta name="Description" content="111"><meta property="og:title" content="计网知识点总结 Week 7 (网络层)" />
+        <title>计网知识点总结 Week 7 &amp; 8 (网络层) - jhqyyds</title><meta name="Description" content="111"><meta property="og:title" content="计网知识点总结 Week 7 &amp; 8 (网络层)" />
 <meta property="og:description" content="111" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://hq0709.github.io/computer-network-review-week7/" /><meta property="og:image" content="http://hq0709.github.io/logo.png"/><meta property="article:section" content="posts" />
@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://hq0709.github.io/logo.png"/>
 
-<meta name="twitter:title" content="计网知识点总结 Week 7 (网络层)"/>
+<meta name="twitter:title" content="计网知识点总结 Week 7 &amp; 8 (网络层)"/>
 <meta name="twitter:description" content="111"/>
 <meta name="application-name" content="Hanqi">
 <meta name="apple-mobile-web-app-title" content="Hanqi"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -24,7 +24,7 @@
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "计网知识点总结 Week 7 (网络层)",
+        "headline": "计网知识点总结 Week 7 \u0026 8 (网络层)",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
@@ -34,7 +34,7 @@
                             "url": "http:\/\/hq0709.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Computer network","wordcount":  1296 ,
+                        }],"genre": "posts","keywords": "Computer network","wordcount":  1599 ,
         "url": "http:\/\/hq0709.github.io\/computer-network-review-week7\/","datePublished": "2023-01-28T21:54:40+08:00","dateModified": "2023-02-05T23:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -117,10 +117,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">计网知识点总结 Week 7 (网络层)</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">计网知识点总结 Week 7 & 8 (网络层)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="hq0709.github.io" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Hanqi Jiang</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/course-notes/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Course notes</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-28">2023-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1296 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/computer-network-review-week7/" class="leancloud_visitors" data-flag-title="计网知识点总结 Week 7 (网络层)">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-28">2023-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1599 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/computer-network-review-week7/" class="leancloud_visitors" data-flag-title="计网知识点总结 Week 7 &amp; 8 (网络层)">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -153,6 +153,13 @@
         <li><a href="#32-dhcp报文">3.2 DHCP报文</a></li>
         <li><a href="#33-dhcp的优点">3.3 DHCP的优点</a></li>
         <li><a href="#34-dhcp的局限性">3.4 DHCP的局限性</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-nat-network-address-translation">4. NAT: Network Address Translation</a>
+      <ul>
+        <li><a href="#41-nat的优点">4.1 NAT的优点</a></li>
+        <li><a href="#42-nat的实现">4.2 NAT的实现</a></li>
+        <li><a href="#43-nat的争议性">4.3 NAT的争议性</a></li>
       </ul>
     </li>
   </ul>
@@ -388,6 +395,51 @@
 </ul>
 </li>
 </ul>
+<h2 id="4-nat-network-address-translation">4. NAT: Network Address Translation</h2>
+<p><figure><a class="lightgallery" href="/computer-network-review-week7/12.png" title="NAT" data-thumbnail="/computer-network-review-week7/12.png" data-sub-html="<h2>NAT</h2><p>NAT</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week7/12.png"
+            data-srcset="/computer-network-review-week7/12.png, /computer-network-review-week7/12.png 1.5x, /computer-network-review-week7/12.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week7/12.png" width="2842" height="1352" />
+    </a><figcaption class="image-caption">NAT</figcaption>
+    </figure></p>
+<ul>
+<li>Local network uses just one IP address as far as outside world is concerned 本地网络内部只使用一个IP地址</li>
+<li>解决了地址短缺的问题</li>
+</ul>
+<h3 id="41-nat的优点">4.1 NAT的优点</h3>
+<ul>
+<li>just one IP address needed from provider ISP for all devices 只需要ISP提供一个IP地址</li>
+<li>can change addresses of devices in local network without notifying outside world 在不通知外界的情况下修改内部地址</li>
+<li>can change ISP without changing addresses of devices in local network 在不更改网络设备的条件下更换ISP</li>
+<li>security: devices inside local net not directly addressable, visible by outside world 本地网络中的设备无法直接寻址 ？？？</li>
+</ul>
+<h3 id="42-nat的实现">4.2 NAT的实现</h3>
+<p><figure><a class="lightgallery" href="/computer-network-review-week7/13.png" title="NAT实现" data-thumbnail="/computer-network-review-week7/13.png" data-sub-html="<h2>NAT实现</h2><p>NAT实现</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/computer-network-review-week7/13.png"
+            data-srcset="/computer-network-review-week7/13.png, /computer-network-review-week7/13.png 1.5x, /computer-network-review-week7/13.png 2x"
+            data-sizes="auto"
+            alt="/computer-network-review-week7/13.png" width="2674" height="1258" />
+    </a><figcaption class="image-caption">NAT实现</figcaption>
+    </figure></p>
+<ul>
+<li>需要 NAT router</li>
+<li>传入、传出的时候把外部的IP和端口转换为NAT IP和新的端口</li>
+<li>在NAT translation table中存储对应的IP - NAT IP关系</li>
+</ul>
+<h3 id="43-nat的争议性">4.3 NAT的争议性</h3>
+<ul>
+<li>routers “should” only process up to layer 3 ？？？</li>
+<li>address “shortage” should be solved by IPv6</li>
+<li>violates(违反) end-to-end argument</li>
+<li>NAT traversal: what if client wants to connect to server behind NAT ？？？</li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -399,7 +451,7 @@
                             <a class="link-to-markdown" href="/computer-network-review-week7/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://hq0709.github.io/computer-network-review-week7/" data-title="计网知识点总结 Week 7 (网络层)" data-hashtags="Computer network"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://hq0709.github.io/computer-network-review-week7/" data-hashtag="Computer network"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://hq0709.github.io/computer-network-review-week7/" data-title="计网知识点总结 Week 7 (网络层)"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://hq0709.github.io/computer-network-review-week7/" data-title="计网知识点总结 Week 7 (网络层)"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://hq0709.github.io/computer-network-review-week7/" data-title="计网知识点总结 Week 7 (网络层)" data-ralateuid="jhqyyds"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://hq0709.github.io/computer-network-review-week7/" data-title="计网知识点总结 Week 7 &amp; 8 (网络层)" data-hashtags="Computer network"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://hq0709.github.io/computer-network-review-week7/" data-hashtag="Computer network"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://hq0709.github.io/computer-network-review-week7/" data-title="计网知识点总结 Week 7 &amp; 8 (网络层)"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://hq0709.github.io/computer-network-review-week7/" data-title="计网知识点总结 Week 7 &amp; 8 (网络层)"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://hq0709.github.io/computer-network-review-week7/" data-title="计网知识点总结 Week 7 &amp; 8 (网络层)" data-ralateuid="jhqyyds"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-# 计网知识点总结 Week 7 (网络层)
+# 计网知识点总结 Week 7 & 8 (网络层)
 
 
 ## 1. 网络层服务和协议
@@ -96,6 +96,28 @@ IPv6有128位IP地址
   - Uses UDP, an unreliable and insecure protocol
   - DHCP is an unauthenticated(未经身份验证的) protocol
 
+## 4. NAT: Network Address Translation 
+![NAT](12.png "NAT")
+- Local network uses just one IP address as far as outside world is concerned 本地网络内部只使用一个IP地址
+- 解决了地址短缺的问题
+
+### 4.1 NAT的优点
+- just one IP address needed from provider ISP for all devices 只需要ISP提供一个IP地址
+- can change addresses of devices in local network without notifying outside world 在不通知外界的情况下修改内部地址
+- can change ISP without changing addresses of devices in local network 在不更改网络设备的条件下更换ISP
+- security: devices inside local net not directly addressable, visible by outside world 本地网络中的设备无法直接寻址 ？？？
+
+### 4.2 NAT的实现
+![NAT实现](13.png "NAT实现")
+- 需要 NAT router
+- 传入、传出的时候把外部的IP和端口转换为NAT IP和新的端口
+- 在NAT translation table中存储对应的IP - NAT IP关系
+
+### 4.3 NAT的争议性
+- routers “should” only process up to layer 3 ？？？
+- address “shortage” should be solved by IPv6
+- violates(违反) end-to-end argument
+- NAT traversal: what if client wants to connect to server behind NAT ？？？
 
 
 
