@@ -12,14 +12,17 @@
 - 优：(1) efficient; (2) better performance
 - 缺：(1) Difficult to impose security; (2) difficult to maintain
   
+
 **2. Layered OS：**
 - 优：security
 - 缺：hard to manage; weak performance
   
+
 **3. Micro-Kernel OS (微内核os)：**
 - 优：security；extensible
 - 缺：inefficient
   
+
 **4. Library OS (库操作系统)：**
 - 优：libraries provide additional security and personality
 - 缺：less consistency(缺乏稳定性)
@@ -67,7 +70,7 @@
 	     System.out.println(message); 
 	         }
 	 }
-
+	
 	```
 
 **4.  Processor（处理器）, program（程序）, process（进程） 三者区别？**
@@ -128,7 +131,7 @@
 		{
 		     balance=balance+a;
 		 }
-
+		
 		```
 - Monitors
   - Semaphores
@@ -216,8 +219,9 @@ public class BoxDimension{
 } 
 BoxDimension d = new BoxDimension();
 ```
-  
+
 **5. Java中的semaphore**
+
 ```java
 public class Semaphore { 
     private int count = 0; 
@@ -235,9 +239,94 @@ public class Semaphore {
 }
 ```
 - P中要使用`while`来判断是否要wait，因为如果条件满足要一直wait
-- V中要使用`notifyAll()`，而不是`notify()`，因为`notify()`会导致deadlock
+- V中要使用`notifyAll()`，而不是`notify()`，因为`notify()`会导致`deadlock`
 
 ---
 
 ## Chapter 5
+
+1. **Synchronous message-passing model (rendezvous) doesn’t allow the producer to get ahead of the consumer. This limits concurrency. 同步消息传递模型不允许生产者先于消费者。这限制了并发性。**
+
+2. **message passing definition**
+
+   Processes communicate by sending & receiving messages using *primitives* (including synchronization)
+
+3. **同步消息传递**
+
+   - 使用send和receive函数来进行消息的传递，call send函数的进程直到消息被接收到才会解除block，receive函数直到消息完全发出来才会解除block
+   - sender: `send(msg, channel)`
+
+   - receiver: `var = reveive(channel)`
+
+   - e.g. 
+
+     ```java
+     Sender() 
+         { 
+           messagetype item; 
+           item = produce_item();      
+           chan.send(item); 
+     	}
+         
+     Receiver() 
+        { 
+          messagetype item; 
+          item = chan.receive(); 
+          consume_item(item); 
+        }
+     ```
+
+   - 同步消息传递存在的问题
+     - 降低了并发性(reduce concurrency)
+     - client-server interaction
+       - When client releases a resource, usually no reason for waiting until the server has received the release message
+       - When client writes to a device (graphics display) it can usually continue without waiting for the sever to receive the message
+
+4. **异步消息传递**
+   - 同样使用send和receive，但是call send函数的进程不会被block，receive函数直到一个消息发出来了就解除block
+   - 异步消息传递存在的问题
+     - Acknowledgement 确认
+       - Receiving process cannot know anything about the current state of the sending process 接收进程不知道发送进程的状态
+       - Sending process has no way of knowing if message was ever received unless the receiving process sends reply 发送进程不知道消息有没有收到
+     - difficult failure detection
+     - finite buffer space：如果同时发送太多的message，程序会crash，buffer会overflow，一些message可能会loss，从而会block发送进程
+
+5. **MP code**
+
+   - 同步
+
+     ```java
+     producer() {
+        messagetype item; 
+        while (TRUE) { 
+         item = produce_item();
+         chan.send(item); // send item on channel } } 
+     consumer() {
+           messagetype item; 
+            while(TRUE) { 
+                item = chan.receive(); // receive item       
+                consume_item(item); 
+     } }
+     ```
+
+   - 异步
+
+     ```java
+     producer() {   
+         messagetype item; 
+         while (TRUE) { 
+                 item = produce_item(); 
+                 credit = credit_chan.receive(); // wait for a credit  
+                 data_chan.send(item); // send item } } 
+     consumer() { 
+          messagetype item; // Prime producer with N credits... 
+          for (int i=0 i<N; i++) 
+              credit_chan.send(credit); 
+               while(TRUE) { 
+                     item = data_chan.receive(); // receive item  
+                     credit_chan.send(credit); // send back credit  
+                     consume_item(item); } }
+     ```
+
+     
 
