@@ -78,7 +78,7 @@
 - Program: _Instruction sequence_; Stored on disk 指令集；存储在硬盘上
 - Process：_Program in execution_ on a processor; store in primary memory
 - Program may be executed by multiple processes at the same time
-<img src="DraggedImage-2.png" width = 70% height = 70% alt = "一个程序同时被两个进程执行"/>
+<img src="DraggedImage-2.png" width = 70% height = 70% alt = "一个程序同时被两个进程执行"  />
 <!-- ![一个程序同时被两个进程执行](DraggedImage-2.png "一个程序同时被两个进程执行") -->
 - Process can run multiple programs. (多个thread)
 <img src="DraggedImage-3.png" width = 70% height = 60% alt = "一个进程同时执行多个程序"/>
@@ -184,6 +184,7 @@ void V(Sem s) { /* signal() procedure */
   - Distributed system分布式系统（Message Passing）: send() & receive()
 
 **3. 虚假唤醒（Spurious wakeup）是考试中一道大题**
+
 ```java
 public class Semaphore { 
     private int count = 0;   
@@ -244,6 +245,8 @@ public class Semaphore {
 ---
 
 ## Chapter 5
+
+> updated in 2023/2/9
 
 1. **Synchronous message-passing model (rendezvous) doesn’t allow the producer to get ahead of the consumer. This limits concurrency. 同步消息传递模型不允许生产者先于消费者。这限制了并发性。**
 
@@ -325,8 +328,182 @@ public class Semaphore {
                while(TRUE) { 
                      item = data_chan.receive(); // receive item  
                      credit_chan.send(credit); // send back credit  
-                     consume_item(item); } }
+                     consume_item(item); 
+               } 
+     }
      ```
-
      
+
+---
+
+## Chapter 6
+
+> updated in 2023/2/11
+
+1. **Blocking(直接阻塞) 和 Spinning lock(自旋锁)比较：**
+
+   - Blocking：Scheduler blocks threads while they wait 
+     - 优点：Good for long critical sections 
+     - 缺点：Costly if lock accessed lots（锁访问得多就代价高）
+
+   - Spinning: Sit in a tight loop until lock acquisition 
+     - 优点：Good for short critical sections 
+     - 缺点：Costly for long critical sections 
+
+2. **自旋锁的实现**
+
+   *普通的自旋锁*
+
+   ```java
+   void get_lock (int *lk) { 
+       while (*lk ==1); // 如果lk不是1，跳出循环，拿到锁
+       *lk = 1; // Claim the lock }
+   
+   void release_lock (int *lk) {
+       *lk = 0; //Let someone else claim lock 
+   }
+   ```
+
+   - 上面的代码有问题，如果两个进程同时调用`while(*lk = 1)`的话，会发生mutual exlusion，解决方案是在此处使用`disable_interrupts();`函数，因为同时访问critical session只会在发生中断的情况下发生；然后在释放锁的时候调用`reenable_interrupts();`函数，来重新启用中断
+   - 无论如何，上面的代码还是有很多缺陷，例如中断被长时间禁用、release_lock忘记启用中断等，所以依旧不是一个好的解决方案
+
+   ```java
+   void get_lock (int *lk) {
+             try_again: 
+            disable_interrupts(); 
+            if (*lk ==1); // Lock taken  
+              { reenable_interrupts(); //permit context switch  
+                 go to try_again; //spin 
+              } 
+             *lk = 1; // Claim the lock 
+               Reenable_interrupts(); 
+   }
+   void release_lock(int *lk) {
+        *lk = 0; //Let someone claim lock 
+   }
+   ```
+
+   - 这个版本的代码解决了中断使用的问题，但仍存在其他问题
+
+   *机器指令（test_and_set）：通过硬件解决*
+
+   ```java
+   boolean test_and_set(boolean *target) { 
+       boolean orig_val = *target; 
+       *target = TRUE; 
+       return orig_val; // 将target置为true但是并不更改返回的值，返回的还是原先的值
+   } 
+   void get_lock (int *lk) { 
+       while(test_and_set(lk) == 1) ; // wait 
+   }
+   void release_lock(int *lk) {
+       *lk = 0; //Let someone claim lock 
+   }
+   ```
+
+   *Peterson’s Algorithm：通过软件解决（仅适用于两个线程！！！）*
+
+   ```java
+   int tiebreak = 0; /* shared variable */ 
+   bool[] flag = {FALSE, FALSE}; /* shared variable */ 
+   void get_lock() { 
+       int pid = thread_getid(); 
+       int other = 1 - pid;
+       flag[pid] = TRUE;
+       tiebreak = other; 
+       while(flag[other] && tiebreak == other); /* spin */
+   } 
+   void release_lock() { 
+       flag[thread_getid()] = FALSE; 
+   }
+   ```
+
+   - 解释一下，如果同时有两个进程访问get_lock的话，如果另一个进程是false的话就会跳出循环，执行成功；如果另一个进程也是true，就会卡在while循环
+
+3. **monitor是什么？**
+   - Concurrent control construct for synchronization and scheduling 用于同步和调度的并发控制结构
+
+---
+
+## Chapter 7
+
+> updated in 2023.2.11
+
+1. **条件同步和锁的区别？**
+   - 条件同步实现了互斥性，原子性，还实现了顺序执行（sequential execution）
+   - 锁实现了互斥性和原子性（Mutual repulsion, atomicity）
+
+2. **实现先put()再get()（增加一个布尔值done_put）：**
+
+   ```java
+   public class Dimension { 
+      private int dim = 0; 
+      private boolean done_put = FALSE;
+      public void synchronized put(int d) { 
+          dim = d; 
+          done_put = TRUE;  
+          notify(); 
+      }
+      public int synchronized get() { 
+          while (!done_put)         
+              wait(); 
+          done_put = FALSE;  
+          return dim; 
+      }
+   }
+   ```
+
+3. **notify()和notifyAll()的使用**
+
+   - 一般使用`notifyAll()`，不会导致死锁，但是效率低
+   - 在仔细考虑所有情况下的调度后可以使用`notify()`，效率高
+
+4. **基于优先级的barrier**
+
+   ```java
+   public class Barrier { 
+       int highest = 0; 
+       int next_highest = 0;
+       public void synchronized pause() { 
+           int p; 
+           if ((p = get_priority()) > highest) { 
+               //Compare thread priorities 
+               next_highest = highest; 
+               highest = p; 
+           } 
+           else if (p > next_highest) { 
+               next_highest = p; 
+           } 
+           do wait () while(p < highest); 
+           highest = next_highest; /*set highest for next time */ 
+       }
+       /* Resume the paused thread with the highest priority */
+       public void synchronized resume_highest_priority() { 
+          notifyAll(); 
+       } 
+   }
+   ```
+
+5. **bounded counter**
+
+   ```java
+   public class BoundedCounter implements IBoundedCounter {
+       long count = MIN; 
+       public synchronized long value() {return count;}
+       public synchronized void inc() { 
+            while(count == MAX) wait(); 
+            if (count++ == MIN) // notify if we were in ‘min’ state  
+                 notifyAll(); // ... let any blocked decrementer resume 
+       } 
+         public synchronized void dec() { 
+              while(count == MIN) wait(); 
+              if (count-- == MAX) // notify if we were in ‘max’ state 
+                  notifyAll(); // ... let any blocked incrementer resume 
+         }
+   }
+   ```
+
+   - `if (count++ == MIN)`指的是`if (count == MIN)`和`count++`，就算if不成立也会执行count++
+   - `notifyAll()`唤醒所有的线程（如果刚脱离最小，就可以减了，如果刚脱离最大，就可以加了）
+
 

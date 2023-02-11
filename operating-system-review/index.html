@@ -34,7 +34,7 @@
                             "url": "http:\/\/hq0709.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Operating systems","wordcount":  2419 ,
+                        }],"genre": "posts","keywords": "Operating systems","wordcount":  3815 ,
         "url": "http:\/\/hq0709.github.io\/operating-system-review\/","datePublished": "2023-01-14T21:57:40+08:00","dateModified": "2023-01-16T22:11:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -119,8 +119,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">操作系统考点总结（按章节）</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hq0709" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Hanqi Jiang</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/course-notes/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Course notes</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-14">2023-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2419 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id="/operating-system-review/" class="leancloud_visitors" data-flag-title="操作系统考点总结（按章节）">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-14">2023-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3815 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 8 分钟&nbsp;<span id="/operating-system-review/" class="leancloud_visitors" data-flag-title="操作系统考点总结（按章节）">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -135,6 +135,8 @@
     <li><a href="#chapter-3">Chapter 3</a></li>
     <li><a href="#chapter-4">Chapter 4</a></li>
     <li><a href="#chapter-5">Chapter 5</a></li>
+    <li><a href="#chapter-6">Chapter 6</a></li>
+    <li><a href="#chapter-7">Chapter 7</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><div class="details admonition tip open">
@@ -244,7 +246,7 @@
 <li>Program: <em>Instruction sequence</em>; Stored on disk 指令集；存储在硬盘上</li>
 <li>Process：<em>Program in execution</em> on a processor; store in primary memory</li>
 <li>Program may be executed by multiple processes at the same time
-<img src="DraggedImage-2.png" width = 70% height = 70% alt = "一个程序同时被两个进程执行"/></li>
+<img src="DraggedImage-2.png" width = 70% height = 70% alt = "一个程序同时被两个进程执行"  /></li>
 </ul>
 <!-- ![一个程序同时被两个进程执行](DraggedImage-2.png "一个程序同时被两个进程执行") -->
 <ul>
@@ -501,6 +503,9 @@
 </ul>
 <hr>
 <h2 id="chapter-5">Chapter 5</h2>
+<blockquote>
+<p>updated in 2023/2/9</p>
+</blockquote>
 <ol>
 <li>
 <p><strong>Synchronous message-passing model (rendezvous) doesn’t allow the producer to get ahead of the consumer. This limits concurrency. 同步消息传递模型不允许生产者先于消费者。这限制了并发性。</strong></p>
@@ -640,6 +645,8 @@
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">producer</span><span class="o">()</span> <span class="o">{</span>   
@@ -655,10 +662,322 @@
 </span></span><span class="line"><span class="cl">          <span class="k">while</span><span class="o">(</span><span class="n">TRUE</span><span class="o">)</span> <span class="o">{</span> 
 </span></span><span class="line"><span class="cl">                <span class="n">item</span> <span class="o">=</span> <span class="n">data_chan</span><span class="o">.</span><span class="na">receive</span><span class="o">();</span> <span class="c1">// receive item  
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">credit_chan</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">credit</span><span class="o">);</span> <span class="c1">// send back credit  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">consume_item</span><span class="o">(</span><span class="n">item</span><span class="o">);</span> <span class="o">}</span> <span class="o">}</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">consume_item</span><span class="o">(</span><span class="n">item</span><span class="o">);</span> 
+</span></span><span class="line"><span class="cl">          <span class="o">}</span> 
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="chapter-6">Chapter 6</h2>
+<blockquote>
+<p>updated in 2023/2/11</p>
+</blockquote>
+<ol>
+<li>
+<p><strong>Blocking(直接阻塞) 和 Spinning lock(自旋锁)比较：</strong></p>
+<ul>
+<li>
+<p>Blocking：Scheduler blocks threads while they wait</p>
+<ul>
+<li>优点：Good for long critical sections</li>
+<li>缺点：Costly if lock accessed lots（锁访问得多就代价高）</li>
+</ul>
+</li>
+<li>
+<p>Spinning: Sit in a tight loop until lock acquisition</p>
+<ul>
+<li>优点：Good for short critical sections</li>
+<li>缺点：Costly for long critical sections</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>自旋锁的实现</strong></p>
+<p><em>普通的自旋锁</em></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">get_lock</span> <span class="o">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">lk</span><span class="o">)</span> <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="o">(*</span><span class="n">lk</span> <span class="o">==</span><span class="mi">1</span><span class="o">);</span> <span class="c1">// 如果lk不是1，跳出循环，拿到锁
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">*</span><span class="n">lk</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// Claim the lock }
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">release_lock</span> <span class="o">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">lk</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">*</span><span class="n">lk</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">//Let someone else claim lock 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>上面的代码有问题，如果两个进程同时调用<code>while(*lk = 1)</code>的话，会发生mutual exlusion，解决方案是在此处使用<code>disable_interrupts();</code>函数，因为同时访问critical session只会在发生中断的情况下发生；然后在释放锁的时候调用<code>reenable_interrupts();</code>函数，来重新启用中断</li>
+<li>无论如何，上面的代码还是有很多缺陷，例如中断被长时间禁用、release_lock忘记启用中断等，所以依旧不是一个好的解决方案</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">get_lock</span> <span class="o">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">lk</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">try_again</span><span class="o">:</span> 
+</span></span><span class="line"><span class="cl">         <span class="n">disable_interrupts</span><span class="o">();</span> 
+</span></span><span class="line"><span class="cl">         <span class="k">if</span> <span class="o">(*</span><span class="n">lk</span> <span class="o">==</span><span class="mi">1</span><span class="o">);</span> <span class="c1">// Lock taken  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>           <span class="o">{</span> <span class="n">reenable_interrupts</span><span class="o">();</span> <span class="c1">//permit context switch  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>              <span class="n">go</span> <span class="n">to</span> <span class="n">try_again</span><span class="o">;</span> <span class="c1">//spin 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>           <span class="o">}</span> 
+</span></span><span class="line"><span class="cl">          <span class="o">*</span><span class="n">lk</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// Claim the lock 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">Reenable_interrupts</span><span class="o">();</span> 
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">release_lock</span><span class="o">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">lk</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">     <span class="o">*</span><span class="n">lk</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">//Let someone claim lock 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>这个版本的代码解决了中断使用的问题，但仍存在其他问题</li>
+</ul>
+<p><em>机器指令（test_and_set）：通过硬件解决</em></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">boolean</span> <span class="nf">test_and_set</span><span class="o">(</span><span class="kt">boolean</span> <span class="o">*</span><span class="n">target</span><span class="o">)</span> <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="kt">boolean</span> <span class="n">orig_val</span> <span class="o">=</span> <span class="o">*</span><span class="n">target</span><span class="o">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="o">*</span><span class="n">target</span> <span class="o">=</span> <span class="n">TRUE</span><span class="o">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">orig_val</span><span class="o">;</span> <span class="c1">// 将target置为true但是并不更改返回的值，返回的还是原先的值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span> 
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">get_lock</span> <span class="o">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">lk</span><span class="o">)</span> <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">while</span><span class="o">(</span><span class="n">test_and_set</span><span class="o">(</span><span class="n">lk</span><span class="o">)</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">;</span> <span class="c1">// wait 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">release_lock</span><span class="o">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">lk</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">*</span><span class="n">lk</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">//Let someone claim lock 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><em>Peterson’s Algorithm：通过软件解决（仅适用于两个线程！！！）</em></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">tiebreak</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="cm">/* shared variable */</span> 
+</span></span><span class="line"><span class="cl"><span class="n">bool</span><span class="o">[]</span> <span class="n">flag</span> <span class="o">=</span> <span class="o">{</span><span class="n">FALSE</span><span class="o">,</span> <span class="n">FALSE</span><span class="o">};</span> <span class="cm">/* shared variable */</span> 
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">get_lock</span><span class="o">()</span> <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">pid</span> <span class="o">=</span> <span class="n">thread_getid</span><span class="o">();</span> 
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">other</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">pid</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">flag</span><span class="o">[</span><span class="n">pid</span><span class="o">]</span> <span class="o">=</span> <span class="n">TRUE</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tiebreak</span> <span class="o">=</span> <span class="n">other</span><span class="o">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">while</span><span class="o">(</span><span class="n">flag</span><span class="o">[</span><span class="n">other</span><span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="n">tiebreak</span> <span class="o">==</span> <span class="n">other</span><span class="o">);</span> <span class="cm">/* spin */</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span> 
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">release_lock</span><span class="o">()</span> <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">flag</span><span class="o">[</span><span class="n">thread_getid</span><span class="o">()]</span> <span class="o">=</span> <span class="n">FALSE</span><span class="o">;</span> 
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>解释一下，如果同时有两个进程访问get_lock的话，如果另一个进程是false的话就会跳出循环，执行成功；如果另一个进程也是true，就会卡在while循环</li>
+</ul>
+</li>
+<li>
+<p><strong>monitor是什么？</strong></p>
+<ul>
+<li>Concurrent control construct for synchronization and scheduling 用于同步和调度的并发控制结构</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="chapter-7">Chapter 7</h2>
+<blockquote>
+<p>updated in 2023.2.11</p>
+</blockquote>
+<ol>
+<li>
+<p><strong>条件同步和锁的区别？</strong></p>
+<ul>
+<li>条件同步实现了互斥性，原子性，还实现了顺序执行（sequential execution）</li>
+<li>锁实现了互斥性和原子性（Mutual repulsion, atomicity）</li>
+</ul>
+</li>
+<li>
+<p><strong>实现先put()再get()（增加一个布尔值done_put）：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Dimension</span> <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">   <span class="kd">private</span> <span class="kt">int</span> <span class="n">dim</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> 
+</span></span><span class="line"><span class="cl">   <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">done_put</span> <span class="o">=</span> <span class="n">FALSE</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kd">public</span> <span class="kt">void</span> <span class="kd">synchronized</span> <span class="nf">put</span><span class="o">(</span><span class="kt">int</span> <span class="n">d</span><span class="o">)</span> <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">       <span class="n">dim</span> <span class="o">=</span> <span class="n">d</span><span class="o">;</span> 
+</span></span><span class="line"><span class="cl">       <span class="n">done_put</span> <span class="o">=</span> <span class="n">TRUE</span><span class="o">;</span>  
+</span></span><span class="line"><span class="cl">       <span class="n">notify</span><span class="o">();</span> 
+</span></span><span class="line"><span class="cl">   <span class="o">}</span>
+</span></span><span class="line"><span class="cl">   <span class="kd">public</span> <span class="kt">int</span> <span class="kd">synchronized</span> <span class="nf">get</span><span class="o">()</span> <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">       <span class="k">while</span> <span class="o">(!</span><span class="n">done_put</span><span class="o">)</span>         
+</span></span><span class="line"><span class="cl">           <span class="n">wait</span><span class="o">();</span> 
+</span></span><span class="line"><span class="cl">       <span class="n">done_put</span> <span class="o">=</span> <span class="n">FALSE</span><span class="o">;</span>  
+</span></span><span class="line"><span class="cl">       <span class="k">return</span> <span class="n">dim</span><span class="o">;</span> 
+</span></span><span class="line"><span class="cl">   <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>notify()和notifyAll()的使用</strong></p>
+<ul>
+<li>一般使用<code>notifyAll()</code>，不会导致死锁，但是效率低</li>
+<li>在仔细考虑所有情况下的调度后可以使用<code>notify()</code>，效率高</li>
+</ul>
+</li>
+<li>
+<p><strong>基于优先级的barrier</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Barrier</span> <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">highest</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">next_highest</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="kd">synchronized</span> <span class="nf">pause</span><span class="o">()</span> <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">p</span><span class="o">;</span> 
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">((</span><span class="n">p</span> <span class="o">=</span> <span class="n">get_priority</span><span class="o">())</span> <span class="o">&gt;</span> <span class="n">highest</span><span class="o">)</span> <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">            <span class="c1">//Compare thread priorities 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">next_highest</span> <span class="o">=</span> <span class="n">highest</span><span class="o">;</span> 
+</span></span><span class="line"><span class="cl">            <span class="n">highest</span> <span class="o">=</span> <span class="n">p</span><span class="o">;</span> 
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> 
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">p</span> <span class="o">&gt;</span> <span class="n">next_highest</span><span class="o">)</span> <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">            <span class="n">next_highest</span> <span class="o">=</span> <span class="n">p</span><span class="o">;</span> 
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> 
+</span></span><span class="line"><span class="cl">        <span class="k">do</span> <span class="n">wait</span> <span class="o">()</span> <span class="k">while</span><span class="o">(</span><span class="n">p</span> <span class="o">&lt;</span> <span class="n">highest</span><span class="o">);</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">highest</span> <span class="o">=</span> <span class="n">next_highest</span><span class="o">;</span> <span class="cm">/*set highest for next time */</span> 
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* Resume the paused thread with the highest priority */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="kd">synchronized</span> <span class="nf">resume_highest_priority</span><span class="o">()</span> <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">       <span class="n">notifyAll</span><span class="o">();</span> 
+</span></span><span class="line"><span class="cl">    <span class="o">}</span> 
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>bounded counter</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BoundedCounter</span> <span class="kd">implements</span> <span class="n">IBoundedCounter</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">long</span> <span class="n">count</span> <span class="o">=</span> <span class="n">MIN</span><span class="o">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">long</span> <span class="nf">value</span><span class="o">()</span> <span class="o">{</span><span class="k">return</span> <span class="n">count</span><span class="o">;}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">inc</span><span class="o">()</span> <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">         <span class="k">while</span><span class="o">(</span><span class="n">count</span> <span class="o">==</span> <span class="n">MAX</span><span class="o">)</span> <span class="n">wait</span><span class="o">();</span> 
+</span></span><span class="line"><span class="cl">         <span class="k">if</span> <span class="o">(</span><span class="n">count</span><span class="o">++</span> <span class="o">==</span> <span class="n">MIN</span><span class="o">)</span> <span class="c1">// notify if we were in ‘min’ state  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>              <span class="n">notifyAll</span><span class="o">();</span> <span class="c1">// ... let any blocked decrementer resume 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">}</span> 
+</span></span><span class="line"><span class="cl">      <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">dec</span><span class="o">()</span> <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">           <span class="k">while</span><span class="o">(</span><span class="n">count</span> <span class="o">==</span> <span class="n">MIN</span><span class="o">)</span> <span class="n">wait</span><span class="o">();</span> 
+</span></span><span class="line"><span class="cl">           <span class="k">if</span> <span class="o">(</span><span class="n">count</span><span class="o">--</span> <span class="o">==</span> <span class="n">MAX</span><span class="o">)</span> <span class="c1">// notify if we were in ‘max’ state 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>               <span class="n">notifyAll</span><span class="o">();</span> <span class="c1">// ... let any blocked incrementer resume 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>if (count++ == MIN)</code>指的是<code>if (count == MIN)</code>和<code>count++</code>，就算if不成立也会执行count++</li>
+<li><code>notifyAll()</code>唤醒所有的线程（如果刚脱离最小，就可以减了，如果刚脱离最大，就可以加了）</li>
 </ul>
 </li>
 </ol>
