@@ -419,6 +419,7 @@ public class Semaphore {
    ```
 
    - 解释一下，如果同时有两个进程访问get_lock的话，如果另一个进程是false的话就会跳出循环，执行成功；如果另一个进程也是true，就会卡在while循环
+   - while这里是双重确认，任何一个条件都不能省略，因为另一个进程进来的时间是不可控的
 
 3. **monitor是什么？**
    - Concurrent control construct for synchronization and scheduling 用于同步和调度的并发控制结构
@@ -510,6 +511,8 @@ public class Semaphore {
 
 ## Chapter 8
 
+> updated in 2023.2.11
+
 1. **fork():** 
 
    - 产生父进程，return value>0; 产生子进程，return value=0 (`setjmp()` and `longjmp()`)
@@ -557,4 +560,115 @@ public class Semaphore {
      - User threads require no support from the OS
 
      - Kernel threads are supported by the OS 
+
+---
+
+## Chapter 10
+
+> updated in 2023.2.11
+
+1. **Common pitfalls in concurrent programming(常见的陷阱类型)：**
+
+   - Non-correctness: introduce subtle programing errors 引入微小的编程错误
+
+   - Deadlock: 两个或多个线程被阻塞，永远等待对方放弃资源
+
+   - Livelock
+
+   - Flawed mutual exclusion
+
+2. **引发死锁的原因**
+
+   - Mutual exclusion of resources 资源互斥
+   - Hold and wait 
+   - Non-preemption of resources 不抢占资源
+   - Circular wait 循环等待
+
+3. **解决这个死锁**
+
+   ```java
+   Lock1.acquire()
+   Lock2.acquire() 
+   Lock1.release()
+   Lock2.release()
+   ```
+
+   answer: 
+
+   ```java
+   Lock1.acquire()
+   Lock2.acquire() 
+   Lock2.release()
+   Lock1.release()
+   ```
+
+4. 皮特森算法例子
+
+   *non-correct*
+
+   ```java
+   int[] flag = {FALSE, FALSE}; /* shared */
+   public void get_lock() { 
+       int pid = Thread.currentThread(); 
+       int other = 1 - pid; 
+       while(flag[other]); /* other’s flag is raised */ 
+       flag[pid] = TRUE; /* raise my flag */ 
+   } 
+   public void release_lock() { 
+       flag[Thread.currentThread()] = FALSE; 
+   }
+   ```
+
+   - 注意这里while循环在赋值true之前，说明还没有到争抢资源的地方，就卡在循环里了，所以不是deadlock而是non-correct
+
+   - 修改方法：
+
+     ```java
+     tiebreak = 0; // 初始化
+     
+     /* 在函数中 */
+     flag[pid] = TRUE
+     tiebreak = other
+     while(flag[other] && tiebreak == other);
+     ```
+
+   *deadlock*
+
+   ```java
+   int[] flag = {FALSE, FALSE}; /* shared */
+   public void get_lock() { 
+       int pid = Thread.currentThread(); 
+       int other = 1 - pid; 
+       flag[pid] = TRUE; /* raise my flag */    
+       while(flag[other]); /* other’s is set */
+   } 
+   public void release_lock() { 
+       flag[Thread.currentThread()] = FALSE; 
+   }
+   ```
+
+   - 这里有可能两个进程都被赋值true，造成争抢资源，死锁
+   - 修改方法同上
+
+   *livelock*
+
+   ```java
+   int[] flag = {FALSE, FALSE}; /* shared */ 
+   public void get_lock() { 
+       int pid = Thread.currentThread(); 
+       int other = 1 - pid; 
+       try_again: flag[pid] = TRUE; /* raise my flag */ 
+       if (flag[other]) { /* check other’s flag */ 
+           flag[pid] = FALSE; /* lower mine */ 
+           goto try_again;
+       }
+   }
+   public void release_lock() {
+   	flag[Thread.currentThread()] = FALSE;
+   } 
+   ```
+
+   - 为什么是livelock？
+
+   
 

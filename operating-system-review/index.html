@@ -34,7 +34,7 @@
                             "url": "http:\/\/hq0709.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Operating systems","wordcount":  4061 ,
+                        }],"genre": "posts","keywords": "Operating systems","wordcount":  4590 ,
         "url": "http:\/\/hq0709.github.io\/operating-system-review\/","datePublished": "2023-01-14T21:57:40+08:00","dateModified": "2023-01-16T22:11:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -119,8 +119,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">操作系统考点总结（按章节）</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hq0709" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Hanqi Jiang</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/course-notes/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Course notes</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-14">2023-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 4061 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 9 分钟&nbsp;<span id="/operating-system-review/" class="leancloud_visitors" data-flag-title="操作系统考点总结（按章节）">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-14">2023-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 4590 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 10 分钟&nbsp;<span id="/operating-system-review/" class="leancloud_visitors" data-flag-title="操作系统考点总结（按章节）">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -138,6 +138,7 @@
     <li><a href="#chapter-6">Chapter 6</a></li>
     <li><a href="#chapter-7">Chapter 7</a></li>
     <li><a href="#chapter-8">Chapter 8</a></li>
+    <li><a href="#chapter-10">Chapter 10</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><div class="details admonition tip open">
@@ -821,6 +822,7 @@
 </div>
 </div><ul>
 <li>解释一下，如果同时有两个进程访问get_lock的话，如果另一个进程是false的话就会跳出循环，执行成功；如果另一个进程也是true，就会卡在while循环</li>
+<li>while这里是双重确认，任何一个条件都不能省略，因为另一个进程进来的时间是不可控的</li>
 </ul>
 </li>
 <li>
@@ -984,6 +986,9 @@
 </ol>
 <hr>
 <h2 id="chapter-8">Chapter 8</h2>
+<blockquote>
+<p>updated in 2023.2.11</p>
+</blockquote>
 <ol>
 <li>
 <p><strong>fork():</strong></p>
@@ -1066,6 +1071,194 @@
 </li>
 </ul>
 </li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="chapter-10">Chapter 10</h2>
+<blockquote>
+<p>updated in 2023.2.11</p>
+</blockquote>
+<ol>
+<li>
+<p><strong>Common pitfalls in concurrent programming(常见的陷阱类型)：</strong></p>
+<ul>
+<li>
+<p>Non-correctness: introduce subtle programing errors 引入微小的编程错误</p>
+</li>
+<li>
+<p>Deadlock: 两个或多个线程被阻塞，永远等待对方放弃资源</p>
+</li>
+<li>
+<p>Livelock</p>
+</li>
+<li>
+<p>Flawed mutual exclusion</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>引发死锁的原因</strong></p>
+<ul>
+<li>Mutual exclusion of resources 资源互斥</li>
+<li>Hold and wait</li>
+<li>Non-preemption of resources 不抢占资源</li>
+<li>Circular wait 循环等待</li>
+</ul>
+</li>
+<li>
+<p><strong>解决这个死锁</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Lock1</span><span class="o">.</span><span class="na">acquire</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">Lock2</span><span class="o">.</span><span class="na">acquire</span><span class="o">()</span> 
+</span></span><span class="line"><span class="cl"><span class="n">Lock1</span><span class="o">.</span><span class="na">release</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">Lock2</span><span class="o">.</span><span class="na">release</span><span class="o">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>answer:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Lock1</span><span class="o">.</span><span class="na">acquire</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">Lock2</span><span class="o">.</span><span class="na">acquire</span><span class="o">()</span> 
+</span></span><span class="line"><span class="cl"><span class="n">Lock2</span><span class="o">.</span><span class="na">release</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">Lock1</span><span class="o">.</span><span class="na">release</span><span class="o">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>皮特森算法例子</p>
+<p><em>non-correct</em></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span><span class="o">[]</span> <span class="n">flag</span> <span class="o">=</span> <span class="o">{</span><span class="n">FALSE</span><span class="o">,</span> <span class="n">FALSE</span><span class="o">};</span> <span class="cm">/* shared */</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">get_lock</span><span class="o">()</span> <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">pid</span> <span class="o">=</span> <span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">();</span> 
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">other</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">pid</span><span class="o">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">while</span><span class="o">(</span><span class="n">flag</span><span class="o">[</span><span class="n">other</span><span class="o">]);</span> <span class="cm">/* other’s flag is raised */</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">flag</span><span class="o">[</span><span class="n">pid</span><span class="o">]</span> <span class="o">=</span> <span class="n">TRUE</span><span class="o">;</span> <span class="cm">/* raise my flag */</span> 
+</span></span><span class="line"><span class="cl"><span class="o">}</span> 
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">release_lock</span><span class="o">()</span> <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">flag</span><span class="o">[</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">()]</span> <span class="o">=</span> <span class="n">FALSE</span><span class="o">;</span> 
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>注意这里while循环在赋值true之前，说明还没有到争抢资源的地方，就卡在循环里了，所以不是deadlock而是non-correct</p>
+</li>
+<li>
+<p>修改方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">tiebreak</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// 初始化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* 在函数中 */</span>
+</span></span><span class="line"><span class="cl"><span class="n">flag</span><span class="o">[</span><span class="n">pid</span><span class="o">]</span> <span class="o">=</span> <span class="n">TRUE</span>
+</span></span><span class="line"><span class="cl"><span class="n">tiebreak</span> <span class="o">=</span> <span class="n">other</span>
+</span></span><span class="line"><span class="cl"><span class="nf">while</span><span class="o">(</span><span class="n">flag</span><span class="o">[</span><span class="n">other</span><span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="n">tiebreak</span> <span class="o">==</span> <span class="n">other</span><span class="o">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p><em>deadlock</em></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span><span class="o">[]</span> <span class="n">flag</span> <span class="o">=</span> <span class="o">{</span><span class="n">FALSE</span><span class="o">,</span> <span class="n">FALSE</span><span class="o">};</span> <span class="cm">/* shared */</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">get_lock</span><span class="o">()</span> <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">pid</span> <span class="o">=</span> <span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">();</span> 
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">other</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">pid</span><span class="o">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">flag</span><span class="o">[</span><span class="n">pid</span><span class="o">]</span> <span class="o">=</span> <span class="n">TRUE</span><span class="o">;</span> <span class="cm">/* raise my flag */</span>    
+</span></span><span class="line"><span class="cl">    <span class="k">while</span><span class="o">(</span><span class="n">flag</span><span class="o">[</span><span class="n">other</span><span class="o">]);</span> <span class="cm">/* other’s is set */</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span> 
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">release_lock</span><span class="o">()</span> <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">flag</span><span class="o">[</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">()]</span> <span class="o">=</span> <span class="n">FALSE</span><span class="o">;</span> 
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>这里有可能两个进程都被赋值true，造成争抢资源，死锁</li>
+<li>修改方法同上</li>
+</ul>
+<p><em>livelock</em></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span><span class="o">[]</span> <span class="n">flag</span> <span class="o">=</span> <span class="o">{</span><span class="n">FALSE</span><span class="o">,</span> <span class="n">FALSE</span><span class="o">};</span> <span class="cm">/* shared */</span> 
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">get_lock</span><span class="o">()</span> <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">pid</span> <span class="o">=</span> <span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">();</span> 
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">other</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">pid</span><span class="o">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">try_again</span><span class="o">:</span> <span class="n">flag</span><span class="o">[</span><span class="n">pid</span><span class="o">]</span> <span class="o">=</span> <span class="n">TRUE</span><span class="o">;</span> <span class="cm">/* raise my flag */</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">flag</span><span class="o">[</span><span class="n">other</span><span class="o">])</span> <span class="o">{</span> <span class="cm">/* check other’s flag */</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">flag</span><span class="o">[</span><span class="n">pid</span><span class="o">]</span> <span class="o">=</span> <span class="n">FALSE</span><span class="o">;</span> <span class="cm">/* lower mine */</span> 
+</span></span><span class="line"><span class="cl">        <span class="k">goto</span> <span class="n">try_again</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">release_lock</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">flag</span><span class="o">[</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">()]</span> <span class="o">=</span> <span class="n">FALSE</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>为什么是livelock？</li>
 </ul>
 </li>
 </ol>
