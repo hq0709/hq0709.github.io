@@ -34,7 +34,7 @@
                             "url": "http:\/\/hq0709.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Operating systems","wordcount":  3815 ,
+                        }],"genre": "posts","keywords": "Operating systems","wordcount":  4061 ,
         "url": "http:\/\/hq0709.github.io\/operating-system-review\/","datePublished": "2023-01-14T21:57:40+08:00","dateModified": "2023-01-16T22:11:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -119,8 +119,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">操作系统考点总结（按章节）</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hq0709" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Hanqi Jiang</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/course-notes/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Course notes</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-14">2023-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3815 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 8 分钟&nbsp;<span id="/operating-system-review/" class="leancloud_visitors" data-flag-title="操作系统考点总结（按章节）">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-14">2023-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 4061 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 9 分钟&nbsp;<span id="/operating-system-review/" class="leancloud_visitors" data-flag-title="操作系统考点总结（按章节）">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -137,6 +137,7 @@
     <li><a href="#chapter-5">Chapter 5</a></li>
     <li><a href="#chapter-6">Chapter 6</a></li>
     <li><a href="#chapter-7">Chapter 7</a></li>
+    <li><a href="#chapter-8">Chapter 8</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><div class="details admonition tip open">
@@ -978,6 +979,93 @@
 </div><ul>
 <li><code>if (count++ == MIN)</code>指的是<code>if (count == MIN)</code>和<code>count++</code>，就算if不成立也会执行count++</li>
 <li><code>notifyAll()</code>唤醒所有的线程（如果刚脱离最小，就可以减了，如果刚脱离最大，就可以加了）</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="chapter-8">Chapter 8</h2>
+<ol>
+<li>
+<p><strong>fork():</strong></p>
+<ul>
+<li>产生父进程，return value&gt;0; 产生子进程，return value=0 (<code>setjmp()</code> and <code>longjmp()</code>)</li>
+</ul>
+</li>
+<li>
+<p><strong>(必考) How many processes are created by the program as a function on n?</strong></p>
+<p>Answer: 2^n - 1</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="nf">fork</span><span class="p">();</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="c1">// 2^4-1=15
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>线程(Thread)分哪三类？</strong></p>
+<ul>
+<li>
+<p>User thread（用户线程）</p>
+</li>
+<li>
+<p>Kernel thread（内核线程）</p>
+</li>
+<li>
+<p>Language thread（语言线程）</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>User thread vs Kernel thread vs Language Thread</strong></p>
+<ul>
+<li>
+<p><strong>User thread:</strong></p>
+<ul>
+<li>
+<p>优点：Cheap context switch; faster than kernel thread;</p>
+</li>
+<li>
+<p>缺点：User threads in same process can’t execute on separate CPUs 同一个进程的线程不能执行在分开的CPU上</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Kernel thread:</strong></p>
+<ul>
+<li>
+<p>Scheduled by OS scheduler</p>
+</li>
+<li>
+<p>Threads are preemptive by the OS（线程被操作系统抢占）</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Language thread:</strong></p>
+<ul>
+<li>Available only in particular language environments</li>
+<li>Might be implemented either as user or kernel threads</li>
+</ul>
+</li>
+<li>
+<p><strong>区别：</strong></p>
+<ul>
+<li>
+<p>User threads require no support from the OS</p>
+</li>
+<li>
+<p>Kernel threads are supported by the OS</p>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>

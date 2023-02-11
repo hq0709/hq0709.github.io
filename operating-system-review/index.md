@@ -506,4 +506,55 @@ public class Semaphore {
    - `if (count++ == MIN)`指的是`if (count == MIN)`和`count++`，就算if不成立也会执行count++
    - `notifyAll()`唤醒所有的线程（如果刚脱离最小，就可以减了，如果刚脱离最大，就可以加了）
 
+---
+
+## Chapter 8
+
+1. **fork():** 
+
+   - 产生父进程，return value>0; 产生子进程，return value=0 (`setjmp()` and `longjmp()`)
+
+2. **(必考) How many processes are created by the program as a function on n?**
+
+   Answer: 2^n - 1
+
+   ```c
+   int main() {
+       int i; 
+       for(i=0; i<4; i++) fork(); 
+   } // 2^4-1=15
+   ```
+
+3. **线程(Thread)分哪三类？**
+
+   - User thread（用户线程）
+
+   - Kernel thread（内核线程）
+
+   - Language thread（语言线程）
+
+4. **User thread vs Kernel thread vs Language Thread**
+
+   - **User thread:** 
+
+     - 优点：Cheap context switch; faster than kernel thread; 
+
+     - 缺点：User threads in same process can’t execute on separate CPUs 同一个进程的线程不能执行在分开的CPU上
+
+   - **Kernel thread:**
+
+     - Scheduled by OS scheduler
+
+     - Threads are preemptive by the OS（线程被操作系统抢占）
+
+   - **Language thread:**
+
+     - Available only in particular language environments
+     - Might be implemented either as user or kernel threads
+
+   - **区别：**
+
+     - User threads require no support from the OS
+
+     - Kernel threads are supported by the OS 
 
