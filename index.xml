@@ -4,9 +4,17 @@
         <link>http://hq0709.github.io/</link>
         <description>Hugo theme - LoveIt</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>jhqyyds@gmail.com (Hanqi Jiang)</managingEditor>
-            <webMaster>jhqyyds@gmail.com (Hanqi Jiang)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 28 Jan 2023 23:52:40 &#43;0800</lastBuildDate>
+            <webMaster>jhqyyds@gmail.com (Hanqi Jiang)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 08 Feb 2023 21:53:40 &#43;0800</lastBuildDate>
             <atom:link href="http://hq0709.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>软件设计考点总结</title>
+    <link>http://hq0709.github.io/software-design-review/</link>
+    <pubDate>Wed, 08 Feb 2023 21:53:40 &#43;0800</pubDate>
+    <author>Hanqi Jiang</author>
+    <guid>http://hq0709.github.io/software-design-review/</guid>
+    <description><![CDATA[111]]></description>
+</item>
+<item>
     <title>计网知识点总结 Week 10</title>
     <link>http://hq0709.github.io/computer-network-review-week10/</link>
     <pubDate>Sat, 28 Jan 2023 23:52:40 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>Hanqi Jiang</author>
     <guid>http://hq0709.github.io/computer-network-review-week1/</guid>
     <description><![CDATA[1. What is a network Any set of interconnected nodes through horizontal and or vertical lines. 通过平行或者垂直的线，连接起来的节点的集合 有什么样的网络，（除了计网之外的例子）: Telephone network carrying voice traffic, Cable network to disseminate video signals 2. 什]]></description>
-</item>
-<item>
-    <title>Geo-Neus中renderer代码的具体解读</title>
-    <link>http://hq0709.github.io/geo-neus-renderer/</link>
-    <pubDate>Sun, 15 Jan 2023 21:57:40 &#43;0800</pubDate>
-    <author>Hanqi Jiang</author>
-    <guid>http://hq0709.github.io/geo-neus-renderer/</guid>
-    <description><![CDATA[get_psnr 1 2 3 4 5 6 7 8 9 def get_psnr(img1, img2, normalize_rgb=False): if normalize_rgb: # [-1,1] --&gt; [0,1] img1 = (img1 + 1.) / 2. img2 = (img2 + 1. ) / 2. mse = torch.mean((img1 - img2) ** 2) psnr = -10. * torch.log(mse) / torch.log(torch.Tensor([10.]).cuda()) return psnr 这个函数计算两张图像img1和img2]]></description>
 </item>
 </channel>
 </rss>
