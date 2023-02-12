@@ -735,7 +735,45 @@ public class Semaphore {
      | 0x1200 | 0x100 |
      | 0x2000 | 0x400 |
 
-3. **Dynamic Storage Allocation 动态内存分配**
+   - 分段特点 段号s + 段内偏移量addr。段大小不一致。
+   - 分段寻址流程 
+     - 根据段号查找段表获取段起始地址和limit 
+     - 根据段起始地址和limit检查地址安全 
+     - 根据段起始地址和偏移量获取物理地地址
+   - 运行的时候重定位
+
+3. **paging 分页**
+
+   - 分页含义 划分物理内存至固定大小的帧，帧是非连续的物理内存，划分逻辑地址空间至相同大小的页，页是连续的虚拟内存
+
+   - 物理地址：帧号+帧内偏移量
+
+     - 一个内存物理地址是一个二元组`(f, o)`
+
+     - `f`是帧号
+
+     - `o`是帧内偏移，每一帧有 2^s 字节
+
+     - 物理地址
+       $$
+       physical address = 2^s \times f + o
+       $$
+       
+
+   - 逻辑地址：页号+页内偏移量（其中帧内偏移量=页内偏移量而帧号不一定等于页号）
+
+     - 页内偏移大小 = 帧内偏移大小
+     - 一个逻辑地址是一个二元组`(p, o)`
+     - p是页号
+     - o是页内偏移，每页有2^s 字节
+
+   - 分页寻址流程：
+
+     - 根据逻辑地址计算页号 
+     - 在页表找到对应的页帧号 
+     - 加上偏移量得到物理地址
+
+4. **Dynamic Storage Allocation 动态内存分配**
 
    - 三种方法：
      - first fit 总是去申请找到的第一个合适大小（放得下）的内存
@@ -746,5 +784,16 @@ public class Semaphore {
      - 碎片空间的sum可能很大
      - 需要复杂的de-fragmentation
      - worst方法旨在解决这个问题，通过使用最大的内存来增大后期分配的可能性 (increase chance of later allocation)
-   - 
+
+5. **Dynamic allocation schemes vs Fixed size schemes** 
+
+   - Dynamic allocation schemes 
+     - Allocate requested amount of memory 分配请求的内存量
+     - 产生外部碎片 external fragmentation
+   - Fixed size schemes
+     - allocate memory in fixed-sized blocks 在固定大小的块中分配内存
+     - 产生内部碎片 internal fragmentation
+   - 区分概念：Dynamic allocation schemes指的是那三种方式，Fixed size schemes指的是分段分页等等
+
+   
 

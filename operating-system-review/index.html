@@ -34,7 +34,7 @@
                             "url": "http:\/\/hq0709.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Operating systems","wordcount":  5055 ,
+                        }],"genre": "posts","keywords": "Operating systems","wordcount":  5507 ,
         "url": "http:\/\/hq0709.github.io\/operating-system-review\/","datePublished": "2023-01-14T21:57:40+08:00","dateModified": "2023-01-16T22:11:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -119,7 +119,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">操作系统考点总结（按章节）</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hq0709" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Hanqi Jiang</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/course-notes/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Course notes</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-14">2023-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 5055 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-14">2023-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 5507 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 11 分钟&nbsp;<span id="/operating-system-review/" class="leancloud_visitors" data-flag-title="操作系统考点总结（按章节）">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -1337,7 +1337,8 @@
 <li>
 <p><strong>segementation 分段</strong></p>
 <ul>
-<li>分段表，存储base和limit，这时候limit的物理地址应该是base + limit
+<li>
+<p>分段表，存储base和limit，这时候limit的物理地址应该是base + limit</p>
 <table>
 <thead>
 <tr>
@@ -1356,6 +1357,65 @@
 </tr>
 </tbody>
 </table>
+</li>
+<li>
+<p>分段特点 段号s + 段内偏移量addr。段大小不一致。</p>
+</li>
+<li>
+<p>分段寻址流程</p>
+<ul>
+<li>根据段号查找段表获取段起始地址和limit</li>
+<li>根据段起始地址和limit检查地址安全</li>
+<li>根据段起始地址和偏移量获取物理地地址</li>
+</ul>
+</li>
+<li>
+<p>运行的时候重定位</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>paging 分页</strong></p>
+<ul>
+<li>
+<p>分页含义 划分物理内存至固定大小的帧，帧是非连续的物理内存，划分逻辑地址空间至相同大小的页，页是连续的虚拟内存</p>
+</li>
+<li>
+<p>物理地址：帧号+帧内偏移量</p>
+<ul>
+<li>
+<p>一个内存物理地址是一个二元组<code>(f, o)</code></p>
+</li>
+<li>
+<p><code>f</code>是帧号</p>
+</li>
+<li>
+<p><code>o</code>是帧内偏移，每一帧有 2^s 字节</p>
+</li>
+<li>
+<p>物理地址
+$$
+physical address = 2^s \times f + o
+$$</p>
+</li>
+</ul>
+</li>
+<li>
+<p>逻辑地址：页号+页内偏移量（其中帧内偏移量=页内偏移量而帧号不一定等于页号）</p>
+<ul>
+<li>页内偏移大小 = 帧内偏移大小</li>
+<li>一个逻辑地址是一个二元组<code>(p, o)</code></li>
+<li>p是页号</li>
+<li>o是页内偏移，每页有2^s 字节</li>
+</ul>
+</li>
+<li>
+<p>分页寻址流程：</p>
+<ul>
+<li>根据逻辑地址计算页号</li>
+<li>在页表找到对应的页帧号</li>
+<li>加上偏移量得到物理地址</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -1377,7 +1437,24 @@
 <li>worst方法旨在解决这个问题，通过使用最大的内存来增大后期分配的可能性 (increase chance of later allocation)</li>
 </ul>
 </li>
-<li></li>
+</ul>
+</li>
+<li>
+<p><strong>Dynamic allocation schemes vs Fixed size schemes</strong></p>
+<ul>
+<li>Dynamic allocation schemes
+<ul>
+<li>Allocate requested amount of memory 分配请求的内存量</li>
+<li>产生外部碎片 external fragmentation</li>
+</ul>
+</li>
+<li>Fixed size schemes
+<ul>
+<li>allocate memory in fixed-sized blocks 在固定大小的块中分配内存</li>
+<li>产生内部碎片 internal fragmentation</li>
+</ul>
+</li>
+<li>区分概念：Dynamic allocation schemes指的是那三种方式，Fixed size schemes指的是分段分页等等</li>
 </ul>
 </li>
 </ol>
