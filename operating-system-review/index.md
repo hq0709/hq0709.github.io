@@ -3,6 +3,11 @@
 
 {{< admonition type=tip title="tip" open=true >}}
 这是我总结的操作系统的考点，但内容并不完善，可以参考[这篇笔记](https://jjlde7r0bk.feishu.cn/wiki/wikcnjqZ54DulF74jkJayfSN48d)，里面有更详细的我关于知识点的记录
+
+
+
+关于操作系统的考试题目以及题型，可以参考[这篇笔记](https://jjlde7r0bk.feishu.cn/wiki/wikcnnaABCfgLcZrWn7Y3ClrU9d)
+
 {{< /admonition >}}
 
 ## Chapter 1
@@ -14,6 +19,7 @@
   
 
 **2. Layered OS：**
+
 - 优：security
 - 缺：hard to manage; weak performance
   
@@ -364,7 +370,7 @@ public class Semaphore {
    }
    ```
 
-   - 上面的代码有问题，如果两个进程同时调用`while(*lk = 1)`的话，会发生mutual exlusion，解决方案是在此处使用`disable_interrupts();`函数，因为同时访问critical session只会在发生中断的情况下发生；然后在释放锁的时候调用`reenable_interrupts();`函数，来重新启用中断
+   - 上面的代码有问题，如果两个进程同时调用`while(*lk = 1)`的话，会发生mutual exlusion，解决方案是在此处使用`disable_interrupts();`函数，因为同时访问critical section只会在发生中断的情况下发生；然后在释放锁的时候调用`reenable_interrupts();`函数，来重新启用中断
    - 无论如何，上面的代码还是有很多缺陷，例如中断被长时间禁用、release_lock忘记启用中断等，所以依旧不是一个好的解决方案
 
    ```java
@@ -668,7 +674,77 @@ public class Semaphore {
    } 
    ```
 
-   - 为什么是livelock？
+   - 为什么是livelock？有可能同时变为true，又同时变为false
 
-   
+
+---
+
+## Chapter 11
+
+> updated in 2023.2.12
+
+
+
+---
+
+## Chapter 12
+
+> updated in 2023.2.12
+
+1. **Memory Mapped I/O & Isolated I/O 的优缺点？**
+
+   - Memory Mapped I/O ： Easily accessed using C pointers
+
+   - Isolated I/O : Easier interfacing (连接); must use assembler(汇编器)
+
+2. **Device Driver（设备驱动） Tasks：**
+
+   - I/O Scheduling （I/O调度）
+
+   - Buffering, Spooling（假脱机；多任务缓冲处理；） and Caching
+
+   - Error Handling
+
+   - I/O Protection
+
+---
+
+## Chapter 13
+
+> updated in 2023.2.12
+
+1. **虚拟地址和物理地址（动态地重新映射地址）**
+
+   - Virtual Address
+     - Process always sees addresses 0…n
+
+   - Physical Address
+
+     - Varies depending on where process loaded in memory
+
+   - 虚拟地址转换成物理地址：通过MMU (memory management unit)
+
+     <img src="3.png" alt="MMU" title="MMU" style="zoom:67%;" />
+
+2. **segementation 分段**
+
+   - 分段表，存储base和limit，这时候limit的物理地址应该是base + limit
+
+     |  base  | limit |
+     | :----: | :---: |
+     | 0x1200 | 0x100 |
+     | 0x2000 | 0x400 |
+
+3. **Dynamic Storage Allocation 动态内存分配**
+
+   - 三种方法：
+     - first fit 总是去申请找到的第一个合适大小（放得下）的内存
+     - best fit 找到和这个内存相差最小的内存（找最小的能放得下的）
+     - worst fit 找到和这个内存相差最大的内存（找最大的能放得下的）
+   - Fragmentation 碎片化
+     - 在first和best方法中，最有可能产生碎片
+     - 碎片空间的sum可能很大
+     - 需要复杂的de-fragmentation
+     - worst方法旨在解决这个问题，通过使用最大的内存来增大后期分配的可能性 (increase chance of later allocation)
+   - 
 
