@@ -773,7 +773,21 @@ public class Semaphore {
      - 在页表找到对应的页帧号 
      - 加上偏移量得到物理地址
 
-4. **Dynamic Storage Allocation 动态内存分配**
+4. **Variable（分段） vs. Fixed Sized （分页）Schemes 优缺点？**
+
+   - Variable/ Dynamic allocation schemes 
+
+     - Allocate requested amount of memory 
+
+     - 产生External fragmentation 
+
+   - Fixed size schemes 
+
+     - Always allocate memory in fixed-sized blocks 
+
+     - 产生Internal fragmentation （比External fragmentation问题少）
+
+5. **Dynamic Storage Allocation 动态内存分配**
 
    - 三种方法：
      - first fit 总是去申请找到的第一个合适大小（放得下）的内存
@@ -785,7 +799,7 @@ public class Semaphore {
      - 需要复杂的de-fragmentation
      - worst方法旨在解决这个问题，通过使用最大的内存来增大后期分配的可能性 (increase chance of later allocation)
 
-5. **Dynamic allocation schemes vs Fixed size schemes** 
+6. **Dynamic allocation schemes vs Fixed size schemes** 
 
    - Dynamic allocation schemes 
      - Allocate requested amount of memory 分配请求的内存量
@@ -793,7 +807,12 @@ public class Semaphore {
    - Fixed size schemes
      - allocate memory in fixed-sized blocks 在固定大小的块中分配内存
      - 产生内部碎片 internal fragmentation
-   - 区分概念：Dynamic allocation schemes指的是那三种方式，Fixed size schemes指的是分段分页等等
+   - 区分概念：Dynamic allocation schemes指的是分段，Fixed size schemes指的是分页，三种fit都是分段的方法
 
-   
+---
+
+## Chapter 14
+
+> updated in 2023.2.12
+
 
