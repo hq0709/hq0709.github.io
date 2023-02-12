@@ -34,7 +34,7 @@
                             "url": "http:\/\/hq0709.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Operating systems","wordcount":  5615 ,
+                        }],"genre": "posts","keywords": "Operating systems","wordcount":  6130 ,
         "url": "http:\/\/hq0709.github.io\/operating-system-review\/","datePublished": "2023-01-14T21:57:40+08:00","dateModified": "2023-01-16T22:11:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -119,8 +119,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">操作系统考点总结（按章节）</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hq0709" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Hanqi Jiang</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/course-notes/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Course notes</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-14">2023-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 5615 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 12 分钟&nbsp;<span id="/operating-system-review/" class="leancloud_visitors" data-flag-title="操作系统考点总结（按章节）">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-14">2023-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 6130 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 13 分钟&nbsp;<span id="/operating-system-review/" class="leancloud_visitors" data-flag-title="操作系统考点总结（按章节）">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -1491,6 +1491,158 @@ $$</p>
 <blockquote>
 <p>updated in 2023.2.12</p>
 </blockquote>
+<ol>
+<li>
+<p><strong>Demand Paging和Page fault区别？</strong></p>
+<ul>
+<li>
+<p>Demand Paging 请求调页：需要的页在memory中没有，OS调进来</p>
+</li>
+<li>
+<p>Page fault 缺页中断：在物理内存中找不到需要的页</p>
+</li>
+<li>
+<p>是发生了page fault之后进行demand paging操作吗？</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>flag</strong></p>
+<ul>
+<li>present flag：如果为present，说明page在内存中，反之说明其在disk中</li>
+<li>dirty flag：dirty代表已经修改的数据，需要重新写入disk；如果not dirty则不需要重新写入</li>
+</ul>
+</li>
+<li>
+<p><strong>Page Frame Replacement: Swapping(交换)</strong></p>
+<ul>
+<li>
+<p>Take Page Fault</p>
+</li>
+<li>
+<p>If we have a free/ empty frame available in memory</p>
+<ul>
+<li>
+<p>Select for use Else</p>
+</li>
+<li>
+<p>Identify a victim frame</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Write (swap out) current content of victim to disk</p>
+<ul>
+<li>Adjust Page Tables: Mark victim as not present/ invalid</li>
+</ul>
+</li>
+<li>
+<p>Read requested page from disk into identified frame</p>
+<ul>
+<li>Adjust Page Tables: Mark new page entry as present</li>
+</ul>
+</li>
+<li>
+<p>Restart process</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>换出算法</strong></p>
+<p><em>FIFO: First-In-First-Out</em></p>
+<ul>
+<li>如果有新进来的，舍弃最早进来的
+<figure><a class="lightgallery" href="/operating-system-review/4.png" title="FIFO" data-thumbnail="/operating-system-review/4.png" data-sub-html="<h2>FIFO</h2><p>FIFO</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/operating-system-review/4.png"
+            data-srcset="/operating-system-review/4.png, /operating-system-review/4.png 1.5x, /operating-system-review/4.png 2x"
+            data-sizes="auto"
+            alt="/operating-system-review/4.png" width="1280" height="616" />
+    </a><figcaption class="image-caption">FIFO</figcaption>
+    </figure></li>
+</ul>
+<p><em>LRU: Least Recently Used</em></p>
+<ul>
+<li>
+<p>选最近最长一段时间最少使用的置换</p>
+</li>
+<li>
+<p>LRU的实现：每页维护一个时间戳，选择最小时间戳的页淘汰</p>
+</li>
+<li>
+<p>这种更新时间戳的方法耗时太长，不可取</p>
+<p><figure><a class="lightgallery" href="/operating-system-review/5.png" title="LRU算法" data-thumbnail="/operating-system-review/5.png" data-sub-html="<h2>LRU</h2><p>LRU算法</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/operating-system-review/5.png"
+            data-srcset="/operating-system-review/5.png, /operating-system-review/5.png 1.5x, /operating-system-review/5.png 2x"
+            data-sizes="auto"
+            alt="/operating-system-review/5.png" width="1280" height="612" />
+    </a><figcaption class="image-caption">LRU</figcaption>
+    </figure></p>
+<p><figure><a class="lightgallery" href="/operating-system-review/6.png" title="维护时间戳" data-thumbnail="/operating-system-review/6.png" data-sub-html="<h2>维护时间戳</h2><p>维护时间戳</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/operating-system-review/6.png"
+            data-srcset="/operating-system-review/6.png, /operating-system-review/6.png 1.5x, /operating-system-review/6.png 2x"
+            data-sizes="auto"
+            alt="/operating-system-review/6.png" width="1280" height="695" />
+    </a><figcaption class="image-caption">维护时间戳</figcaption>
+    </figure></p>
+</li>
+<li>
+<p>维护一个页码栈，最下面的就是最近最少使用的</p>
+</li>
+<li>
+<p>实现的代价仍较大</p>
+<p><figure><a class="lightgallery" href="/operating-system-review/7.png" title="维护页码栈" data-thumbnail="/operating-system-review/7.png" data-sub-html="<h2>维护页码栈</h2><p>维护页码栈</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/operating-system-review/7.png"
+            data-srcset="/operating-system-review/7.png, /operating-system-review/7.png 1.5x, /operating-system-review/7.png 2x"
+            data-sizes="auto"
+            alt="/operating-system-review/7.png" width="1280" height="712" />
+    </a><figcaption class="image-caption">维护页码栈</figcaption>
+    </figure></p>
+</li>
+<li>
+<p>近似实现，用引用位的0和1近似最近最少使用</p>
+</li>
+<li>
+<p>clock算法：有缺陷，如果缺页很少会退化成FIFO -&gt; 定时清除R位，增加一个扫描指针</p>
+<p><figure><a class="lightgallery" href="/operating-system-review/8.png" title="clock算法" data-thumbnail="/operating-system-review/8.png" data-sub-html="<h2>clock算法</h2><p>clock算法</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/operating-system-review/8.png"
+            data-srcset="/operating-system-review/8.png, /operating-system-review/8.png 1.5x, /operating-system-review/8.png 2x"
+            data-sizes="auto"
+            alt="/operating-system-review/8.png" width="1280" height="655" />
+    </a><figcaption class="image-caption">clock算法</figcaption>
+    </figure></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Each process has Page Fault Frequency (缺页中断频率)</strong></p>
+<ul>
+<li>Low: Working Set may be too large</li>
+<li>High: Working Set too small</li>
+</ul>
+</li>
+<li>
+<p><strong>比较Buddy Allocation (Buddy 算法) &amp; Slab Allocatio</strong></p>
+<ul>
+<li>Allocate large (multi-page) areas using buddy</li>
+<li>Sub-divide areas into common sizes as slabs</li>
+</ul>
+</li>
+</ol>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">

@@ -815,4 +815,83 @@ public class Semaphore {
 
 > updated in 2023.2.12
 
+1. **Demand Paging和Page fault区别？**
+
+   - Demand Paging 请求调页：需要的页在memory中没有，OS调进来
+
+   - Page fault 缺页中断：在物理内存中找不到需要的页
+   - 是发生了page fault之后进行demand paging操作吗？
+
+2. **flag**
+
+   - present flag：如果为present，说明page在内存中，反之说明其在disk中
+   - dirty flag：dirty代表已经修改的数据，需要重新写入disk；如果not dirty则不需要重新写入
+
+3. **Page Frame Replacement: Swapping(交换)**
+
+   - Take Page Fault 
+
+   - If we have a free/ empty frame available in memory 
+
+     - Select for use Else 
+
+
+     - Identify a victim frame 
+
+   - Write (swap out) current content of victim to disk 
+     - Adjust Page Tables: Mark victim as not present/ invalid 
+
+   - Read requested page from disk into identified frame 
+     - Adjust Page Tables: Mark new page entry as present 
+
+   - Restart process
+
+4. **换出算法**
+
+   *FIFO: First-In-First-Out*
+
+   - 如果有新进来的，舍弃最早进来的
+     ![FIFO](4.png "FIFO")
+
+   
+
+   *LRU: Least Recently Used* 
+
+   - 选最近最长一段时间最少使用的置换
+
+   - LRU的实现：每页维护一个时间戳，选择最小时间戳的页淘汰
+
+   - 这种更新时间戳的方法耗时太长，不可取
+
+     ![LRU算法](5.png "LRU")
+
+     ![维护时间戳](6.png "维护时间戳")
+
+   - 维护一个页码栈，最下面的就是最近最少使用的
+
+   - 实现的代价仍较大
+
+     ![维护页码栈](7.png "维护页码栈")
+
+   - 近似实现，用引用位的0和1近似最近最少使用
+
+   - clock算法：有缺陷，如果缺页很少会退化成FIFO -> 定时清除R位，增加一个扫描指针
+
+     ![clock算法](8.png "clock算法")
+
+   
+
+5. **Each process has Page Fault Frequency (缺页中断频率)**
+   - Low: Working Set may be too large 
+   - High: Working Set too small
+
+6. **比较Buddy Allocation (Buddy 算法) & Slab Allocatio**
+   - Allocate large (multi-page) areas using buddy
+   - Sub-divide areas into common sizes as slabs 
+
+
+
+
+
+
 
