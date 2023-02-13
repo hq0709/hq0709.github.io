@@ -929,13 +929,47 @@ public class Semaphore {
 
    - Multi-priority queues 
      - (typically) Round-Robin within each priority level
-     - Tasks in higher priority queue take precedence
+     - Tasks in higher priority queue take precedence 优先级高的任务优先
 
 4. **必考：什么样的软件架构具有维护性（Maintainability）？** 
 
    - fine-grained 细粒度
 
 
+---
 
+## Chapter 16
 
+> updated in 2023.2.13
+
+1. **Dynamic Storage Allocation**
+
+   - First fit : Always allocate first region of sufficient size found
+
+   - Best fit : Always allocate smallest memory hole of sufficient size
+
+   - Worst fit : Always allocate largest memory hole (of sufficient size)
+
+2. **Scheduling 调度**
+
+   - **Turnaround time** 
+     - Time between process submission and completion
+     - 最终完成的时刻-到达的时刻
+     - completion – arrival time
+   - **Waiting time** 
+     - Sum of time waiting in Ready Queue (i.e. it could run/ use CPU)
+     - dispatch time（开始执行时间） – arrival time
+   - **Response time** 
+     - Time between submission and start of first output/ interaction
+
+   - **Complete time** 
+     - 最终完成的时刻-开始的时刻
+
+4. **Round Robin（RR）**
+
+   ![RR](11.png "RR")
+
+5. **分页替换： FIFO;  Least Recently Used**
+
+6. **Buddy 算法**
 

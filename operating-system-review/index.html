@@ -34,7 +34,7 @@
                             "url": "http:\/\/hq0709.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Operating systems","wordcount":  6942 ,
+                        }],"genre": "posts","keywords": "Operating systems","wordcount":  7100 ,
         "url": "http:\/\/hq0709.github.io\/operating-system-review\/","datePublished": "2023-01-14T21:57:40+08:00","dateModified": "2023-01-16T22:11:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -119,8 +119,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">操作系统考点总结（按章节）</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hq0709" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Hanqi Jiang</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/course-notes/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Course notes</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-14">2023-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 6942 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 14 分钟&nbsp;<span id="/operating-system-review/" class="leancloud_visitors" data-flag-title="操作系统考点总结（按章节）">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-14">2023-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 7100 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 15 分钟&nbsp;<span id="/operating-system-review/" class="leancloud_visitors" data-flag-title="操作系统考点总结（按章节）">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -144,6 +144,7 @@
     <li><a href="#chapter-13">Chapter 13</a></li>
     <li><a href="#chapter-14">Chapter 14</a></li>
     <li><a href="#chapter-15">Chapter 15</a></li>
+    <li><a href="#chapter-16">Chapter 16</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><div class="details admonition tip open">
@@ -1713,7 +1714,7 @@ $$</p>
 <p>Multi-priority queues</p>
 <ul>
 <li>(typically) Round-Robin within each priority level</li>
-<li>Tasks in higher priority queue take precedence</li>
+<li>Tasks in higher priority queue take precedence 优先级高的任务优先</li>
 </ul>
 </li>
 </ul>
@@ -1723,6 +1724,78 @@ $$</p>
 <ul>
 <li>fine-grained 细粒度</li>
 </ul>
+</li>
+</ol>
+<hr>
+<h2 id="chapter-16">Chapter 16</h2>
+<blockquote>
+<p>updated in 2023.2.13</p>
+</blockquote>
+<ol>
+<li>
+<p><strong>Dynamic Storage Allocation</strong></p>
+<ul>
+<li>
+<p>First fit : Always allocate first region of sufficient size found</p>
+</li>
+<li>
+<p>Best fit : Always allocate smallest memory hole of sufficient size</p>
+</li>
+<li>
+<p>Worst fit : Always allocate largest memory hole (of sufficient size)</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Scheduling 调度</strong></p>
+<ul>
+<li>
+<p><strong>Turnaround time</strong></p>
+<ul>
+<li>Time between process submission and completion</li>
+<li>最终完成的时刻-到达的时刻</li>
+<li>completion – arrival time</li>
+</ul>
+</li>
+<li>
+<p><strong>Waiting time</strong></p>
+<ul>
+<li>Sum of time waiting in Ready Queue (i.e. it could run/ use CPU)</li>
+<li>dispatch time（开始执行时间） – arrival time</li>
+</ul>
+</li>
+<li>
+<p><strong>Response time</strong></p>
+<ul>
+<li>Time between submission and start of first output/ interaction</li>
+</ul>
+</li>
+<li>
+<p><strong>Complete time</strong></p>
+<ul>
+<li>最终完成的时刻-开始的时刻</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Round Robin（RR）</strong></p>
+<p><figure><a class="lightgallery" href="/operating-system-review/11.png" title="RR" data-thumbnail="/operating-system-review/11.png" data-sub-html="<h2>RR</h2><p>RR</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/operating-system-review/11.png"
+            data-srcset="/operating-system-review/11.png, /operating-system-review/11.png 1.5x, /operating-system-review/11.png 2x"
+            data-sizes="auto"
+            alt="/operating-system-review/11.png" width="844" height="1099" />
+    </a><figcaption class="image-caption">RR</figcaption>
+    </figure></p>
+</li>
+<li>
+<p><strong>分页替换： FIFO;  Least Recently Used</strong></p>
+</li>
+<li>
+<p><strong>Buddy 算法</strong></p>
 </li>
 </ol>
 </div><div class="post-footer" id="post-footer">
