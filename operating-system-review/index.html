@@ -34,7 +34,7 @@
                             "url": "http:\/\/hq0709.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Operating systems","wordcount":  6130 ,
+                        }],"genre": "posts","keywords": "Operating systems","wordcount":  6942 ,
         "url": "http:\/\/hq0709.github.io\/operating-system-review\/","datePublished": "2023-01-14T21:57:40+08:00","dateModified": "2023-01-16T22:11:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -119,8 +119,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">操作系统考点总结（按章节）</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hq0709" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Hanqi Jiang</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/course-notes/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Course notes</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-14">2023-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 6130 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 13 分钟&nbsp;<span id="/operating-system-review/" class="leancloud_visitors" data-flag-title="操作系统考点总结（按章节）">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-14">2023-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 6942 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 14 分钟&nbsp;<span id="/operating-system-review/" class="leancloud_visitors" data-flag-title="操作系统考点总结（按章节）">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -143,6 +143,7 @@
     <li><a href="#chapter-12">Chapter 12</a></li>
     <li><a href="#chapter-13">Chapter 13</a></li>
     <li><a href="#chapter-14">Chapter 14</a></li>
+    <li><a href="#chapter-15">Chapter 15</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><div class="details admonition tip open">
@@ -1636,10 +1637,91 @@ $$</p>
 </ul>
 </li>
 <li>
-<p><strong>比较Buddy Allocation (Buddy 算法) &amp; Slab Allocatio</strong></p>
+<p><strong>Buddy算法</strong></p>
+<p>直接看一道题</p>
+<p><figure><a class="lightgallery" href="/operating-system-review/9.png" title="Buddy算法" data-thumbnail="/operating-system-review/9.png" data-sub-html="<h2>Buddy算法</h2><p>Buddy算法</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/operating-system-review/9.png"
+            data-srcset="/operating-system-review/9.png, /operating-system-review/9.png 1.5x, /operating-system-review/9.png 2x"
+            data-sizes="auto"
+            alt="/operating-system-review/9.png" width="922" height="711" />
+    </a><figcaption class="image-caption">Buddy算法</figcaption>
+    </figure></p>
+</li>
+<li>
+<p><strong>比较Buddy Allocation (Buddy 算法) &amp; Slab Allocation</strong></p>
 <ul>
-<li>Allocate large (multi-page) areas using buddy</li>
-<li>Sub-divide areas into common sizes as slabs</li>
+<li>buddy算法产生internal fragmentation，但是可以为一组对象一次分配内存</li>
+<li>slab allocation 产生little fragmentation并且fast allocation for objects</li>
+<li>把buddy和slab结合使用：大的area用buddy，Sub-divide areas into common sizes as slabs</li>
+<li>Slab allocation 可以参考[这个网站]([(124条消息) Linux虚拟内存管理 - Slab Allocator_slab allocate_HHHU丶的博客-CSDN博客](<a href="https://blog.csdn.net/qq_43769572/article/details/122817116?ops_request_misc=%7B%22request%5Fid%22%3A%22167627174116782425123098%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&amp;request_id=167627174116782425123098&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-122817116-null-null.142%5ev73%5econtrol,201%5ev4%5eadd_ask,239%5ev1%5econtrol&amp;utm_term=Slab" target="_blank" rel="noopener noreffer ">https://blog.csdn.net/qq_43769572/article/details/122817116?ops_request_misc=%7B%22request%5Fid%22%3A%22167627174116782425123098%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&request_id=167627174116782425123098&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-122817116-null-null.142^v73^control,201^v4^add_ask,239^v1^control&utm_term=Slab</a> Allocation&amp;spm=1018.2226.3001.4187))</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="chapter-15">Chapter 15</h2>
+<blockquote>
+<p>updated in 2023.2.13</p>
+</blockquote>
+<ol>
+<li>
+<p><strong>Cost to every process switch （每一个进程切换/schedule调度的花销）</strong></p>
+<ul>
+<li>
+<p>Interrupt latency 中断延迟 (time taken to process interrupt)</p>
+</li>
+<li>
+<p>Save current context (any process state)</p>
+</li>
+<li>
+<p>Select next process</p>
+</li>
+<li>
+<p>Load new context (recover any process state)</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>对于pre-emptive scheduling（可抢占调度），long Quantum &amp; short Quantum 分别的优缺点？</strong></p>
+<p><figure><a class="lightgallery" href="/operating-system-review/10.png" title="pre-emptive scheduling" data-thumbnail="/operating-system-review/10.png" data-sub-html="<h2>pre-emptive scheduling</h2><p>pre-emptive scheduling</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/operating-system-review/10.png"
+            data-srcset="/operating-system-review/10.png, /operating-system-review/10.png 1.5x, /operating-system-review/10.png 2x"
+            data-sizes="auto"
+            alt="/operating-system-review/10.png" width="646" height="216" />
+    </a><figcaption class="image-caption">pre-emptive scheduling</figcaption>
+    </figure></p>
+<ul>
+<li>Long: less interactive, fewer switches; more efficient</li>
+<li>Short: more interactive, more switches; less efficient(因为开销大所以效率低)</li>
+</ul>
+</li>
+<li>
+<p><strong>考：Priority Scheduling(优先级调度) （P18）</strong></p>
+<ul>
+<li>
+<p>Each process given a priority</p>
+<ul>
+<li>High-priority processes selected over lower ones</li>
+</ul>
+</li>
+<li>
+<p>Multi-priority queues</p>
+<ul>
+<li>(typically) Round-Robin within each priority level</li>
+<li>Tasks in higher priority queue take precedence</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>必考：什么样的软件架构具有维护性（Maintainability）？</strong></p>
+<ul>
+<li>fine-grained 细粒度</li>
 </ul>
 </li>
 </ol>

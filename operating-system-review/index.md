@@ -882,14 +882,58 @@ public class Semaphore {
    
 
 5. **Each process has Page Fault Frequency (缺页中断频率)**
+
    - Low: Working Set may be too large 
    - High: Working Set too small
 
-6. **比较Buddy Allocation (Buddy 算法) & Slab Allocatio**
-   - Allocate large (multi-page) areas using buddy
-   - Sub-divide areas into common sizes as slabs 
+6. **Buddy算法**
 
+   直接看一道题
 
+   ![Buddy算法](9.png "Buddy算法")
+
+7. **比较Buddy Allocation (Buddy 算法) & Slab Allocation**
+
+   - buddy算法产生internal fragmentation，但是可以为一组对象一次分配内存
+   - slab allocation 产生little fragmentation并且fast allocation for objects
+   - 把buddy和slab结合使用：大的area用buddy，Sub-divide areas into common sizes as slabs 
+   - Slab allocation 可以参考[这个网站]([(124条消息) Linux虚拟内存管理 - Slab Allocator_slab allocate_HHHU丶的博客-CSDN博客](https://blog.csdn.net/qq_43769572/article/details/122817116?ops_request_misc=%7B%22request%5Fid%22%3A%22167627174116782425123098%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&request_id=167627174116782425123098&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-122817116-null-null.142^v73^control,201^v4^add_ask,239^v1^control&utm_term=Slab Allocation&spm=1018.2226.3001.4187))
+
+---
+
+## Chapter 15
+
+> updated in 2023.2.13
+
+1. **Cost to every process switch （每一个进程切换/schedule调度的花销）**
+
+   - Interrupt latency 中断延迟 (time taken to process interrupt)
+
+   - Save current context (any process state)
+
+   - Select next process
+
+   - Load new context (recover any process state)
+
+2. **对于pre-emptive scheduling（可抢占调度），long Quantum & short Quantum 分别的优缺点？**
+
+   ![pre-emptive scheduling](10.png "pre-emptive scheduling")
+
+   - Long: less interactive, fewer switches; more efficient 
+   - Short: more interactive, more switches; less efficient(因为开销大所以效率低)
+
+3. **考：Priority Scheduling(优先级调度) （P18）**
+
+   - Each process given a priority 
+     - High-priority processes selected over lower ones
+
+   - Multi-priority queues 
+     - (typically) Round-Robin within each priority level
+     - Tasks in higher priority queue take precedence
+
+4. **必考：什么样的软件架构具有维护性（Maintainability）？** 
+
+   - fine-grained 细粒度
 
 
 
