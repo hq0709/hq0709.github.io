@@ -16,7 +16,7 @@
   - 发送过程将消息推到室外 
   - 发送过程依靠门另一侧的传输基础设施在接收过程中将消息传递到套接字 
   - 有两个socket:两边各一个
-![socket](1.PNG "socket")
+  ![socket](1.PNG "socket")
 
 ### 1.3 如何识别网络进程
 - 使用IP地址和端口号
@@ -196,13 +196,13 @@
   - 最多只有一个对象在TCP连接上发送
   - 下载多个对象需要多个TCP连接
   - HTTP/1.0使用非持久连接
-![非持久HTTP](3.png "非持久HTTP")
+  ![非持久HTTP](3.png "非持久HTTP")
 - 非持久HTTP传输文件所消耗的时间是2RTT+文件传输所消耗的时间
 ![非持久HTTP传输文件](8.png "非持久HTTP传输文件")
 - 持久HTTP “pipeline流水线”
   - 多个对象可以在一个（在客户端和服务器之间的）TCP连接上传输
   - HTTP/1.1默认使用持久连接
-![持久HTTP](4.png "持久HTTP")
+  ![持久HTTP](4.png "持久HTTP")
 
 #### 4.3.2 HTTP报文
 ##### 4.3.2.1 HTTP请求报文
@@ -264,25 +264,25 @@ True. The client does include 'image/jpeg' in its 'Accept' field.
 {{< /admonition >}}
 
 - What is the client's preferred version of English?
-{{< admonition type=tip title="Answer" open=false >}}
-The client's preferred version of English is American English. Any language without a defined q value has a default value of 1. 
-{{< /admonition >}}
-     
+  {{< admonition type=tip title="Answer" open=false >}}
+  The client's preferred version of English is American English. Any language without a defined q value has a default value of 1. 
+  {{< /admonition >}}
+  
 - What is the client's least preferred version of English?
-{{< admonition type=tip title="Answer" open=false >}}
-The client's least preferred version of English is British English because it has the lowest q value.
-{{< /admonition >}}
-     
+  {{< admonition type=tip title="Answer" open=false >}}
+  The client's least preferred version of English is British English because it has the lowest q value.
+  {{< /admonition >}}
+  
 - True or False: The client will accept the German language
-{{< admonition type=tip title="Answer" open=false >}}
-False. The client does NOT include German in its 'Accepted-Language' field.
-{{< /admonition >}}
-     
+  {{< admonition type=tip title="Answer" open=false >}}
+  False. The client does NOT include German in its 'Accepted-Language' field.
+  {{< /admonition >}}
+  
 - True or False: The client already has a cached copy of the file
-{{< admonition type=tip title="Answer" open=false >}}
-True. The client has a cached copy of the file that was updated on: Mon, 10 Aug 2020 14:02:13 -0700
-{{< /admonition >}}
-     
+  {{< admonition type=tip title="Answer" open=false >}}
+  True. The client has a cached copy of the file that was updated on: Mon, 10 Aug 2020 14:02:13 -0700
+  {{< /admonition >}}
+  
 
 ##### 4.3.2.2 HTTP响应报文
 ```shell
@@ -350,13 +350,16 @@ The server used is Apache/2.2.3
   - shopping carts
   - recommendations
   - user session state (Web e-mail)
+- cookies and privacy:
+  - cookies permit sites to learn a lot about you on their site.
+  - third party persistent cookies (tracking cookies) allow common identity (cookie value) to be tracked across multiple web sites
 
 ### 4.4 Web caches缓存
 > 目标：不访问原始服务器，就满足客户的请求satisfy client request without involving origin server
 
 #### 4.4.1 用户设置浏览器： 通过缓存访问Web 
 - user configures browser to point to a Web cache
-![web proxy](6.png "web proxy")
+  ![web proxy](6.png "web proxy")
   - 浏览器将所有的HTTP请求发给缓存 
   - 在缓存中的对象：缓存直接返回对象 
   - 如对象不在缓存，缓存请求原始服务器，然后再将对象返回给客户端

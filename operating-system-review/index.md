@@ -43,7 +43,7 @@
 - Scheduler: method for how work is assigned to resources to complete work
 
 **2. Concurrency & parallelism (并发和并行)的区别？**
-- Concurrency: processes are underway simultaneously, different processes execute one by one.
+- Concurrency: How multiple, independently controlled processes behave when running and interacting with each other.
 
 <!-- ![concurrency](2.png "concurrency") -->
 
@@ -100,6 +100,10 @@
 - Threads access a shared resource without synchronization
 - One or more threads modify the shared resource
 
+7. why do we use concurrent programming?
+   - multiprocessor machines to make algorithms run faster implement OS and  networking internals
+   - structuring inherently concurrent applications.
+
 ---
 
 ## Chapter 3
@@ -155,6 +159,10 @@
 - De-schedule currently-running thread
 - Scheduler selects ‘best’ ready thread to run next 
 - Resume newly-selected thread 
+
+10. **competition and cooperation:**
+    - competition: Competing for a variable that two processes want to read or update simultaneously
+    - cooperation: One process wants to tell another process that a needed result is now available
 
 ---
 
@@ -897,7 +905,7 @@ public class Semaphore {
    - buddy算法产生internal fragmentation，但是可以为一组对象一次分配内存
    - slab allocation 产生little fragmentation并且fast allocation for objects
    - 把buddy和slab结合使用：大的area用buddy，Sub-divide areas into common sizes as slabs 
-   - Slab allocation 可以参考[这个网站]([(124条消息) Linux虚拟内存管理 - Slab Allocator_slab allocate_HHHU丶的博客-CSDN博客](https://blog.csdn.net/qq_43769572/article/details/122817116?ops_request_misc=%7B%22request%5Fid%22%3A%22167627174116782425123098%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&request_id=167627174116782425123098&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-122817116-null-null.142^v73^control,201^v4^add_ask,239^v1^control&utm_term=Slab Allocation&spm=1018.2226.3001.4187))
+   - Slab allocation 可以参考[这个网站](https://blog.csdn.net/qq_43769572/article/details/122817116?ops_request_misc=%7B%22request%5Fid%22%3A%22167627174116782425123098%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&request_id=167627174116782425123098&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-122817116-null-null.142^v73^control,201^v4^add_ask,239^v1^control&utm_term=Slab Allocation&spm=1018.2226.3001.4187)
 
 ---
 

@@ -34,7 +34,7 @@
                             "url": "http:\/\/hq0709.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Operating systems","wordcount":  7100 ,
+                        }],"genre": "posts","keywords": "Operating systems","wordcount":  7108 ,
         "url": "http:\/\/hq0709.github.io\/operating-system-review\/","datePublished": "2023-01-14T21:57:40+08:00","dateModified": "2023-01-16T22:11:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -119,7 +119,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">操作系统考点总结（按章节）</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hq0709" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Hanqi Jiang</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/course-notes/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Course notes</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-14">2023-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 7100 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-14">2023-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 7108 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 15 分钟&nbsp;<span id="/operating-system-review/" class="leancloud_visitors" data-flag-title="操作系统考点总结（按章节）">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -193,7 +193,7 @@
 </ul>
 <p><strong>2. Concurrency &amp; parallelism (并发和并行)的区别？</strong></p>
 <ul>
-<li>Concurrency: processes are underway simultaneously, different processes execute one by one.</li>
+<li>Concurrency: How multiple, independently controlled processes behave when running and interacting with each other.</li>
 </ul>
 <!-- ![concurrency](2.png "concurrency") -->
 <ul>
@@ -274,6 +274,14 @@
 <li>Threads access a shared resource without synchronization</li>
 <li>One or more threads modify the shared resource</li>
 </ul>
+<ol start="7">
+<li>why do we use concurrent programming?
+<ul>
+<li>multiprocessor machines to make algorithms run faster implement OS and  networking internals</li>
+<li>structuring inherently concurrent applications.</li>
+</ul>
+</li>
+</ol>
 <hr>
 <h2 id="chapter-3">Chapter 3</h2>
 <blockquote>
@@ -350,6 +358,14 @@
 <li>Scheduler selects ‘best’ ready thread to run next</li>
 <li>Resume newly-selected thread</li>
 </ul>
+<ol start="10">
+<li><strong>competition and cooperation:</strong>
+<ul>
+<li>competition: Competing for a variable that two processes want to read or update simultaneously</li>
+<li>cooperation: One process wants to tell another process that a needed result is now available</li>
+</ul>
+</li>
+</ol>
 <hr>
 <h2 id="chapter-4">Chapter 4</h2>
 <blockquote>
@@ -1657,7 +1673,7 @@ $$</p>
 <li>buddy算法产生internal fragmentation，但是可以为一组对象一次分配内存</li>
 <li>slab allocation 产生little fragmentation并且fast allocation for objects</li>
 <li>把buddy和slab结合使用：大的area用buddy，Sub-divide areas into common sizes as slabs</li>
-<li>Slab allocation 可以参考[这个网站]([(124条消息) Linux虚拟内存管理 - Slab Allocator_slab allocate_HHHU丶的博客-CSDN博客](<a href="https://blog.csdn.net/qq_43769572/article/details/122817116?ops_request_misc=%7B%22request%5Fid%22%3A%22167627174116782425123098%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&amp;request_id=167627174116782425123098&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-122817116-null-null.142%5ev73%5econtrol,201%5ev4%5eadd_ask,239%5ev1%5econtrol&amp;utm_term=Slab" target="_blank" rel="noopener noreffer ">https://blog.csdn.net/qq_43769572/article/details/122817116?ops_request_misc=%7B%22request%5Fid%22%3A%22167627174116782425123098%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&request_id=167627174116782425123098&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-122817116-null-null.142^v73^control,201^v4^add_ask,239^v1^control&utm_term=Slab</a> Allocation&amp;spm=1018.2226.3001.4187))</li>
+<li>Slab allocation 可以参考[这个网站](<a href="https://blog.csdn.net/qq_43769572/article/details/122817116?ops_request_misc=%7B%22request%5Fid%22%3A%22167627174116782425123098%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&amp;request_id=167627174116782425123098&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-122817116-null-null.142%5ev73%5econtrol,201%5ev4%5eadd_ask,239%5ev1%5econtrol&amp;utm_term=Slab" target="_blank" rel="noopener noreffer ">https://blog.csdn.net/qq_43769572/article/details/122817116?ops_request_misc=%7B%22request%5Fid%22%3A%22167627174116782425123098%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&request_id=167627174116782425123098&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-122817116-null-null.142^v73^control,201^v4^add_ask,239^v1^control&utm_term=Slab</a> Allocation&amp;spm=1018.2226.3001.4187)</li>
 </ul>
 </li>
 </ol>
