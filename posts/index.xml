@@ -4,13 +4,13 @@
         <link>http://hq0709.github.io/posts/</link>
         <description>所有文章 | jhqyyds</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>jhqyyds@gmail.com (Hanqi Jiang)</managingEditor>
-            <webMaster>jhqyyds@gmail.com (Hanqi Jiang)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 08 Feb 2023 21:53:40 &#43;0800</lastBuildDate><atom:link href="http://hq0709.github.io/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>软件设计考点总结</title>
+            <webMaster>jhqyyds@gmail.com (Hanqi Jiang)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 16 Feb 2023 23:45:40 &#43;0800</lastBuildDate><atom:link href="http://hq0709.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>软件设计考点总结（按照知识点）</title>
     <link>http://hq0709.github.io/software-design-review/</link>
-    <pubDate>Wed, 08 Feb 2023 21:53:40 &#43;0800</pubDate>
+    <pubDate>Thu, 16 Feb 2023 23:45:40 &#43;0800</pubDate>
     <author>Hanqi Jiang</author>
     <guid>http://hq0709.github.io/software-design-review/</guid>
-    <description><![CDATA[111]]></description>
+    <description><![CDATA[1. requirement a descripiton of what the system under development should do and any constraints under which it must do 系统在发展下应该做什么的描述，和它必须做的约束 both FR 和 NFR 都可以是mandatory强制的/option]]></description>
 </item>
 <item>
     <title>计网知识点总结 Week 10</title>

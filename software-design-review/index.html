@@ -4,16 +4,16 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>软件设计考点总结 - jhqyyds</title><meta name="Description" content="111"><meta property="og:title" content="软件设计考点总结" />
+        <title>软件设计考点总结（按照知识点） - jhqyyds</title><meta name="Description" content="111"><meta property="og:title" content="软件设计考点总结（按照知识点）" />
 <meta property="og:description" content="111" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://hq0709.github.io/software-design-review/" /><meta property="og:image" content="http://hq0709.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-02-08T21:53:40+08:00" />
-<meta property="article:modified_time" content="2023-02-08T23:45:40+08:00" /><meta property="og:site_name" content="Hanqi Jiang" />
+
+<meta property="article:modified_time" content="2023-02-16T23:45:40+08:00" /><meta property="og:site_name" content="Hanqi Jiang" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://hq0709.github.io/logo.png"/>
 
-<meta name="twitter:title" content="软件设计考点总结"/>
+<meta name="twitter:title" content="软件设计考点总结（按照知识点）"/>
 <meta name="twitter:description" content="111"/>
 <meta name="application-name" content="Hanqi">
 <meta name="apple-mobile-web-app-title" content="Hanqi"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -24,7 +24,7 @@
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "软件设计考点总结",
+        "headline": "软件设计考点总结（按照知识点）",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
@@ -34,8 +34,8 @@
                             "url": "http:\/\/hq0709.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Software Design","wordcount":  0 ,
-        "url": "http:\/\/hq0709.github.io\/software-design-review\/","datePublished": "2023-02-08T21:53:40+08:00","dateModified": "2023-02-08T23:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "Software Design","wordcount":  2528 ,
+        "url": "http:\/\/hq0709.github.io\/software-design-review\/","datePublished": "2023-02-16T23:45:40+08:00","dateModified": "2023-02-16T23:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
                     "@type": "ImageObject",
@@ -117,10 +117,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">软件设计考点总结</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">软件设计考点总结（按照知识点）</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="hq0709.github.io" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Hanqi Jiang</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/course-notes/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Course notes</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-08">2023-02-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 0 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 0 分钟&nbsp;<span id="/software-design-review/" class="leancloud_visitors" data-flag-title="软件设计考点总结">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="0001-01-01">0001-01-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2528 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 6 分钟&nbsp;<span id="/software-design-review/" class="leancloud_visitors" data-flag-title="软件设计考点总结（按照知识点）">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -128,19 +128,415 @@
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"></div><div class="post-footer" id="post-footer">
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-requirement">1. requirement</a></li>
+    <li><a href="#2-use-case-及其内容的actor定义">2. use case 及其内容的（actor）定义</a></li>
+    <li><a href="#3-use-case-descriptionsscenarios">3. use case descriptions——scenarios</a></li>
+    <li><a href="#4-software-design">4. software design</a></li>
+    <li><a href="#5-class-is-abstraction-其作用">5. class is abstraction, 其作用</a></li>
+    <li><a href="#6-explict-architecture-的好处">6. explict architecture 的好处</a></li>
+    <li><a href="#7-architectural-design-abstract-specification-algorithm-design-的目标是什么">7. architectural design, abstract specification, algorithm design 的目标是什么</a></li>
+    <li><a href="#8-关系">8. 关系</a></li>
+    <li><a href="#9-架构设计的-interface-model-relationship-model-distribution-model是什么">9. 架构设计的 interface model, relationship model, distribution model是什么</a></li>
+    <li><a href="#10-软件架构的组成是啥软件架构的element-rationale是什么">10. 软件架构的组成是啥、软件架构的element， rationale，是什么</a></li>
+    <li><a href="#11-软件架构冲突">11. 软件架构冲突</a></li>
+    <li><a href="#12-联系子系统的系统功能by-grouping-togerther-logically-similar-functions-将逻辑类似的功能聚集起来">12. 联系子系统的系统功能——by grouping togerther logically similar functions 将逻辑类似的功能聚集起来</a></li>
+    <li><a href="#13-分解子系统using-the-same-principle--使用相同原理">13. 分解子系统——using the same principle  使用相同原理</a></li>
+    <li><a href="#14-结构风格-优缺点">14. 结构风格 优缺点</a></li>
+    <li><a href="#15-使用什么结构风格">15. 使用什么结构风格</a></li>
+    <li><a href="#16-挑选软件架构类型-software-architecture-type">16. 挑选软件架构类型 software architecture type</a></li>
+    <li><a href="#17-什么情况适用什么关系">17. 什么情况适用什么关系</a></li>
+    <li><a href="#18-区分">18. 区分</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="1-requirement">1. requirement</h2>
+<ul>
+<li>
+<p>a descripiton of what the system under development should do and any constraints under which it must do 系统在发展下应该做什么的描述，和它必须做的约束</p>
+</li>
+<li>
+<p>both FR 和 NFR 都可以是mandatory强制的/optional可选的</p>
+</li>
+</ul>
+<h2 id="2-use-case-及其内容的actor定义">2. use case 及其内容的（actor）定义</h2>
+<ul>
+<li>
+<p>use case: a behaviour model of a system, it is a verb-noun phrase</p>
+</li>
+<li>
+<p>actor: a user or another system that interacts with our system</p>
+</li>
+<li>
+<p>system boundary</p>
+</li>
+</ul>
+<h2 id="3-use-case-descriptionsscenarios">3. use case descriptions——scenarios</h2>
+<ul>
+<li>scenatios (eg, happy day) captures what we expect to be the normal behaviour</li>
+</ul>
+<h2 id="4-software-design">4. software design</h2>
+<ul>
+<li>
+<p>定义：software design is a process by which a set of requirements is transformed into a collection of data structures and algorithms that implement the software requirements as one or more computer programs. 软件设计是过程，通过软件设计将一组需求转化为 一组 作为一个或多个计算机程序来实现软件需求的数据结构和算法。</p>
+</li>
+<li>
+<p>dependability(5)（可靠性）:  availability, reliability, safety, security, performance 可用 可靠 安全 保密 性能</p>
+</li>
+<li>
+<p>key objectives(6): correctness, robustness, flexibility, reusability, effficiency, reliability 正确 稳健 灵活 重用 高效 可信</p>
+</li>
+</ul>
+<h2 id="5-class-is-abstraction-其作用">5. class is abstraction, 其作用</h2>
+<ul>
+<li>
+<p>emphasis（强调） relevant characteristics</p>
+</li>
+<li>
+<p>suppress（抑制） other characteristics</p>
+</li>
+</ul>
+<h2 id="6-explict-architecture-的好处">6. explict architecture 的好处</h2>
+<ul>
+<li>
+<p>it may be used as a focus of discussion by stakeholders</p>
+</li>
+<li>
+<p>helps system analysis</p>
+</li>
+<li>
+<p>it can be reused in large scale</p>
+</li>
+</ul>
+<h2 id="7-architectural-design-abstract-specification-algorithm-design-的目标是什么">7. architectural design, abstract specification, algorithm design 的目标是什么</h2>
+<ul>
+<li>
+<p>architectural design 结构设计:子系统组成系统，他们的关系被识别并记录 sub-systems make up system, their relationships are identified and documented</p>
+</li>
+<li>
+<p>abstract specification 抽象规范：抽象规范定义了服务和必须运行的限制for each sub-system, an abstract specification defines the services and constrains under which it must operate</p>
+</li>
+<li>
+<p>algorithm design算法设计：用于提供服务的算法被详细具体地设计the algorithm used to provide services are designed in detail and specified</p>
+</li>
+<li>
+<p>interface design 接口设计：对于每个子系统，它与其他子系统的接口被设计并记录for each sub-system, its interface with other syb-systems is designed and documented</p>
+</li>
+<li>
+<p>component design组件设计：服务被分配给不同的组件，组件的接口被设计services are allocated to different components, the interfaces of components are designed</p>
+</li>
+<li>
+<p>data structure design数据结构：用于系统实现的数据结构被详细设计the data structure used in system implementation are designed in detial</p>
+</li>
+</ul>
+<h2 id="8-关系">8. 关系</h2>
+<ul>
+<li>
+<p><strong>软件结构，结构设计</strong></p>
+<ul>
+<li>结构设计过程的产物是软件结构的描述：the product of architectural design process is a description of software architecture</li>
+</ul>
+</li>
+<li>
+<p><strong>算法，服务，组件</strong></p>
+<ul>
+<li>
+<p>The algorithm (including data structure) produces services. 算法提供服务</p>
+</li>
+<li>
+<p>Services are allocated to different components. 服务被分配给组件</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>系统，组件，模块</strong></p>
+<ul>
+<li>
+<p>The system can be built by component. 系统由组件构成</p>
+</li>
+<li>
+<p>The component can be built by module. 组件由模块构成</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="9-架构设计的-interface-model-relationship-model-distribution-model是什么">9. 架构设计的 interface model, relationship model, distribution model是什么</h2>
+<ul>
+<li>
+<p>interface model 界面模型：defines the services offered by each sub-system through its public interface 定义子系统通过公共接口提供的服务</p>
+</li>
+<li>
+<p>relationship model 关系模型：show relationships, (such as data flow), between the sub-systems</p>
+</li>
+<li>
+<p>distribution model 分布模型：show how sub-systems be distributed across computer 子系统如何通过计算机分布</p>
+</li>
+<li>
+<p>static structural model 静态模型：show how the sub-systems or components are to developed as separate units 子系统、组件开发成独立单元</p>
+</li>
+<li>
+<p>dynamic process model 动态过程模型：show how the system is organised into process</p>
+</li>
+</ul>
+<h2 id="10-软件架构的组成是啥软件架构的element-rationale是什么">10. 软件架构的组成是啥、软件架构的element， rationale，是什么</h2>
+<ul>
+<li>
+<p>architecture = {elements, form, rationale}</p>
+</li>
+<li>
+<p>architecture: define system&rsquo;s key elements and their relationship to its structure, functionality, interactions, resulting properties 定义系统的关键元素，它与结构，功能，交互，结果性质的关系</p>
+</li>
+<li>
+<p>elements：capture system&rsquo;s building blocks 捕获系统的构建块</p>
+<ul>
+<li>系统构建块是什么？ （？）系统中元素的主要目的是什么？ 元素提供什么系统服务？（捕捉系统构建块）</li>
+</ul>
+</li>
+<li>
+<p>form：captures the ways in which the system elements are organized in the architecture 捕获系统元素在体系结构中的组织方式</p>
+<ul>
+<li>整体结构怎么组织？怎么组成元素完成系统任务？元素怎么分布？</li>
+</ul>
+</li>
+<li>
+<p>rationale:  represents the system designer&rsquo;s intent, assumptions, subtle choices, external constraints, selected architectural styles, design patterns, and any other information  系统设计者的意图，假设，微妙的选择，外部限制，挑选的结构风格，设计模式，其他信息</p>
+<ul>
+<li>为什么使用了特殊的元素？为什么以特殊的方式组合？为什么系统以给定的方式分布？——因为 rationale specifies it. 基本原理规定的</li>
+</ul>
+</li>
+</ul>
+<h2 id="11-软件架构冲突">11. 软件架构冲突</h2>
+<ul>
+<li>
+<p>use large-grain components improves performance but reduce maintainability</p>
+</li>
+<li>
+<p>（可用性里）冗余组件提高可用性，但被外界接触的多了，就很难security</p>
+</li>
+<li>
+<p>localize safety-related features means more communication so degrade performance</p>
+</li>
+<li>
+<p>small-grain components improve reusability but degrade performance</p>
+</li>
+<li>
+<p>本地化 与安全相关的特点&mdash; 更多的交流&mdash;-&gt; 降低性能 degrade performance</p>
+</li>
+<li>
+<p>小粒度组件small grain 提高重用性，但降低性能</p>
+</li>
+<li>
+<p>rebundant components improves availability but less secure</p>
+</li>
+</ul>
+<h2 id="12-联系子系统的系统功能by-grouping-togerther-logically-similar-functions-将逻辑类似的功能聚集起来">12. 联系子系统的系统功能——by grouping togerther logically similar functions 将逻辑类似的功能聚集起来</h2>
+<h2 id="13-分解子系统using-the-same-principle--使用相同原理">13. 分解子系统——using the same principle  使用相同原理</h2>
+<h2 id="14-结构风格-优缺点">14. 结构风格 优缺点</h2>
+<ul>
+<li>
+<p><strong>仓储(3,3)</strong></p>
+<ul>
+<li>
+<p>+:</p>
+<ul>
+<li>
+<p>组件可以是独立的——不用知道其他部件</p>
+</li>
+<li>
+<p>一个部件的改变可以传播be propagated to所有部件</p>
+</li>
+<li>
+<p>所有数据可以一致地管理</p>
+</li>
+</ul>
+</li>
+<li>
+<p>-：</p>
+<ul>
+<li>
+<p>repository is  single point of failure, problem in repository can affect whole system</p>
+</li>
+<li>
+<p>inefficient in organizing all communication (through repository)  组织所有通信低效</p>
+</li>
+<li>
+<p>distributing the repository (across computers) is difficult 分布仓库比较难</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>分层的软件架构 layered structure(2,3)</strong></p>
+<ul>
+<li>
+<p>+:</p>
+<ul>
+<li>
+<p>promotes security 安全</p>
+</li>
+<li>
+<p>as long as interface is maintained,  it allows replacement of entire layers只要接口是维护的，允许替换整个层</p>
+</li>
+</ul>
+</li>
+<li>
+<p>-:</p>
+<ul>
+<li>
+<p>multiple layers hinder performance 影响性能</p>
+</li>
+<li>
+<p>separate layers obviously( provide a clean separation between layers) is difficult  彻底分离层很难</p>
+</li>
+<li>
+<p>A high-level layer may have to interact directly with lower-level layers， rather than through the layer below it. 高层需要与低层直接交互，而不是通过它（高层）的下一层</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>CS(2,3)</strong></p>
+<ul>
+<li>
+<p>+：</p>
+<ul>
+<li>
+<p>servers can be distributed across a network 服务器可以跨过网络分布</p>
+</li>
+<li>
+<p>general function can be available to all clients, (does not need to be implemented by all services) 通用的功能可用于所有客户，不需要由所有服务实现</p>
+</li>
+</ul>
+</li>
+<li>
+<p>-：</p>
+<ul>
+<li>
+<p>each server is a single point of failure. (can be affected by DDoS, server failure)</p>
+</li>
+<li>
+<p>performance may be unpredictable 不可推测的，它取决于网络和系统  becase it depends on network and system</p>
+</li>
+<li>
+<p>may occur management problems if servers are from（owned by） different organizations可能会发生管理问题，如果服务器来自不同组织</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="15-使用什么结构风格">15. 使用什么结构风格</h2>
+<ul>
+<li>
+<p>repository：大量数据，有核心数据库，无网络
+电脑，机器人</p>
+</li>
+<li>
+<p>client-server：多个位置访问共享数据，需要网络， 数据处理，展示信息（交互），实现逻辑
+在线买票，教务系统</p>
+</li>
+<li>
+<p>pipe and filter：工作流程process
+作业处理，稿件（manuscript）处理</p>
+</li>
+<li>
+<p>SOA service-oriented architecture：成本高，偶尔使用，业务需求不稳定
+文档转换，导航，汇率计算，同时翻译系统</p>
+</li>
+<li>
+<p>MVC：多视图多交互，未来的交互需求和数据未知
+股票分析</p>
+</li>
+</ul>
+<h2 id="16-挑选软件架构类型-software-architecture-type">16. 挑选软件架构类型 software architecture type</h2>
+<ul>
+<li>
+<p>为了系统安全：layered-structure
+multiple layers hinder performance</p>
+</li>
+<li>
+<p>为了系统可用：structure with rebundant components (rebundant-structure/ backup-structure)</p>
+</li>
+</ul>
+<h2 id="17-什么情况适用什么关系">17. 什么情况适用什么关系</h2>
+<ul>
+<li>
+<p>include：include is used to extract use case fragments that are duplicated in multiple use cases，指向 selected one (必须包含的)
+在多个用例中需要，提取出来；</p>
+</li>
+<li>
+<p>extend: extend is used when a use case conditionally adds steps to another use case，指向 selecting one (正常普遍运行的)
+附加上去，不一定执行</p>
+</li>
+<li>
+<p>图</p>
+<p><figure><a class="lightgallery" href="/software-design-review/1.png" title="图" data-thumbnail="/software-design-review/1.png" data-sub-html="<h2>图</h2><p>图</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/software-design-review/1.png"
+            data-srcset="/software-design-review/1.png, /software-design-review/1.png 1.5x, /software-design-review/1.png 2x"
+            data-sizes="auto"
+            alt="/software-design-review/1.png" width="728" height="478" />
+    </a><figcaption class="image-caption">图</figcaption>
+    </figure></p>
+</li>
+</ul>
+<h2 id="18-区分">18. 区分</h2>
+<ul>
+<li>
+<p><strong>class adapter VS object adapter</strong></p>
+<ul>
+<li>
+<p>class adapter: adapter adapts Adaptee by inherting from it and implementing thre Target Interface</p>
+</li>
+<li>
+<p>object adapter: adapter inherits the Target interface and contains the Adaptee to which it forwards requests</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Association VS aggregation VS composition</strong></p>
+<ul>
+<li>
+<p>association: classes are related to each other</p>
+</li>
+<li>
+<p>aggregation: a special form of association, it implies &ldquo;whole and part&rdquo; relationship, one class is a part of another class</p>
+</li>
+<li>
+<p>composition: a special form of aggregation, it shows the strong relationship between a whole class and a component class, one class is a component of another class.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>interface VS abstract class，从 继承，实现，限制，关系来看</strong></p>
+<ul>
+<li>
+<p>interface：a class may implement many interfaces, cannot provide any code, static final constants only, used to describe peripheral abilities of a class
+类可以实现多个接口，不能提供代码，只有静态（全局）常量，用于描述类的次要能力</p>
+</li>
+<li>
+<p>abstract class： a class may extend only one abstract class, can provide code, both instance and static constants are possible, defines core identity of its descendants
+一个类可能延展一个抽象类，可以提供代码，可以有实例常数，静态（全局）常数，定义后代的核心身份（如果抽象类是狗，它的派生类/实类也是狗）</p>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2023-02-08</span>
+                <span>更新于 2023-02-16</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
                             <a class="link-to-markdown" href="/software-design-review/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://hq0709.github.io/software-design-review/" data-title="软件设计考点总结" data-hashtags="Software Design"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://hq0709.github.io/software-design-review/" data-hashtag="Software Design"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://hq0709.github.io/software-design-review/" data-title="软件设计考点总结"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://hq0709.github.io/software-design-review/" data-title="软件设计考点总结"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://hq0709.github.io/software-design-review/" data-title="软件设计考点总结" data-ralateuid="jhqyyds"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://hq0709.github.io/software-design-review/" data-title="软件设计考点总结（按照知识点）" data-hashtags="Software Design"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://hq0709.github.io/software-design-review/" data-hashtag="Software Design"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://hq0709.github.io/software-design-review/" data-title="软件设计考点总结（按照知识点）"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://hq0709.github.io/software-design-review/" data-title="软件设计考点总结（按照知识点）"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://hq0709.github.io/software-design-review/" data-title="软件设计考点总结（按照知识点）" data-ralateuid="jhqyyds"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
