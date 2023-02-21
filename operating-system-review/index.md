@@ -13,248 +13,349 @@
 ## Chapter 1
 > updated in 2023.1.13
 
-**1. Monolithic OS（单一型）的优缺点？（单一型是os类型之一，用户和系统放在一起）**
-- 优：(1) efficient; (2) better performance
-- 缺：(1) Difficult to impose security; (2) difficult to maintain
-  
+1.  **Monolithic OS（单一型）的优缺点？（单一型是os类型之一，用户和系统放在一起）**
 
-**2. Layered OS：**
+   - 优：(1) efficient; (2) better performance
 
-- 优：security
-- 缺：hard to manage; weak performance
-  
+   - 缺：(1) Difficult to impose security; (2) difficult to maintain
+     
 
-**3. Micro-Kernel OS (微内核os)：**
-- 优：security；extensible
-- 缺：inefficient
-  
 
-**4. Library OS (库操作系统)：**
-- 优：libraries provide additional security and personality
-- 缺：less consistency(缺乏稳定性)
+2. **Layered OS：**
+
+   - 优：security
+
+   - 缺：hard to manage; weak performance
+     
+
+
+3. **Micro-Kernel OS (微内核os)：**
+
+   - 优：security；extensible
+
+   - 缺：inefficient
+     
+
+
+4. **Library OS (库操作系统)：**
+
+   - 优：libraries provide additional security and personality
+
+   - 缺：less consistency(缺乏稳定性)
+
+
+5. **计算机共享的资源**
+
+   - memory (global、head)
+
+   - hardware devices （CPU）
 
 ---
 
 ## Chapter 2
 > updated in 2023.1.13
 
-**1. One or more threads in a single process**
-- Thread: smallest sequence of instructions managed independently by scheduler. 
-- Scheduler: method for how work is assigned to resources to complete work
+1. **One or more threads in a single process**
 
-**2. Concurrency & parallelism (并发和并行)的区别？**
-- Concurrency: How multiple, independently controlled processes behave when running and interacting with each other.
+   - Thread: smallest sequence of instructions managed independently by scheduler. 
 
-<!-- ![concurrency](2.png "concurrency") -->
-
-- Parallelism: Multiple (n \> 1) processes executing simultaneously. 
-
-<!-- <img src="1.png"  width = "15%" height = 25% alt = "parallelism"/> -->
-
-<!-- ![parallelism](1.png "parallelism") 	 -->
-- 对于并发，在同一时间点任务不同时execute；对于并行，在同一时间点任务一定同时execute，并发和并行都是针对process而言的
-- Processes are always concurrent, but not always parallel
+   - Scheduler: method for how work is assigned to resources to complete work
 
 
-**3. 怎样创建一个线程：通过implement Runnable 类，里面有一个public void run( ) 方法**
-- Define class R which implements Runnable
-- Create your objects
-	- Make an instance of class R 
-	- Make a thread instance by passing instance of   class R to the constructor of class Thread
-- Class start() method of the thread instance
-	- This causes java to immediately execute R.run() as a new thread
-- 替代方法还可以创建一个类继承Thread类，理论上和实现Runnable是一样的
-	```java
-	public class MessagePrinter extends Thread
-	  { 
-	     String message; 
-	     public MessagePrinter(String m) 
-	        { 
-	           message = m; } 
-	     public void run() 
-	         { for(int i = 0; i < 1000; i++)    
-	     System.out.println(message); 
-	         }
-	 }
-	
-	```
+2. **Concurrency & parallelism (并发和并行)的区别？**
 
-**4.  Processor（处理器）, program（程序）, process（进程） 三者区别？**
-- Processor: _Hardware device_ that executes machine instructions
-- Program: _Instruction sequence_; Stored on disk 指令集；存储在硬盘上
-- Process：_Program in execution_ on a processor; store in primary memory
-- Program may be executed by multiple processes at the same time
-<img src="DraggedImage-2.png" width = 70% height = 70% alt = "一个程序同时被两个进程执行"  />
-<!-- ![一个程序同时被两个进程执行](DraggedImage-2.png "一个程序同时被两个进程执行") -->
-- Process can run multiple programs. (多个thread)
-<img src="DraggedImage-3.png" width = 70% height = 60% alt = "一个进程同时执行多个程序"/>
-<!-- ![一个进程同时执行多个程序](DraggedImage-3.png "一个进程同时执行多个程序") -->
+   - Concurrency: How multiple, independently controlled processes behave when running and interacting with each other.
+
+   - Parallelism: Multiple (n \> 1) processes executing simultaneously. 
+
+   - 对于并发，在同一时间点任务不同时execute；对于并行，在同一时间点任务一定同时execute，并发和并行都是针对process而言的
+
+   - Processes are always concurrent, but not always parallel 进程永远是并发的，但不一定是并行的
 
 
-**5. When do we not have to worry about concurrency?**
-- no shared data or communication
-- read only data
+3. **怎样创建一个线程：通过implement Runnable 类，里面有一个public void run( ) 方法**
+
+   - Define class R which implements Runnable
+
+     - Create your objects
+     	- Make an instance of class R 
+     	- Make a thread instance by passing instance of   class R to the constructor of class Thread
+
+     - Class start() method of the thread instance
+     	- This causes java to immediately execute R.run() as a new thread
 
 
-**6. When should we worry about concurrency? （并发带来坏的影响）**
-- Threads access a shared resource without synchronization
-- One or more threads modify the shared resource
+   - 替代方法还可以创建一个类继承Thread类，理论上和实现Runnable是一样的
 
-7. why do we use concurrent programming?
-   - multiprocessor machines to make algorithms run faster implement OS and  networking internals
-   - structuring inherently concurrent applications.
+   	```java
+   	public class MessagePrinter extends Thread
+   	  { 
+   	     String message; 
+   	     public MessagePrinter(String m) 
+   	        { 
+   	           message = m; } 
+   	     public void run() 
+   	         { for(int i = 0; i < 1000; i++)    
+   	     System.out.println(message); 
+   	         }
+   	 }
+   	```
+
+
+4. **Processor（处理器）, program（程序）, process（进程） 三者区别？**
+
+   - Processor: _Hardware device_ that executes machine instructions
+
+   - Program: _Instruction sequence_; Stored on disk 指令集；存储在硬盘上
+
+   - Process：active system entity that executes associate program 积极的系统实体
+
+   - Program may be executed by multiple processes at the same time
+
+   - Process can run multiple programs. (多个thread)
+
+
+5. **When do we not have to worry about concurrency?**
+
+   - no shared data or communication
+
+   - read only data
+
+
+6. **并发编程的好坏**
+
+   - +：更快运行算法，实现操作系统和网络内部
+     make algorithms run faster Implement OS and networking internals 
+     --> 处理同时传入的事件(用户和网络)
+
+   - +：保证代码最后会运行，不会饿死 code will eventually run, with no starvation because of priority
+
+   - -：不保证公平性fairness 和及时性timeliness
+
+     - 公平性(每个进程运行相同的时间)
+
+     - 及时性(进程在理想的时间框架内完成)
+
+   - -：并发时， scheduler 调度程序是不利的
+     期待进程做最不好的事
+
+7. **process VS thread**
+
+   - process
+
+     - is allocated independent address space分配独立地址空间
+
+     - heavier-weight context switch 重量级上下文切换
+
+     - support thick-grained concurrency 支持粗粒度并发
+
+   - thread
+
+     - share a common address space 共享地址空间
+
+     - lighter-weight context switch 轻量级上下文切换
+
+     - support fine-grained concurrency 支持细粒度并发
 
 ---
 
 ## Chapter 3
 
-> updated in 2023.1.13
+> updated in 2023.2.16
+
+1. **为什么要用并行？（两个原因）**
+
+     - Moore’s Law(硬件): Number of transistors in dense(密集) integrated circuits doubles every 2 years.
+
+     - Amdahl’s Law(软件)：Speed up is limited by the serial（程序串行） part of the program
 
 
-**1. Moore’s Law: Number of transistors in dense(密集) integrated circuits doubles every 2 years.**
+2. **同步 synchronization**
 
-**2. 为什么要用并行？（两个原因）**
-  - Moore’s Law(硬件): Number of transistors in dense(密集) integrated circuits doubles every 2 years.
-  - Amdahl’s Law(软件)：Speed up is limited by the serial（程序串行） part of the program
+   - competition VS cooperation    竞争同步 VS 合作同步
 
+   - 竞争：ensure multiple concurrent threads do not execute  at the same time (simultaneously) in the program critical section
 
-**3. Definition of race condition**
-- An error (e.g. a lost update) that occurs due to multiple processes ‘racing’ in an uncontrolled manner through a section of non-atomic code
+     - 临界区：critical section 一次只能进一个进程
+       - 其属性：mutual exclusion, bounded waiting, performance, fairness, progress
+       - mutual exclusion 互斥：only one thread can run in the critical section at any given time 任何时候只有一个进程能在临界区中运行（它限制多个进程对资源的访问）
 
+     - 竞争条件：race condition 
 
-**4. 什么是临界区（critical section）?**
-  - Code section that accesses a shared resource.
+       - 定义：由于多个进程以不受控制的方式在一段非原子代码中“竞争”而发生的错误
+         a error that occurs due to multiple processes race in an uncontrolled manner though a section of non-atomic code
 
+       - 何时出现：如果多个正在执行的线程几乎同时进入一个代码临界区，并且两个线程都试图更新共享数据
+         when multiple executing processes enter a code critical sections at the same time, and multiple try to update shared data
 
-**5. What is Mutual exclusion?**
-- Only one thread can run within the critical section at any given time
+     - 确定性
 
+       - indeterminate VS determinate
 
-**6. 建立临界区的4种方法？**
-  - Lock: 
-	- 设置两个状态held/not held，held表示有线程在critical section
-	- acquire代表需要lock，release代表不需要lock
-	![acuqire( ) and release( )](DraggedImage-4.png "acuqire( ) and release( )")
-	- lock在java中通过synchronized语句实现，synchronized可以应用于任何的代码块
-		```java
-		public void synchronized update (int a) 
-		{
-		     balance=balance+a;
-		 }
-		
-		```
-- Monitors
-  - Semaphores
-  - Message
+         - 不确定：每次得到不同结果（骰子）
 
+         - 确定：每次得到相同结果
 
-**7. Atomic**
-- A property of a sequentially-executed section of code
-- A context switch can’t happen (by definition) while an atomic section of code is being executed
+   - 合作：manage the order or time to ensure threads access system resources correctly 确保线程正确地访问系统资源（A和B说我用好了，给你用）
+     - 例：先put后get
 
+3. **建立临界区的4种方法？**
+   - Lock: 
+      	- 设置两个状态held/not held，held表示有线程在critical section
+      	- acquire代表需要lock，release代表不需要lock
+      	![acuqire( ) and release( )](DraggedImage-4.png "acuqire( ) and release( )")
+      	- lock在java中通过synchronized语句实现，synchronized可以应用于任何的代码块
+      
+   - Monitors
+     - Semaphores
+     - Message
 
-**8. Lock acquire( ) only blocks threads attempting to acquire the same lock. Must use same lock for all critical sections accessing the same data.**
+4.  **Atomic**
 
-**9. Three steps of context-switching sequence**
-- De-schedule currently-running thread
-- Scheduler selects ‘best’ ready thread to run next 
-- Resume newly-selected thread 
+   - A property of a sequentially-executed section of code
 
-10. **competition and cooperation:**
-    - competition: Competing for a variable that two processes want to read or update simultaneously
-    - cooperation: One process wants to tell another process that a needed result is now available
+   - A context switch can’t happen (by definition) while an atomic section of code is being executed
+
+5. **Lock acquire( ) only blocks threads attempting to acquire the same lock. Must use same lock for all critical sections accessing the same data.**
+
+6. **Three steps of context-switching sequence**
+
+   - De-schedule currently-running thread
+
+   - Scheduler selects ‘best’ ready thread to run next 
+
+   - Resume newly-selected thread 
 
 ---
 
 ## Chapter 4
 
-> updated in 2023.1.16
+> updated in 2023.2.16
+
+1. **信号量（改错）：**
+
+   ```c
+   typedef struct _sem { 
+       int val; /* semaphore  value*/ 
+       Queue queue; /* oper: put, get*/ 
+   } Sem
+   void P(Sem s) { /* wait() procedure */ 
+         s->val = s->val - 1; 
+         if (s->val < 0) { 
+              put(s->queue, getpid()); /* queue of PIDs */ 
+               sleep(getpid()); } } 
+   void V(Sem s) { /* signal() procedure */ 
+           s->val = s->val + 1; 
+           if (s->val >= 0){ 
+              wakeup(get(s->queue));
+           } 
+   }
+   ```
+
+   - P等同于wait，V等同于signal
+
+   - `sleep`是通过把这个线程放到waiting queue中来block这个线程
+
+   - `wakeup`是唤醒waiting queue中的线程，并放到running queue中
 
 
-**1. 信号量（改错）：**
-```c
-typedef struct _sem { 
-    int val; /* semaphore  value*/ 
-    Queue queue; / oper: put, get*/ 
-} Sem
-void P(Sem s) { /* wait() procedure */ 
-      s->val = s->val - 1; 
-      if (s->val < 0) { 
-           put(s->queue, getpid()); /* queue of PIDs */ 
-            sleep(getpid()); } } 
-void V(Sem s) { /* signal() procedure */ 
-        s->val = s->val + 1; 
-         if (s->val >= 0){ 
-           wakeup(get(s->queue));} }
-```
-- P等同于wait，V等同于signal
-- `sleep`是通过把这个线程放到waiting queue中来block这个线程
-- `wakeup`是唤醒waiting queue中的线程，并放到running queue中
+2. **P，V操作如何在java和C下实现的？**
 
-**2. P，V操作如何在java和C下实现的？**
-  - Java: wait() & notify()
-  - C: acquire() & release()
-  - Unix: sleep() & wakeup()
-  - Distributed system分布式系统（Message Passing）: send() & receive()
+     - Java: wait() & notify()
 
-**3. 虚假唤醒（Spurious wakeup）是考试中一道大题**
+     - C: acquire() & release()
 
-```java
-public class Semaphore { 
-    private int count = 0;   
-    public Semaphore(int init_val){ 
-         count = init_val; 
-    } 
-    public synchronized void P() { 
-        count = count - 1; 
-        if (count < 0) wait(); 
-    } 
-    public synchronized void V() { 
-        count = count + 1;
-        notifyAll(); 
-    }
-}
-```
-- 什么时候会引起虚假唤醒？
-- Answer: Does not recheck the condition，把P中的`if`改为`while`
+     - Unix: sleep() & wakeup()
 
-**4. 编程题： put() get()操作**
-```java
-public class BoxDimension{
-   private int dim = 0;
-   private Semaphore sem = 1;
-   public void put(int d) {
-       dim = d; 
-       sem.signal();
-   } 
-   public int get() {  
-       sem.wait();
-       return dim; 
-    }
-} 
-BoxDimension d = new BoxDimension();
-```
+     - Distributed system分布式系统（Message Passing）: send() & receive()
 
-**5. Java中的semaphore**
+3. **虚假唤醒（Spurious wakeup）是考试中一道大题**
 
-```java
-public class Semaphore { 
-    private int count = 0; 
-    public Semaphore(int init_val) { 
-           count = init_val; // Should check it’s >= 0 
-    } 
-    public synchronized void P() { 
-           count = count - 1; 
-           while (count < 0) wait(); // why not ‘if’? 
+   ```java
+   public class Semaphore { 
+       private int count = 0;   
+       public Semaphore(int init_val){ 
+            count = init_val; 
        } 
-    public synchronized void V() { 
-            count = count + 1; /* if there is one, wake a waiter; */
-            notifyAll(); /* why not use ‘notify()’? */ 
-    } 
-}
-```
-- P中要使用`while`来判断是否要wait，因为如果条件满足要一直wait
-- V中要使用`notifyAll()`，而不是`notify()`，因为`notify()`会导致`deadlock`
+       public synchronized void P() { 
+           count = count - 1;
+           if (count < 0) wait(); 
+       } 
+       public synchronized void V() { 
+           count = count + 1;
+           notifyAll(); 
+       }
+   }
+   ```
+
+   - 什么时候会引起虚假唤醒？
+
+   - Answer: Does not recheck the condition，把P中的`if`改为`while`
+
+
+4. **编程题： put() get()操作**
+
+   ```java
+   public class BoxDimension{
+      private int dim = 0;
+      private Semaphore sem = 1;
+      public void put(int d) {
+          dim = d; 
+          sem.signal();
+      } 
+      public int get() {  
+          sem.wait();
+          return dim; 
+       }
+   } 
+   BoxDimension d = new BoxDimension();
+   ```
+
+5. **Java中的semaphore**
+
+   ```java
+   public class Semaphore { 
+       private int count = 0; 
+       public Semaphore(int init_val) { 
+              count = init_val; // Should check it’s >= 0 
+       } 
+       public synchronized void P() { 
+              count = count - 1; 
+              while (count < 0) wait(); // why not ‘if’? 
+          } 
+       public synchronized void V() { 
+               count = count + 1; /* if there is one, wake a waiter; */
+               notifyAll(); /* why not use ‘notify()’? */ 
+       } 
+   }
+   ```
+
+   - P中要使用`while`来判断是否要wait，因为如果条件满足要一直wait
+
+   - V中要使用`notifyAll()`，而不是`notify()`，因为`notify()`会导致`deadlock`
+
+6. **在java中，用信号量实现互斥——编程题**
+
+   - 如果题中没给 Semaphore类， 那就
+
+     ```java
+     public class Bank{
+         private Semaphore mutex=1; 
+         public void update(int amout) {
+             mutex.wait();
+             bal = bal+amount;
+             mutex.signal();
+         }
+     }
+     ```
+
+   - 如果给了Semaphore类，其中说明了P(),wait(), V(), notify/notifyAll() 那就
+
+     ```java
+     public class Dimension {
+     	Semaphore mutex = new Semaphore(1);
+     }
+     ```
 
 ---
 
@@ -317,17 +418,20 @@ public class Semaphore {
         messagetype item; 
         while (TRUE) { 
          item = produce_item();
-         chan.send(item); // send item on channel } } 
+         chan.send(item); // send item on channel 
+        } 
+     } 
      consumer() {
            messagetype item; 
             while(TRUE) { 
                 item = chan.receive(); // receive item       
                 consume_item(item); 
-     } }
+            } 
+     }
      ```
-
+   
    - 异步
-
+   
      ```java
      producer() {   
          messagetype item; 
@@ -371,14 +475,15 @@ public class Semaphore {
    ```java
    void get_lock (int *lk) { 
        while (*lk ==1); // 如果lk不是1，跳出循环，拿到锁
-       *lk = 1; // Claim the lock }
+       *lk = 1; // Claim the lock 
+   }
    
    void release_lock (int *lk) {
        *lk = 0; //Let someone else claim lock 
    }
    ```
 
-   - 上面的代码有问题，如果两个进程同时调用`while(*lk = 1)`的话，会发生mutual exlusion，解决方案是在此处使用`disable_interrupts();`函数，因为同时访问critical section只会在发生中断的情况下发生；然后在释放锁的时候调用`reenable_interrupts();`函数，来重新启用中断
+   - 上面的代码有问题，如果两个进程同时调用`while(*lk = 1)`的话，会违反mutual exlusion，解决方案是在此处使用`disable_interrupts();`函数，因为同时访问critical section只会在发生中断的情况下发生；然后在释放锁的时候调用`reenable_interrupts();`函数，来重新启用中断
    - 无论如何，上面的代码还是有很多缺陷，例如中断被长时间禁用、release_lock忘记启用中断等，所以依旧不是一个好的解决方案
 
    ```java
@@ -386,7 +491,8 @@ public class Semaphore {
              try_again: 
             disable_interrupts(); 
             if (*lk ==1); // Lock taken  
-              { reenable_interrupts(); //permit context switch  
+              { 
+                 reenable_interrupts(); //permit context switch  
                  go to try_again; //spin 
               } 
              *lk = 1; // Claim the lock 
@@ -447,7 +553,8 @@ public class Semaphore {
 1. **条件同步和锁的区别？**
    - 条件同步实现了互斥性，原子性，还实现了顺序执行（sequential execution）
    - 锁实现了互斥性和原子性（Mutual repulsion, atomicity）
-
+   - 条件同步：多个进程有序地访问临界区 multiple processes or threads orderly access critical section
+   
 2. **实现先put()再get()（增加一个布尔值done_put）：**
 
    ```java
@@ -554,25 +661,26 @@ public class Semaphore {
 
    - **User thread:** 
 
-     - 优点：Cheap context switch; faster than kernel thread; 
-
-     - 缺点：User threads in same process can’t execute on separate CPUs 同一个进程的线程不能执行在分开的CPU上
-
-   - **Kernel thread:**
-
-     - Scheduled by OS scheduler
-
-     - Threads are preemptive by the OS（线程被操作系统抢占）
-
+     - 优点：
+       - Cheap context switch; 
+       - more flexible; 
+       - easy to offer per-application scheduling policies
+     - 缺点：
+       - User threads in same process can’t execute on separate CPUs 同一个进程的线程不能执行在分开的CPU上; 
+       - If the system call called by a thread blocks, all other threads in the process will block 如果线程调用的系统调用阻塞了， 所有其他在进程中的线程都会阻塞
+   - **Kernel thread -- supported by OS:**
+     - potentially more concurrent, especially on multicore 更加并发，尤其在多核
+     
+     - more predictability useful for real-time applications 对于实时app可推断的
+     - more fast and reliable 更快速可靠
    - **Language thread:**
-
+   
      - Available only in particular language environments
-     - Might be implemented either as user or kernel threads
-
+     - 既可以是user，也可以是kernel
    - **区别：**
-
+   
      - User threads require no support from the OS
-
+   
      - Kernel threads are supported by the OS 
 
 ---

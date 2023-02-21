@@ -34,7 +34,7 @@
                             "url": "http:\/\/hq0709.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Operating systems","wordcount":  7108 ,
+                        }],"genre": "posts","keywords": "Operating systems","wordcount":  7749 ,
         "url": "http:\/\/hq0709.github.io\/operating-system-review\/","datePublished": "2023-01-14T21:57:40+08:00","dateModified": "2023-01-16T22:11:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -119,8 +119,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">操作系统考点总结（按章节）</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/hq0709" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Hanqi Jiang</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/course-notes/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Course notes</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-14">2023-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 7108 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 15 分钟&nbsp;<span id="/operating-system-review/" class="leancloud_visitors" data-flag-title="操作系统考点总结（按章节）">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-14">2023-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 7749 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 16 分钟&nbsp;<span id="/operating-system-review/" class="leancloud_visitors" data-flag-title="操作系统考点总结（按章节）">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -161,65 +161,122 @@
 <blockquote>
 <p>updated in 2023.1.13</p>
 </blockquote>
-<p><strong>1. Monolithic OS（单一型）的优缺点？（单一型是os类型之一，用户和系统放在一起）</strong></p>
+<ol>
+<li><strong>Monolithic OS（单一型）的优缺点？（单一型是os类型之一，用户和系统放在一起）</strong></li>
+</ol>
 <ul>
-<li>优：(1) efficient; (2) better performance</li>
-<li>缺：(1) Difficult to impose security; (2) difficult to maintain</li>
+<li>
+<p>优：(1) efficient; (2) better performance</p>
+</li>
+<li>
+<p>缺：(1) Difficult to impose security; (2) difficult to maintain</p>
+</li>
 </ul>
-<p><strong>2. Layered OS：</strong></p>
+<ol start="2">
+<li>
+<p><strong>Layered OS：</strong></p>
 <ul>
-<li>优：security</li>
-<li>缺：hard to manage; weak performance</li>
+<li>
+<p>优：security</p>
+</li>
+<li>
+<p>缺：hard to manage; weak performance</p>
+</li>
 </ul>
-<p><strong>3. Micro-Kernel OS (微内核os)：</strong></p>
+</li>
+<li>
+<p><strong>Micro-Kernel OS (微内核os)：</strong></p>
 <ul>
-<li>优：security；extensible</li>
-<li>缺：inefficient</li>
+<li>
+<p>优：security；extensible</p>
+</li>
+<li>
+<p>缺：inefficient</p>
+</li>
 </ul>
-<p><strong>4. Library OS (库操作系统)：</strong></p>
+</li>
+<li>
+<p><strong>Library OS (库操作系统)：</strong></p>
 <ul>
-<li>优：libraries provide additional security and personality</li>
-<li>缺：less consistency(缺乏稳定性)</li>
+<li>
+<p>优：libraries provide additional security and personality</p>
+</li>
+<li>
+<p>缺：less consistency(缺乏稳定性)</p>
+</li>
 </ul>
+</li>
+<li>
+<p><strong>计算机共享的资源</strong></p>
+<ul>
+<li>
+<p>memory (global、head)</p>
+</li>
+<li>
+<p>hardware devices （CPU）</p>
+</li>
+</ul>
+</li>
+</ol>
 <hr>
 <h2 id="chapter-2">Chapter 2</h2>
 <blockquote>
 <p>updated in 2023.1.13</p>
 </blockquote>
-<p><strong>1. One or more threads in a single process</strong></p>
+<ol>
+<li>
+<p><strong>One or more threads in a single process</strong></p>
 <ul>
-<li>Thread: smallest sequence of instructions managed independently by scheduler.</li>
-<li>Scheduler: method for how work is assigned to resources to complete work</li>
+<li>
+<p>Thread: smallest sequence of instructions managed independently by scheduler.</p>
+</li>
+<li>
+<p>Scheduler: method for how work is assigned to resources to complete work</p>
+</li>
 </ul>
-<p><strong>2. Concurrency &amp; parallelism (并发和并行)的区别？</strong></p>
+</li>
+<li>
+<p><strong>Concurrency &amp; parallelism (并发和并行)的区别？</strong></p>
 <ul>
-<li>Concurrency: How multiple, independently controlled processes behave when running and interacting with each other.</li>
+<li>
+<p>Concurrency: How multiple, independently controlled processes behave when running and interacting with each other.</p>
+</li>
+<li>
+<p>Parallelism: Multiple (n &gt; 1) processes executing simultaneously.</p>
+</li>
+<li>
+<p>对于并发，在同一时间点任务不同时execute；对于并行，在同一时间点任务一定同时execute，并发和并行都是针对process而言的</p>
+</li>
+<li>
+<p>Processes are always concurrent, but not always parallel 进程永远是并发的，但不一定是并行的</p>
+</li>
 </ul>
-<!-- ![concurrency](2.png "concurrency") -->
+</li>
+<li>
+<p><strong>怎样创建一个线程：通过implement Runnable 类，里面有一个public void run( ) 方法</strong></p>
 <ul>
-<li>Parallelism: Multiple (n &gt; 1) processes executing simultaneously.</li>
-</ul>
-<!-- <img src="1.png"  width = "15%" height = 25% alt = "parallelism"/> -->
-<!-- ![parallelism](1.png "parallelism") 	 -->
+<li>
+<p>Define class R which implements Runnable</p>
 <ul>
-<li>对于并发，在同一时间点任务不同时execute；对于并行，在同一时间点任务一定同时execute，并发和并行都是针对process而言的</li>
-<li>Processes are always concurrent, but not always parallel</li>
-</ul>
-<p><strong>3. 怎样创建一个线程：通过implement Runnable 类，里面有一个public void run( ) 方法</strong></p>
-<ul>
-<li>Define class R which implements Runnable</li>
-<li>Create your objects
+<li>
+<p>Create your objects</p>
 <ul>
 <li>Make an instance of class R</li>
 <li>Make a thread instance by passing instance of   class R to the constructor of class Thread</li>
 </ul>
 </li>
-<li>Class start() method of the thread instance
+<li>
+<p>Class start() method of the thread instance</p>
 <ul>
 <li>This causes java to immediately execute R.run() as a new thread</li>
 </ul>
 </li>
-<li>替代方法还可以创建一个类继承Thread类，理论上和实现Runnable是一样的
+</ul>
+</li>
+<li>
+<p>替代方法还可以创建一个类继承Thread类，理论上和实现Runnable是一样的</p>
+</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -249,68 +306,178 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
-</ul>
-<p><strong>4.  Processor（处理器）, program（程序）, process（进程） 三者区别？</strong></p>
+<li>
+<p><strong>Processor（处理器）, program（程序）, process（进程） 三者区别？</strong></p>
 <ul>
-<li>Processor: <em>Hardware device</em> that executes machine instructions</li>
-<li>Program: <em>Instruction sequence</em>; Stored on disk 指令集；存储在硬盘上</li>
-<li>Process：<em>Program in execution</em> on a processor; store in primary memory</li>
-<li>Program may be executed by multiple processes at the same time
-<img src="DraggedImage-2.png" width = 70% height = 70% alt = "一个程序同时被两个进程执行"  /></li>
+<li>
+<p>Processor: <em>Hardware device</em> that executes machine instructions</p>
+</li>
+<li>
+<p>Program: <em>Instruction sequence</em>; Stored on disk 指令集；存储在硬盘上</p>
+</li>
+<li>
+<p>Process：active system entity that executes associate program 积极的系统实体</p>
+</li>
+<li>
+<p>Program may be executed by multiple processes at the same time</p>
+</li>
+<li>
+<p>Process can run multiple programs. (多个thread)</p>
+</li>
 </ul>
-<!-- ![一个程序同时被两个进程执行](DraggedImage-2.png "一个程序同时被两个进程执行") -->
+</li>
+<li>
+<p><strong>When do we not have to worry about concurrency?</strong></p>
 <ul>
-<li>Process can run multiple programs. (多个thread)
-<img src="DraggedImage-3.png" width = 70% height = 60% alt = "一个进程同时执行多个程序"/></li>
+<li>
+<p>no shared data or communication</p>
+</li>
+<li>
+<p>read only data</p>
+</li>
 </ul>
-<!-- ![一个进程同时执行多个程序](DraggedImage-3.png "一个进程同时执行多个程序") -->
-<p><strong>5. When do we not have to worry about concurrency?</strong></p>
+</li>
+<li>
+<p><strong>并发编程的好坏</strong></p>
 <ul>
-<li>no shared data or communication</li>
-<li>read only data</li>
+<li>
+<p>+：更快运行算法，实现操作系统和网络内部
+make algorithms run faster Implement OS and networking internals
+&ndash;&gt; 处理同时传入的事件(用户和网络)</p>
+</li>
+<li>
+<p>+：保证代码最后会运行，不会饿死 code will eventually run, with no starvation because of priority</p>
+</li>
+<li>
+<p>-：不保证公平性fairness 和及时性timeliness</p>
+<ul>
+<li>
+<p>公平性(每个进程运行相同的时间)</p>
+</li>
+<li>
+<p>及时性(进程在理想的时间框架内完成)</p>
+</li>
 </ul>
-<p><strong>6. When should we worry about concurrency? （并发带来坏的影响）</strong></p>
-<ul>
-<li>Threads access a shared resource without synchronization</li>
-<li>One or more threads modify the shared resource</li>
+</li>
+<li>
+<p>-：并发时， scheduler 调度程序是不利的
+期待进程做最不好的事</p>
+</li>
 </ul>
-<ol start="7">
-<li>why do we use concurrent programming?
+</li>
+<li>
+<p><strong>process VS thread</strong></p>
 <ul>
-<li>multiprocessor machines to make algorithms run faster implement OS and  networking internals</li>
-<li>structuring inherently concurrent applications.</li>
+<li>
+<p>process</p>
+<ul>
+<li>
+<p>is allocated independent address space分配独立地址空间</p>
+</li>
+<li>
+<p>heavier-weight context switch 重量级上下文切换</p>
+</li>
+<li>
+<p>support thick-grained concurrency 支持粗粒度并发</p>
+</li>
+</ul>
+</li>
+<li>
+<p>thread</p>
+<ul>
+<li>
+<p>share a common address space 共享地址空间</p>
+</li>
+<li>
+<p>lighter-weight context switch 轻量级上下文切换</p>
+</li>
+<li>
+<p>support fine-grained concurrency 支持细粒度并发</p>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
 <hr>
 <h2 id="chapter-3">Chapter 3</h2>
 <blockquote>
-<p>updated in 2023.1.13</p>
+<p>updated in 2023.2.16</p>
 </blockquote>
-<p><strong>1. Moore’s Law: Number of transistors in dense(密集) integrated circuits doubles every 2 years.</strong></p>
-<p><strong>2. 为什么要用并行？（两个原因）</strong></p>
+<ol>
+<li>
+<p><strong>为什么要用并行？（两个原因）</strong></p>
 <ul>
-<li>Moore’s Law(硬件): Number of transistors in dense(密集) integrated circuits doubles every 2 years.</li>
-<li>Amdahl’s Law(软件)：Speed up is limited by the serial（程序串行） part of the program</li>
+<li>
+<p>Moore’s Law(硬件): Number of transistors in dense(密集) integrated circuits doubles every 2 years.</p>
+</li>
+<li>
+<p>Amdahl’s Law(软件)：Speed up is limited by the serial（程序串行） part of the program</p>
+</li>
 </ul>
-<p><strong>3. Definition of race condition</strong></p>
+</li>
+<li>
+<p><strong>同步 synchronization</strong></p>
 <ul>
-<li>An error (e.g. a lost update) that occurs due to multiple processes ‘racing’ in an uncontrolled manner through a section of non-atomic code</li>
+<li>
+<p>competition VS cooperation    竞争同步 VS 合作同步</p>
+</li>
+<li>
+<p>竞争：ensure multiple concurrent threads do not execute  at the same time (simultaneously) in the program critical section</p>
+<ul>
+<li>
+<p>临界区：critical section 一次只能进一个进程</p>
+<ul>
+<li>其属性：mutual exclusion, bounded waiting, performance, fairness, progress</li>
+<li>mutual exclusion 互斥：only one thread can run in the critical section at any given time 任何时候只有一个进程能在临界区中运行（它限制多个进程对资源的访问）</li>
 </ul>
-<p><strong>4. 什么是临界区（critical section）?</strong></p>
+</li>
+<li>
+<p>竞争条件：race condition</p>
 <ul>
-<li>Code section that accesses a shared resource.</li>
+<li>
+<p>定义：由于多个进程以不受控制的方式在一段非原子代码中“竞争”而发生的错误
+a error that occurs due to multiple processes race in an uncontrolled manner though a section of non-atomic code</p>
+</li>
+<li>
+<p>何时出现：如果多个正在执行的线程几乎同时进入一个代码临界区，并且两个线程都试图更新共享数据
+when multiple executing processes enter a code critical sections at the same time, and multiple try to update shared data</p>
+</li>
 </ul>
-<p><strong>5. What is Mutual exclusion?</strong></p>
+</li>
+<li>
+<p>确定性</p>
 <ul>
-<li>Only one thread can run within the critical section at any given time</li>
+<li>
+<p>indeterminate VS determinate</p>
+<ul>
+<li>
+<p>不确定：每次得到不同结果（骰子）</p>
+</li>
+<li>
+<p>确定：每次得到相同结果</p>
+</li>
 </ul>
-<p><strong>6. 建立临界区的4种方法？</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>合作：manage the order or time to ensure threads access system resources correctly 确保线程正确地访问系统资源（A和B说我用好了，给你用）</p>
 <ul>
-<li>Lock:
+<li>例：先put后get</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>建立临界区的4种方法？</strong></p>
 <ul>
-<li>设置两个状态held/not held，held表示有线程在critical section</li>
-<li>acquire代表需要lock，release代表不需要lock
+<li>
+<p>Lock:
+- 设置两个状态held/not held，held表示有线程在critical section
+- acquire代表需要lock，release代表不需要lock
 <figure><a class="lightgallery" href="/operating-system-review/DraggedImage-4.png" title="acuqire( ) and release( )" data-thumbnail="/operating-system-review/DraggedImage-4.png" data-sub-html="<h2>acuqire( ) and release( )</h2><p>acuqire( ) and release( )</p>">
         <img
             class="lazyload"
@@ -320,58 +487,57 @@
             data-sizes="auto"
             alt="/operating-system-review/DraggedImage-4.png" width="1036" height="714" />
     </a><figcaption class="image-caption">acuqire( ) and release( )</figcaption>
-    </figure></li>
-<li>lock在java中通过synchronized语句实现，synchronized可以应用于任何的代码块
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="kd">synchronized</span> <span class="nf">update</span> <span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">)</span> 
-</span></span><span class="line"><span class="cl"><span class="o">{</span>
-</span></span><span class="line"><span class="cl">     <span class="n">balance</span><span class="o">=</span><span class="n">balance</span><span class="o">+</span><span class="n">a</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"> <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
-</ul>
+    </figure>
+- lock在java中通过synchronized语句实现，synchronized可以应用于任何的代码块</p>
 </li>
-<li>Monitors
+<li>
+<p>Monitors</p>
 <ul>
 <li>Semaphores</li>
 <li>Message</li>
 </ul>
 </li>
 </ul>
-<p><strong>7. Atomic</strong></p>
+</li>
+<li>
+<p><strong>Atomic</strong></p>
+</li>
+</ol>
 <ul>
-<li>A property of a sequentially-executed section of code</li>
-<li>A context switch can’t happen (by definition) while an atomic section of code is being executed</li>
+<li>
+<p>A property of a sequentially-executed section of code</p>
+</li>
+<li>
+<p>A context switch can’t happen (by definition) while an atomic section of code is being executed</p>
+</li>
 </ul>
-<p><strong>8. Lock acquire( ) only blocks threads attempting to acquire the same lock. Must use same lock for all critical sections accessing the same data.</strong></p>
-<p><strong>9. Three steps of context-switching sequence</strong></p>
+<ol start="5">
+<li>
+<p><strong>Lock acquire( ) only blocks threads attempting to acquire the same lock. Must use same lock for all critical sections accessing the same data.</strong></p>
+</li>
+<li>
+<p><strong>Three steps of context-switching sequence</strong></p>
 <ul>
-<li>De-schedule currently-running thread</li>
-<li>Scheduler selects ‘best’ ready thread to run next</li>
-<li>Resume newly-selected thread</li>
-</ul>
-<ol start="10">
-<li><strong>competition and cooperation:</strong>
-<ul>
-<li>competition: Competing for a variable that two processes want to read or update simultaneously</li>
-<li>cooperation: One process wants to tell another process that a needed result is now available</li>
+<li>
+<p>De-schedule currently-running thread</p>
+</li>
+<li>
+<p>Scheduler selects ‘best’ ready thread to run next</p>
+</li>
+<li>
+<p>Resume newly-selected thread</p>
+</li>
 </ul>
 </li>
 </ol>
 <hr>
 <h2 id="chapter-4">Chapter 4</h2>
 <blockquote>
-<p>updated in 2023.1.16</p>
+<p>updated in 2023.2.16</p>
 </blockquote>
-<p><strong>1. 信号量（改错）：</strong></p>
+<ol>
+<li>
+<p><strong>信号量（改错）：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -387,11 +553,13 @@
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">_sem</span> <span class="p">{</span> 
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">val</span><span class="p">;</span> <span class="cm">/* semaphore  value*/</span> 
-</span></span><span class="line"><span class="cl">    <span class="n">Queue</span> <span class="n">queue</span><span class="p">;</span> <span class="o">/</span> <span class="nl">oper</span><span class="p">:</span> <span class="n">put</span><span class="p">,</span> <span class="n">get</span><span class="err">*/</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">Queue</span> <span class="n">queue</span><span class="p">;</span> <span class="cm">/* oper: put, get*/</span> 
 </span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="n">Sem</span>
 </span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">P</span><span class="p">(</span><span class="n">Sem</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* wait() procedure */</span> 
 </span></span><span class="line"><span class="cl">      <span class="n">s</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">=</span> <span class="n">s</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> 
@@ -400,23 +568,43 @@
 </span></span><span class="line"><span class="cl">            <span class="nf">sleep</span><span class="p">(</span><span class="nf">getpid</span><span class="p">());</span> <span class="p">}</span> <span class="p">}</span> 
 </span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">V</span><span class="p">(</span><span class="n">Sem</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* signal() procedure */</span> 
 </span></span><span class="line"><span class="cl">        <span class="n">s</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">=</span> <span class="n">s</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> 
-</span></span><span class="line"><span class="cl">         <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">){</span> 
-</span></span><span class="line"><span class="cl">           <span class="nf">wakeup</span><span class="p">(</span><span class="nf">get</span><span class="p">(</span><span class="n">s</span><span class="o">-&gt;</span><span class="n">queue</span><span class="p">));}</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">){</span> 
+</span></span><span class="line"><span class="cl">           <span class="nf">wakeup</span><span class="p">(</span><span class="nf">get</span><span class="p">(</span><span class="n">s</span><span class="o">-&gt;</span><span class="n">queue</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
-<li>P等同于wait，V等同于signal</li>
-<li><code>sleep</code>是通过把这个线程放到waiting queue中来block这个线程</li>
-<li><code>wakeup</code>是唤醒waiting queue中的线程，并放到running queue中</li>
+<li>
+<p>P等同于wait，V等同于signal</p>
+</li>
+<li>
+<p><code>sleep</code>是通过把这个线程放到waiting queue中来block这个线程</p>
+</li>
+<li>
+<p><code>wakeup</code>是唤醒waiting queue中的线程，并放到running queue中</p>
+</li>
 </ul>
-<p><strong>2. P，V操作如何在java和C下实现的？</strong></p>
+</li>
+<li>
+<p><strong>P，V操作如何在java和C下实现的？</strong></p>
 <ul>
-<li>Java: wait() &amp; notify()</li>
-<li>C: acquire() &amp; release()</li>
-<li>Unix: sleep() &amp; wakeup()</li>
-<li>Distributed system分布式系统（Message Passing）: send() &amp; receive()</li>
+<li>
+<p>Java: wait() &amp; notify()</p>
+</li>
+<li>
+<p>C: acquire() &amp; release()</p>
+</li>
+<li>
+<p>Unix: sleep() &amp; wakeup()</p>
+</li>
+<li>
+<p>Distributed system分布式系统（Message Passing）: send() &amp; receive()</p>
+</li>
 </ul>
-<p><strong>3. 虚假唤醒（Spurious wakeup）是考试中一道大题</strong></p>
+</li>
+<li>
+<p><strong>虚假唤醒（Spurious wakeup）是考试中一道大题</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -441,7 +629,7 @@
 </span></span><span class="line"><span class="cl">         <span class="n">count</span> <span class="o">=</span> <span class="n">init_val</span><span class="o">;</span> 
 </span></span><span class="line"><span class="cl">    <span class="o">}</span> 
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">P</span><span class="o">()</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="n">wait</span><span class="o">();</span> 
 </span></span><span class="line"><span class="cl">    <span class="o">}</span> 
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">V</span><span class="o">()</span> <span class="o">{</span> 
@@ -452,10 +640,16 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
-<li>什么时候会引起虚假唤醒？</li>
-<li>Answer: Does not recheck the condition，把P中的<code>if</code>改为<code>while</code></li>
+<li>
+<p>什么时候会引起虚假唤醒？</p>
+</li>
+<li>
+<p>Answer: Does not recheck the condition，把P中的<code>if</code>改为<code>while</code></p>
+</li>
 </ul>
-<p><strong>4. 编程题： put() get()操作</strong></p>
+</li>
+<li>
+<p><strong>编程题： put() get()操作</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -488,7 +682,9 @@
 </span></span><span class="line"><span class="cl"><span class="n">BoxDimension</span> <span class="n">d</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BoxDimension</span><span class="o">();</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><strong>5. Java中的semaphore</strong></p>
+</div></li>
+<li>
+<p><strong>Java中的semaphore</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -524,9 +720,60 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
-<li>P中要使用<code>while</code>来判断是否要wait，因为如果条件满足要一直wait</li>
-<li>V中要使用<code>notifyAll()</code>，而不是<code>notify()</code>，因为<code>notify()</code>会导致<code>deadlock</code></li>
+<li>
+<p>P中要使用<code>while</code>来判断是否要wait，因为如果条件满足要一直wait</p>
+</li>
+<li>
+<p>V中要使用<code>notifyAll()</code>，而不是<code>notify()</code>，因为<code>notify()</code>会导致<code>deadlock</code></p>
+</li>
 </ul>
+</li>
+<li>
+<p><strong>在java中，用信号量实现互斥——编程题</strong></p>
+<ul>
+<li>
+<p>如果题中没给 Semaphore类， 那就</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Bank</span><span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">Semaphore</span> <span class="n">mutex</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">update</span><span class="o">(</span><span class="kt">int</span> <span class="n">amout</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mutex</span><span class="o">.</span><span class="na">wait</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bal</span> <span class="o">=</span> <span class="n">bal</span><span class="o">+</span><span class="n">amount</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mutex</span><span class="o">.</span><span class="na">signal</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>如果给了Semaphore类，其中说明了P(),wait(), V(), notify/notifyAll() 那就</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Dimension</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">Semaphore</span> <span class="n">mutex</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Semaphore</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+</ol>
 <hr>
 <h2 id="chapter-5">Chapter 5</h2>
 <blockquote>
@@ -637,19 +884,25 @@
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">producer</span><span class="o">()</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">   <span class="n">messagetype</span> <span class="n">item</span><span class="o">;</span> 
 </span></span><span class="line"><span class="cl">   <span class="k">while</span> <span class="o">(</span><span class="n">TRUE</span><span class="o">)</span> <span class="o">{</span> 
 </span></span><span class="line"><span class="cl">    <span class="n">item</span> <span class="o">=</span> <span class="n">produce_item</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">    <span class="n">chan</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">item</span><span class="o">);</span> <span class="c1">// send item on channel } } 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">consumer</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">chan</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">item</span><span class="o">);</span> <span class="c1">// send item on channel 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="o">}</span> 
+</span></span><span class="line"><span class="cl"><span class="o">}</span> 
+</span></span><span class="line"><span class="cl"><span class="n">consumer</span><span class="o">()</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">      <span class="n">messagetype</span> <span class="n">item</span><span class="o">;</span> 
 </span></span><span class="line"><span class="cl">       <span class="k">while</span><span class="o">(</span><span class="n">TRUE</span><span class="o">)</span> <span class="o">{</span> 
 </span></span><span class="line"><span class="cl">           <span class="n">item</span> <span class="o">=</span> <span class="n">chan</span><span class="o">.</span><span class="na">receive</span><span class="o">();</span> <span class="c1">// receive item       
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>           <span class="n">consume_item</span><span class="o">(</span><span class="n">item</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl"><span class="o">}</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">       <span class="o">}</span> 
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -734,19 +987,21 @@
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
+</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">get_lock</span> <span class="o">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">lk</span><span class="o">)</span> <span class="o">{</span> 
 </span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="o">(*</span><span class="n">lk</span> <span class="o">==</span><span class="mi">1</span><span class="o">);</span> <span class="c1">// 如果lk不是1，跳出循环，拿到锁
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">*</span><span class="n">lk</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// Claim the lock }
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">*</span><span class="n">lk</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// Claim the lock 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">release_lock</span> <span class="o">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">lk</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="o">*</span><span class="n">lk</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">//Let someone else claim lock 
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
-<li>上面的代码有问题，如果两个进程同时调用<code>while(*lk = 1)</code>的话，会发生mutual exlusion，解决方案是在此处使用<code>disable_interrupts();</code>函数，因为同时访问critical section只会在发生中断的情况下发生；然后在释放锁的时候调用<code>reenable_interrupts();</code>函数，来重新启用中断</li>
+<li>上面的代码有问题，如果两个进程同时调用<code>while(*lk = 1)</code>的话，会违反mutual exlusion，解决方案是在此处使用<code>disable_interrupts();</code>函数，因为同时访问critical section只会在发生中断的情况下发生；然后在释放锁的时候调用<code>reenable_interrupts();</code>函数，来重新启用中断</li>
 <li>无论如何，上面的代码还是有很多缺陷，例如中断被长时间禁用、release_lock忘记启用中断等，所以依旧不是一个好的解决方案</li>
 </ul>
 <div class="highlight"><div class="chroma">
@@ -764,13 +1019,15 @@
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
+</span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">get_lock</span> <span class="o">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">lk</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">          <span class="n">try_again</span><span class="o">:</span> 
 </span></span><span class="line"><span class="cl">         <span class="n">disable_interrupts</span><span class="o">();</span> 
 </span></span><span class="line"><span class="cl">         <span class="k">if</span> <span class="o">(*</span><span class="n">lk</span> <span class="o">==</span><span class="mi">1</span><span class="o">);</span> <span class="c1">// Lock taken  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>           <span class="o">{</span> <span class="n">reenable_interrupts</span><span class="o">();</span> <span class="c1">//permit context switch  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>           <span class="o">{</span> 
+</span></span><span class="line"><span class="cl">              <span class="n">reenable_interrupts</span><span class="o">();</span> <span class="c1">//permit context switch  
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>              <span class="n">go</span> <span class="n">to</span> <span class="n">try_again</span><span class="o">;</span> <span class="c1">//spin 
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>           <span class="o">}</span> 
 </span></span><span class="line"><span class="cl">          <span class="o">*</span><span class="n">lk</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// Claim the lock 
@@ -867,6 +1124,7 @@
 <ul>
 <li>条件同步实现了互斥性，原子性，还实现了顺序执行（sequential execution）</li>
 <li>锁实现了互斥性和原子性（Mutual repulsion, atomicity）</li>
+<li>条件同步：多个进程有序地访问临界区 multiple processes or threads orderly access critical section</li>
 </ul>
 </li>
 <li>
@@ -1058,22 +1316,32 @@
 <li>
 <p><strong>User thread:</strong></p>
 <ul>
-<li>
-<p>优点：Cheap context switch; faster than kernel thread;</p>
+<li>优点：
+<ul>
+<li>Cheap context switch;</li>
+<li>more flexible;</li>
+<li>easy to offer per-application scheduling policies</li>
+</ul>
 </li>
-<li>
-<p>缺点：User threads in same process can’t execute on separate CPUs 同一个进程的线程不能执行在分开的CPU上</p>
+<li>缺点：
+<ul>
+<li>User threads in same process can’t execute on separate CPUs 同一个进程的线程不能执行在分开的CPU上;</li>
+<li>If the system call called by a thread blocks, all other threads in the process will block 如果线程调用的系统调用阻塞了， 所有其他在进程中的线程都会阻塞</li>
+</ul>
 </li>
 </ul>
 </li>
 <li>
-<p><strong>Kernel thread:</strong></p>
+<p><strong>Kernel thread &ndash; supported by OS:</strong></p>
 <ul>
 <li>
-<p>Scheduled by OS scheduler</p>
+<p>potentially more concurrent, especially on multicore 更加并发，尤其在多核</p>
 </li>
 <li>
-<p>Threads are preemptive by the OS（线程被操作系统抢占）</p>
+<p>more predictability useful for real-time applications 对于实时app可推断的</p>
+</li>
+<li>
+<p>more fast and reliable 更快速可靠</p>
 </li>
 </ul>
 </li>
@@ -1081,7 +1349,7 @@
 <p><strong>Language thread:</strong></p>
 <ul>
 <li>Available only in particular language environments</li>
-<li>Might be implemented either as user or kernel threads</li>
+<li>既可以是user，也可以是kernel</li>
 </ul>
 </li>
 <li>
