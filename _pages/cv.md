@@ -11,30 +11,45 @@ redirect_from:
 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* B.S. in Computer Science, Beijing Jiaotong University, 2024
+* B.S. in Computer Science, Lancaster University, 2024
 
 Work experience
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* CV Intern (02 February, 2022 - 17 March, 2022)
+  * Baidu Inc, DuerOS Algorithm team
+  * Duties included: Traget Recognition, Image Algorithms
+  * Supervisor: Chen Yibo
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* Algorithm Engineer (15 April, 2022 - 31 August, 2023)
+  * Institute of Computing Technology, Chinese Academy of Sciences, Center for Intelligent Computing Research, State Key Laboratory of Computer Architecture
+  * Duties included: 3D Reconstruction, Robot Control, LLM
+  * Supervisor: [Prof. Yinhe Han](https://people.ucas.ac.cn/~0010355)
+
+* Algorithm Engineer (17 April, 2022 - 31 August, 2022)
+  * China Telecom Co., Ltd. Beijing Research Institute, Big Data and Artificial Intelligence Research Institute
+  * Duties included: Contrastive Learning, Robot Simulation, LLM
+  * Supervisor: Zhenhua Liu
+
+* Research Assistant (10 January, 2023 - 30 June, 2023)
+  * Mengshi Autonomous Driving Team, Tsinghua University
+  * Duties included: Autonomous Driving, Weakly Supervised Learning
+  * Supervisor: [Prof. Jun Li](https://www.tsinghua.edu.cn/info/1166/93890.htm)
+
+* Research Assistant (1 July, 2023 - Present)
+  * Intelligent Multimedia Technology Laboratory, School of Data Science, The Chinese University of Hong Kong
+  * Duties included: Medical Image Segmentation
+  * Supervisor: [Asst. Prof. Ruimao Zhang](http://www.zhangruimao.site/)
   
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* English: CET-6, IELTS 6.5 (6)
+* Programming Language
+  * Python
+  * Java
+  * C++
+  * JavaScript
+* Deep Learning: Pytorch
 
 Publications
 ======
@@ -54,6 +69,7 @@ Teaching
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
-Service and leadership
+Contact
 ======
-* Currently signed in to 43 different slack teams
+* 20722010@bjtu.edu.cn
+* hanqi.jiang@ieee.org
