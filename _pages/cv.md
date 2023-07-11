@@ -39,7 +39,7 @@ Work experience
 * Research Assistant (1 July, 2023 - Present)
   * Intelligent Multimedia Technology Laboratory, School of Data Science, The Chinese University of Hong Kong
   * Duties included: Medical Image Segmentation
-  * Supervisor: [Asst. Prof. Ruimao Zhang](http://www.zhangruimao.site/)
+  * Supervisor: [Prof. Ruimao Zhang](http://www.zhangruimao.site/)
   
 Skills
 ======
