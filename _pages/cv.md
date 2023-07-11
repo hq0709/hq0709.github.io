@@ -11,8 +11,8 @@ redirect_from:
 
 Education
 ======
-* B.S. in Computer Science, Beijing Jiaotong University, 2024
-* B.S. in Computer Science, Lancaster University, 2024
+* B.S. in Computer Science, Beijing Jiaotong University, 2024 (Expected)
+* B.S. in Computer Science, Lancaster University, 2024 (Expected)
 
 Work experience
 ======
@@ -31,10 +31,10 @@ Work experience
   * Duties included: Contrastive Learning, Robot Simulation, LLM
   * Supervisor: Zhenhua Liu
 
-* Research Assistant (10 January, 2023 - 30 June, 2023)
+* Perceptual Algorithm Research Intern (10 January, 2023 - 30 June, 2023)
   * Mengshi Autonomous Driving Team, Tsinghua University
   * Duties included: Autonomous Driving, Weakly Supervised Learning
-  * Supervisor: [Prof. Jun Li](https://www.tsinghua.edu.cn/info/1166/93890.htm)
+  * Supervisor: [Prof. Xinyu Zhang](http://www.svm.tsinghua.edu.cn/essay/80/1875.html)
 
 * Research Assistant (1 July, 2023 - Present)
   * Intelligent Multimedia Technology Laboratory, School of Data Science, The Chinese University of Hong Kong
@@ -57,7 +57,7 @@ Publications
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
-Talks
+<!-- Talks
 ======
   <ul>{% for post in site.talks %}
     {% include archive-single-talk-cv.html %}
@@ -67,7 +67,7 @@ Teaching
 ======
   <ul>{% for post in site.teaching %}
     {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+  {% endfor %}</ul> -->
   
 Contact
 ======
