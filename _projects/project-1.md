@@ -2,7 +2,7 @@
 title: "Cloud Sport Software"
 collection: projects
 type: "Project"
-permalink: /projects/project-1
+permalink: /projects/project-1/
 date: 2023-07-01
 ---
 > https://github.com/hq0709/cloud_sport
