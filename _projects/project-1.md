@@ -3,7 +3,9 @@ title: "Cloud Sport Software"
 collection: projects
 type: "Project"
 permalink: /projects/project-1/
+venue: "Testing"
 date: 2023-07-01
+location: "Hong Kong"
 ---
 > https://github.com/hq0709/cloud_sport
 
