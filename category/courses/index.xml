@@ -348,10 +348,10 @@ when multiple executing processes enter a code critical sections at the same tim
 &lt;figure  id=&#34;figure-acuqire--and-release-&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;acuqire( ) and release( )&#34; srcset=&#34;
-               /post/operating-system-review/DraggedImage-4_hu09c1395159dddc17a6867999bf230125_104746_ab2bd5e9956bfdf72a7c1a78101165f2.webp 400w,
+               /post/operating-system-review/DraggedImage-4_hu09c1395159dddc17a6867999bf230125_104746_ca36bb257b73e43b1ffbae289556bbc7.webp 400w,
                /post/operating-system-review/DraggedImage-4_hu09c1395159dddc17a6867999bf230125_104746_4b8c0936268fdcb375b4cab77147d6d5.webp 760w,
                /post/operating-system-review/DraggedImage-4_hu09c1395159dddc17a6867999bf230125_104746_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;https://hq0709.github.io/post/operating-system-review/DraggedImage-4_hu09c1395159dddc17a6867999bf230125_104746_ab2bd5e9956bfdf72a7c1a78101165f2.webp&#34;
+               src=&#34;https://hq0709.github.io/post/operating-system-review/DraggedImage-4_hu09c1395159dddc17a6867999bf230125_104746_ca36bb257b73e43b1ffbae289556bbc7.webp&#34;
                width=&#34;760&#34;
                height=&#34;524&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1334,10 +1334,10 @@ $$&lt;/p&gt;
 &lt;figure  id=&#34;figure-fifo&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;FIFO&#34; srcset=&#34;
-               /post/operating-system-review/4_hu65e46e8626efe63c5c2cff3ff7687c1f_221821_38ef4070a85f9e4ff2acbd91dd2b73de.webp 400w,
+               /post/operating-system-review/4_hu65e46e8626efe63c5c2cff3ff7687c1f_221821_0e3a7e22a81e33f58ab463ba75e99485.webp 400w,
                /post/operating-system-review/4_hu65e46e8626efe63c5c2cff3ff7687c1f_221821_569a3a9dba810d081a7450338ea2c9e9.webp 760w,
                /post/operating-system-review/4_hu65e46e8626efe63c5c2cff3ff7687c1f_221821_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;https://hq0709.github.io/post/operating-system-review/4_hu65e46e8626efe63c5c2cff3ff7687c1f_221821_38ef4070a85f9e4ff2acbd91dd2b73de.webp&#34;
+               src=&#34;https://hq0709.github.io/post/operating-system-review/4_hu65e46e8626efe63c5c2cff3ff7687c1f_221821_0e3a7e22a81e33f58ab463ba75e99485.webp&#34;
                width=&#34;760&#34;
                height=&#34;366&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1375,10 +1375,10 @@ $$&lt;/p&gt;
 &lt;figure  id=&#34;figure-lru&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;LRU算法&#34; srcset=&#34;
-               /post/operating-system-review/5_hu31e984fc4ec643c462c135d581591769_344924_30a649050f39206e460d559535a5df94.webp 400w,
+               /post/operating-system-review/5_hu31e984fc4ec643c462c135d581591769_344924_9005cd2f3cd03c1584f34f378d20a40e.webp 400w,
                /post/operating-system-review/5_hu31e984fc4ec643c462c135d581591769_344924_c2eccbbde635e72f6cd93e1d3b01ef78.webp 760w,
                /post/operating-system-review/5_hu31e984fc4ec643c462c135d581591769_344924_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;https://hq0709.github.io/post/operating-system-review/5_hu31e984fc4ec643c462c135d581591769_344924_30a649050f39206e460d559535a5df94.webp&#34;
+               src=&#34;https://hq0709.github.io/post/operating-system-review/5_hu31e984fc4ec643c462c135d581591769_344924_9005cd2f3cd03c1584f34f378d20a40e.webp&#34;
                width=&#34;760&#34;
                height=&#34;364&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1405,10 +1405,10 @@ $$&lt;/p&gt;
 &lt;figure  id=&#34;figure-维护时间戳&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;维护时间戳&#34; srcset=&#34;
-               /post/operating-system-review/6_hu3eaf323c14ec4360993befd50035c5f4_470813_384c6e1e6be6c58a6552a719831dedba.webp 400w,
+               /post/operating-system-review/6_hu3eaf323c14ec4360993befd50035c5f4_470813_1c57662dbcb8be27106464a6e237e87d.webp 400w,
                /post/operating-system-review/6_hu3eaf323c14ec4360993befd50035c5f4_470813_1df926ed4ce144cb4dadab0cdf316460.webp 760w,
                /post/operating-system-review/6_hu3eaf323c14ec4360993befd50035c5f4_470813_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;https://hq0709.github.io/post/operating-system-review/6_hu3eaf323c14ec4360993befd50035c5f4_470813_384c6e1e6be6c58a6552a719831dedba.webp&#34;
+               src=&#34;https://hq0709.github.io/post/operating-system-review/6_hu3eaf323c14ec4360993befd50035c5f4_470813_1c57662dbcb8be27106464a6e237e87d.webp&#34;
                width=&#34;760&#34;
                height=&#34;413&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1441,10 +1441,10 @@ $$&lt;/p&gt;
 &lt;figure  id=&#34;figure-维护页码栈&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;维护页码栈&#34; srcset=&#34;
-               /post/operating-system-review/7_hua26708f10fb29c5eeb715c69af3f6982_305768_4392bbada9487c82d04e526061cb6b84.webp 400w,
+               /post/operating-system-review/7_hua26708f10fb29c5eeb715c69af3f6982_305768_bb25609bea8988c4d4d55b52f08e0b02.webp 400w,
                /post/operating-system-review/7_hua26708f10fb29c5eeb715c69af3f6982_305768_b821b1cec883a5c2d52dd5bffd179fd7.webp 760w,
                /post/operating-system-review/7_hua26708f10fb29c5eeb715c69af3f6982_305768_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;https://hq0709.github.io/post/operating-system-review/7_hua26708f10fb29c5eeb715c69af3f6982_305768_4392bbada9487c82d04e526061cb6b84.webp&#34;
+               src=&#34;https://hq0709.github.io/post/operating-system-review/7_hua26708f10fb29c5eeb715c69af3f6982_305768_bb25609bea8988c4d4d55b52f08e0b02.webp&#34;
                width=&#34;760&#34;
                height=&#34;423&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1477,10 +1477,10 @@ $$&lt;/p&gt;
 &lt;figure  id=&#34;figure-clock算法&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;clock算法&#34; srcset=&#34;
-               /post/operating-system-review/8_hub93140b65a2d6ff5e44b7a7326bb95d2_482303_fd62e7bde9f0fa22103bb0a9194b9882.webp 400w,
+               /post/operating-system-review/8_hub93140b65a2d6ff5e44b7a7326bb95d2_482303_4af629f4932cc545b459dbcc6efc800c.webp 400w,
                /post/operating-system-review/8_hub93140b65a2d6ff5e44b7a7326bb95d2_482303_0909629dac230b4e438040b925ec3449.webp 760w,
                /post/operating-system-review/8_hub93140b65a2d6ff5e44b7a7326bb95d2_482303_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;https://hq0709.github.io/post/operating-system-review/8_hub93140b65a2d6ff5e44b7a7326bb95d2_482303_fd62e7bde9f0fa22103bb0a9194b9882.webp&#34;
+               src=&#34;https://hq0709.github.io/post/operating-system-review/8_hub93140b65a2d6ff5e44b7a7326bb95d2_482303_4af629f4932cc545b459dbcc6efc800c.webp&#34;
                width=&#34;760&#34;
                height=&#34;389&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1520,10 +1520,10 @@ $$&lt;/p&gt;
 &lt;figure  id=&#34;figure-buddy算法&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Buddy算法&#34; srcset=&#34;
-               /post/operating-system-review/9_hued0e6ff3233010c3795765d2f27be97e_79115_9f2b3af146dc3768ad62816753739899.webp 400w,
+               /post/operating-system-review/9_hued0e6ff3233010c3795765d2f27be97e_79115_2bcd8db0e7da016730ab2ab9a1a5e8f2.webp 400w,
                /post/operating-system-review/9_hued0e6ff3233010c3795765d2f27be97e_79115_b073a0b75bb145308d90ce2e9656fde0.webp 760w,
                /post/operating-system-review/9_hued0e6ff3233010c3795765d2f27be97e_79115_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;https://hq0709.github.io/post/operating-system-review/9_hued0e6ff3233010c3795765d2f27be97e_79115_9f2b3af146dc3768ad62816753739899.webp&#34;
+               src=&#34;https://hq0709.github.io/post/operating-system-review/9_hued0e6ff3233010c3795765d2f27be97e_79115_2bcd8db0e7da016730ab2ab9a1a5e8f2.webp&#34;
                width=&#34;760&#34;
                height=&#34;586&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1586,10 +1586,10 @@ $$&lt;/p&gt;
 &lt;figure  id=&#34;figure-pre-emptive-scheduling&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;pre-emptive scheduling&#34; srcset=&#34;
-               /post/operating-system-review/10_hu38b7f28bbce876343deb572c4b8b048b_38189_06adba45765b8205fd9db4e3b605f4e5.webp 400w,
+               /post/operating-system-review/10_hu38b7f28bbce876343deb572c4b8b048b_38189_263210fa610ce956bb15cd9bc63ff70e.webp 400w,
                /post/operating-system-review/10_hu38b7f28bbce876343deb572c4b8b048b_38189_3cc414b55464a846c36eac5a234587a3.webp 760w,
                /post/operating-system-review/10_hu38b7f28bbce876343deb572c4b8b048b_38189_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;https://hq0709.github.io/post/operating-system-review/10_hu38b7f28bbce876343deb572c4b8b048b_38189_06adba45765b8205fd9db4e3b605f4e5.webp&#34;
+               src=&#34;https://hq0709.github.io/post/operating-system-review/10_hu38b7f28bbce876343deb572c4b8b048b_38189_263210fa610ce956bb15cd9bc63ff70e.webp&#34;
                width=&#34;646&#34;
                height=&#34;216&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1700,10 +1700,10 @@ $$&lt;/p&gt;
 &lt;figure  id=&#34;figure-rr&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;RR&#34; srcset=&#34;
-               /post/operating-system-review/11_huc1a1a2d89c68a1f9efef2f0496af5e47_146751_c54003ee482495fc4ffb74cd412ead82.webp 400w,
+               /post/operating-system-review/11_huc1a1a2d89c68a1f9efef2f0496af5e47_146751_9922f79364c19b9cbb3e707352ad1ded.webp 400w,
                /post/operating-system-review/11_huc1a1a2d89c68a1f9efef2f0496af5e47_146751_1815d68dffe4cccda1fa42799c01e01f.webp 760w,
                /post/operating-system-review/11_huc1a1a2d89c68a1f9efef2f0496af5e47_146751_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;https://hq0709.github.io/post/operating-system-review/11_huc1a1a2d89c68a1f9efef2f0496af5e47_146751_c54003ee482495fc4ffb74cd412ead82.webp&#34;
+               src=&#34;https://hq0709.github.io/post/operating-system-review/11_huc1a1a2d89c68a1f9efef2f0496af5e47_146751_9922f79364c19b9cbb3e707352ad1ded.webp&#34;
                width=&#34;584&#34;
                height=&#34;760&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
