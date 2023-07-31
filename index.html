@@ -1781,6 +1781,424 @@
   <div class="media-body">
 
     <div class="section-subheading article-title mb-0 mt-0">
+      <a href="/post/paper-geo-neus/" >Geo-NeuS</a>
+    </div>
+
+    
+    <a href="/post/paper-geo-neus/"  class="summary-link">
+      <div class="article-style">
+        公式推导 用有符号距离函数表示空间点p到物体表面的距离，sdf(p)等于0 使用两个神经网络估计SDF和颜色场 表示颜色场： 由于需要专注于表面的重建，所以将公式改写为 公式推导 最后得到偏差的表达式： 网络的架构图，结合了三种loss，五个通道 架构图 闭塞处理，这里没有看懂在干什么 SDF loss View-aware SDF loss. While rendering image $I_i$ from view $V_i$, we use the SDF network to estimate SDF values for the visible points $\boldsymbol{P}_i$ of $V_i$.
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+  <span >
+      Hanqi Jiang</span>
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Dec 13, 2022
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/3d-computer-vision/">3D Computer Vision</a></span>
+  
+
+</div>
+
+      
+    </div>
+
+    
+    <div class="btn-links">
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item view-compact">
+  <div class="media-body">
+
+    <div class="section-subheading article-title mb-0 mt-0">
+      <a href="/post/geo-neus-renderer/" >Geo-NeuS 中的渲染部分</a>
+    </div>
+
+    
+    <a href="/post/geo-neus-renderer/"  class="summary-link">
+      <div class="article-style">
+        get_psnr def get_psnr(img1, img2, normalize_rgb=False): if normalize_rgb: # [-1,1] --&gt; [0,1] img1 = (img1 + 1.) / 2. img2 = (img2 + 1. ) / 2. mse = torch.mean((img1 - img2) ** 2) psnr = -10.
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+  <span >
+      Hanqi Jiang</span>
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Dec 13, 2022
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/3d-computer-vision/">3D Computer Vision</a></span>
+  
+
+</div>
+
+      
+    </div>
+
+    
+    <div class="btn-links">
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item view-compact">
+  <div class="media-body">
+
+    <div class="section-subheading article-title mb-0 mt-0">
+      <a href="/post/operating-system-review/" >操作系统复习</a>
+    </div>
+
+    
+    <a href="/post/operating-system-review/"  class="summary-link">
+      <div class="article-style">
+        这是我总结的操作系统的考点，但内容并不完善，可以参考这篇笔记，里面有更详细的我关于知识点的记录
+关于操作系统的考试题目以及题型，可以参考这篇笔记
+Chapter 1 updated in 2023.1.13
+Monolithic OS（单一型）的优缺点？（单一型是os类型之一，用户和系统放在一起） 优：(1) efficient; (2) better performance
+缺：(1) Difficult to impose security; (2) difficult to maintain
+Layered OS：
+优：security
+缺：hard to manage; weak performance
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+  <span >
+      Hanqi Jiang</span>
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Sep 13, 2022
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    12 min read
+  </span>
+  
+
+  
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/courses/">Courses</a></span>
+  
+
+</div>
+
+      
+    </div>
+
+    
+    <div class="btn-links">
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item view-compact">
+  <div class="media-body">
+
+    <div class="section-subheading article-title mb-0 mt-0">
       <a href="/post/getting-started/" >Welcome to Wowchemy, the website builder for Hugo</a>
     </div>
 
@@ -1862,205 +2280,6 @@
       <a href="/post/getting-started/" >
         <img src="/post/getting-started/featured_hub9ee31969f44a6711206a2baf9f065b4_241861_150x0_resize_q75_h2_lanczos.webp" height="84" width="150"
             alt="Welcome to Wowchemy, the website builder for Hugo" loading="lazy">
-      </a>
-    
-  </div>
-</div>
-
-  
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item view-compact">
-  <div class="media-body">
-
-    <div class="section-subheading article-title mb-0 mt-0">
-      <a href="/post/writing-technical-content/" >Writing technical content in Markdown</a>
-    </div>
-
-    
-    <a href="/post/writing-technical-content/"  class="summary-link">
-      <div class="article-style">
-        Wowchemy is designed to give technical content creators a seamless experience. You can focus on the content and Wowchemy handles the rest.
-Highlight your code snippets, take notes on math classes, and draw diagrams from textual representation.
-      </div>
-    </a>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    Jul 12, 2019
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    6 min read
-  </span>
-  
-
-  
-  
-  
-  
-
-  
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-      
-      <a href="/post/writing-technical-content/" >
-        <img src="/post/writing-technical-content/featured_huc72159e0fc0d14b85f60d34436a630f0_266353_150x0_resize_q75_h2_lanczos.webp" height="100" width="150"
-            alt="Writing technical content in Markdown" loading="lazy">
-      </a>
-    
-  </div>
-</div>
-
-  
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item view-compact">
-  <div class="media-body">
-
-    <div class="section-subheading article-title mb-0 mt-0">
-      <a href="/post/jupyter/" >Display Jupyter Notebooks with Academic</a>
-    </div>
-
-    
-    <a href="/post/jupyter/"  class="summary-link">
-      <div class="article-style">
-        Learn how to blog in Academic using Jupyter notebooks
-      </div>
-    </a>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
-
-
-<div class="article-metadata">
-
-  
-  
-  
-  
-  <div>
-    
-
-  <span class="author-highlighted">
-      Hanqi Jiang 蔣瀚祺</span>
-  </div>
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-          Last updated on
-      
-    
-    Sep 5, 2019
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  
-  
-
-  
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-      
-      <a href="/post/jupyter/" >
-        <img src="/post/jupyter/featured_hub1daa031c2af6888ff37bd93eb033a1a_71549_150x0_resize_q75_h2_lanczos_3.webp" height="65" width="150"
-            alt="Display Jupyter Notebooks with Academic" loading="lazy">
       </a>
     
   </div>
