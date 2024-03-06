@@ -2,6 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://hq0709.github.io/publication-type/1/</loc>
+    <lastmod>2023-12-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://hq0709.github.io/publication/gpt-4v/</loc>
+    <lastmod>2023-12-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://hq0709.github.io/tag/medical-imaging/</loc>
+    <lastmod>2023-12-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://hq0709.github.io/publication_types/</loc>
+    <lastmod>2023-12-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://hq0709.github.io/publication/</loc>
+    <lastmod>2023-12-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://hq0709.github.io/tags/</loc>
+    <lastmod>2023-12-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>https://hq0709.github.io/publication-type/2/</loc>
     <lastmod>2023-07-14T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -10,24 +34,8 @@
     <lastmod>2023-07-14T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://hq0709.github.io/publication_types/</loc>
-    <lastmod>2023-07-14T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://hq0709.github.io/publication/</loc>
-    <lastmod>2023-07-14T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
     <loc>https://hq0709.github.io/tag/source-themes/</loc>
     <lastmod>2023-07-14T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://hq0709.github.io/tags/</loc>
-    <lastmod>2023-07-14T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://hq0709.github.io/publication-type/1/</loc>
-    <lastmod>2023-05-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://hq0709.github.io/tag/3d-computer-vision/</loc>
@@ -36,6 +44,14 @@
   </url><url>
     <loc>https://hq0709.github.io/publication/depth-neus/</loc>
     <lastmod>2023-05-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://hq0709.github.io/publication/llm-robotics/</loc>
+    <lastmod>2023-01-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://hq0709.github.io/tag/robotics/</loc>
+    <lastmod>2023-01-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://hq0709.github.io/project/cloud-sport/</loc>
@@ -76,18 +92,6 @@
   </url><url>
     <loc>https://hq0709.github.io/</loc>
     <lastmod>2022-10-24T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://hq0709.github.io/category/courses/</loc>
-    <lastmod>2022-09-13T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://hq0709.github.io/tag/operating-system/</loc>
-    <lastmod>2022-09-13T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://hq0709.github.io/post/operating-system-review/</loc>
-    <lastmod>2022-09-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://hq0709.github.io/slides/</loc>
