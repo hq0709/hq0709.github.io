@@ -3,11 +3,11 @@
 ## 🎙 Speech Synthesis
 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2024</div><img src='images/eye.jpg' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2024</div><img src='images/eye.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Eye-gaze Guided Multi-modal Alignment forMedical Representation Learning](https://arxiv.org/pdf/2403.12416) \\
-hong Ma, **Hanqi Jiang**, Wenting Chen, Yiwei Li, Zihao Wu, Xiaowei Yu, Zhengliang Liu, Lei Guo, Dajiang Zhu, Tuo Zhang, Dinggang Shen, Tianming Liu, Xiang Li
+Chong Ma, **Hanqi Jiang**, Wenting Chen, Yiwei Li, Zihao Wu, Xiaowei Yu, Zhengliang Liu, Lei Guo, Dajiang Zhu, Tuo Zhang, Dinggang Shen, Tianming Liu, Xiang Li
 
 <!-- [**Project**](https://speechresearch.github.io/fastspeech/)  -->
 
@@ -18,7 +18,7 @@ hong Ma, **Hanqi Jiang**, Wenting Chen, Yiwei Li, Zihao Wu, Xiaowei Yu, Zhenglia
 </div>
 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECCV 2024 Workshop</div><img src='images/hybrid.jpg' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECCV 2024 Workshop</div><img src='images/hybrid.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Advancing Medical Radiograph Representation Learning: A Hybrid Pre-training Paradigm with Multilevel Semantic Granularity]() \\
