@@ -1,5 +1,5 @@
 # 📎 Homepages
-- Personal Pages: https://rayeren.github.io (updated recently🔥)
-- Linkedin: https://www.linkedin.com/in/rayeren
-- Google Scholar: https://scholar.google.com/citations?user=4FA6C0AAAAAJ
-- DBLP: https://dblp.org/pid/75/6568-6.html
+- Personal Pages: https://hq0709.github.io 
+- Linkedin: https://www.linkedin.com/in/hanqi-jiang-024b622b6/
+- Google Scholar: https://scholar.google.com/citations?user=SCHOLAR_ID&user=adC1a0IAAAAJ
+- DBLP: https://dblp.org/pid/344/1868.html
