@@ -10,7 +10,7 @@
 - *2020.12*, Non-autoregressive Speech Synthesis, Huawei Noah's Ark Lab internal talk -->
 
 # 💻 Internships
-- *2024.9.1 - now* Mayo Clinic, Arizona.
+- *2024.9.1 - Now* Mayo Clinic, Arizona.
 - *2023.11 - 2024.02*, Li Auto, 3D Vision Group, Beijing.
 - *2023.07 - 2023.10*, School of Data Science, the Chinese University of Hong Kong, Shenzhen.
 - *2023.01 - 2023.07*, Tsinghua University, Beijing.
