@@ -24,7 +24,7 @@ author:
   name             : "Hanqi Jiang (蒋瀚祺)"
   avatar           : "images/hanqi.jpg"
   bio              : "UGA"
-  location         : "United States of American"
+  location         : "US"
   employer         :
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=SCHOLAR_ID&user=adC1a0IAAAAJ"
@@ -135,7 +135,7 @@ sass:
 
 # Outputting
 permalink: /:categories/:title/
-timezone: Asia/Shanghai # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: America/Detroit # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
