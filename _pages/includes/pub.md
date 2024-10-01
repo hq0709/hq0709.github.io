@@ -1,6 +1,5 @@
 
 # 📝 Publications 
-## 🎙 Speech Synthesis
 
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2024</div><img src='images/eye.png' alt="sym" width="100%"></div></div>
