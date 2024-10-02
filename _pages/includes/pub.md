@@ -36,3 +36,4 @@ Chong Ma, **Hanqi Jiang**, Wenting Chen, Yiwei Li, Zihao Wu, Xiaowei Yu, Zhengli
 - ``Under Review`` [Argus: Leveraging Multi-ViewImages for Improved 3D SceneUnderstanding with LargeLanguage Models]() Yifan Xu, Chao Zhang, **Hanqi Jiang**, Xiaoyan Wang, Ruifei Ma, Yiwei Li, Zihao Wu, Zeju Li, Xiangde Liu
 - ``Under Review`` [GeoDreamer: Mixed-Modality Graph for Geometry-Controllable 3D Indoor Scene Generation]() Zhifei Yang, Keyang Lu, Chao Zhang, Jiaxing Qi, **Hanqi Jiang**, Ruifei Ma, Shenglin Yin, Yifan Xu, Mingzhe Xing, Zhen Xiao, Jieyi Long, Xiangde Liu, Guangyao Zhai
 - ``Under Review`` [BrainSF: A Foundation Model for Whole Brain Functional Signals Forecasting]() Li Yang, **Hanqi Jiang**, Xintao Hu, Tianming Liu, Tuo Zhang
+- ``Under Review`` [ECHOPluse: ECG Controlled Echocardiograms Video Generation]() Yiwei Li, Sekeun Kim, Zihao Wu, **Hanqi Jiang**, Yi Pan, Pengfei Jin, Sifan Song, Yucheng Shi, Xiaowei Yu, Tianze Yang, Tianming Liu, Quanzheng Li, Xiang Li
