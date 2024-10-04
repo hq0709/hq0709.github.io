@@ -20,7 +20,7 @@ Chong Ma, **Hanqi Jiang**, Wenting Chen, Yiwei Li, Zihao Wu, Xiaowei Yu, Zhengli
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECCV 2024 Workshop</div><img src='images/hybrid.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[Advancing Medical Radiograph Representation Learning: A Hybrid Pre-training Paradigm with Multilevel Semantic Granularity]() \\
+[Advancing Medical Radiograph Representation Learning: A Hybrid Pre-training Paradigm with Multilevel Semantic Granularity](https://arxiv.org/abs/2410.00448) \\
 **Hanqi Jiang**, Xixuan Hao, Yuzhou Huang, Chong Ma, Jiaxun Zhang, Yi Pan, Ruimao Zhang
 
 <!-- [**Project**](https://speechresearch.github.io/fastspeech2/) <strong><span class='show_paper_citations' data='4FA6C0AAAAAJ:LkGwnXOMwfcC'></span></strong> -->
