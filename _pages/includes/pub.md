@@ -28,6 +28,18 @@ Chong Ma, **Hanqi Jiang**, Wenting Chen, Yiwei Li, Zihao Wu, Xiaowei Yu, Zhengli
 </div>
 </div>
 
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Under Review</div><img src='images/pipeline_EchoPulse.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[ECHOPluse: ECG Controlled Echocardiograms Video Generation](https://arxiv.org/pdf/2410.03143) \\
+Yiwei Li, Sekeun Kim, Zihao Wu, **Hanqi Jiang**, Yi Pan, Pengfei Jin, Sifan Song, Yucheng Shi, Xiaowei Yu, Tianze Yang, Tianming Liu, Quanzheng Li, Xiang Li
+
+<!-- [**Project**](https://speechresearch.github.io/fastspeech2/) <strong><span class='show_paper_citations' data='4FA6C0AAAAAJ:LkGwnXOMwfcC'></span></strong> -->
+  - Echocardiography (ECHO) is essential for cardiac assessments, but its video quality and interpretation heavily relies on manual expertise, leading to inconsistent results from clinical and portable devices. ECHO video generation offers a solution by improving automated monitoring through synthetic data and generating high-quality videos from routine health data. However, existing models often face high computational costs, slow inference, and rely on complex conditional prompts that require experts' annotations. To address these challenges, we propose \projectname{}, an ECG-conditioned ECHO video generation model. \projectname{} introduces two key advancements: (1) it accelerates ECHO video generation by leveraging VQ-VAE tokenization and masked visual token modeling for fast decoding, and (2) it conditions on readily accessible ECG signals, which are highly coherent with ECHO videos, bypassing complex conditional prompts. To the best of our knowledge, this is the first work to use time-series prompts like ECG signals for ECHO video generation. \projectname{} not only enables controllable synthetic ECHO data generation but also provides updated cardiac function information for disease monitoring and prediction beyond ECG alone. Evaluations on three public and private datasets demonstrate state-of-the-art performance in ECHO video generation across both qualitative and quantitative measures. Additionally, \projectname{} can be easily generalized to other modality generation tasks, such as cardiac MRI, fMRI, and 3D CT generation. 
+  - [Demo](https://github.com/levyisthebest/ECHOPulse_Prelease)
+</div>
+</div>
+
 - ``ICIC 2024`` <span style="color:red">(Oral)</span> [Depth-NeuS: Neural Implicit Surfaces Learning for Multi-view Reconstruction Based on Depth Information Optimization](https://arxiv.org/pdf/2303.17088) **Hanqi Jiang**, Cheng Zeng, Runnan Chen, Shuai Liang, Yinhe Han, Yichao Gao, Conglin Wang
 - ``MICCAI 2024 Workshop`` [Radiology-GPT: A Large Language Model for Radiology](https://arxiv.org/pdf/2306.08666) Zhengliang Liu, Yiwei Li, Peng Shu, Aoxiao Zhong, **Hanqi Jiang**, Yi Pan, Longtao Yang, Chao Ju, Zihao Wu, Chong Ma, Cheng Chen, Sekeun Kim, Haixing Dai, Lin Zhao, Lichao Sun, Dajiang Zhu, Jun Liu, Wei Liu, Dinggang Shen, Quanzheng Li, Tianming Liu, and Xiang Li
 - ``Under Review`` [Large Language Models for Robotics: Opportunities, Challenges, andPerspectives](https://arxiv.org/pdf/2401.04334) Jiaqi Wang, Zihao Wu, Yiwei Li, **Hanqi Jiang**, Peng Shu, Enze Shi, Huawen Hu, Chong Ma, Yiheng Liu, Xuhui Wang, Yincheng Yao, Xuan Liu, Huaqin Zhao, Zhengliang Liu, Haixing Dai, Lin Zhao, Bao Ge, Xiang Li, Tianming Liu†, and Shu Zhang
@@ -36,4 +48,4 @@ Chong Ma, **Hanqi Jiang**, Wenting Chen, Yiwei Li, Zihao Wu, Xiaowei Yu, Zhengli
 - ``Under Review`` [Argus: Leveraging Multi-ViewImages for Improved 3D SceneUnderstanding with LargeLanguage Models]() Yifan Xu, Chao Zhang, **Hanqi Jiang**, Xiaoyan Wang, Ruifei Ma, Yiwei Li, Zihao Wu, Zeju Li, Xiangde Liu
 - ``Under Review`` [GeoDreamer: Mixed-Modality Graph for Geometry-Controllable 3D Indoor Scene Generation]() Zhifei Yang, Keyang Lu, Chao Zhang, Jiaxing Qi, **Hanqi Jiang**, Ruifei Ma, Shenglin Yin, Yifan Xu, Mingzhe Xing, Zhen Xiao, Jieyi Long, Xiangde Liu, Guangyao Zhai
 - ``Under Review`` [BrainSF: A Foundation Model for Whole Brain Functional Signals Forecasting]() Li Yang, **Hanqi Jiang**, Xintao Hu, Tianming Liu, Tuo Zhang
-- ``Under Review`` [ECHOPluse: ECG Controlled Echocardiograms Video Generation]() Yiwei Li, Sekeun Kim, Zihao Wu, **Hanqi Jiang**, Yi Pan, Pengfei Jin, Sifan Song, Yucheng Shi, Xiaowei Yu, Tianze Yang, Tianming Liu, Quanzheng Li, Xiang Li
+- ``Under Review`` [ECHOPluse: ECG Controlled Echocardiograms Video Generation](https://arxiv.org/pdf/2410.03143) Yiwei Li, Sekeun Kim, Zihao Wu, **Hanqi Jiang**, Yi Pan, Pengfei Jin, Sifan Song, Yucheng Shi, Xiaowei Yu, Tianze Yang, Tianming Liu, Quanzheng Li, Xiang Li
