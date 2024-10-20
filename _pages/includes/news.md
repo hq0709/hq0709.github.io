@@ -1,5 +1,5 @@
 # 🔥 News
-- *2024.9.23* 🎉 A paper is accepted by *NeurIPS 2024*!
+- *2024.9.23* 🎉 A paper is accepted by *NeurIPS 2024*, see you in Vancouver!
 - *2024.8.18* 🎉 A paper is accepted by *ECCV 2024 Workshop*!
 - *2024.5.30* 🎉 A paper is accepted by *ICIC 2024 (oral presentation)*!
 - *2024.4.8* 🎉 A paper is accepted by *Automotive Innovation (IF=6.1)*!
