@@ -1,7 +1,8 @@
 
 # 📖 Educations
-- *2020.09 - 2024.06*, Undergraduate, School of Computing and Communications, Lancaster University, Lancaster.
-- *2020.09 - 2024.06*, Undergraduate, School of Computer and Information Technology, Beijing Jiaotong University, Beijing.
+- *2024.9.1 - Present*, PhD in Engineering, College of Engineering, University of Georgia.
+- *2020.09 - 2024.06*, Undergraduate, School of Computing and Communications, Lancaster University.
+- *2020.09 - 2024.06*, Undergraduate, School of Computer and Information Technology, Beijing Jiaotong University.
 
 <!-- # 💬 Invited Talks
 - *2022.02*, Hosted MLNLP seminar \| [\[Video\]](https://www.bilibili.com/video/BV1wF411x7qh)
