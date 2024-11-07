@@ -7,4 +7,4 @@
 - Outstanding Volunteer of the Academic Support Center of Beijing Jiaotong University
 - Outstanding Scholarship for Academic Excellence of Beijing Jiaotong University
 - Outstanding Graduation Project of Beijing Jiaotong University
-- Outstanding Graduation Project of Beijing Municipality
+- Outstanding Graduation Project of Beijing 
