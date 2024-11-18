@@ -5,7 +5,7 @@
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2024</div><img src='images/eye.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[Eye-gaze Guided Multi-modal Alignment forMedical Representation Learning](https://arxiv.org/pdf/2403.12416) \\
+[Eye-gaze Guided Multi-modal Alignment for Medical Representation Learning](https://arxiv.org/pdf/2403.12416) \\
 Chong Ma, **Hanqi Jiang**, Wenting Chen, Yiwei Li, Zihao Wu, Xiaowei Yu, Zhengliang Liu, Lei Guo, Dajiang Zhu, Tuo Zhang, Dinggang Shen, Tianming Liu, Xiang Li
 
 <!-- [**Project**](https://speechresearch.github.io/fastspeech/)  -->
