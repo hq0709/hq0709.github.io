@@ -40,7 +40,7 @@ Yiwei Li, Sekeun Kim, Zihao Wu, **Hanqi Jiang**, Yi Pan, Pengfei Jin, Sifan Song
 </div>
 </div>
 
-
+- ``ISBI 2025`` [EG-SpikeFormer: Eye-Gaze Guided Transformer on Spiking Neural Networks for Medical Image Analysis](https://arxiv.org/pdf/2410.09674) Yi Pan, **Hanqi Jiang**, Junhao Chen, Yiwei Li, Huaqin Zhao, Yifan Zhou, Peng Shu, Zihao Wu, Zhengliang Liu, Dajiang Zhu, Xiang Li, Yohannes Abate, Tianming Liu
 - ``AAAI 2025`` [GeoDreamer: Mixed-Modality Graph for Geometry-Controllable 3D Indoor Scene Generation]() Zhifei Yang, Keyang Lu, Chao Zhang, Jiaxing Qi, **Hanqi Jiang**, Ruifei Ma, Shenglin Yin, Yifan Xu, Mingzhe Xing, Zhen Xiao, Jieyi Long, Xiangde Liu, Guangyao Zhai
 - ``ICIC 2024`` <span style="color:red">(Oral)</span> [Depth-NeuS: Neural Implicit Surfaces Learning for Multi-view Reconstruction Based on Depth Information Optimization](https://arxiv.org/pdf/2303.17088) **Hanqi Jiang**, Cheng Zeng, Runnan Chen, Shuai Liang, Yinhe Han, Yichao Gao, Conglin Wang
 - ``IEEE RBME`` [Artificial General Intelligence for Medical Imaging Analysis](https://arxiv.org/pdf/2306.05480) Xiang Li, Lin Zhao, Lu Zhang, Zihao Wu, Zhengliang Liu, **Hanqi Jiang**, Chao Cao, Shaochen Xu, Yiwei Li, Haixing Dai, Yixuan Yuan, Jun Liu, Gang Li, Dajiang Zhu, Pingkun Yan, Quanzheng Li, Wei Liu, Tianming Liu, Dinggang Shen
@@ -49,5 +49,4 @@ Yiwei Li, Sekeun Kim, Zihao Wu, **Hanqi Jiang**, Yi Pan, Pengfei Jin, Sifan Song
 - ``Under Review`` [A Comprehensive Review of Multimodal Large Language Models: Performance and Challenges Across Different Tasks](https://arxiv.org/pdf/2408.01319) Jiaqi Wang, **Hanqi Jiang**, Yiheng Liu, Chong Ma, Xu Zhang, Yi Pan, Mengyuan Liu, Peiran Gu, Sichen Xia, Wenjun Li, Yutong Zhang, Zihao Wu, Zhengliang Liu, Tianyang Zhong, Bao Ge, Tuo Zhang, Ning Qiang, Xintao Hu, Xi Jiang, Xin Zhang, Wei Zhang, Dinggang Shen, Tianming Liu, Shu Zhang
 - ``Under Review`` [Argus: Leveraging Multi-ViewImages for Improved 3D SceneUnderstanding with LargeLanguage Models]() Yifan Xu, Chao Zhang, **Hanqi Jiang**, Xiaoyan Wang, Ruifei Ma, Yiwei Li, Zihao Wu, Zeju Li, Xiangde Liu
 - ``Under Review`` [BrainSF: A Foundation Model for Whole Brain Functional Signals Forecasting]() Li Yang, **Hanqi Jiang**, Xintao Hu, Tianming Liu, Tuo Zhang
-- ``Under Review`` [EG-SpikeFormer: Eye-Gaze Guided Transformer on Spiking Neural Networks for Medical Image Analysis](https://arxiv.org/pdf/2410.09674) Yi Pan, **Hanqi Jiang**, Junhao Chen, Yiwei Li, Huaqin Zhao, Yifan Zhou, Peng Shu, Zihao Wu, Zhengliang Liu, Dajiang Zhu, Xiang Li, Yohannes Abate, Tianming Liu
 <!-- - ``Under Review`` [ECHOPluse: ECG Controlled Echocardiograms Video Generation](https://arxiv.org/pdf/2410.03143) Yiwei Li, Sekeun Kim, Zihao Wu, **Hanqi Jiang**, Yi Pan, Pengfei Jin, Sifan Song, Yucheng Shi, Xiaowei Yu, Tianze Yang, Tianming Liu, Quanzheng Li, Xiang Li -->
