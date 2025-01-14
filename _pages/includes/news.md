@@ -1,7 +1,7 @@
 # 🔥 News
-- *2025.1.2* 🎉 A paper is accepted by ISBI 2025!
-- *2024.12.9* 🎉 A paper is accepted by AAAI 2025!
-- *2024.10.30* 🎉 A paper is accepted by IEEE Reviews in Biomedical Engineering (IF=17.2)!
+- *2025.1.2* 🎉 A paper is accepted by *ISBI 2025*, see you in Houston!
+- *2024.12.9* 🎉 A paper is accepted by *AAAI 2025*!
+- *2024.10.30* 🎉 A paper is accepted by *IEEE Reviews in Biomedical Engineering (IF=17.2)*!
 - *2024.9.23* 🎉 A paper is accepted by *NeurIPS 2024*, see you in Vancouver!
 - *2024.8.18* 🎉 A paper is accepted by *ECCV 2024 Workshop*!
 - *2024.5.30* 🎉 A paper is accepted by *ICIC 2024 (oral presentation)*!
