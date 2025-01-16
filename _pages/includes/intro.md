@@ -1,4 +1,4 @@
-I am a first-year ECE PhD student at University of Georgia, supervised by [Prof. Tianming Liu](https://cobweb.cs.uga.edu/~tliu/). 
+I am a first-year ECE PhD student at University of Georgia, supervised by Distinguished Research Professor [Tianming Liu](https://cobweb.cs.uga.edu/~tliu/). 
 
 I am now working on Multi-modal Large Language Models, Medical Image Analysis. If you are seeking any form of **academic cooperation**, please feel free to email me at [hanqi.jiang@uga.edu](hj67104@uga.edu). 
 
