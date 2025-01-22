@@ -1,5 +1,5 @@
 # 🔥 News
-- *2024.12.9* 🎉 A paper is accepted by *ICLR 2025*!
+- *2024.1.22* 🎉 A paper is accepted by *ICLR 2025*!
 - *2025.1.2* 🎉 A paper is accepted by *ISBI 2025*, see you in Houston!
 - *2024.12.9* 🎉 A paper is accepted by *AAAI 2025*!
 - *2024.10.30* 🎉 A paper is accepted by *IEEE Reviews in Biomedical Engineering (IF=17.2)*!
