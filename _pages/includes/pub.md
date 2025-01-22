@@ -28,7 +28,7 @@ Chong Ma, **Hanqi Jiang**, Wenting Chen, Yiwei Li, Zihao Wu, Xiaowei Yu, Zhengli
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Under Review</div><img src='images/pipeline_EchoPulse.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2025</div><img src='images/pipeline_EchoPulse.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [ECHOPluse: ECG Controlled Echocardiograms Video Generation](https://arxiv.org/pdf/2410.03143) \\
