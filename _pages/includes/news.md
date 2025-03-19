@@ -1,4 +1,5 @@
 # 🔥 News
+- *2025.3.19* I joined Harvard Medical School and Massachusetts General Hospital as a intern, guided by [Prof. Xiang Li](https://xiangli-shaun.github.io/).
 - *2024.1.22* 🎉 A paper is accepted by *ICLR 2025*!
 - *2025.1.2* 🎉 A paper is accepted by *ISBI 2025 (oral presentation)*, see you in Houston!
 - *2024.12.9* 🎉 A paper is accepted by *AAAI 2025*!
