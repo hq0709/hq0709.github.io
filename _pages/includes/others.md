@@ -1,6 +1,7 @@
 
 # 📖 Educations
-- *2024.9.1 - Present*, PhD in Engineering, College of Engineering, University of Georgia.
+- *2025.4.16 - Present*, PhD in Computer Science, Franklin College of Arts and Sciences, University of Georgia.
+- *2024.9.1 - 2025.4.15*, PhD in Engineering, College of Engineering, University of Georgia.
 - *2020.09 - 2024.06*, Undergraduate, School of Computing and Communications, Lancaster University.
 - *2020.09 - 2024.06*, Undergraduate, School of Computer and Information Technology, Beijing Jiaotong University.
 
