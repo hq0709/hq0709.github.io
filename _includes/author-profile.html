@@ -29,7 +29,10 @@
         <li><a href="{{ author.uri }}"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a></li>
       {% endif %}
       {% if author.email %}
-        <li><a href="mailto:{{ author.email }}"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> Email</a></li>
+        <li><a href="mailto:{{ author.email }}"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> UGA Email</a></li>
+      {% endif %}
+      {% if author.email_mgh %}
+        <li><a href="mailto:{{ author.email_mgh }}"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> MGH Email</a></li>
       {% endif %}
       {% if author.keybase %}
         <li><a href="https://keybase.io/{{ author.keybase }}"><i class="fas fa-fw fa-key" aria-hidden="true"></i> Keybase</a></li>
@@ -124,7 +127,10 @@
         <a href="{{ author.uri }}"><i class="fas fa-fw fa-link" aria-hidden="true"></i></a>
       {% endif %}
       {% if author.email %}
-        <a href="mailto:{{ author.email }}"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i></a>
+        <a href="mailto:{{ author.email }}" title="UGA Email"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i></a>
+      {% endif %}
+      {% if author.email_mgh %}
+        <a href="mailto:{{ author.email_mgh }}" title="MGH Email"><i class="fas fa-fw fa-envelope" aria-hidden="true" style="color: #c90016;"></i></a>
       {% endif %}
       {% if author.keybase %}
         <a href="https://keybase.io/{{ author.keybase }}"><i class="fas fa-fw fa-key" aria-hidden="true"></i></a>

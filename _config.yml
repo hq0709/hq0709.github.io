@@ -26,9 +26,10 @@ author:
   bio              : "University of Georgia"
   location         : "US"
   employer         :
-  pubmed           : 
+  pubmed           :
   googlescholar    : "https://scholar.google.com/citations?user=SCHOLAR_ID&user=adC1a0IAAAAJ"
   email            : "hanqi.jiang@uga.edu"
+  email_mgh        : "hjiang81@mgh.harvard.edu"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -51,7 +52,7 @@ author:
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : 
+  twitter          :
   vine             :
   weibo            :
   xing             :
