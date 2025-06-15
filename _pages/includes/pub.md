@@ -40,6 +40,8 @@ Yiwei Li, Sekeun Kim, Zihao Wu, **Hanqi Jiang**, Yi Pan, Pengfei Jin, Sifan Song
 </div>
 </div>
 
+
+- ``TNNLS`` [Argus: Leveraging Multi-ViewImages for Improved 3D Scene Understanding with Large Language Models]() Yifan Xu, Chao Zhang, **Hanqi Jiang**, Xiaoyan Wang, Ruifei Ma, Yiwei Li, Zihao Wu, Zeju Li, Xiangde Liu
 - ``ISBI 2025`` <span style="color:red">(Oral)</span> [EG-SpikeFormer: Eye-Gaze Guided Transformer on Spiking Neural Networks for Medical Image Analysis](https://arxiv.org/pdf/2410.09674) Yi Pan, **Hanqi Jiang**, Junhao Chen, Yiwei Li, Huaqin Zhao, Yifan Zhou, Peng Shu, Zihao Wu, Zhengliang Liu, Dajiang Zhu, Xiang Li, Yohannes Abate, Tianming Liu
 - ``AAAI 2025`` [GeoDreamer: Mixed-Modality Graph for Geometry-Controllable 3D Indoor Scene Generation]() Zhifei Yang, Keyang Lu, Chao Zhang, Jiaxing Qi, **Hanqi Jiang**, Ruifei Ma, Shenglin Yin, Yifan Xu, Mingzhe Xing, Zhen Xiao, Jieyi Long, Xiangde Liu, Guangyao Zhai
 - ``ICIC 2024`` <span style="color:red">(Oral)</span> [Depth-NeuS: Neural Implicit Surfaces Learning for Multi-view Reconstruction Based on Depth Information Optimization](https://arxiv.org/pdf/2303.17088) **Hanqi Jiang**, Cheng Zeng, Runnan Chen, Shuai Liang, Yinhe Han, Yichao Gao, Conglin Wang
@@ -47,6 +49,6 @@ Yiwei Li, Sekeun Kim, Zihao Wu, **Hanqi Jiang**, Yi Pan, Pengfei Jin, Sifan Song
 - ``MICCAI 2024 Workshop`` [Radiology-GPT: A Large Language Model for Radiology](https://arxiv.org/pdf/2306.08666) Zhengliang Liu, Yiwei Li, Peng Shu, Aoxiao Zhong, **Hanqi Jiang**, Yi Pan, Longtao Yang, Chao Ju, Zihao Wu, Chong Ma, Cheng Chen, Sekeun Kim, Haixing Dai, Lin Zhao, Lichao Sun, Dajiang Zhu, Jun Liu, Wei Liu, Dinggang Shen, Quanzheng Li, Tianming Liu, and Xiang Li
 - ``Under Review`` [Large Language Models for Robotics: Opportunities, Challenges, and Perspectives](https://arxiv.org/pdf/2401.04334) Jiaqi Wang, Zihao Wu, Yiwei Li, **Hanqi Jiang**, Peng Shu, Enze Shi, Huawen Hu, Chong Ma, Yiheng Liu, Xuhui Wang, Yincheng Yao, Xuan Liu, Huaqin Zhao, Zhengliang Liu, Haixing Dai, Lin Zhao, Bao Ge, Xiang Li, Tianming Liu†, and Shu Zhang
 <!-- - ``Under Review`` [A Comprehensive Review of Multimodal Large Language Models: Performance and Challenges Across Different Tasks](https://arxiv.org/pdf/2408.01319) Jiaqi Wang, **Hanqi Jiang**, Yiheng Liu, Chong Ma, Xu Zhang, Yi Pan, Mengyuan Liu, Peiran Gu, Sichen Xia, Wenjun Li, Yutong Zhang, Zihao Wu, Zhengliang Liu, Tianyang Zhong, Bao Ge, Tuo Zhang, Ning Qiang, Xintao Hu, Xi Jiang, Xin Zhang, Wei Zhang, Dinggang Shen, Tianming Liu, Shu Zhang -->
-- ``Under Review`` [Argus: Leveraging Multi-ViewImages for Improved 3D Scene Understanding with Large Language Models]() Yifan Xu, Chao Zhang, **Hanqi Jiang**, Xiaoyan Wang, Ruifei Ma, Yiwei Li, Zihao Wu, Zeju Li, Xiangde Liu
+
 <!-- - ``Under Review`` [BrainSF: A Foundation Model for Whole Brain Functional Signals Forecasting]() Li Yang, **Hanqi Jiang**, Xintao Hu, Tianming Liu, Tuo Zhang -->
 <!-- - ``Under Review`` [ECHOPluse: ECG Controlled Echocardiograms Video Generation](https://arxiv.org/pdf/2410.03143) Yiwei Li, Sekeun Kim, Zihao Wu, **Hanqi Jiang**, Yi Pan, Pengfei Jin, Sifan Song, Yucheng Shi, Xiaowei Yu, Tianze Yang, Tianming Liu, Quanzheng Li, Xiang Li -->

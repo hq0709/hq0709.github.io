@@ -1,4 +1,5 @@
 # 🔥 News
+- *2025.6.13* 🎉 A paper is accepted by *IEEE Transactions on Neural Networks and Learning Systems (IF=10.2)*!
 - *2025.4.16* I transferred to the University of Georgia, Franklin College of Arts and Sciences, School of Computing as a PhD student of Computer Science.
 - *2025.3.19* I joined Harvard Medical School and Massachusetts General Hospital as a intern, guided by [Prof. Xiang Li](https://xiangli-shaun.github.io/).
 - *2025.1.22* 🎉 A paper is accepted by *ICLR 2025*!
