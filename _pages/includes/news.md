@@ -1,4 +1,6 @@
 # 🔥 News
+- *2025.8.13* 🎉 A paper is accepted by *IEEE Transactions on Biomedical Engineering (IF=4.5)*!
+- *2025.8.10* 🎉 A paper is accepted by 2025 IEEE International Conference on Quantum Artificial Intelligence!
 - *2025.6.13* 🎉 A paper is accepted by *IEEE Transactions on Neural Networks and Learning Systems (IF=10.2)*!
 - *2025.4.16* I transferred to the University of Georgia, Franklin College of Arts and Sciences, School of Computing as a PhD student of Computer Science.
 - *2025.3.19* I joined Harvard Medical School and Massachusetts General Hospital as a intern, guided by [Prof. Xiang Li](https://xiangli-shaun.github.io/).
