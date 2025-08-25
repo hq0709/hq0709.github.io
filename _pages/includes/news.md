@@ -1,4 +1,5 @@
 # 🔥 News
+- *2025.8.25* 🎉 A paper is accepted by *QIML AAAI Fall 2025 Symposium*!
 - *2025.8.13* 🎉 A paper is accepted by *IEEE Transactions on Biomedical Engineering (IF=4.5)*!
 - *2025.8.10* 🎉 A paper is accepted by 2025 IEEE International Conference on Quantum Artificial Intelligence!
 - *2025.6.13* 🎉 A paper is accepted by *IEEE Transactions on Neural Networks and Learning Systems (IF=10.2)*!
