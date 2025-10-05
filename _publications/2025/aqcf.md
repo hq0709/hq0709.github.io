@@ -1,7 +1,7 @@
 ---
 title:          Bridging Classical and Quantum Computing for Next-Generation Language Models
 date:           2025-08-25 00:02:00 -0400
-selected:       false
+selected:       true
 pub:            "AAAI QIML"
 pub_last:       ' <span class="badge badge-pill badge-custom badge-secondary">Conference</span>'
 pub_date:       "2025"

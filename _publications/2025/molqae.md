@@ -1,7 +1,7 @@
 ---
 title:          "MolQAE: Quantum Autoencoder for Molecular Representation Learning"
 date:           2025-08-10 00:01:00 -0400
-selected:       false
+selected:       true
 pub:            "QAI"
 pub_last:       ' <span class="badge badge-pill badge-custom badge-secondary">Conference</span>'
 pub_date:       "2025"
