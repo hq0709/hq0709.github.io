@@ -3,10 +3,10 @@ secondary_name: ""
 navbar_name: "Hanqi Jiang's Home Page"
 
 positions:
-  - '<span class="no-break"><img src="assets/images/badges/uga.png" alt="University of Georgia" class="inline-badge"/></span> Ph.D. Student, The University of Georgia (2023)'
+  - '<span class="no-break"><img src="assets/images/badges/uga.png" alt="University of Georgia" class="inline-badge"/></span> Ph.D. Student, The University of Georgia (2024)'
 
 email: "hanqi.jiang@uga.edu"
-gscholar: adC1a0IAAAAJ
+gscholar: adC1a0IAAAAJ&hl
 github: hq0709
 linkedin: hanqi-jiang-024b622b6
 orcid: 0009-0007-2778-959X
@@ -24,7 +24,7 @@ education:
 - name: University of Georgia
   logo: assets/images/badges/uga.png
   position: Ph.D. in Computer Science
-  date: Oct. 2023 - Now
+  date: Sep. 2024 - Now
 - name: Lancaster University
   logo: assets/images/badges/lu.png
   position: B.S. in Computer Science (First-Class Honored)
@@ -38,7 +38,7 @@ experience:
 - name: School of Computing, UGA
   logo: assets/images/badges/uga.png
   position: Research Assistant
-  date: Oct. 2023 - Now
+  date: Sep. 2024 - Now
 - name: Center for Advanced Medical Computing and Analysis (CAMCA), MGB/Harvard Medical School
   logo: assets/images/badges/hms.jpg
   position: Graduate Research Intern
@@ -54,22 +54,25 @@ experience:
 
 
 awards:
+- name: NSF Student Travel Award, AAAI FSS25 (QIML)
+  date: 2025
 - name: Outstanding Graduation Project, Beijing Jiaotong University
   date: 2023
 - name: Bronze Award, 8th National College "Internet +" Innovation and Entrepreneurship Competition
   date: 2022
 - name: Provincial Second Prize, China College Student Mathematics Modeling Competition
   date: 2022
-- name: S-Prize, COMAP's Mathematical Contest in Modeling (MCM)
-  date: 2022
 - name: Outstanding Scholarship for Academic Excellence, Beijing Jiaotong University
-  date: 2021-2023
+  date: 2023
 
 
 service:
+- name: Reviewer of <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34">IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</a>
+- name: Reviewer of <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=9078688">IEEE Transactions on Artificial Intelligence (TAI)</a>
+- name: Reviewer of <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5962385">IEEE Transactions on Neural Networks and Learning Systems (TNNLS)</a>
 - name: Reviewer of <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=83">IEEE Transactions on Image Processing</a>
 - name: Reviewer of <a href="https://www.sciencedirect.com/journal/medical-image-analysis">Medical Image Analysis</a>
-- name: Reviewer of NeurIPS, ICLR, CVPR, ECCV, MICCAI
+- name: Reviewer of NeurIPS, ICLR, ECCV, AAAI, MICCAI, ISBI
 
 
 # Feel free to replace the footer text if you would like to, but I will greatly appreciate it 
