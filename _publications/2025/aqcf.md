@@ -11,8 +11,8 @@ abstract: >-
   
 cover:          assets/images/covers/aqcf.png
 authors:
-  - Yi Pan
-  - Hanqi Jiang
+  - Yi Pan*
+  - Hanqi Jiang*
   - Junhao Chen
   - Yiwei Li
   - Huaqin Zhao
