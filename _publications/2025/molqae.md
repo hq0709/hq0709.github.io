@@ -9,7 +9,7 @@ pub_date:       "2025"
 abstract: >-
   Quantum Autoencoder for Molecular Representation Learning.
   
-cover:          assets/images/covers/placeholder.png
+cover:          assets/images/covers/molqae.png
 authors:
   - Yi Pan*
   - Hanqi Jiang*

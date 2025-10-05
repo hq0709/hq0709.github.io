@@ -9,7 +9,7 @@ pub_date:       "2025"
 abstract: >-
   We introduce Adaptive Quantum-Classical Fusion (AQCF), the first framework to bridge quantum and classical computing through dynamic, quantum-classical co-design for next-generation language models.
   
-cover:          assets/images/covers/placeholder.png
+cover:          assets/images/covers/aqcf.png
 authors:
   - Yi Pan
   - Hanqi Jiang

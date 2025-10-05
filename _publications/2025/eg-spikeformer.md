@@ -9,7 +9,7 @@ pub_date:       "2025"
 abstract: >-
   Eye-Gaze Guided Transformer on Spiking Neural Networks for Medical Image Analysis.
   
-cover:          assets/images/covers/placeholder.png
+cover:          assets/images/covers/eg.png
 authors:
   - Yi Pan*
   - Hanqi Jiang*

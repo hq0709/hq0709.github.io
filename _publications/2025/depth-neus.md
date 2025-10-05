@@ -9,7 +9,7 @@ pub_date:       "2024"
 abstract: >-
   Neural Implicit Surfaces Learning for Multi-view Reconstruction Based on Depth Information Optimization.
   
-cover:          assets/images/covers/placeholder.png
+cover:          assets/images/covers/depth.png
 authors:
   - Hanqi Jiang
   - Cheng Zeng

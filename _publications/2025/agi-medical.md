@@ -9,7 +9,7 @@ pub_date:       "2024"
 abstract: >-
   A comprehensive review of artificial general intelligence for medical imaging analysis.
   
-cover:          assets/images/covers/placeholder.png
+cover:          assets/images/covers/agi.png
 authors:
   - Xiang Li
   - Lin Zhao

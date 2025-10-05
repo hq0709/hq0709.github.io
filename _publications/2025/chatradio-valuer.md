@@ -9,7 +9,7 @@ pub_date:       "2025"
 abstract: >-
   A chat large language model for generalizable radiology report generation based on multi-institution and multi-system data.
   
-cover:          assets/images/covers/placeholder.png
+cover:          assets/images/covers/chatradio-valuer.jpg
 authors:
   - Tianyang Zhong
   - Wei Zhao

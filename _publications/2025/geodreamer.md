@@ -9,7 +9,7 @@ pub_date:       "2025"
 abstract: >-
   Mixed-Modality Graph for Geometry-Controllable 3D Indoor Scene Generation.
   
-cover:          assets/images/covers/placeholder.png
+cover:          assets/images/covers/geo.png
 authors:
   - Zhifei Yang
   - Keyang Lu
