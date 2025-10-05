@@ -56,14 +56,14 @@ experience:
 awards:
 - name: NSF Student Travel Award, AAAI FSS25 (QIML)
   date: 2025
-- name: Outstanding Graduation Project, Beijing Jiaotong University
+- name: Outstanding Graduation Project of Beijing Province
   date: 2023
-- name: Bronze Award, 8th National College "Internet +" Innovation and Entrepreneurship Competition
-  date: 2022
-- name: Provincial Second Prize, China College Student Mathematics Modeling Competition
-  date: 2022
-- name: Outstanding Scholarship for Academic Excellence, Beijing Jiaotong University
-  date: 2023
+# - name: Bronze Award, 8th National College "Internet +" Innovation and Entrepreneurship Competition
+#   date: 2022
+# - name: Provincial Second Prize, China College Student Mathematics Modeling Competition
+#   date: 2022
+# - name: Outstanding Scholarship for Academic Excellence, Beijing Jiaotong University
+#   date: 2023
 
 
 service:
