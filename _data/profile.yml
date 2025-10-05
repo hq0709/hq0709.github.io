@@ -1,0 +1,78 @@
+primary_name: "Hanqi Jiang (蒋瀚祺)"
+secondary_name: ""
+navbar_name: "Hanqi Jiang's Home Page"
+
+positions:
+  - '<span class="no-break"><img src="assets/images/badges/uga.png" alt="University of Georgia" class="inline-badge"/></span> Ph.D. Student, The University of Georgia (2023)'
+
+email: "hanqi.jiang@uga.edu"
+gscholar: adC1a0IAAAAJ
+github: hq0709
+linkedin: hanqi-jiang-024b622b6
+orcid: 0009-0007-2778-959X
+dblp: https://dblp.org/pid/344/1868.html
+email_mgh: hjiang81@mgh.harvard.edu
+
+short_bio: >-
+  I am a second-year PhD student at <a href="https://www.uga.edu/" target="_blank" rel="noopener">University of Georgia</a>, supervised by Distinguished Research Professor <a href="https://cobweb.cs.uga.edu/~tliu/" target="_blank" rel="noopener">Tianming Liu</a>. I am now working on Multi-modal Large Language Models and Medical Image Analysis. If you are seeking any form of <strong>academic cooperation</strong>, please feel free to email me at <a href="mailto:hanqi.jiang@uga.edu">hanqi.jiang@uga.edu</a> (UGA) or <a href="mailto:hjiang81@mgh.harvard.edu">hjiang81@mgh.harvard.edu</a> (MGH). My research focus is medical image analysis and application of multi-modal large language models (MLLMs) in the field of healthcare. Specifically, I am focusing on 3D medical image encoding and video generation.
+show_portrait: true
+portrait_url: assets/images/photos/hanqi.jpg
+portrait_caption: >-
+  Welcome to my homepage!
+
+education:
+- name: University of Georgia
+  logo: assets/images/badges/uga.png
+  position: Ph.D. in Computer Science
+  date: Oct. 2023 - Now
+- name: Lancaster University
+  logo: assets/images/badges/lancaster.png
+  position: B.S. in Computer Science (First-Class Honored)
+  date: Sep. 2019 - Jul. 2023
+- name: Beijing Jiaotong University
+  logo: assets/images/badges/bjtu.png
+  position: B.Eng. in Computer Science
+  date: Sep. 2019 - Jul. 2023
+  
+experience:
+- name: School of Computing, UGA
+  logo: assets/images/badges/uga.png
+  position: Research Assistant
+  date: Oct. 2023 - Now
+- name: Center for Advanced Medical Computing and Analysis (CAMCA), MGB/Harvard Medical School
+  logo: assets/images/badges/hms.jpg
+  position: Graduate Research Intern
+  date: Mar. 2025 - Now
+- name: School of Data Science, CUHK(SZ)
+  logo: assets/images/badges/cuhk.png
+  position: Research Assistant
+  date: Jul. 2023 - Sep. 2023
+- name: State Key Laboratory of Computer Architecture, ICTCAS
+  logo: assets/images/badges/ictcas.png
+  position: Research Intern
+  date: Apr. 2022 - Jun. 2023
+
+
+awards:
+- name: Outstanding Graduation Project, Beijing Jiaotong University
+  date: 2023
+- name: Bronze Award, 8th National College "Internet +" Innovation and Entrepreneurship Competition
+  date: 2022
+- name: Provincial Second Prize, China College Student Mathematics Modeling Competition
+  date: 2022
+- name: S-Prize, COMAP's Mathematical Contest in Modeling (MCM)
+  date: 2022
+- name: Outstanding Scholarship for Academic Excellence, Beijing Jiaotong University
+  date: 2021-2023
+
+
+service:
+- name: Reviewer of <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=83">IEEE Transactions on Image Processing</a>
+- name: Reviewer of <a href="https://www.sciencedirect.com/journal/medical-image-analysis">Medical Image Analysis</a>
+- name: Reviewer of NeurIPS, ICLR, CVPR, ECCV, MICCAI
+
+
+# Feel free to replace the footer text if you would like to, but I will greatly appreciate it 
+# if you keep the link to the template so that more people can benefit from it. Thanks!
+footer_text: >-
+  Copyright © 2025 <a href="https://github.com/hq0709" target="_blank">Hanqi Jiang</a>. All Rights Reserved.
