@@ -9,7 +9,7 @@ pub_date:       "2025"
 abstract: >-
   Leveraging Multi-View Images for Improved 3D Scene Understanding with Large Language Models.
   
-cover:          assets/images/covers/argus.png
+cover:          assets/images/covers/arugs.png
 authors:
   - Yifan Xu
   - Chao Zhang
