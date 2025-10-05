@@ -2,7 +2,7 @@
 title:          "Radiology-GPT: A Large Language Model for Radiology"
 date:           2024-01-01 00:01:00 -0400
 selected:       false
-pub:            "MICCAI 2024 Workshop & Meta-Radiology"
+pub:            "MICCAI Workshop & Meta-Radiology"
 pub_last:       ' <span class="badge badge-pill badge-custom badge-secondary">Workshop</span>'
 pub_date:       "2024"
 

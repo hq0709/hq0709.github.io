@@ -11,7 +11,7 @@ abstract: >-
   
 cover:          assets/images/covers/placeholder.png
 authors:
-  - Hanqi Jiang†
+  - Hanqi Jiang
   - Cheng Zeng
   - Runnan Chen
   - Shuai Liang

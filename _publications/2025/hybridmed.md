@@ -2,8 +2,8 @@
 title:          "Advancing Medical Radiograph Representation Learning: A Hybrid Pre-training Paradigm with Multilevel Semantic Granularity"
 date:           2024-08-18 00:01:00 -0400
 selected:       true
-pub:            "ECCV 2024 Workshop"
-pub_last:       ' <span class="badge badge-pill badge-custom badge-secondary">Workshop</span>'
+pub:            "ECCV Workshop"
+pub_last:       ' <span class="badge badge-pill badge-custom badge-secondary">Conference</span>'
 pub_date:       "2024"
 
 abstract: >-
@@ -11,7 +11,7 @@ abstract: >-
   
 cover:          assets/images/covers/hybrid.png
 authors:
-  - Hanqi Jiang†
+  - Hanqi Jiang
   - Xixuan Hao
   - Yuzhou Huang
   - Chong Ma

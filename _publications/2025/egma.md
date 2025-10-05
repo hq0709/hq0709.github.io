@@ -2,7 +2,7 @@
 title:          Eye-gaze Guided Multi-modal Alignment for Medical Representation Learning
 date:           2024-09-23 00:01:00 -0400
 selected:       true
-pub:            "NeurIPS 2024"
+pub:            "NeurIPS"
 pub_last:       ' <span class="badge badge-pill badge-custom badge-secondary">Conference</span>'
 pub_date:       "2024"
 
@@ -12,7 +12,7 @@ abstract: >-
 cover:          assets/images/covers/eye.png
 authors:
   - Chong Ma
-  - Hanqi Jiang†
+  - Hanqi Jiang
   - Wenting Chen
   - Yiwei Li
   - Zihao Wu
