@@ -2,7 +2,7 @@
 title:          "ADLGen: Synthesizing Symbolic, Event-Triggered Sensor Sequences for Human Activity Modeling"
 date:           2025-01-01 00:03:00 -0400
 selected:       false
-pub:            "Under Review"
+pub:            "SenSys 2026"
 pub_last:       ' <span class="badge badge-pill badge-custom badge-info">Preprint</span>'
 pub_date:       "2025"
 
