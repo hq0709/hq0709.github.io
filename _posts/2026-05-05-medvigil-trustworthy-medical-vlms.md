@@ -63,7 +63,7 @@ Medical VLMs are getting better at answering questions about images. But clinica
 <section class="synapse-author-card medvigil-research-note" markdown="1">
 <div class="synapse-author-label">About the research</div>
 <div class="synapse-author-copy" markdown="1">
-**MedVIGIL** is part of Hanqi Jiang's research on trustworthy medical AI, developed with collaborators at the University of Georgia, Harvard Medical School, Nanyang Technological University, New York University, the University of Sydney, and New Jersey Institute of Technology. The project is supervised by radiologists and focuses on a practical question for medical AI safety: can a vision-language model detect when its visual evidence is missing, corrupted, misleading, or no longer sufficient?
+**MedVIGIL** is part of Hanqi Jiang's research on trustworthy medical AI. The project is supervised by radiologists and focuses on a practical question for medical AI safety: can a vision-language model detect when its visual evidence is missing, corrupted, misleading, or no longer sufficient?
 </div>
 </section>
 
