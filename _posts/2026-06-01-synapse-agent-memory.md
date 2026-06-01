@@ -17,7 +17,7 @@ excerpt: "SYNAPSE, accepted to Findings of ACL 2026, turns long-term agent memor
 
 <div class="synapse-hero-main" markdown="1">
 <div class="synapse-hero-copy" markdown="1">
-Your RAG agent may not be forgetting. It may simply fail to connect the right memory to the current question. This note summarizes **SYNAPSE**, our ACL 2026 Findings paper on long-term memory for LLM agents. The central claim is modest but important: memory-augmented agents should retrieve not only semantically similar text, but also structurally related evidence across time, entities, and events.
+Your RAG agent may not be forgetting. It may simply fail to connect the right memory to the current question. This note summarizes **SYNAPSE**, our ACL 2026 Findings paper on long-term memory for LLM agents. The central claim is modest but important: memory-augmented agents should retrieve not only semantically similar text, but also structurally related evidence across time, entities, and events. SYNAPSE has already been used in **EZCollegeApp**, GyriQAI's product for long-horizon U.S. undergraduate application planning, where an AI counselor needs to preserve evolving student context, document status, deadlines, and the reasoning behind earlier recommendations.
 
 <div class="synapse-flow" aria-label="SYNAPSE retrieval flow">
   <div class="synapse-flow-track">
