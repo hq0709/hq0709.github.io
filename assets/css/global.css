@@ -144,6 +144,368 @@ img.lazy {
     font-family: Georgia, "Times New Roman", serif;
 }
 
+.medvigil-post {
+    --synapse-accent: oklch(56% 0.13 225);
+    --synapse-line: oklch(86% 0.018 210);
+    --synapse-gold: oklch(86% 0.09 180);
+    --synapse-paper: oklch(98% 0.01 205);
+    --medvigil-blue: oklch(42% 0.12 230);
+    --medvigil-teal: oklch(58% 0.11 180);
+    --medvigil-warn: oklch(58% 0.13 55);
+    background:
+        linear-gradient(180deg, oklch(98% 0.006 220) 0%, oklch(97% 0.008 205) 46%, oklch(98% 0.006 180) 100%);
+    font-family: "Lato", sans-serif;
+}
+
+.medvigil-post .synapse-section blockquote::before {
+    content: "⚕";
+}
+
+.medvigil-post h1,
+.medvigil-post h2,
+.medvigil-post h3,
+.medvigil-post .synapse-proof-panel span {
+    font-family: "Lato", sans-serif;
+}
+
+.medvigil-post h1 {
+    font-size: clamp(2.05rem, 3vw, 3rem);
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.medvigil-post h2 {
+    font-weight: 800;
+}
+
+.medvigil-post .synapse-hero {
+    background:
+        linear-gradient(180deg, oklch(99% 0.004 220), oklch(96% 0.012 210));
+    box-shadow: 0 18px 50px rgba(20, 49, 82, .09);
+}
+
+.medvigil-post .synapse-hero-main {
+    grid-template-columns: minmax(0, 1.08fr) minmax(260px, .58fr);
+}
+
+.medvigil-contract {
+    border-bottom: 1px solid var(--synapse-line);
+    border-top: 1px solid var(--synapse-line);
+    display: grid;
+    gap: 0;
+    margin-top: 1.45rem;
+}
+
+.medvigil-contract div {
+    display: grid;
+    gap: .35rem 1rem;
+    grid-template-columns: 9rem minmax(0, 1fr);
+    padding: .85rem 0;
+}
+
+.medvigil-contract div + div {
+    border-top: 1px solid var(--synapse-line);
+}
+
+.medvigil-contract strong {
+    color: var(--medvigil-blue);
+    font-size: .88rem;
+    text-transform: uppercase;
+}
+
+.medvigil-contract span {
+    color: var(--synapse-muted);
+    font-size: .96rem;
+    line-height: 1.45;
+}
+
+.medvigil-post .synapse-proof-panel {
+    background: transparent;
+    border-bottom: 1px solid var(--synapse-line);
+    border-left: 0;
+    border-radius: 0;
+    border-right: 0;
+    border-top: 1px solid var(--synapse-line);
+    padding: .2rem 0;
+}
+
+.medvigil-post .synapse-proof-panel span {
+    color: var(--medvigil-blue);
+    font-size: clamp(1.55rem, 2vw, 2rem);
+}
+
+.medvigil-post .synapse-proof-panel strong,
+.medvigil-post .synapse-proof-panel p {
+    font-family: "Lato", sans-serif;
+}
+
+.medvigil-research-note {
+    background: transparent;
+    border-bottom: 0;
+    border-top: 0;
+    margin-top: clamp(2rem, 4vw, 3rem);
+    padding: 0;
+}
+
+.medvigil-research-note::before {
+    content: none;
+}
+
+.medvigil-research-note .synapse-author-label {
+    color: var(--medvigil-blue);
+}
+
+.medvigil-research-note .synapse-author-copy {
+    border-top: 1px solid var(--synapse-line);
+    padding-top: 1rem;
+}
+
+.medvigil-post .synapse-thesis::before,
+.medvigil-post .synapse-section:not(.synapse-product)::before,
+.medvigil-post .synapse-section-heading::before,
+.medvigil-post .synapse-product::before,
+.medvigil-post .synapse-manifesto::before,
+.medvigil-post .synapse-links::before {
+    content: none;
+}
+
+.medvigil-post .synapse-section-label,
+.medvigil-post .synapse-thesis > p:first-child {
+    color: var(--medvigil-blue);
+    border-bottom: 1px solid var(--synapse-line);
+    display: block;
+    padding-bottom: .65rem;
+}
+
+.medvigil-post .synapse-step {
+    border-top: 1px solid var(--synapse-line);
+    padding-top: 1rem;
+}
+
+.medvigil-post .synapse-mechanism-row::before {
+    content: none;
+}
+
+.medvigil-post .synapse-step span {
+    background: transparent;
+    border: 0;
+    color: var(--medvigil-teal);
+    display: block;
+    font-size: .9rem;
+    height: auto;
+    margin-bottom: .65rem;
+    width: auto;
+}
+
+.medvigil-post .synapse-step h3 {
+    color: var(--medvigil-blue);
+    font-size: 1.05rem;
+}
+
+.medvigil-post .synapse-callout {
+    background: oklch(97% 0.015 210);
+    border: 1px solid var(--synapse-line);
+    border-radius: 8px;
+    font-family: "Lato", sans-serif;
+    padding: 1.1rem 1.25rem;
+}
+
+.medvigil-post .synapse-stat h3 {
+    color: var(--medvigil-blue);
+    font-family: "Lato", sans-serif;
+    font-weight: 800;
+}
+
+.medvigil-post .synapse-manifesto-grid {
+    border-top: 1px solid var(--synapse-line);
+}
+
+.medvigil-post .synapse-principle-index {
+    background: oklch(96% 0.016 210);
+    border-color: var(--synapse-line);
+    color: var(--medvigil-blue) !important;
+}
+
+.medvigil-failure-strip {
+    border-bottom: 1px solid var(--synapse-line);
+    border-top: 1px solid var(--synapse-line);
+    display: grid;
+    gap: 0;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-bottom: clamp(2.25rem, 5vw, 4rem);
+    padding: 1.25rem 0;
+}
+
+.medvigil-failure-strip div {
+    padding: .25rem clamp(1rem, 3vw, 1.5rem);
+}
+
+.medvigil-failure-strip div:first-child {
+    padding-left: 0;
+}
+
+.medvigil-failure-strip div + div {
+    border-left: 1px solid var(--synapse-line);
+}
+
+.medvigil-failure-strip span {
+    color: var(--medvigil-blue);
+    display: block;
+    font-family: "Lato", sans-serif;
+    font-size: .78rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: .8rem;
+    text-transform: uppercase;
+}
+
+.medvigil-failure-strip strong {
+    color: var(--synapse-ink);
+    display: block;
+    font-family: "Lato", sans-serif;
+    font-size: 1.12rem;
+    line-height: 1.25;
+    margin-bottom: .65rem;
+}
+
+.medvigil-failure-strip p {
+    color: var(--synapse-muted);
+    font-family: "Lato", sans-serif;
+    font-size: .98rem;
+    line-height: 1.55;
+    margin: 0;
+}
+
+.medvigil-audit-summary {
+    border-bottom: 1px solid var(--synapse-line);
+    border-top: 1px solid var(--synapse-line);
+    display: grid;
+    gap: 0;
+    margin-top: 1.4rem;
+}
+
+.medvigil-audit-row {
+    align-items: baseline;
+    display: grid;
+    gap: .65rem 1.2rem;
+    grid-template-columns: minmax(180px, .7fr) 7rem minmax(0, 1fr);
+    padding: 1rem 0;
+}
+
+.medvigil-audit-row + .medvigil-audit-row,
+.medvigil-risk-note {
+    border-top: 1px solid var(--synapse-line);
+}
+
+.medvigil-audit-row span {
+    color: var(--medvigil-blue);
+    font-family: "Lato", sans-serif;
+    font-size: .82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.medvigil-audit-row strong {
+    color: var(--synapse-ink);
+    font-family: "Lato", sans-serif;
+    font-size: clamp(1.75rem, 2.5vw, 2.35rem);
+    font-weight: 800;
+    line-height: 1;
+}
+
+.medvigil-audit-row.human strong {
+    color: var(--medvigil-teal);
+}
+
+.medvigil-audit-row.gap strong {
+    color: var(--medvigil-warn);
+}
+
+.medvigil-audit-row p,
+.medvigil-risk-note {
+    color: var(--synapse-muted);
+    font-family: "Lato", sans-serif;
+    font-size: .98rem;
+    line-height: 1.55;
+    margin: 0;
+}
+
+.medvigil-risk-note {
+    padding: 1rem 0;
+}
+
+.medvigil-risk-note strong {
+    color: var(--synapse-ink);
+}
+
+.medvigil-ablation-summary {
+    border-bottom: 1px solid var(--synapse-line);
+    border-top: 1px solid var(--synapse-line);
+    display: grid;
+    gap: 0;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-bottom: clamp(2.25rem, 5vw, 4rem);
+    padding: 1.15rem 0;
+}
+
+.medvigil-ablation-summary div {
+    padding: .25rem clamp(.9rem, 2vw, 1.25rem);
+}
+
+.medvigil-ablation-summary div:first-child {
+    padding-left: 0;
+}
+
+.medvigil-ablation-summary div + div {
+    border-left: 1px solid var(--synapse-line);
+}
+
+.medvigil-ablation-summary span {
+    color: var(--medvigil-blue);
+    display: block;
+    font-family: "Lato", sans-serif;
+    font-size: .76rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: .75rem;
+    text-transform: uppercase;
+}
+
+.medvigil-ablation-summary strong {
+    color: var(--synapse-ink);
+    display: block;
+    font-family: "Lato", sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.25;
+    margin-bottom: .6rem;
+}
+
+.medvigil-ablation-summary p {
+    color: var(--synapse-muted);
+    font-family: "Lato", sans-serif;
+    font-size: .94rem;
+    line-height: 1.55;
+    margin: 0;
+}
+
+.medvigil-post .synapse-figure {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+}
+
+.medvigil-post .synapse-figure img {
+    border-radius: 0;
+}
+
+.medvigil-post .synapse-figure figcaption {
+    border-top: 1px solid var(--synapse-line);
+    font-family: "Lato", sans-serif;
+    margin-top: .85rem;
+    padding-top: .75rem;
+}
+
 .synapse-post > section,
 .synapse-post > footer,
 .synapse-post > figure {
@@ -185,6 +547,23 @@ img.lazy {
 .synapse-post li {
     font-size: 1.05rem;
     line-height: 1.72;
+}
+
+.medvigil-post h1,
+.medvigil-post h2,
+.medvigil-post h3,
+.medvigil-post .synapse-proof-panel span {
+    font-family: "Lato", sans-serif;
+}
+
+.medvigil-post h1 {
+    font-size: clamp(2.05rem, 3vw, 3rem);
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.medvigil-post h2 {
+    font-weight: 800;
 }
 
 .synapse-hero {
@@ -1083,7 +1462,8 @@ img.lazy {
     .synapse-grid-two,
     .synapse-mechanism-row,
     .synapse-grid-three,
-    .synapse-manifesto-grid {
+    .synapse-manifesto-grid,
+    .medvigil-failure-strip {
         grid-template-columns: 1fr;
     }
 
@@ -1130,6 +1510,32 @@ img.lazy {
         border-top: 1px solid var(--synapse-line);
         margin-top: 1rem;
         padding-top: 1.25rem;
+    }
+
+    .medvigil-failure-strip div {
+        padding: 1rem 0;
+    }
+
+    .medvigil-failure-strip div + div {
+        border-left: 0;
+        border-top: 1px solid var(--synapse-line);
+    }
+
+    .medvigil-audit-row {
+        grid-template-columns: 1fr;
+    }
+
+    .medvigil-ablation-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .medvigil-ablation-summary div {
+        padding: 1rem 0;
+    }
+
+    .medvigil-ablation-summary div + div {
+        border-left: 0;
+        border-top: 1px solid var(--synapse-line);
     }
 
     .synapse-bridge {
