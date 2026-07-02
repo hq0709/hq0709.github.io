@@ -47,14 +47,159 @@ excerpt: "SYNAPSE, accepted to Findings of ACL 2026, turns long-term agent memor
     --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
   }
   *{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
+  html{
+    -webkit-text-size-adjust:100%;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  }
   body{
     margin:0; background:var(--paper); color:var(--ink);
     font-family:var(--serif); font-size:18px; line-height:1.72;
     font-feature-settings:"liga","kern";
     text-rendering:optimizeLegibility;
+    position:relative; isolation:isolate;
   }
-  .page{max-width:760px; margin:0 auto; padding:0 24px 96px}
+  .page{max-width:760px; margin:0 auto; padding:0 24px 96px; position:relative; z-index:1}
+
+  /* ---------- Subtle chapter backdrop ---------- */
+  .article-backdrop{
+    position:absolute; inset:0 auto auto 0; z-index:0;
+    width:100%; min-height:100%; overflow:hidden; pointer-events:none;
+  }
+  .chapter-wash{
+    position:absolute; left:0; right:0; min-height:360px; opacity:.46;
+    background:
+      radial-gradient(circle at 20% 18%, var(--wash-a), transparent 34%),
+      radial-gradient(circle at 78% 56%, var(--wash-b), transparent 38%),
+      linear-gradient(180deg, transparent 0%, var(--wash-c) 48%, transparent 100%);
+    mask-image:linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+    -webkit-mask-image:linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+  }
+  .wash-problem{--wash-a:rgba(189,89,42,.13); --wash-b:rgba(244,202,121,.13); --wash-c:rgba(250,238,224,.44)}
+  .wash-system{--wash-a:rgba(61,107,158,.11); --wash-b:rgba(107,79,160,.08); --wash-c:rgba(235,241,248,.38)}
+  .wash-evidence{--wash-a:rgba(184,147,62,.12); --wash-b:rgba(53,126,96,.10); --wash-c:rgba(243,241,231,.36)}
+  .wash-limits{--wash-a:rgba(107,79,160,.10); --wash-b:rgba(179,82,77,.07); --wash-c:rgba(243,237,246,.34)}
+  .wash-product{--wash-a:rgba(189,89,42,.10); --wash-b:rgba(61,107,158,.08); --wash-c:rgba(250,240,231,.34)}
+
+  /* ---------- Desktop navigator ---------- */
+  .navigator{display:none; font-family:var(--sans); z-index:2}
+  .navigator a{text-decoration:none}
+  .navigator::before{
+    content:""; position:absolute; left:var(--rail-x); top:30px; bottom:30px; width:1px;
+    background:linear-gradient(to bottom, transparent, rgba(51,63,82,.26) 12%, rgba(51,63,82,.26) 88%, transparent);
+    transform:translateX(-50%);
+    pointer-events:none; transition-property:background; transition-duration:300ms;
+  }
+  .navigator::after{
+    content:""; position:absolute; left:var(--rail-x); top:0;
+    width:20px; height:20px; border-radius:999px;
+    background:radial-gradient(circle, rgba(189,89,42,.20), rgba(189,89,42,0) 68%);
+    opacity:.72; transform:translate(-50%, var(--active-y, 30px)) scale(.82);
+    pointer-events:none; transition-property:transform, opacity;
+    transition-duration:520ms; transition-timing-function:cubic-bezier(.2,0,0,1);
+  }
+  .navigator-list{
+    display:grid; gap:3px; margin:0; padding:0;
+  }
+  .navigator-list a{
+    position:relative; display:grid; grid-template-columns:38px minmax(0,1fr); gap:15px;
+    align-items:center; min-width:0; min-height:48px; padding:7px 0;
+    color:#536071; font-size:13.5px; line-height:1.15;
+    background-color:transparent;
+    transition-property:color, transform; transition-duration:220ms;
+    transition-timing-function:cubic-bezier(.2,0,0,1);
+  }
+  .navigator-list a:hover{
+    color:var(--accent);
+  }
+  .navigator-list a:focus-visible{
+    outline:none; color:var(--ink);
+  }
+  .navigator-list a:focus-visible .dot{box-shadow:0 0 0 4px rgba(189,89,42,.16)}
+  .navigator-list a:active{transform:none}
+  .navigator-list a.active{
+    color:var(--ink);
+  }
+  .navigator-list .label{
+    min-width:0; overflow-wrap:break-word; text-align:right; font-weight:600;
+    letter-spacing:.025em; text-shadow:0 1px 8px rgba(255,252,247,.82);
+    transition-property:color, transform; transition-duration:220ms;
+    transition-timing-function:cubic-bezier(.2,0,0,1);
+  }
+  .navigator-list .n{
+    color:#3f4e65; font-family:var(--serif); font-size:17px; font-style:italic;
+    font-weight:600; font-variant-numeric:tabular-nums; text-align:right;
+    transition-property:color, transform; transition-duration:220ms;
+    transition-timing-function:cubic-bezier(.2,0,0,1);
+  }
+  .navigator-list .dot{
+    position:absolute; z-index:1; left:var(--rail-x); top:50%;
+    width:11px; height:11px; border-radius:999px; transform:translate(-50%, -50%);
+    border:2px solid rgba(63,78,101,.75); background:var(--paper);
+    box-shadow:0 0 0 3px rgba(255,252,247,.86), 0 1px 8px rgba(63,78,101,.10);
+    transition-property:background, border-color, box-shadow, transform;
+    transition-duration:260ms; transition-timing-function:cubic-bezier(.2,0,0,1);
+  }
+  .navigator-list a:hover .dot{
+    border-color:var(--accent); transform:translate(-50%, -50%) scale(1.18);
+    box-shadow:0 0 0 3px rgba(255,252,247,.90), 0 0 18px rgba(189,89,42,.20);
+  }
+  .navigator-list a:hover .n{transform:translateX(-1px)}
+  .navigator-list a:hover .label{transform:translateX(-2px)}
+  .navigator-list a:active .n{transform:translateX(-1px) scale(.96)}
+  .navigator-list a:active .label{transform:translateX(-2px) scale(.98)}
+  .navigator-list a.active .n{
+    color:var(--accent); transform:translateX(-1px);
+  }
+  .navigator-list a.active .label{
+    color:var(--ink); transform:translateX(-2px);
+  }
+  .navigator-list a.active .dot{
+    background:linear-gradient(135deg, #f4ca79, var(--accent));
+    border-color:#b8842e; transform:translate(-50%, -50%) scale(1.34);
+    box-shadow:0 0 0 3px rgba(255,252,247,.92), 0 0 22px rgba(189,89,42,.38);
+  }
+  @media(min-width:900px){
+    .navigator{
+      --rail-x:39px;
+      position:fixed; top:50%; left:8px;
+      display:block; width:48px; max-height:calc(100vh - 72px);
+      overflow:visible; padding:6px 0; transform:translateY(-50%);
+      scrollbar-width:thin; scrollbar-color:#d8d4cd transparent;
+    }
+    .navigator-list a{
+      grid-template-columns:27px; gap:8px;
+      min-height:44px; font-size:12.5px;
+    }
+    .navigator-list .label{display:none}
+    .navigator-list .n{font-size:15.5px}
+    .navigator-list .dot{width:10px; height:10px}
+    nav.toc{display:none}
+  }
+
+  @media(min-width:1180px){
+    .navigator{--rail-x:144px; left:16px; width:150px}
+    .navigator-list a{
+      grid-template-columns:26px minmax(0,1fr); gap:8px; padding-right:16px;
+      min-height:42px; font-size:12px;
+    }
+    .navigator-list .label{display:block}
+    .navigator-list .n{font-size:15px}
+    .navigator-list .dot{width:9px; height:9px}
+  }
+
+  @media(min-width:1400px){
+    .navigator{
+      --rail-x:164px;
+      left:max(48px, calc(50vw - 660px)); width:170px;
+      max-height:calc(100vh - 80px);
+    }
+    .navigator-list a{
+      grid-template-columns:30px minmax(0,1fr); gap:10px; padding-right:18px;
+      min-height:44px; font-size:12.5px;
+    }
+    .navigator-list .n{font-size:15.5px}
+    .navigator-list .dot{width:10px; height:10px}
+  }
 
   /* ---------- Paper-style header ---------- */
   header.masthead{padding:64px 0 8px; text-align:center}
@@ -130,16 +275,55 @@ excerpt: "SYNAPSE, accepted to Findings of ACL 2026, turns long-term agent memor
   nav.toc .hd{font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:10px; column-span:all}
   nav.toc a{display:block; color:var(--ink-soft); text-decoration:none; padding:3.5px 0; break-inside:avoid}
   nav.toc a:hover{color:var(--accent)}
+  nav.toc a.active{color:var(--ink); font-weight:600}
   nav.toc .n{color:var(--ink-faint); font-variant-numeric:tabular-nums; margin-right:8px}
   @media(max-width:560px){ nav.toc{column-count:1} }
 
   /* ---------- Body typography ---------- */
   main{counter-reset:sec fig tbl}
   h2{
-    counter-increment:sec; font-size:25px; font-weight:700; letter-spacing:-.01em;
-    margin:64px 0 16px; line-height:1.3; scroll-margin-top:24px;
+    counter-increment:sec; position:relative; font-size:25px; font-weight:700; letter-spacing:-.01em;
+    margin:64px 0 16px; line-height:1.3; scroll-margin-top:24px; border-radius:10px;
   }
   h2::before{content:counter(sec) ". "; color:var(--accent)}
+  h2.section-focus,
+  h2:target{animation:sectionFocus 900ms cubic-bezier(.2,0,0,1)}
+  h2:focus{outline:none}
+  @keyframes sectionFocus{
+    0%{background-color:rgba(189,89,42,.12); box-shadow:0 0 0 0 rgba(189,89,42,.20)}
+    55%{background-color:rgba(189,89,42,.07); box-shadow:0 0 0 12px rgba(189,89,42,0)}
+    100%{background-color:transparent; box-shadow:0 0 0 0 rgba(189,89,42,0)}
+  }
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition-property:opacity, transform;
+    transition-duration:760ms;
+    transition-timing-function:cubic-bezier(.2,0,0,1);
+    transition-delay:var(--reveal-delay, 0ms);
+  }
+  .reveal.is-visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+  .reveal.reveal-skip{
+    opacity:1;
+    transform:none;
+    transition-duration:0ms;
+    transition-delay:0ms;
+  }
+  .reveal.d1{--reveal-delay:80ms}
+  .reveal.d2{--reveal-delay:160ms}
+  .reveal.d3{--reveal-delay:240ms}
+  .reveal.d4{--reveal-delay:320ms}
+  .reveal.d5{--reveal-delay:400ms}
+  .reveal.d6{--reveal-delay:480ms}
+  @media(prefers-reduced-motion:reduce){
+    .navigator::after{transition-duration:0ms}
+    .navigator-list a{transition-duration:0ms}
+    h2.section-focus{animation:none}
+    .reveal{opacity:1; transform:none; transition:none}
+  }
   h3{font-size:19px; font-weight:600; margin:34px 0 10px; scroll-margin-top:24px}
   p{margin:0 0 18px}
   a{color:var(--link); text-decoration:underline; text-decoration-color:#d9bfa4; text-underline-offset:3px}
@@ -192,7 +376,11 @@ excerpt: "SYNAPSE, accepted to Findings of ACL 2026, turns long-term agent memor
   .tblcap::before{content:"Table " counter(tbl) ". "; font-weight:700; color:var(--ink)}
 
   /* ---------- Math ---------- */
-  .katex-display{margin:26px 0; overflow-x:auto; overflow-y:hidden; padding:2px 0}
+  .katex-display,
+  span:has(> .katex-display){
+    display:block; width:100%; max-width:100%; overflow-x:auto; overflow-y:hidden;
+  }
+  .katex-display{margin:26px 0; padding:2px 0}
   .katex{font-size:1.06em}
   .eqnote{font-family:var(--sans); font-size:13.5px; color:var(--ink-soft); margin-top:-10px}
 
@@ -219,12 +407,33 @@ excerpt: "SYNAPSE, accepted to Findings of ACL 2026, turns long-term agent memor
   hr.sep{border:none; border-top:1px solid var(--rule); margin:56px auto; width:38%}
 
   @media print{
-    .links,.toc{display:none}
+    .links,.toc,.navigator{display:none}
     body{font-size:11.5pt}
   }
 </style>
 </head>
 <body>
+<div class="article-backdrop" aria-hidden="true">
+  <div class="chapter-wash wash-problem" data-start="s1" data-end="s3"></div>
+  <div class="chapter-wash wash-system" data-start="s3" data-end="s5"></div>
+  <div class="chapter-wash wash-evidence" data-start="s5" data-end="s7"></div>
+  <div class="chapter-wash wash-limits" data-start="s7" data-end="s9"></div>
+  <div class="chapter-wash wash-product" data-start="s9" data-end="after-main"></div>
+</div>
+<aside class="navigator" aria-label="Article outline">
+  <nav class="navigator-list">
+    <a class="active" href="#s1" aria-current="true"><span class="n">01</span><span class="label">Failure mode</span><span class="dot"></span></a>
+    <a href="#s2"><span class="n">02</span><span class="label">Activation flow</span><span class="dot"></span></a>
+    <a href="#s3"><span class="n">03</span><span class="label">Architecture</span><span class="dot"></span></a>
+    <a href="#s4"><span class="n">04</span><span class="label">Core novelty</span><span class="dot"></span></a>
+    <a href="#s5"><span class="n">05</span><span class="label">Evidence</span><span class="dot"></span></a>
+    <a href="#s6"><span class="n">06</span><span class="label">Runtime cost</span><span class="dot"></span></a>
+    <a href="#s7"><span class="n">07</span><span class="label">Limits</span><span class="dot"></span></a>
+    <a href="#s8"><span class="n">08</span><span class="label">Managed forgetting</span><span class="dot"></span></a>
+    <a href="#s9"><span class="n">09</span><span class="label">Product bridge</span><span class="dot"></span></a>
+    <a href="#resources"><span class="n">10</span><span class="label">Resources &amp; citations</span><span class="dot"></span></a>
+  </nav>
+</aside>
 <div style="max-width:760px;margin:0 auto;padding:22px 24px 0;"><a href="/blog.html" style="font-family:Inter,-apple-system,sans-serif;font-size:13.5px;font-weight:500;color:#8a93a6;text-decoration:none;">&larr; Blog</a></div>
 <div class="page">
 
@@ -866,6 +1075,171 @@ confidently returns everything <em>except</em> the thing that mattered — I'd l
 </footer>
 
 </div>
+<script>
+  const articleSections = [...document.querySelectorAll("main h2[id]")];
+  const articleNavLinks = [...document.querySelectorAll(".navigator-list a, nav.toc a")];
+  const articleNavigator = document.querySelector(".navigator");
+  const articleBackdrop = document.querySelector(".article-backdrop");
+  const chapterWashes = [...document.querySelectorAll(".chapter-wash")];
+  let currentArticleSectionId = "";
+  let suppressRevealUntil = 0;
+
+  function setActiveArticleNav(id) {
+    currentArticleSectionId = id;
+
+    articleNavLinks.forEach((link) => {
+      const isActive = link.getAttribute("href") === "#" + id;
+      link.classList.toggle("active", isActive);
+      if (isActive) {
+        link.setAttribute("aria-current", "true");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+
+    if (articleNavigator) {
+      const activeRailLink = articleNavigator.querySelector(`.navigator-list a[href="#${id}"]`);
+      if (activeRailLink) {
+        const navRect = articleNavigator.getBoundingClientRect();
+        const linkRect = activeRailLink.getBoundingClientRect();
+        articleNavigator.style.setProperty("--active-y", `${linkRect.top - navRect.top + linkRect.height / 2 - 10}px`);
+      }
+    }
+  }
+
+  function pulseArticleTarget(id) {
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    target.setAttribute("tabindex", "-1");
+    target.focus({preventScroll: true});
+    target.classList.remove("section-focus");
+    void target.offsetWidth;
+    target.classList.add("section-focus");
+    window.setTimeout(() => target.classList.remove("section-focus"), 950);
+  }
+
+  function setupArticleReveal() {
+    const revealTargets = [
+      ...document.querySelectorAll(
+        ".stats, .abstract, main h2, main > p, main blockquote, main figure, main .tblwrap, main > ul, main > ol, pre.bibtex"
+      )
+    ].filter((element) => !element.closest("nav.toc"));
+
+    let delayIndex = 0;
+    revealTargets.forEach((element) => {
+      if (element.matches("main h2")) delayIndex = 0;
+
+      element.classList.add("reveal");
+      element.classList.remove("d1", "d2", "d3", "d4", "d5", "d6");
+      if (delayIndex > 0) element.classList.add(`d${Math.min(delayIndex, 6)}`);
+
+      delayIndex = Math.min(delayIndex + 1, 6);
+    });
+
+    if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      revealTargets.forEach((target) => target.classList.add("is-visible"));
+      return;
+    }
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        if (performance.now() < suppressRevealUntil) {
+          entry.target.classList.add("reveal-skip");
+        } else {
+          entry.target.classList.remove("reveal-skip");
+        }
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: "0px 0px -8% 0px"
+    });
+
+    revealTargets.forEach((target) => revealObserver.observe(target));
+  }
+
+  function documentTop(element) {
+    return element.getBoundingClientRect().top + window.scrollY;
+  }
+
+  function layoutChapterWashes() {
+    if (!articleBackdrop || !chapterWashes.length) return;
+
+    articleBackdrop.style.height = `${Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight
+    )}px`;
+
+    chapterWashes.forEach((wash) => {
+      const start = document.getElementById(wash.dataset.start);
+      if (!start) return;
+
+      const end = wash.dataset.end === "after-main"
+        ? document.querySelector("footer")
+        : document.getElementById(wash.dataset.end);
+      const top = Math.max(0, documentTop(start) - 170);
+      const bottom = end ? documentTop(end) - 70 : top + 720;
+
+      wash.style.top = `${top}px`;
+      wash.style.height = `${Math.max(420, bottom - top)}px`;
+    });
+  }
+
+  let washLayoutFrame = 0;
+  function scheduleChapterWashLayout() {
+    window.cancelAnimationFrame(washLayoutFrame);
+    washLayoutFrame = window.requestAnimationFrame(layoutChapterWashes);
+  }
+
+  const initialSectionId = location.hash.slice(1);
+  if (articleSections.some((section) => section.id === initialSectionId)) {
+    setActiveArticleNav(initialSectionId);
+  } else if (articleSections[0]) {
+    setActiveArticleNav(articleSections[0].id);
+  }
+
+  if ("IntersectionObserver" in window) {
+    const articleObserver = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (visible) setActiveArticleNav(visible.target.id);
+    }, {
+      rootMargin: "-24% 0px -62% 0px",
+      threshold: [0.1, 0.25, 0.5]
+    });
+
+    articleSections.forEach((section) => articleObserver.observe(section));
+  }
+
+  articleNavLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const id = link.getAttribute("href").slice(1);
+      const target = document.getElementById(id);
+      if (!target) return;
+
+      event.preventDefault();
+      suppressRevealUntil = performance.now() + 700;
+      setActiveArticleNav(id);
+      target.scrollIntoView({block: "start"});
+      history.pushState(null, "", "#" + id);
+      pulseArticleTarget(id);
+    });
+  });
+
+  layoutChapterWashes();
+  setupArticleReveal();
+  window.addEventListener("load", scheduleChapterWashLayout, {once: true});
+  window.addEventListener("resize", scheduleChapterWashLayout);
+  if ("ResizeObserver" in window) {
+    new ResizeObserver(scheduleChapterWashLayout).observe(document.querySelector(".page"));
+  }
+</script>
 </body>
 </html>
 
