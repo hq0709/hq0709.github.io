@@ -1,0 +1,872 @@
+---
+layout: null
+title: "SYNAPSE: Empowering LLM Agents with Episodic-Semantic Memory via Spreading Activation"
+navbar_name: Blog
+date: 2026-06-01 00:00:00 -0400
+excerpt: "SYNAPSE, accepted to Findings of ACL 2026, turns long-term agent memory from semantic search into spreading activation over an episodic-semantic graph — new state of the art on LoCoMo with 95% fewer tokens per query."
+---
+{% raw %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SYNAPSE: Empowering LLM Agents with Episodic-Semantic Memory via Spreading Activation</title>
+<meta name="description" content="SYNAPSE reframes LLM agent memory as spreading activation over an episodic-semantic graph. New SOTA on LoCoMo (40.5 weighted F1), +23% multi-hop, 95% fewer tokens. Findings of ACL 2026.">
+
+<!-- Typography: Source Serif 4 (body), Inter (UI, figures, tables), JetBrains Mono (code) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<!-- KaTeX for math -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+
+<style>
+  :root{
+    --ink:#1b1f27;
+    --ink-soft:#4a5162;
+    --ink-faint:#8a93a6;
+    --paper:#ffffff;
+    --paper-warm:#faf9f7;
+    --rule:#e6e4df;
+    --accent:#c05621;          /* burnt orange — brand, used sparingly */
+    --accent-soft:#fdf1e7;
+    --link:#8a4a15;
+    --green:#2f7d5a;
+    --green-soft:#e9f4ee;
+    --purple:#6b4fa0;
+    --purple-soft:#f1ecf9;
+    --blue:#3d6b9e;
+    --red:#b3524d;
+    --serif:"Source Serif 4", Charter, Georgia, serif;
+    --sans:"Inter", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--serif); font-size:18px; line-height:1.72;
+    font-feature-settings:"liga","kern";
+    text-rendering:optimizeLegibility;
+  }
+  .page{max-width:760px; margin:0 auto; padding:0 24px 96px}
+
+  /* ---------- Paper-style header ---------- */
+  header.masthead{padding:64px 0 8px; text-align:center}
+  .eyebrow{
+    font-family:var(--sans); font-size:12px; font-weight:600;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--accent);
+  }
+  h1.title{
+    font-size:34px; line-height:1.28; font-weight:700; margin:14px auto 10px;
+    letter-spacing:-.012em; max-width:660px;
+  }
+  .author-card{
+    display:flex; gap:20px; align-items:flex-start; text-align:left;
+    max-width:640px; margin:28px auto; padding:22px 26px;
+    background:linear-gradient(135deg, #fdf1e7 0%, #faf9f7 65%);
+    border:1px solid #f0dcc8; border-radius:14px;
+    box-shadow:0 1px 3px rgba(27,31,39,.04);
+  }
+  .author-card .hd{
+    font-family:var(--sans); font-size:11px; font-weight:700; letter-spacing:.15em;
+    text-transform:uppercase; color:#a35a20; margin-bottom:7px;
+  }
+  .author-card p{
+    font-family:var(--sans); font-size:14px; line-height:1.72; color:var(--ink-soft); margin:0;
+  }
+  .author-card p strong{color:var(--ink); font-weight:600}
+  @media(max-width:520px){ .author-card{flex-direction:column; gap:12px} }
+  sup{font-size:.68em}
+  .venue-badge{
+    display:inline-block; font-family:var(--sans); font-size:12.5px; font-weight:600;
+    color:#7c3f10; background:var(--accent-soft); border:1px solid #f0d9c4;
+    padding:5px 14px; border-radius:999px; letter-spacing:.02em;
+  }
+  .links{margin:22px 0 6px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap}
+  .btn{
+    font-family:var(--sans); font-size:13.5px; font-weight:600; text-decoration:none;
+    color:var(--ink); background:var(--paper); border:1.5px solid #d8d4cd;
+    padding:8px 18px; border-radius:8px; transition:border-color .15s, background .15s;
+  }
+  .btn:hover{border-color:var(--accent); background:var(--accent-soft)}
+  .btn.primary{background:var(--ink); color:#fff; border-color:var(--ink)}
+  .btn.primary:hover{background:#000; border-color:#000}
+
+  /* ---------- Metric strip ---------- */
+  .stats{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:12px;
+    margin:40px 0 8px; padding:0;
+  }
+  .stat{
+    border:1px solid var(--rule); border-radius:10px; padding:16px 10px 14px;
+    text-align:center; background:var(--paper-warm);
+  }
+  .stat .num{font-family:var(--serif); font-size:27px; font-weight:700; letter-spacing:-.02em; color:var(--ink)}
+  .stat .num .accent{color:var(--accent)}
+  .stat .lbl{font-family:var(--sans); font-size:11.5px; font-weight:500; color:var(--ink-faint); margin-top:5px; letter-spacing:.02em; line-height:1.45}
+  @media(max-width:640px){ .stats{grid-template-columns:repeat(2,1fr)} h1.title{font-size:27px} }
+
+  /* ---------- Abstract ---------- */
+  .abstract{
+    margin:36px 0 0; padding:26px 30px; background:var(--paper-warm);
+    border:1px solid var(--rule); border-radius:12px; font-size:16.5px; line-height:1.7;
+  }
+  .abstract .hd{
+    font-family:var(--sans); font-size:12px; font-weight:700; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--ink-soft); margin-bottom:10px;
+  }
+
+  /* ---------- TOC ---------- */
+  nav.toc{
+    margin:40px 0 8px; padding:20px 26px; border:1px solid var(--rule); border-radius:12px;
+    font-family:var(--sans); font-size:14px; column-count:2; column-gap:36px;
+  }
+  nav.toc .hd{font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:10px; column-span:all}
+  nav.toc a{display:block; color:var(--ink-soft); text-decoration:none; padding:3.5px 0; break-inside:avoid}
+  nav.toc a:hover{color:var(--accent)}
+  nav.toc .n{color:var(--ink-faint); font-variant-numeric:tabular-nums; margin-right:8px}
+  @media(max-width:560px){ nav.toc{column-count:1} }
+
+  /* ---------- Body typography ---------- */
+  main{counter-reset:sec fig tbl}
+  h2{
+    counter-increment:sec; font-size:25px; font-weight:700; letter-spacing:-.01em;
+    margin:64px 0 16px; line-height:1.3; scroll-margin-top:24px;
+  }
+  h2::before{content:counter(sec) ". "; color:var(--accent)}
+  h3{font-size:19px; font-weight:600; margin:34px 0 10px; scroll-margin-top:24px}
+  p{margin:0 0 18px}
+  a{color:var(--link); text-decoration:underline; text-decoration-color:#d9bfa4; text-underline-offset:3px}
+  a:hover{text-decoration-color:var(--accent)}
+  strong{font-weight:600}
+  code{font-family:var(--mono); font-size:.82em; background:#f4f2ee; border:1px solid #e9e6e0; border-radius:4px; padding:1.5px 5px}
+  blockquote{
+    margin:24px 0; padding:14px 24px; border-left:3px solid var(--accent);
+    background:var(--paper-warm); border-radius:0 10px 10px 0; color:var(--ink-soft); font-style:italic;
+  }
+  blockquote p{margin:0}
+  .pull{
+    margin:34px 0; padding:0 8%; text-align:center; font-size:22px; line-height:1.5;
+    font-style:italic; color:var(--ink);
+  }
+  .pull .mark{color:var(--accent); font-weight:600; font-style:normal}
+  ul,ol{margin:0 0 18px; padding-left:26px}
+  li{margin-bottom:8px}
+  .refnote{font-family:var(--sans); font-size:.72em; vertical-align:super; color:var(--accent); text-decoration:none; margin-left:1px}
+
+  /* ---------- Figures ---------- */
+  figure{margin:36px 0; counter-increment:fig}
+  figure svg{display:block; margin:0 auto; max-width:100%; height:auto}
+  figcaption{
+    font-family:var(--sans); font-size:13.5px; line-height:1.6; color:var(--ink-soft);
+    max-width:620px; margin:14px auto 0; text-align:left;
+  }
+  figcaption::before{content:"Figure " counter(fig) ". "; font-weight:700; color:var(--ink)}
+
+  /* ---------- Tables (booktabs style) ---------- */
+  .tblwrap{overflow-x:auto; margin:30px 0 8px; counter-increment:tbl}
+  table{
+    border-collapse:collapse; margin:0 auto; font-family:var(--sans);
+    font-size:13.8px; line-height:1.5; min-width:560px;
+  }
+  thead th{
+    font-weight:600; text-align:left; padding:9px 14px; color:var(--ink);
+    border-top:2px solid var(--ink); border-bottom:1px solid var(--ink);
+    white-space:nowrap;
+  }
+  tbody td{padding:8px 14px; border-bottom:1px solid var(--rule); color:var(--ink-soft)}
+  tbody tr:last-child td{border-bottom:2px solid var(--ink)}
+  td.num, th.num{text-align:right; font-variant-numeric:tabular-nums}
+  tbody tr.ours td{background:var(--accent-soft); color:var(--ink); font-weight:600}
+  tbody td b{color:var(--ink)}
+  .tblcap{
+    font-family:var(--sans); font-size:13.5px; color:var(--ink-soft); max-width:620px;
+    margin:12px auto 30px; line-height:1.6;
+  }
+  .tblcap::before{content:"Table " counter(tbl) ". "; font-weight:700; color:var(--ink)}
+
+  /* ---------- Math ---------- */
+  .katex-display{margin:26px 0; overflow-x:auto; overflow-y:hidden; padding:2px 0}
+  .katex{font-size:1.06em}
+  .eqnote{font-family:var(--sans); font-size:13.5px; color:var(--ink-soft); margin-top:-10px}
+
+  /* ---------- Side-by-side qualitative table ---------- */
+  .vs td:first-child{font-style:italic; color:var(--ink)}
+  .bad{color:var(--red); font-weight:600}
+  .good{color:var(--green); font-weight:600}
+
+  /* ---------- BibTeX ---------- */
+  pre.bibtex{
+    font-family:var(--mono); font-size:12.5px; line-height:1.65; background:#f7f6f3;
+    border:1px solid var(--rule); border-radius:10px; padding:18px 22px; overflow-x:auto;
+  }
+
+  /* ---------- References ---------- */
+  ol.refs{font-family:var(--sans); font-size:14px; color:var(--ink-soft); padding-left:24px}
+  ol.refs li{margin-bottom:7px}
+
+  /* ---------- Footer ---------- */
+  footer{
+    margin-top:72px; padding-top:28px; border-top:1px solid var(--rule);
+    font-family:var(--sans); font-size:14px; color:var(--ink-soft); line-height:1.7;
+  }
+  hr.sep{border:none; border-top:1px solid var(--rule); margin:56px auto; width:38%}
+
+  @media print{
+    .links,.toc{display:none}
+    body{font-size:11.5pt}
+  }
+</style>
+</head>
+<body>
+<div style="max-width:760px;margin:0 auto;padding:22px 24px 0;"><a href="/blog.html" style="font-family:Inter,-apple-system,sans-serif;font-size:13.5px;font-weight:500;color:#8a93a6;text-decoration:none;">&larr; Blog</a></div>
+<div class="page">
+
+<!-- ================= HEADER ================= -->
+<header class="masthead">
+  <div class="eyebrow">Research Note · GyriQAI · July 2026</div>
+  <h1 class="title">SYNAPSE: Empowering LLM Agents with Episodic-Semantic Memory via Spreading Activation</h1>
+  <div class="author-card">
+    <div class="author-body">
+      <div class="hd">About the Author</div>
+      <p><strong>Hanqi Jiang</strong> is co-founder of GyriQAI and a Computer Science PhD candidate at the
+      University of Georgia, working on multimodal LLMs and intelligent decision-support systems, with
+      publications at venues including ACL, NeurIPS, ICLR, AAAI, and SenSys. GyriQAI builds
+      <a href="https://ezcollegeapp.com">EZCollegeApp</a>, an AI workspace that helps international students
+      navigate U.S. undergraduate admissions.</p>
+    </div>
+  </div>
+  <span class="venue-badge">Findings of ACL 2026 · Accepted</span>
+  <div class="links">
+    <a class="btn primary" href="https://github.com/hq0709/synapse">Code</a>
+    <a class="btn" href="#resources">Paper</a>
+    <a class="btn" href="https://ezcollegeapp.com">EZCollegeApp</a>
+  </div>
+</header>
+
+<!-- ================= METRIC STRIP ================= -->
+<div class="stats">
+  <div class="stat"><div class="num"><span class="accent">40.5</span></div><div class="lbl">Weighted F1 on LoCoMo<br>new state of the art</div></div>
+  <div class="stat"><div class="num">1.0</div><div class="lbl">Mean task rank<br>first in every category</div></div>
+  <div class="stat"><div class="num">96.6</div><div class="lbl">Adversarial F1<br>refuses to hallucinate</div></div>
+  <div class="stat"><div class="num">−95<span class="accent">%</span></div><div class="lbl">Tokens per query<br>vs. full-context methods</div></div>
+</div>
+
+<!-- ================= ABSTRACT ================= -->
+<section class="abstract">
+  <div class="hd">TL;DR</div>
+  Standard retrieval-augmented agents treat long-term memory as a static library indexed by semantic
+  similarity. That breaks the moment a question depends on a cause, a timeline, or a chain of facts that
+  <em>isn't</em> lexically close to the query. SYNAPSE reframes memory the way cognitive science describes
+  human recall — as <strong>spreading activation</strong>, energy propagating through a graph — so the agent
+  can surface what is <em>structurally</em> relevant even with zero word or embedding overlap with the query.
+  On the LoCoMo long-horizon benchmark it sets a new state of the art (<strong>40.5 weighted F1</strong>,
+  ahead of Zep at 39.7 and +7.2 over A-Mem, ranked first in every category), lifts multi-hop reasoning by up
+  to <strong>23%</strong>, and rejects <strong>96.6%</strong> of adversarial queries — while using
+  <strong>~95% fewer tokens</strong> and running <strong>~4× faster</strong> than full-context methods.
+</section>
+
+<!-- ================= TOC ================= -->
+<nav class="toc">
+  <div class="hd">Contents</div>
+  <a href="#s1"><span class="n">1</span>The bug isn't forgetting — it's isolation</a>
+  <a href="#s2"><span class="n">2</span>Recall is propagation, not search</a>
+  <a href="#s3"><span class="n">3</span>The SYNAPSE architecture</a>
+  <a href="#s4"><span class="n">4</span>What's actually new</a>
+  <a href="#s5"><span class="n">5</span>Results</a>
+  <a href="#s6"><span class="n">6</span>Efficiency</a>
+  <a href="#s7"><span class="n">7</span>Where it breaks</a>
+  <a href="#s8"><span class="n">8</span>Memory that forgets on purpose</a>
+  <a href="#s9"><span class="n">9</span>From the paper to the product</a>
+  <a href="#resources"><span class="n">10</span>Resources &amp; citation</a>
+</nav>
+
+<main>
+
+<!-- ================= S1 ================= -->
+<h2 id="s1">The bug isn't forgetting. It's isolation.</h2>
+
+<p>Picture an agent that's been talking with a user for weeks. The user asks:</p>
+
+<blockquote><p>"Why am I feeling so anxious today?"</p></blockquote>
+
+<p>A vector-RAG memory does the obvious thing: it embeds the query and pulls back the memories nearest to
+<em>anxiety</em> — recent messages about stress, bad sleep, a tense week. Reasonable. Except the actual cause
+was a scheduling conflict the user logged three weeks ago. That note never used the word "anxiety." In
+embedding space it sits nowhere near the query. So it stays buried, and the agent gives a fluent, confident,
+slightly-wrong answer.</p>
+
+<p>We call this failure mode <strong>Contextual Isolation</strong>, and it comes from an assumption baked into
+almost every RAG system — the <em>Search Assumption</em>: that a memory's relevance is determined by its
+semantic proximity to the current query.</p>
+
+<p>That assumption is fine for fact lookup. It collapses for anything requiring <strong>causal, temporal, or
+transitive</strong> reasoning. Hierarchical managers like MemGPT<a class="refnote" href="#ref4">[4]</a>
+improve <em>where</em> context lives, but they're still query-driven retrievers: they can't autonomously
+surface a memory that's structurally connected yet semantically distant. For a system whose entire value
+proposition is accumulating experience over a long horizon, that's a load-bearing flaw — not a rough edge.</p>
+
+<!-- ================= S2 ================= -->
+<h2 id="s2">Recall is propagation, not search</h2>
+
+<p>Here's the idea we borrowed, and it's an old one. <strong>Spreading-activation theory</strong>
+(Collins &amp; Loftus, 1975<a class="refnote" href="#ref1">[1]</a>) and Anderson's <strong>ACT-R</strong>
+architecture (1983<a class="refnote" href="#ref2">[2]</a>) model human memory retrieval not as a search but
+as a <em>flow of energy</em>. A concept lights up; the things connected to it — semantically, temporally,
+causally — light up too, without you deliberately looking them up. Say "ski trip" and your mind quietly
+surfaces <em>who you went with</em> and <em>what happened after</em>, even though you never asked.</p>
+
+<p>That "one cue pulls a chain" behavior is exactly what flat vector stores throw away.
+<strong>SYNAPSE</strong> (<u>Syn</u>ergistic <u>A</u>ssociative <u>P</u>rocessing &amp; <u>S</u>emantic
+<u>E</u>ncoding) operationalizes it: a query injects energy into a memory graph, the energy propagates along
+temporal and causal edges, and memories that are <em>structurally salient</em> get prioritized — even with
+zero lexical or embedding overlap with the query.</p>
+
+<!-- ================= S3 ================= -->
+<h2 id="s3">The SYNAPSE architecture</h2>
+
+<p>Four pieces fit together. None is exotic on its own; the result comes from making them interact.</p>
+
+<!-- ============ FIGURE 1: bridge node ============ -->
+<figure>
+<svg viewBox="0 0 880 430" xmlns="http://www.w3.org/2000/svg" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" role="img" aria-label="Spreading activation diagram showing energy travelling from query anchors through a bridge node to evidence">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c05621"/>
+    </marker>
+    <radialGradient id="gOr" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c05621" stop-opacity="0.22"/><stop offset="100%" stop-color="#c05621" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gGr" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2f7d5a" stop-opacity="0.25"/><stop offset="100%" stop-color="#2f7d5a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- query card -->
+  <rect x="20" y="118" width="192" height="92" rx="10" fill="#faf9f7" stroke="#d8d4cd" stroke-width="1.5"/>
+  <text x="116" y="147" font-size="13" font-weight="600" fill="#1b1f27" text-anchor="middle">"Is Kendall still dating</text>
+  <text x="116" y="166" font-size="13" font-weight="600" fill="#1b1f27" text-anchor="middle">that guy from the</text>
+  <text x="116" y="185" font-size="13" font-weight="600" fill="#1b1f27" text-anchor="middle">ski trip?"</text>
+
+  <!-- injection arrows -->
+  <path d="M 214 138 C 282 118, 314 126, 352 137" fill="none" stroke="#c05621" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#arr)"/>
+  <text x="256" y="112" font-size="11" fill="#8a4a15" font-weight="500">lexical trigger · BM25</text>
+  <path d="M 214 192 C 282 230, 310 266, 350 290" fill="none" stroke="#c05621" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#arr)"/>
+  <text x="230" y="258" font-size="11" fill="#8a4a15" font-weight="500">semantic trigger · dense</text>
+
+  <!-- glows -->
+  <circle cx="399" cy="140" r="58" fill="url(#gOr)"/>
+  <circle cx="396" cy="298" r="58" fill="url(#gOr)"/>
+  <circle cx="756" cy="298" r="70" fill="url(#gGr)"/>
+
+  <!-- structural edges -->
+  <g stroke="#d3d7de" stroke-width="1.8">
+    <line x1="399" y1="140" x2="566" y2="218"/>
+    <line x1="396" y1="298" x2="566" y2="218"/>
+    <line x1="566" y1="218" x2="698" y2="140"/>
+    <line x1="698" y1="140" x2="756" y2="298"/>
+    <line x1="396" y1="298" x2="554" y2="374"/>
+  </g>
+
+  <!-- propagation arrows -->
+  <path d="M 420 306 C 474 296, 506 264, 544 234" fill="none" stroke="#c05621" stroke-width="2.6" marker-end="url(#arr)"/>
+  <circle cx="480" cy="280" r="9.5" fill="#c05621"/><text x="480" y="284" font-size="10.5" fill="#fff" text-anchor="middle" font-weight="700">1</text>
+
+  <path d="M 586 206 C 622 184, 644 168, 676 151" fill="none" stroke="#c05621" stroke-width="2.6" marker-end="url(#arr)"/>
+  <circle cx="630" cy="179" r="9.5" fill="#c05621"/><text x="630" y="183" font-size="10.5" fill="#fff" text-anchor="middle" font-weight="700">2</text>
+
+  <path d="M 708 160 C 726 206, 738 240, 748 272" fill="none" stroke="#c05621" stroke-width="2.6" marker-end="url(#arr)"/>
+  <circle cx="731" cy="216" r="9.5" fill="#c05621"/><text x="731" y="220" font-size="10.5" fill="#fff" text-anchor="middle" font-weight="700">3</text>
+
+  <!-- nodes -->
+  <circle cx="399" cy="140" r="34" fill="#fdf1e7" stroke="#c05621" stroke-width="2.5"/>
+  <text x="399" y="145" font-size="13" font-weight="600" fill="#7c3f10" text-anchor="middle">Kendall</text>
+
+  <circle cx="396" cy="298" r="34" fill="#fdf1e7" stroke="#c05621" stroke-width="2.5"/>
+  <text x="396" y="294" font-size="13" font-weight="600" fill="#7c3f10" text-anchor="middle">Ski</text>
+  <text x="396" y="310" font-size="13" font-weight="600" fill="#7c3f10" text-anchor="middle">Trip</text>
+
+  <circle cx="566" cy="218" r="32" fill="#f1ecf9" stroke="#6b4fa0" stroke-width="2.5"/>
+  <text x="566" y="223" font-size="13" font-weight="600" fill="#4d3576" text-anchor="middle">Mark</text>
+  <text x="560" y="84" font-size="11" fill="#6b4fa0" text-anchor="middle" font-style="italic">bridge node — never appears in the query</text>
+  <line x1="560" y1="92" x2="566" y2="182" stroke="#c9b8e2" stroke-width="1.2" stroke-dasharray="3 3"/>
+
+  <circle cx="698" cy="140" r="29" fill="#f4f5f7" stroke="#9aa4b2" stroke-width="2"/>
+  <text x="698" y="145" font-size="12.5" fill="#4a5162" text-anchor="middle">Dating</text>
+
+  <rect x="688" y="270" width="138" height="56" rx="9" fill="#e9f4ee" stroke="#2f7d5a" stroke-width="2.5"/>
+  <text x="757" y="293" font-size="12.5" font-weight="600" fill="#20583f" text-anchor="middle">"They broke up</text>
+  <text x="757" y="310" font-size="12.5" font-weight="600" fill="#20583f" text-anchor="middle">last week"</text>
+  <text x="757" y="346" font-size="11" fill="#2f7d5a" text-anchor="middle" font-style="italic">retrieved — zero overlap with the query</text>
+
+  <!-- suppressed distractor -->
+  <circle cx="554" cy="374" r="26" fill="#f7f7f7" stroke="#c4c8ce" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <text x="554" y="371" font-size="10.5" fill="#8a93a6" text-anchor="middle">going</text>
+  <text x="554" y="384" font-size="10.5" fill="#8a93a6" text-anchor="middle">skiing</text>
+  <line x1="582" y1="356" x2="598" y2="372" stroke="#b3524d" stroke-width="2.2"/>
+  <line x1="598" y1="356" x2="582" y2="372" stroke="#b3524d" stroke-width="2.2"/>
+  <text x="612" y="390" font-size="11" fill="#b3524d" font-weight="500">suppressed by lateral inhibition</text>
+
+  <!-- legend -->
+  <g font-size="11" fill="#4a5162" font-weight="500">
+    <circle cx="34" cy="368" r="7.5" fill="#fdf1e7" stroke="#c05621" stroke-width="2"/><text x="48" y="372">anchor (energy injected)</text>
+    <circle cx="34" cy="392" r="7.5" fill="#f1ecf9" stroke="#6b4fa0" stroke-width="2"/><text x="48" y="396">bridge concept</text>
+    <rect x="196" y="361" width="15" height="12" rx="3" fill="#e9f4ee" stroke="#2f7d5a" stroke-width="1.8"/><text x="218" y="372">retrieved evidence</text>
+    <line x1="197" y1="391" x2="212" y2="391" stroke="#c05621" stroke-width="2.6"/><text x="218" y="396">activation propagation</text>
+  </g>
+</svg>
+<figcaption>The bridge-node effect. Dual triggers inject energy at "Kendall" (lexical) and
+"Ski&nbsp;Trip" (semantic). Activation propagates through "Mark" — a concept that never appears in the query —
+and reaches the evidence "they broke up last week," which shares no words or embedding proximity with the
+question. Lateral inhibition simultaneously suppresses the semantically similar but irrelevant distractor.</figcaption>
+</figure>
+
+<h3>3.1&ensp;A unified episodic–semantic graph</h3>
+
+<p>Memory is a directed graph with two node types, mirroring the psychological distinction between episodic
+and semantic memory:</p>
+<ul>
+  <li><strong>Episodic nodes</strong> — each raw interaction turn, storing its text, a dense embedding
+  (<code>all-MiniLM-L6-v2</code>, 384-d), and a timestamp.</li>
+  <li><strong>Semantic nodes</strong> — abstract concepts (entities, preferences, events) the LLM consolidates
+  from the dialogue every five turns, with embedding-level deduplication so the concept vocabulary stays
+  canonical.</li>
+</ul>
+<p>Three edge types decide how relevance can travel: <strong>temporal edges</strong> chain consecutive
+episodes, <strong>abstraction edges</strong> link episodes to the concepts they mention, and
+<strong>association edges</strong> connect concepts to each other.</p>
+<p>One engineering note so this scales: to avoid <code>O(|V|²)</code> blowup over a long deployment, each node
+keeps only its top-15 incoming edges, and nodes whose activation stays dormant across ten consolidation
+windows are archived to disk — the active graph stays compact (≤10K nodes) and query latency stays
+independent of history length.</p>
+
+<h3>3.2&ensp;Spreading activation: the fan effect and lateral inhibition</h3>
+
+<p>The graph is the substrate; the dynamics are where the cognitive science earns its keep.
+<strong>Dual-trigger anchoring</strong> seeds the process: BM25 for exact entity hits (precision) and dense
+retrieval for conceptual matches (recall). Then, each iteration, a node's potential updates by
+<strong>propagation with the fan effect</strong> (from ACT-R):</p>
+
+$$u_i^{(t+1)} \;=\; (1-\delta)\,a_i^{(t)} \;+\; \sum_{j \in \mathcal{N}(i)} \frac{S \cdot w_{ji}\, a_j^{(t)}}{\operatorname{fan}(j)}$$
+
+<p class="eqnote">where \(S\) is the spreading factor, \(\delta\) a retention decay, and
+\(\operatorname{fan}(j)\) the out-degree of the sender. Temporal edges carry weight
+\(e^{-\rho\,\Delta t}\) — old links transmit less — and semantic edges carry cosine similarity.</p>
+
+<p>Dividing by \(\operatorname{fan}(j)\) is what stops high-frequency hubs like "weekend" or "airport" from
+hoarding all the activation and drowning out specific signal: a node with many connections dilutes the energy
+it passes along. This is the architectural answer to the "hub explosion" that plagues naive random walks over
+dense graphs. <strong>Lateral inhibition</strong> then applies winner-take-all competition — the top-M
+activated nodes suppress their competitors in proportion to the activation gap — before a sigmoid squashes
+the result into a firing rate. The loop runs strictly as <em>propagate → inhibit → activate</em> and
+stabilizes within three iterations, so retrieval cost is bounded and small.</p>
+
+<h3>3.3&ensp;Triple-signal hybrid retrieval</h3>
+
+<p>Final scoring fuses three deliberately <strong>orthogonal</strong> signals:</p>
+
+$$\mathcal{S}(v) \;=\; \lambda_1 \cdot \underbrace{\operatorname{sim}(\mathbf{h}_v, \mathbf{h}_q)}_{\text{semantic}} \;+\; \lambda_2 \cdot \underbrace{a_v^{(T)}}_{\text{activation}} \;+\; \lambda_3 \cdot \underbrace{\operatorname{PageRank}(v)}_{\text{structural}}$$
+
+<p><strong>PageRank</strong> is a <em>global structural prior</em> — the hubs that matter no matter what you
+asked (the main characters of a long conversation). <strong>Activation</strong> is the <em>local,
+query-specific</em> signal that just propagated. <strong>Semantic similarity</strong> is the familiar direct
+match. Keeping them decoupled means a novel-but-locally-important detail doesn't get steamrolled by a global
+hub. Defaults: λ&nbsp;=&nbsp;{0.5,&nbsp;0.3,&nbsp;0.2}; sensitivity analysis shows robustness across
+λ₃&nbsp;∈&nbsp;[0.1,&nbsp;0.3] and retrieval depth k&nbsp;∈&nbsp;[20,&nbsp;40].</p>
+
+<h3>3.4&ensp;Knowing when you don't know</h3>
+
+<p>The most under-appreciated part, and arguably the most useful in production: teaching the agent to say
+<em>"no record of that."</em> SYNAPSE adds a metacognitive layer inspired by the human <strong>Feeling of
+Knowing</strong>. <strong>Confidence gating</strong>: if retrieval confidence falls below a threshold
+(τ&nbsp;=&nbsp;0.12, calibrated on a held-out split to keep false refusals under 2.5%), the system fires a
+<em>negative acknowledgement</em> — it refuses <em>before</em> generating, the way a brain inhibits a response
+when the memory trace is too weak. <strong>Explicit verification</strong>: for borderline cases, a
+hard-constrained prompt forces the question — <em>is this EXPLICITLY in memory? If not, say "Not
+mentioned."</em></p>
+
+<p>This targets the scariest failure of memory-augmented agents: <strong>memory hallucination</strong>, where
+the model confidently invents an event that never happened. And importantly, the headline results don't ride
+on refusals: with the gate disabled entirely, SYNAPSE still averages 40.3 — the structural retrieval carries
+its own weight.</p>
+
+<!-- ================= S4 ================= -->
+<h2 id="s4">What's actually new</h2>
+
+<p>Graph memory for agents isn't new, so it's fair to ask where SYNAPSE differs:</p>
+
+<div class="tblwrap">
+<table>
+  <thead><tr><th>System</th><th>Core mechanism</th><th>Gap for long-horizon agents</th></tr></thead>
+  <tbody>
+    <tr><td>MemGPT / MemoryOS<a class="refnote" href="#ref4">[4]</a></td><td>OS-style context paging</td><td>Memories stay independent text units — no relational structure</td></tr>
+    <tr><td>GraphRAG<a class="refnote" href="#ref6">[6]</a></td><td>Community detection + global summaries</td><td>Corpus-level <em>sense-making</em>; too coarse for minute-level episodes</td></tr>
+    <tr><td>HippoRAG<a class="refnote" href="#ref5">[5]</a></td><td>Personalized PageRank over a KG</td><td>Static pre-indexed corpora — no O(1) incremental write, no time decay</td></tr>
+    <tr><td>Zep / AriGraph<a class="refnote" href="#ref7">[7]</a></td><td>Temporal knowledge graphs</td><td>Structure without <em>dynamics</em> — relevance still computed per item</td></tr>
+    <tr class="ours"><td>SYNAPSE</td><td>Cognitive activation dynamics on a live episodic-semantic graph</td><td>—</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="tblcap">Positioning against existing agentic-memory systems. The one-line answer: prior systems add
+<em>structure</em>; SYNAPSE adds <em>dynamics on top of structure</em> — fan-effect dilution, lateral
+inhibition, temporal decay — and the ablations in §5 show the dynamics, not the topology, do the heavy
+lifting.</p>
+
+<!-- ================= S5 ================= -->
+<h2 id="s5">Results</h2>
+
+<p>We evaluate on <strong>LoCoMo</strong><a class="refnote" href="#ref3">[3]</a>: long-horizon dialogues
+averaging ~16K tokens across up to 35 sessions, scored across five categories. All improvements are
+statistically significant (paired t-test, p&nbsp;&lt;&nbsp;0.05, N&nbsp;=&nbsp;500), and results are stable
+across three random seeds (±0.2).</p>
+
+<div class="tblwrap">
+<table>
+  <thead><tr>
+    <th>Method</th><th class="num">Multi-Hop</th><th class="num">Temporal</th><th class="num">Open-Domain</th>
+    <th class="num">Single-Hop</th><th class="num">Adversarial</th><th class="num">Weighted&nbsp;Avg*</th><th class="num">Rank</th>
+  </tr></thead>
+  <tbody>
+    <tr><td>A-Mem</td><td class="num">27.0</td><td class="num">45.9</td><td class="num">12.1</td><td class="num">44.7</td><td class="num">50.0</td><td class="num">33.3</td><td class="num">4.8</td></tr>
+    <tr><td>AriGraph</td><td class="num">28.5</td><td class="num">43.2</td><td class="num">14.5</td><td class="num">45.1</td><td class="num">48.5</td><td class="num">33.7</td><td class="num">4.6</td></tr>
+    <tr><td>MemoryOS</td><td class="num">35.3</td><td class="num">41.2</td><td class="num">20.0</td><td class="num">48.6</td><td class="num">—</td><td class="num">38.0</td><td class="num">—</td></tr>
+    <tr><td>Zep</td><td class="num">35.5</td><td class="num">48.5</td><td class="num">23.1</td><td class="num">48.0</td><td class="num">65.4</td><td class="num">39.7</td><td class="num">2.6</td></tr>
+    <tr class="ours"><td>SYNAPSE (ours)</td><td class="num">35.7</td><td class="num">50.1</td><td class="num">25.9</td><td class="num">48.9</td><td class="num">96.6</td><td class="num">40.5</td><td class="num">1.0</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="tblcap">Main results on LoCoMo (F1, GPT-4o-mini backbone; strongest baselines shown). *Weighted
+average over the four non-adversarial categories — we deliberately exclude the adversarial column from our
+own headline number so near-perfect rejection cannot inflate it.</p>
+
+<ul>
+  <li><strong>New SOTA: 40.5 weighted F1</strong>, ahead of Zep (39.7) and +7.2 over A-Mem (33.3), with a
+  perfect task rank of 1.0 — first in every category.</li>
+  <li><strong>Temporal: 50.1.</strong> Time-aware activation decay correctly prefers <em>current</em> facts
+  over semantically similar but stale ones.</li>
+  <li><strong>Multi-Hop: 35.7 vs 27.0.</strong> Activation relays relevance through intermediate nodes,
+  reconnecting fact chains vector search leaves broken. (Under an LLM-as-judge protocol the gap widens:
+  84.2 vs 63.7 for MemoryOS.)</li>
+  <li><strong>Adversarial: 96.6.</strong> Near-perfect refusal on questions about things that don't exist,
+  versus baselines that happily hallucinate.</li>
+</ul>
+
+<p>But the single result we'd point a skeptic to is the <strong>low-similarity stress test</strong>
+(Figure&nbsp;2). Restrict the test set to cases where the evidence is <em>deliberately</em> far from the
+question in embedding space, and the semantic-only baseline collapses while SYNAPSE barely moves.</p>
+
+<!-- ============ FIGURE 2: stress test ============ -->
+<figure>
+<svg viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" role="img" aria-label="Bar chart: F1 drop under low query-evidence similarity. A-Mem drops 43 to 56 percent, SYNAPSE only 5 to 7 percent.">
+  <!-- title block -->
+  <text x="28" y="34" font-size="15.5" font-weight="600" fill="#1b1f27">When surface similarity disappears, structure holds</text>
+  <text x="28" y="56" font-size="12.5" fill="#8a93a6">Relative F1 drop under low query–evidence similarity</text>
+
+  <!-- gridlines: 0,-20,-40,-60% at y=340,260,180,100 (4px per %) -->
+  <g stroke="#eeece8" stroke-width="1">
+    <line x1="70" y1="260" x2="640" y2="260"/>
+    <line x1="70" y1="180" x2="640" y2="180"/>
+    <line x1="70" y1="100" x2="640" y2="100"/>
+  </g>
+  <g font-size="11.5" fill="#8a93a6">
+    <text x="60" y="344" text-anchor="end">0%</text>
+    <text x="60" y="264" text-anchor="end">−20%</text>
+    <text x="60" y="184" text-anchor="end">−40%</text>
+    <text x="60" y="104" text-anchor="end">−60%</text>
+  </g>
+
+  <!-- legend (inside plot, top-left, in the clear band between gridlines) -->
+  <g font-size="12" font-weight="500" fill="#4a5162">
+    <rect x="86" y="114" width="13" height="13" rx="3" fill="#b3524d"/><text x="106" y="125">A-Mem (semantic-only)</text>
+    <rect x="86" y="137" width="13" height="13" rx="3" fill="#c05621"/><text x="106" y="148">SYNAPSE</text>
+  </g>
+
+  <!-- group 1: sim < 0.5 (center 260) -->
+  <rect x="180" y="167.6" width="72" height="172.4" rx="4" fill="#b3524d"/>
+  <text x="216" y="157" font-size="13" font-weight="700" fill="#b3524d" text-anchor="middle">−43.1%</text>
+  <rect x="268" y="318.8" width="72" height="21.2" rx="4" fill="#c05621"/>
+  <text x="304" y="308" font-size="13" font-weight="700" fill="#c05621" text-anchor="middle">−5.3%</text>
+  <text x="260" y="370" font-size="12.5" fill="#4a5162" text-anchor="middle" font-weight="500">similarity &lt; 0.5</text>
+
+  <!-- group 2: sim < 0.3 (center 490) -->
+  <rect x="410" y="114.8" width="72" height="225.2" rx="4" fill="#b3524d"/>
+  <text x="446" y="104" font-size="13" font-weight="700" fill="#b3524d" text-anchor="middle">−56.3%</text>
+  <rect x="498" y="310.4" width="72" height="29.6" rx="4" fill="#c05621"/>
+  <text x="534" y="300" font-size="13" font-weight="700" fill="#c05621" text-anchor="middle">−7.4%</text>
+  <text x="490" y="370" font-size="12.5" fill="#4a5162" text-anchor="middle" font-weight="500">similarity &lt; 0.3</text>
+
+  <!-- baseline -->
+  <line x1="70" y1="340" x2="640" y2="340" stroke="#1b1f27" stroke-width="1.5"/>
+</svg>
+<figcaption>The low-similarity stress test. Restricting evaluation to questions whose gold evidence sits far
+from the query in embedding space, the semantic-only baseline loses over half its F1 while SYNAPSE degrades
+by less than 8% — the core thesis confirmed in one number: relevance can be recovered from
+<em>structure</em> when <em>similarity</em> is gone.</figcaption>
+</figure>
+
+<h3>5.1&ensp;Three failures, side by side</h3>
+
+<p>Numbers aggregate; examples convince. The same three queries through a semantic-only baseline and
+SYNAPSE:</p>
+
+<div class="tblwrap">
+<table class="vs">
+  <thead><tr><th>Query</th><th>Semantic-only baseline</th><th>SYNAPSE</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Asks about a pet dog that was never mentioned</td>
+      <td>Retrieves "…toy dinosaur, <b>Rex</b>" → <span class="bad">"She has a dog named Rex."</span></td>
+      <td>Confidence gate fires → <span class="good">"No record of such pet found."</span></td>
+    </tr>
+    <tr>
+      <td>"Where does Caroline live?"</td>
+      <td>Top hit (cos 0.92): "moved <b>from Sweden</b> 4 years ago…" → <span class="bad">"She lives in Sweden."</span></td>
+      <td>Temporal decay boosts the recent episode → <span class="good">"Currently in the US."</span></td>
+    </tr>
+    <tr>
+      <td>"Would Caroline likely have Dr.&nbsp;Seuss books?"</td>
+      <td>No lexical bridge from "collects books" → <span class="bad">"Uncertain / no info."</span></td>
+      <td>Walk: Caroline → classic books → Dr.&nbsp;Seuss → <span class="good">"Yes, likely."</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p class="tblcap">Qualitative comparison of retrieval behaviors. Three different cognitive mechanisms —
+gating, decay, graph traversal — each catch the exact failure they were designed for.</p>
+
+<h3>5.2&ensp;Ablations: every mechanism is load-bearing</h3>
+
+<p>The ablations tell the story by subtraction. Remove <strong>node decay</strong> and temporal reasoning
+craters (50.1&nbsp;→&nbsp;14.2). Remove the <strong>fan effect</strong> and open-domain sags as hubs flood
+the graph (25.9&nbsp;→&nbsp;16.8). Remove <strong>lateral inhibition</strong> and even simple single-hop
+lookup degrades — noise competes with signal before the gate ever sees it. Strip everything back to
+<em>vectors only</em> and you land at 25.2 average. Each mechanism is load-bearing for a specific kind of
+reasoning, which is what you'd hope from a design that borrows distinct mechanisms from cognitive science
+rather than one big trick.</p>
+
+<h3>5.3&ensp;A note on metrics</h3>
+
+<p>Token-overlap F1 systematically undervalues memory systems that <em>reason</em>. A real example from our
+error analysis: asked "how long has she been practicing art?", the gold answer is "Since 2016"; SYNAPSE
+answered <strong>"Seven years"</strong> — arithmetically correct relative to the conversation's date — and
+scored <strong>F1&nbsp;=&nbsp;0.0</strong>. Under an LLM-as-judge protocol that scores semantic correctness,
+SYNAPSE reaches <strong>80.7 overall</strong>, again first across systems. We report both, because n-gram
+metrics reward parroting and punish understanding; if you evaluate agentic memory, you should too.</p>
+
+<h3>5.4&ensp;Weaker backbones benefit more</h3>
+
+<p>One cross-backbone finding with real deployment consequences: on a small Qwen-3B backbone, SYNAPSE
+averages <strong>36.6 F1</strong> where MemoryOS gets 22.1 and A-Mem 16.2. Structured activation partially
+<em>compensates</em> for limited reasoning capacity — the retrieval stage exposes the relational evidence the
+small model can't infer on its own. Good memory lets you ship smaller, cheaper models without falling off a
+quality cliff.</p>
+
+<!-- ================= S6 ================= -->
+<h2 id="s6">Efficiency</h2>
+
+<p>The thing that makes this practical rather than a research curiosity:</p>
+
+<div class="tblwrap">
+<table>
+  <thead><tr><th>Method</th><th class="num">Tokens / query</th><th class="num">Latency</th><th class="num">Cost / 1K queries</th><th class="num">F1 (excl. adv.)</th></tr></thead>
+  <tbody>
+    <tr><td>Full-context (LoCoMo)</td><td class="num">~16,910</td><td class="num">8.2s</td><td class="num">$2.67</td><td class="num">25.6</td></tr>
+    <tr><td>MemGPT</td><td class="num">~16,977</td><td class="num">8.5s</td><td class="num">$2.67</td><td class="num">28.0</td></tr>
+    <tr><td>MemoryOS</td><td class="num">~1,198</td><td class="num">1.5s</td><td class="num">$0.30</td><td class="num">38.0</td></tr>
+    <tr class="ours"><td>SYNAPSE (ours)</td><td class="num">~814</td><td class="num">1.9s</td><td class="num">$0.24</td><td class="num">40.5</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="tblcap">Efficiency profile on LoCoMo (GPT-4o-mini; cost = total API cost at standard rates).
+Graph-construction costs amortize over the agent's lifetime and are negligible per-query.</p>
+
+<!-- ============ FIGURE 3: Pareto ============ -->
+<figure>
+<svg viewBox="0 0 760 530" xmlns="http://www.w3.org/2000/svg" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" role="img" aria-label="Scatter plot of F1 versus cost per thousand queries; SYNAPSE sits on the Pareto frontier with highest F1 at near-lowest cost.">
+  <!-- title block -->
+  <text x="28" y="34" font-size="15.5" font-weight="600" fill="#1b1f27">Accuracy vs. cost on LoCoMo</text>
+  <text x="28" y="56" font-size="12.5" fill="#8a93a6">F1 excluding adversarial · cost per 1,000 queries (log scale) · up and left is better</text>
+
+  <rect x="80" y="82" width="630" height="348" fill="#fcfbfa" stroke="#e6e4df" stroke-width="1"/>
+
+  <!-- gridlines: F1 10/20/30/40 at y=353,276,199,122 ; cost ticks -->
+  <g stroke="#efedea" stroke-width="1">
+    <line x1="80" y1="353" x2="710" y2="353"/><line x1="80" y1="276" x2="710" y2="276"/>
+    <line x1="80" y1="199" x2="710" y2="199"/><line x1="80" y1="122" x2="710" y2="122"/>
+    <line x1="141" y1="82" x2="141" y2="430"/><line x1="226" y1="82" x2="226" y2="430"/>
+    <line x1="333" y1="82" x2="333" y2="430"/><line x1="479" y1="82" x2="479" y2="430"/>
+    <line x1="625" y1="82" x2="625" y2="430"/>
+  </g>
+  <g font-size="11.5" fill="#8a93a6">
+    <text x="70" y="434" text-anchor="end">0</text><text x="70" y="357" text-anchor="end">10</text>
+    <text x="70" y="280" text-anchor="end">20</text><text x="70" y="203" text-anchor="end">30</text>
+    <text x="70" y="126" text-anchor="end">40</text>
+    <text x="141" y="452" text-anchor="middle">$0.20</text><text x="226" y="452" text-anchor="middle">$0.30</text>
+    <text x="333" y="452" text-anchor="middle">$0.50</text><text x="479" y="452" text-anchor="middle">$1.00</text>
+    <text x="625" y="452" text-anchor="middle">$2.00</text>
+  </g>
+  <text x="395" y="486" font-size="12.5" fill="#4a5162" text-anchor="middle" font-weight="500">Cost per 1,000 queries (log scale)</text>
+  <text x="28" y="256" font-size="12.5" fill="#4a5162" text-anchor="middle" font-weight="500" transform="rotate(-90 28 256)">F1 score</text>
+
+  <!-- Pareto frontier: through MemoryBank, ReadAgent, LangMem, up to the star, then flat -->
+  <path d="M 118 382 L 160 355 L 170 166 L 179 118 L 710 118" fill="none" stroke="#2f7d5a" stroke-width="1.8" stroke-dasharray="7 5" opacity="0.55"/>
+  <text x="600" y="110" font-size="11.5" fill="#2f7d5a" font-style="italic" text-anchor="middle">Pareto frontier</text>
+
+  <!-- points -->
+  <g>
+    <circle cx="118" cy="382" r="7" fill="#9aa4b2"/><text x="132" y="386" font-size="12" fill="#4a5162">MemoryBank</text>
+    <circle cx="160" cy="355" r="7" fill="#9aa4b2"/><text x="174" y="369" font-size="12" fill="#4a5162">ReadAgent</text>
+    <circle cx="170" cy="166" r="7" fill="#9aa4b2"/><text x="156" y="187" font-size="12" fill="#4a5162" text-anchor="end">LangMem</text>
+    <circle cx="226" cy="137" r="7" fill="#3d6b9e"/><text x="242" y="142" font-size="12" fill="#3d6b9e">MemoryOS</text>
+    <circle cx="333" cy="174" r="7" fill="#3d6b9e"/><text x="349" y="179" font-size="12" fill="#3d6b9e">A-Mem</text>
+    <circle cx="686" cy="233" r="7" fill="#b58a5a"/><text x="672" y="238" font-size="12" fill="#8a6a42" text-anchor="end">Full-context (LoCoMo)</text>
+    <circle cx="686" cy="214" r="7" fill="#b58a5a"/><text x="672" y="210" font-size="12" fill="#8a6a42" text-anchor="end">MemGPT</text>
+  </g>
+
+  <!-- SYNAPSE star at (179, 118); labels in the clear zone above-right of the star -->
+  <path d="M 179 100 L 184.4 111 L 196.4 112.8 L 187.7 121.2 L 189.8 133.1 L 179 127.5 L 168.2 133.1 L 170.3 121.2 L 161.6 112.8 L 173.6 111 Z" fill="#c05621" stroke="#8a4a15" stroke-width="1.4"/>
+  <text x="202" y="96" font-size="13.5" font-weight="700" fill="#8a4a15">SYNAPSE (ours)</text>
+  <text x="202" y="113" font-size="11.5" font-weight="500" fill="#7c3f10" stroke="#fcfbfa" stroke-width="4" paint-order="stroke">40.5 F1 at $0.24</text>
+</svg>
+<figcaption>Cost–accuracy trade-off across memory systems. Because activation retrieves a small relevant
+subgraph instead of stuffing the whole history into context, SYNAPSE runs at ~95% fewer tokens and ~11×
+lower cost than full-context methods, at ~4× the speed — while scoring higher. On cost-efficiency (F1 per
+dollar: 167.3) it tops the field.</figcaption>
+</figure>
+
+<!-- ================= S7 ================= -->
+<h2 id="s7">Where it breaks (because it does)</h2>
+
+<p>Three honest limitations, each a research direction:</p>
+<ul>
+  <li><strong>Cold start.</strong> Spreading activation needs a connected topology. In a brand-new
+  conversation with almost no history, graph upkeep is overhead a plain linear buffer would beat.</li>
+  <li><strong>Cognitive tunneling.</strong> The same lateral inhibition that sharpens focus can, on a
+  <em>simple</em> query, over-prune a low-degree detail. Our favorite failure case: asked "what color was
+  John's jacket?", a strongly activated "Airport Trip" hub suppressed the weakly-connected "green jacket"
+  episode right below the pruning threshold. Aggressive focus has a cost, and we document it rather than
+  hide it.</li>
+  <li><strong>Text-only, for now.</strong> Embodied agents need vision and audio; folding image and audio
+  nodes into the same graph via aligned embedding spaces is the obvious next step.</li>
+</ul>
+
+<!-- ================= S8 ================= -->
+<h2 id="s8">Memory that forgets on purpose</h2>
+
+<p class="pull">"A memory system that never forgets is a <span class="mark">privacy liability</span> wearing
+a feature costume."</p>
+
+<p>Two properties of SYNAPSE's design matter here, and they fell out of the cognitive modeling rather than
+being bolted on:</p>
+<ul>
+  <li><strong>Granular forgetting is native.</strong> Temporal decay and dormancy-based pruning naturally
+  implement a "right to be forgotten": obsolete or unused memories lose activation and get archived out of
+  the live graph, instead of persisting indefinitely in a vector store.</li>
+  <li><strong>The graph is self-contained.</strong> An episodic-semantic graph is a compact, local artifact —
+  it can live on-device or in an encrypted enclave, rather than requiring conversation history to be shipped
+  wholesale to a third-party index.</li>
+</ul>
+<p>If you're building agents that accumulate months of someone's personal context, these aren't
+nice-to-haves. They're the difference between a memory feature users trust and one they turn off.</p>
+
+<!-- ================= S9 ================= -->
+<h2 id="s9">From the paper to the product</h2>
+
+<p>This isn't an abstract benchmark exercise for us. The same problem SYNAPSE attacks — an agent that has to
+<em>remember a person's evolving record across a long relationship and surface the right piece at the right
+time</em> — is the problem at the center of <a href="https://ezcollegeapp.com"><strong>EZCollegeApp</strong></a>,
+GyriQAI's AI workspace for U.S. undergraduate applications.</p>
+
+<p>An application season runs for months and looks exactly like a long-horizon memory benchmark, except the
+stakes are a teenager's future: the AI counselor has to ground its advice in a student's actual record —
+profile, uploaded transcripts and documents, the evolving school list, where each essay draft stands — and
+carry that across many sessions instead of starting cold each time. Every failure mode in this post has a
+counseling twin:</p>
+
+<ul>
+  <li><em>Contextual isolation</em> — a student's anxiety in January traces back to a deadline conflict
+  logged in October.</li>
+  <li><em>Temporal staleness</em> — the school list changed last week; advice anchored to September's list is
+  worse than no advice.</li>
+  <li><em>Multi-hop</em> — the robotics club mentioned in one session is the missing ingredient of an essay
+  angle discussed in another.</li>
+  <li><em>Hallucination</em> — an invented deadline or a fabricated "you told me…" is instantly trust-ending;
+  the agent must be able to say "that's not in your record."</li>
+</ul>
+
+<p>Deliberately, EZCollegeApp is a <em>planning and organization</em> tool. It works from the student's own
+materials and doesn't fabricate experiences; it supports a human counselor rather than replacing one;
+forecasts are guidance, not guarantees; and students still verify official deadlines and complete official
+submissions themselves. Episodic + semantic long-term memory is the difference between "a chatbot bolted onto
+an essay editor" and an assistant that actually remembers your case. That's the line of research SYNAPSE
+pushes on, and the line of product we're building toward — including the economics: a memory layer that makes
+small backbones perform (§5.4) and cuts tokens by 95% (§6) is what lets research-grade personalization ship
+at a price a family can afford.</p>
+
+<!-- ================= S10 ================= -->
+<h2 id="resources">Resources &amp; citation</h2>
+
+<p>The full paper has the algorithms, hyperparameter sensitivity, cross-backbone results (GPT-4o,
+Qwen-1.5B/3B), and the qualitative analyses we couldn't fit here.</p>
+<ul>
+  <li><strong>Paper</strong> — <em>Findings of ACL 2026</em> (ACL Anthology link coming with the proceedings)</li>
+  <li><strong>Code</strong> — <a href="https://github.com/hq0709/synapse">github.com/hq0709/synapse</a>:
+  implementation, LoCoMo evaluation harness, ablations, runnable diagnostics</li>
+  <li><strong>Product</strong> — <a href="https://ezcollegeapp.com">ezcollegeapp.com</a></li>
+</ul>
+
+<pre class="bibtex">@inproceedings{jiang2026synapse,
+  title     = {{SYNAPSE}: Empowering {LLM} Agents with Episodic-Semantic
+               Memory via Spreading Activation},
+  author    = {Jiang, Hanqi and Chen, Junhao and Pan, Yi and Chen, Ling
+               and You, Weihang and Zhou, Yifan and Zhang, Ruidong
+               and Abate, Yohannes and Liu, Tianming},
+  booktitle = {Findings of the Association for Computational Linguistics:
+               ACL 2026},
+  year      = {2026}
+}</pre>
+
+<p>If you're building agentic memory and have hit Contextual Isolation yourself — the moment your retriever
+confidently returns everything <em>except</em> the thing that mattered — I'd love to compare notes.</p>
+
+<hr class="sep">
+
+<h3 style="margin-top:0">References</h3>
+<ol class="refs">
+  <li id="ref1">Collins, A. M., &amp; Loftus, E. F. (1975). A spreading-activation theory of semantic
+  processing. <em>Psychological Review</em>, 82(6), 407.</li>
+  <li id="ref2">Anderson, J. R. (1983). A spreading activation theory of memory. <em>Journal of Verbal
+  Learning and Verbal Behavior</em>, 22(3), 261–295.</li>
+  <li id="ref3">Maharana, A., et al. (2024). Evaluating very long-term conversational memory of LLM agents.
+  <em>arXiv:2402.17753</em>.</li>
+  <li id="ref4">Packer, C., et al. (2024). MemGPT: Towards LLMs as operating systems.
+  <em>arXiv:2310.08560</em>; Li, Z., et al. (2025). MemOS: A memory OS for AI systems.
+  <em>arXiv:2507.03724</em>.</li>
+  <li id="ref5">Gutiérrez, B. J., et al. (2024). HippoRAG: Neurobiologically inspired long-term memory for
+  large language models. <em>NeurIPS 37</em>.</li>
+  <li id="ref6">Edge, D., et al. (2025). From local to global: A graph RAG approach to query-focused
+  summarization. <em>arXiv:2404.16130</em>.</li>
+  <li id="ref7">Rasmussen, P., et al. (2025). Zep: A temporal knowledge graph architecture for agent memory.
+  <em>arXiv:2501.13956</em>; Anokhin, P., et al. (2025). AriGraph: Learning knowledge graph world models with
+  episodic memory for LLM agents. <em>arXiv:2407.04363</em>.</li>
+</ol>
+
+</main>
+
+<footer>
+  <p>Questions, ideas, or war stories about agentic memory? Reach out — and if you're navigating a U.S.
+  college application season, take a look at <a href="https://ezcollegeapp.com">EZCollegeApp</a>.</p>
+  <p style="color:var(--ink-faint)">© 2026 GyriQAI, Inc. · Findings of ACL 2026 · Last updated July 2026</p>
+</footer>
+
+</div>
+</body>
+</html>
+
+{% endraw %}
