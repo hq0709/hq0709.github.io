@@ -3,6 +3,7 @@ secondary_name: ""
 navbar_name: "Hanqi Jiang's Home Page"
 
 positions:
+  - '<span class="no-break"><img src="assets/images/badges/stanford.svg" alt="Stanford University" class="inline-badge"/></span> Visiting Student, Stanford University'
   - '<span class="no-break"><img src="assets/images/badges/uga.png" alt="University of Georgia" class="inline-badge"/></span> Final-year Ph.D. Student, The University of Georgia'
   - 'Co-founder of GyriQAI'
 
@@ -15,7 +16,7 @@ dblp: https://dblp.org/pid/344/1868.html
 email_mgh: hjiang81@mgh.harvard.edu
 
 short_bio: >-
-  I am a final-year Ph.D. student at <a href="https://www.uga.edu/" target="_blank" rel="noopener">University of Georgia</a>, supervised by Distinguished Research Professor <a href="https://cobweb.cs.uga.edu/~tliu/" target="_blank" rel="noopener">Tianming Liu</a>. My research focus is Quantum AI & Medical Image Analysis & Brain-inspired AI. If you are seeking any form of <strong>academic cooperation</strong>, please feel free to email me at <a href="mailto:hanqi.jiang@uga.edu">hanqi.jiang@uga.edu</a> (UGA) or <a href="mailto:hjiang81@mgh.harvard.edu">hjiang81@mgh.harvard.edu</a> (MGH). 
+  I am a final-year Ph.D. student at <a href="https://www.uga.edu/" target="_blank" rel="noopener">University of Georgia</a>, supervised by Distinguished Research Professor <a href="https://cobweb.cs.uga.edu/~tliu/" target="_blank" rel="noopener">Tianming Liu</a>. I am also a visiting student at <a href="https://www.stanford.edu/" target="_blank" rel="noopener">Stanford University</a>, guided by Prof. <a href="https://profiles.stanford.edu/lei-xing" target="_blank" rel="noopener">Lei Xing</a>. My research focus is Quantum AI & Medical Image Analysis & Brain-inspired AI. If you are seeking any form of <strong>academic cooperation</strong>, please feel free to email me at <a href="mailto:hanqi.jiang@uga.edu">hanqi.jiang@uga.edu</a> (UGA) or <a href="mailto:hjiang81@mgh.harvard.edu">hjiang81@mgh.harvard.edu</a> (MGH). 
 show_portrait: true
 portrait_url: assets/images/photos/hanqi.jpg
 portrait_caption: >-
@@ -36,6 +37,10 @@ education:
   date: Sep. 2019 - Jul. 2023
   
 experience:
+- name: Stanford University
+  logo: assets/images/badges/stanford.svg
+  position: Visiting Student, guided by <a href="https://profiles.stanford.edu/lei-xing" target="_blank" rel="noopener">Prof. Lei Xing</a>
+  date: Aug. 2026 - Now
 - name: Center for Advanced Medical Computing and Analysis (CAMCA), MGB/Harvard Medical School
   logo: assets/images/badges/hms.jpg
   position: Radiology Research
