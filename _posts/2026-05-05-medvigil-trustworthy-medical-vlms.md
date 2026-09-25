@@ -10,7 +10,7 @@ excerpt: "MedVIGIL is a clinician-supervised benchmark for testing whether medic
 
 <section class="synapse-hero" markdown="1">
 <div class="synapse-hero-header" markdown="1">
-<p class="synapse-kicker">Research Note · Preprint under review</p>
+<p class="synapse-kicker">Research Note · Accepted to NeurIPS 2026 Evaluations &amp; Datasets Track</p>
 
 # MedVIGIL: Evaluating Trustworthy Medical VLMs Under Broken Visual Evidence
 </div>

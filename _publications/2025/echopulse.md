@@ -1,7 +1,7 @@
 ---
 title:          "ECHOPulse: ECG Controlled Echocardiograms Video Generation"
 date:           2025-01-22 00:01:00 -0400
-selected:       true
+selected:       false
 pub:            "ICLR"
 pub_last:       ' <span class="badge badge-pill badge-custom badge-secondary">Conference</span>'
 pub_date:       "2025"

@@ -25,5 +25,5 @@ authors:
   - Xiangde Liu†
   - Guangyao Zhai†
 links:
-  Paper: #
+  Paper: https://doi.org/10.1609/aaai.v39i9.33017
 ---

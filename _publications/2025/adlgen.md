@@ -1,10 +1,9 @@
 ---
 title:          "ADLGen: Synthesizing Symbolic, Event-Triggered Sensor Sequences for Human Activity Modeling"
-date:           2025-01-01 00:03:00 -0400
-selected:       false
-pub:            "SenSys 2026"
-pub_last:       ' <span class="badge badge-pill badge-custom badge-info">Preprint</span>'
-pub_date:       "2025"
+date:           2026-01-29 00:00:00 -0500
+selected:       true
+pub:            "SenSys"
+pub_date:       "2026"
 
 abstract: >-
   ADLGen synthesizes symbolic, event-triggered sensor sequences for human activity modeling, providing a novel approach to activity recognition and modeling.

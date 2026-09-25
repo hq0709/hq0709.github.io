@@ -22,7 +22,7 @@ num_selected: 10
     {% 
         include widgets/publication_card.html 
         publications=pubs
-        title='<i class="fas fa-star"></i> Selected Publications'
+        limit=page.num_selected
     %}
 {% endif %}
 

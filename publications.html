@@ -1,36 +1,42 @@
 ---
 layout: default
-title : Publications
+title: Publications
 navbar_name: Publications
-body_attr: >-
-  data-spy="scroll" data-target="#navbar-year" data-offset="100"
 ---
 
-<blockquote>
-    All papers that have not been peer-reviewed will not appear here, including preprints. You can access my all of papers at <a href="https://scholar.google.com/citations?user=jENRqN8AAAAJ&hl=en">🔗Google Scholar</a>.
-</blockquote>
+{% assign accepted = site.publications | where_exp: "item", "item.status != 'preprint'" | sort: 'date' | reverse %}
+{% assign pubs_by_year = accepted | group_by: 'pub_date' | sort: 'name' | reverse %}
+{% assign preprints = site.publications | where: 'status', 'preprint' | sort: 'date' | reverse %}
 
-{% assign pubs_by_year = site.publications | sort: "date" | reverse | group_by_exp: "item", "item.date | date: '%Y'" %}
-
-<div class="row">
-    <div class="col-12 col-lg-10">
+<main class="publications-page">
+    <header class="publications-header">
+        <h1>Publications</h1>
+        <a href="https://scholar.google.com/citations?user=adC1a0IAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+    </header>
+    <nav class="publication-year-nav" aria-label="Publication years">
         {% for year in pubs_by_year %}
-        {% assign num_papers = year.items | size %}
-        <h2 class="pt-4" id="year-{{ year.name }}">{{ year.name }}</h2>
-        <div class="my-0 p-0 bg-white shadow-sm rounded-sm">
-            {% for item in year.items %}
-                {% include widgets/publication_item.html item=item %}
-            {% endfor %}
-        </div>
+        <a href="#year-{{ year.name }}">{{ year.name }} <span>{{ year.items.size }}</span></a>
         {% endfor %}
-    </div>
+        {% if preprints.size > 0 %}
+        <a href="#preprints">Preprints <span>{{ preprints.size }}</span></a>
+        {% endif %}
+    </nav>
 
-    <div class="col-2 d-none d-lg-block">
-        <div id="navbar-year" class="nav nav-pills flex-column sticky-top" style="top: 80px">
-            {% for year in pubs_by_year %}
-            <a class="nav-link d-block" href="#year-{{ year.name }}">{{ year.name }}</a>
-            {% endfor %}
-        </div>
-    </div>
+    {% for year in pubs_by_year %}
+    <section class="publication-year" aria-labelledby="year-{{ year.name }}">
+        <h2 id="year-{{ year.name }}">{{ year.name }}</h2>
+        {% for item in year.items %}
+            {% include widgets/publication_item.html item=item %}
+        {% endfor %}
+    </section>
+    {% endfor %}
 
-</div>
+    {% if preprints.size > 0 %}
+    <section class="publication-year" aria-labelledby="preprints">
+        <h2 id="preprints">Preprints</h2>
+        {% for item in preprints %}
+            {% include widgets/publication_item.html item=item %}
+        {% endfor %}
+    </section>
+    {% endif %}
+</main>

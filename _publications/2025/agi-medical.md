@@ -4,7 +4,7 @@ date:           2024-10-30 00:01:00 -0400
 selected:       false
 pub:            "IEEE Reviews in Biomedical Engineering"
 pub_last:       ' <span class="badge badge-pill badge-custom badge-warning">Feature Article</span> <span class="badge badge-pill badge-custom badge-secondary">Journal (IF=17.2)</span>'
-pub_date:       "2024"
+pub_date:       "2025"
 
 abstract: >-
   A comprehensive review of artificial general intelligence for medical imaging analysis.
@@ -31,5 +31,5 @@ authors:
   - Tianming Liu†
   - Dinggang Shen†
 links:
-  Paper: https://arxiv.org/pdf/2306.05480
+  Paper: https://doi.org/10.1109/RBME.2024.3493775
 ---

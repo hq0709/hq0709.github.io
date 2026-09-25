@@ -19,5 +19,5 @@ authors:
   - Zhiwei Li
   - Jun Li†
 links:
-  Paper: #
+  Paper: https://doi.org/10.1007/s42154-024-00296-x
 ---
