@@ -5,7 +5,6 @@ selected: true
 pub: "NeurIPS"
 pub_date: "2026"
 pub_post: " (Evaluations &amp; Datasets Track)"
-pub_last: '<span class="badge badge-secondary">CORE A*</span>'
 abstract: >-
   MedVIGIL evaluates whether medical vision-language models recognize when visual evidence no longer supports an answer. The clinician-supervised benchmark tests false premises, wording changes, and image perturbations, measuring safe refusal and silent failure alongside answer correctness.
 authors:

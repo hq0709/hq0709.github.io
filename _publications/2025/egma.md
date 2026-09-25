@@ -3,7 +3,7 @@ title:          Eye-gaze Guided Multi-modal Alignment for Medical Representation
 date:           2024-09-23 00:01:00 -0400
 selected:       true
 pub:            "NeurIPS"
-pub_last:       ' <span class="badge badge-pill badge-custom badge-secondary">CORE A*</span>'
+pub_last:       ' <span class="badge badge-pill badge-custom badge-secondary">Conference</span>'
 pub_date:       "2024"
 
 abstract: >-
