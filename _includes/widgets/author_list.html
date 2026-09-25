@@ -1,5 +1,4 @@
 {%- assign authors = include.authors -%}
-{%- assign has_corresponding = false -%}
 {%- assign has_equal_contrib = false -%}
 {%- assign i = 0 -%}
 {%- for _key in authors -%}
@@ -7,7 +6,6 @@
     {%- if last_char == "†" -%}
         {%- assign key = _key | split: "†" | first -%}
         {%- assign mark = "†" -%}
-        {%- assign has_corresponding = true -%}
     {%- elsif last_char == "*" -%}
         {%- assign key = _key | split: "*" | first -%}
         {%- assign mark = "*" -%}
@@ -44,6 +42,6 @@
 {%- if has_equal_contrib == true -%}
 <mark>(* <i>equal contribution</i>)</mark>
 {%- endif -%}
-{%- if has_corresponding == true -%}
-<mark>(† <i>corresponding author</i>)</mark>
-{%- endif -%}
+{%- unless include.hide_corresponding_note -%}
+<mark class="publication-corresponding-note">(† <i>corresponding author</i>)</mark>
+{%- endunless -%}

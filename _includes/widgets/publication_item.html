@@ -5,10 +5,11 @@
     <details class="publication-authors publication-authors-expandable">
         <summary>
             {% assign preview_authors = item.authors | slice: 0, 8 %}
-            {% include widgets/author_list.html authors=preview_authors %}, et al.
+            {% include widgets/author_list.html authors=preview_authors hide_corresponding_note=true %}, et al.
+            <mark class="publication-corresponding-note">(† <i>corresponding author</i>)</mark>
             <span class="publication-expand-label">All {{ item.authors.size }} authors</span>
         </summary>
-        <p>{% include widgets/author_list.html authors=item.authors %}</p>
+        <p>{% include widgets/author_list.html authors=item.authors hide_corresponding_note=true %}</p>
     </details>
     {% else %}
     <p class="publication-authors">{% include widgets/author_list.html authors=item.authors %}</p>
