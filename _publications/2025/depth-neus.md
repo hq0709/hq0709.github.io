@@ -17,7 +17,7 @@ authors:
   - Shuai Liang
   - Yinhe Han†
   - Yichao Gao
-  - Conglin Wang
+  - Conglin Wang†
 links:
   Paper: https://arxiv.org/pdf/2303.17088
 ---

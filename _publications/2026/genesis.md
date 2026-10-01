@@ -20,5 +20,5 @@ authors:
   - Ming Tang
   - Xiaojie Jin
   - Xiaolong Zheng
-  - Jinqiao Wang
+  - Jinqiao Wang†
 ---

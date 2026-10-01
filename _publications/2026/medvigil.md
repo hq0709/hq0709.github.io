@@ -20,7 +20,7 @@ authors:
   - Hui Ren
   - Quanzheng Li
   - Tianming Liu
-  - Xiang Li
+  - Xiang Li†
 links:
   Paper: https://arxiv.org/abs/2605.07919
   Project: https://hq0709.github.io/MedVIGIL-page

@@ -15,7 +15,7 @@ authors:
   - Yifan Zhou
   - Ruidong Zhang
   - Yohannes Abate
-  - Tianming Liu
+  - Tianming Liu†
 links:
   Paper: https://aclanthology.org/2026.findings-acl.1108/
   Code: https://github.com/hq0709/synapse

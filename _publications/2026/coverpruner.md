@@ -12,7 +12,7 @@ authors:
   - Hanqi Jiang
   - Changdi Yang
   - Tianming Liu
-  - Geng Yuan
+  - Geng Yuan†
 links:
   Paper: https://arxiv.org/abs/2609.03158
 ---

@@ -24,7 +24,7 @@ authors:
   - Lin Zhao
   - Xiaowei Yu
   - Yingfeng Wang
-  - Tianming Liu
+  - Tianming Liu†
 links:
   Paper: https://doi.org/10.1016/j.metrad.2026.100205
 ---

@@ -12,7 +12,7 @@ authors:
   - Patrick Kaggwa
   - Eugene Douglass
   - Juliet N. Sekandi
-  - Tianming Liu
+  - Tianming Liu†
 links:
   Paper: https://arxiv.org/abs/2505.00275
   Code: https://github.com/asad14053/AdCare-VLM
