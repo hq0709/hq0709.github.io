@@ -13,6 +13,11 @@
                             <a target="_blank" href="{{ site.data.profile.cv_link }}"><i class="fas fa-file-alt"></i> [Curriculum Vitae]</a> <br/>
                             {% endif %}
                         </p>
+                        {% if site.data.profile.opportunity_notice %}
+                        <p class="text-profile-opportunity">
+                            {{ site.data.profile.opportunity_notice }}
+                        </p>
+                        {% endif %}
                         <p class="text-profile-bio">
                             {{ site.data.profile.short_bio }}
                         </p>
