@@ -46,6 +46,12 @@
                             <i class="fas fa-at"></i> <span class="email-text">{{ site.data.profile.email | replace: "@", "(at)" }}</span>
                         </a>
 
+                        {% if site.data.profile.email_stanford %}
+                        <a class="pr-3 no-break" href="mailto:{{ site.data.profile.email_stanford | encode_email }}">
+                            <i class="fas fa-at"></i> <span class="email-text">{{ site.data.profile.email_stanford | replace: "@", "(at)" }}</span>
+                        </a>
+                        {% endif %}
+
                         {% if site.data.profile.gscholar %}
                         <a class="pr-3 no-break" target="_blank" href="https://scholar.google.com/citations?user={{ site.data.profile.gscholar }}&hl=en">
                             <i class="fab fa-google"></i> Google Scholar
