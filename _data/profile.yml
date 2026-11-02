@@ -4,6 +4,7 @@ navbar_name: "Hanqi Jiang's Home Page"
 
 positions:
   - '<span class="no-break"><img src="assets/images/badges/stanford.png" alt="Stanford University" class="inline-badge"/></span> Visiting Researcher, Stanford University'
+  - '<span class="no-break"><img src="assets/images/badges/hms.jpg" alt="Harvard Medical School" class="inline-badge"/></span> Visiting Researcher, Massachusetts General Hospital (MGH) & Harvard Medical School'
   - '<span class="no-break"><img src="assets/images/badges/uga.png" alt="University of Georgia" class="inline-badge"/></span> Final-year Ph.D. Student, The University of Georgia'
   - 'Co-founder of GyriQAI'
 
@@ -20,7 +21,7 @@ opportunity_notice: >-
   I am seeking Research Scientist or Postdoctoral positions starting in Fall 2027. <a href="mailto:hanqi.jiang@uga.edu">Please feel free to reach out!</a>
 
 short_bio: >-
-  I am a final-year Ph.D. student at <a href="https://www.uga.edu/" target="_blank" rel="noopener">University of Georgia</a>, supervised by Distinguished Research Professor <a href="https://cobweb.cs.uga.edu/~tliu/" target="_blank" rel="noopener">Tianming Liu</a>. I am also a visiting researcher at <a href="https://www.stanford.edu/" target="_blank" rel="noopener">Stanford University</a>, guided by Prof. <a href="https://profiles.stanford.edu/lei-xing" target="_blank" rel="noopener">Lei Xing</a>. My research focus is Quantum AI & Medical Image Analysis & Brain-inspired AI. If you are seeking any form of <strong>academic cooperation</strong>, please feel free to email me at <a href="mailto:hanqi.jiang@uga.edu">hanqi.jiang@uga.edu</a> (UGA), <a href="mailto:hjiang81@mgh.harvard.edu">hjiang81@mgh.harvard.edu</a> (MGH), or <a href="mailto:hqjiang@stanford.edu">hqjiang@stanford.edu</a> (Stanford).
+  I am a final-year Ph.D. student at <a href="https://www.uga.edu/" target="_blank" rel="noopener">University of Georgia</a>, supervised by Distinguished Research Professor <a href="https://cobweb.cs.uga.edu/~tliu/" target="_blank" rel="noopener">Tianming Liu</a>. I am also a visiting researcher at <a href="https://www.stanford.edu/" target="_blank" rel="noopener">Stanford University</a>, guided by Prof. <a href="https://profiles.stanford.edu/lei-xing" target="_blank" rel="noopener">Lei Xing</a>. I am also currently a Visiting Researcher at Massachusetts General Hospital (MGH) and Harvard Medical School. My research focus is Quantum AI & Medical Image Analysis & Brain-inspired AI. If you are seeking any form of <strong>academic cooperation</strong>, please feel free to email me at <a href="mailto:hanqi.jiang@uga.edu">hanqi.jiang@uga.edu</a> (UGA), <a href="mailto:hjiang81@mgh.harvard.edu">hjiang81@mgh.harvard.edu</a> (MGH), or <a href="mailto:hqjiang@stanford.edu">hqjiang@stanford.edu</a> (Stanford).
 show_portrait: true
 portrait_url: assets/images/photos/hanqi.jpg
 portrait_caption: >-
@@ -47,7 +48,7 @@ experience:
   date: Aug. 2026 - Now
 - name: Center for Advanced Medical Computing and Analysis (CAMCA), MGB/Harvard Medical School
   logo: assets/images/badges/hms.jpg
-  position: Radiology Research
+  position: Visiting Researcher, Radiology
   date: Mar. 2025 - Now
 - name: School of Computing, UGA
   logo: assets/images/badges/uga.png
